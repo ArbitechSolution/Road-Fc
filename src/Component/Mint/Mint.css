@@ -1,0 +1,203 @@
+.mint-image {
+    position: relative;
+    top: -33px;
+
+}
+
+.mint-image2 {
+    position: relative;
+    top: -49px;
+    left: 290px;
+}
+
+.congrat-image {
+    width: 370px;
+}
+
+.mint-boxs {
+    background: #26282F;
+    box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.08);
+    backdrop-filter: blur(16px);
+    border-radius: 16px;
+}
+
+.mint-pic {
+    width: 300px;
+}
+
+.mint-pic1 {
+    width: 300px;
+    margin-left: 40px;
+}
+
+.mint-boxes {
+    background: linear-gradient(90deg, #1A1C23 0%, rgba(26, 28, 35, 0) 100%);
+    border-radius: 8px;
+    /* border: 2px solid red; */
+}
+
+.mint-span {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 132%;
+    color: #FFFFFF;
+}
+
+.mint-span1 {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 132%;
+    color: #5E606E;
+}
+
+.boxess {
+    Width: 120px;
+    Height: 50px;
+    background: #1C1F26;
+    border: 2px solid #292C38;
+    box-sizing: border-box;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 132%;
+    color: #FFFFFF;
+}
+
+.mintbtn {
+    background: linear-gradient(180deg, #FF5043 0%, #F92D1E 100%);
+    border-radius: 50px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 33px;
+    padding: 8px 37px;
+    color: #FFFFFF;
+}
+
+.mintspan23 {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #B1B1B1;
+}
+
+.model-image {
+    background-image: url("../../Assets/Mask group 1.png");
+    background-repeat: no-repeat;
+    /* background-position: center; */
+    background-size: cover;
+    /* border: 2px solid red; */
+    background-color: rgba(26, 28, 35, 0.96);
+    box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.08);
+
+    width: 100%;
+
+}
+
+.congrat-span {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 144%;
+    color: #FFFFFF;
+}
+
+.btn-congrats {
+    background: linear-gradient(180deg, #FF5043 0%, #F92D1E 100%);
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 132%;
+    padding: 8px 24px;
+    color: #FFFFFF;
+
+}
+
+.btn1-congrats {
+    background: linear-gradient(90deg, #565866 1.7%, #5E606E 100%);
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 132%;
+    padding: 8px 24px;
+    color: #FFFFFF;
+
+}
+
+.btn2-congrats {
+    border: 1px solid #7E808D;
+    box-sizing: border-box;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 15px;
+    padding: 8px 24px;
+    line-height: 132%;
+    color: #7E808D;
+}
+
+.btn-congrats:hover {
+    color: white;
+}
+
+.btn1-congrats:hover {
+    color: white;
+}
+
+.btn2-congrats:hover {
+    color: white;
+}
+
+.mint-Page-border {
+    border-top: 2px solid #26282F;
+}
+.Mint-Time{
+    font-weight: 500;
+font-size: 14px;
+line-height: 132%;
+color: #FFFFFF;
+}
+@media(max-width: 480px) {
+    .mint-pic {
+        width: 280px;
+    }
+
+    .mint-image {
+        position: relative;
+        top: -25px;
+        width: 150px;
+    }
+
+    .mint-span {
+        font-weight: 500;
+        font-size: 13px;
+        line-height: 132%;
+        color: #FFFFFF;
+    }
+
+    .mint-span1 {
+        font-weight: 500;
+        font-size: 13px;
+        line-height: 132%;
+        color: #5E606E;
+    }
+
+    .mintspan23 {
+        font-weight: 500;
+        font-size: 13px;
+        line-height: 19px;
+        color: #B1B1B1;
+    }
+
+    .congrat-image {
+        width: 300px;
+    }
+}
+
+@media(max-width: 400px) {
+    .mint-pic {
+        width: 240px;
+    }
+
+    .congrat-image {
+        width: 270px;
+    }
+}

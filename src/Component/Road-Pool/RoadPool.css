@@ -1,0 +1,54 @@
+.imagePool{
+    background-image: url("../../Assets/BG.png"),url("../../Assets/BG1.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    /* height: 100vh; */
+}
+.poolbtn{
+    background: linear-gradient(90deg, #F92D1E 1.7%, #FF5043 100%);
+border-radius: 80px;
+font-weight: bold;
+font-size: 22px;
+line-height: 26px;
+color: white;
+padding: 10px 15px;
+}
+.poolbox{
+    background: linear-gradient(180deg, rgba(35, 38, 47, 0.64) 0%, rgba(21, 24, 30, 0.64) 100%);
+box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.08);
+backdrop-filter: blur(16px);
+border-top: 2px solid #FF5043;
+/* border-left: 2px solid #FF5043;
+border-right: 2px solid #FF5043; */
+
+border-radius: 16px;
+}
+.poolgh5{
+    font-weight: 500;
+font-size: 24px;
+line-height: 132%;
+color: white;
+}
+.pool-p{
+    font-weight: normal;
+font-size: 16px;
+line-height: 144%;
+color: #5E606E
+}
+.poolbtn1{
+    background: linear-gradient(180deg, #FF5043 0%, #F92D1E 100%);
+border-radius: 50px;
+font-weight: 600;
+font-size: 20px;
+line-height: 132%;
+color: white;
+}
+.poolbtn1:hover{
+    background: linear-gradient(180deg, #FF5043 0%, #F92D1E 100%);
+border-radius: 50px;
+font-weight: 600;
+font-size: 20px;
+line-height: 132%;
+color: white;
+}

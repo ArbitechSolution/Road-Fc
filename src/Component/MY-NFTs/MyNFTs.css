@@ -1,0 +1,105 @@
+.nft-h4 {
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 100%;
+    color: #FFFFFF;
+    text-align: left;
+}
+
+.nft-p {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 100%;
+    color: #FFFFFF;
+    text-align: left;
+}
+
+.nft-span {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+}
+
+.nft-boxx {
+    width: 246px;
+    /* height: 350px; */
+    background: #3C2226;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+}
+
+.nfts-image {
+    width: 220px;
+}
+
+.nfts-h6 {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 100%;
+    color: #FFFFFF;
+    text-align: left;
+}
+
+.nfts-pp {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 100%;
+    color: #FFFFFF;
+}
+
+.btnStakePage {
+    background: linear-gradient(90deg, #565866 1.7%, #5E606E 100%);
+    border-radius: 100px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 27px;
+    color: #ffffff;
+    padding: 8px 0px;
+    /* border: 1px solid #FF5043; */
+}
+
+.btnStakePage:hover {
+    color: #ffffff;
+}
+
+.bosCollection {
+    background: rgba(41, 44, 56, 0.16);
+    border: 2px solid #292C38;
+    box-sizing: border-box;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 30px;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 132%;
+    color: #FFFFFF;
+}
+.MyCollectionspan{
+    font-weight: 500;
+font-size: 17px;
+line-height: 17px;
+color: #5E606E;
+}
+
+@media(max-width: 770px){
+    .nft-boxx {
+        width: 306px;
+        /* height: 350px; */
+        background: #3C2226;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 5px;
+    }
+}
+@media(max-width: 480px){
+    .nft-boxx {
+        width: 306px;
+        /* height: 350px; */
+        background: #3C2226;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 5px;
+    }
+}

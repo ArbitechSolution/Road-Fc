@@ -1,0 +1,18 @@
+.navbariamge{
+    background-color: #111217;
+}
+/* .text1:hover{
+    background: linear-gradient(360deg, rgba(255, 80, 67, 0.16) 0%, rgba(255, 80, 67, 0) 100%);
+
+border-bottom: 2px solid #FF5043;;
+} */
+.text1:focus{
+    background: linear-gradient(360deg, rgba(255, 80, 67, 0.16) 0%, rgba(255, 80, 67, 0) 100%);
+/* transform: rotate(-180deg); */
+border-bottom: 2px solid #FF5043;
+}
+.text1:active{
+    background: linear-gradient(360deg, rgba(255, 80, 67, 0.16) 0%, rgba(255, 80, 67, 0) 100%);
+/* transform: rotate(-180deg); */
+border-bottom: 2px solid #FF5043;
+}
