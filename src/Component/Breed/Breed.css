@@ -1,0 +1,123 @@
+.Breed-box {
+    background: #26282F;
+    border-radius: 15px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #B1B1B1;
+}
+
+.breedtext1 {
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 144%;
+    color: #5E606E;
+}
+
+.BreedBoxs {
+    background: #000000;
+    border-radius: 16px;
+}
+
+.BreedminiBox {
+    background: linear-gradient(90deg, rgba(243, 68, 30, 0.5) 0%, rgba(243, 119, 30, 0.5) 48.96%, rgba(243, 68, 30, 0.5) 100%);
+    font-weight: 600;
+    font-size: 26px;
+    line-height: 100%;
+    color: #FFFFFF;
+}
+
+.breedboxs12 {
+    background: #1E0003;
+    box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.08);
+    backdrop-filter: blur(16px);
+    border-radius: 16px;
+}
+
+breedtext1 {
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 144%;
+    color: #5E606E;
+}
+
+/* .breed-box11{
+    width: 260px;
+} */
+.breedImages {
+    width: 100px;
+}
+
+.breedboxs123 {
+
+    /* box-sizing: border-box; */
+    height: 520px;
+    /* width: 82%; */
+    overflow-y: scroll;
+    -webkit-appearance: none;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.bredd-span {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 132%;
+    color: #FFFFFF;
+}
+
+.breed-psans {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 132%;
+    color: #5E606E;
+}
+
+.breed-btn {
+    background: linear-gradient(180deg, #FF5043 0%, #F92D1E 100%);
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 132%;
+    color: #FFFFFF;
+}
+
+.breed-btn:hover {
+    color: #FFFFFF;
+}
+
+.Breed-model-image {
+    background: rgba(26, 28, 35, 0.96);
+    box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.08);
+    backdrop-filter: blur(16px);
+}
+.breed-p{
+    font-weight: 400;
+font-size: 26px;
+line-height: 14%;
+color: #FFFFFF;
+}
+.breed-imagess{
+    background-image: url("../../Assets/Group 480.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    /* background-size: cover; */
+    /* border: 2px solid red; */
+    padding-top: 30px;
+}
+.mint-pic{
+    width: 200px;
+}
+.breed-sell-span{
+    font-weight: 400;
+font-size: 16px;
+line-height: 144%;
+color: #7E808D;
+}
+@media(max-width: 400px) {
+    .breedImages {
+        width: 180px;
+    }
+}
