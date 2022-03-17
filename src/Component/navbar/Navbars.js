@@ -22,7 +22,7 @@ function Navbars() {
                                     <Nav.Link className='fw-bold text1'  href="#" onClick={() => { window.scrollTo(0, 0);}}>HOME</Nav.Link>
                                     <Nav.Link className='fw-bold text1'  href="#about" >TOKENOMICS</Nav.Link>
                                     <Nav.Link className='fw-bold text1'  href="#token" >ECOSYSTEM</Nav.Link>
-                                    <Nav.Link  className='fw-bold text1' href="#features">NFTs CARD</Nav.Link>
+                                   <Link to="/MyNFTs" style={{textDecoration: "none"}}> <Nav.Link  className='fw-bold text1' href="#features">NFTs CARD</Nav.Link></Link>
                                     <Nav.Link className='fw-bold text1'  href="#nft" >GAME</Nav.Link>
                                     <Link to="/" style={{textDecoration: "none"}}> <Nav.Link  className='fw-bold text1' href="/" >ROAD POOL</Nav.Link></Link>
                                     <Nav.Link className='fw-bold text1' href="#roadmap" >ROADMAP</Nav.Link>
