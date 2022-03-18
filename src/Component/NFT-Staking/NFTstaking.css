@@ -1,0 +1,121 @@
+.staking-span{
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 144%;
+    color: #FFFFFF;
+}
+.NFTstaking-boxes{
+    background: #26282F;
+box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.08);
+backdrop-filter: blur(16px);
+border-radius: 16px;
+height: 454px;
+}
+.NFTstaking-boxes1{
+    background: #3C2226;
+border-radius: 16px 16px 0px 0px;
+}
+.nftstaking-p{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 144%;
+    color: #FFFFFF;
+
+}
+.nftstaking-p1{
+    font-weight: 500;
+font-size: 26px;
+line-height: 12%;
+color: #FD5043;
+
+}
+.boxs-staking{
+    background: linear-gradient(90deg, #1A1C23 0%, rgba(26, 28, 35, 0) 100%);
+border-radius: 8px;
+padding: 12px 2px;
+}
+
+.nftstaking-span2{
+    font-weight: 400;
+font-size: 12px;
+line-height: 144%;
+color: #7E808D;
+
+}
+.nftstaking-span3{
+    font-weight: 500;
+font-size: 16px;
+line-height: 132%;
+color: #B1B1B1;
+}
+.nft-staking-p{
+    font-weight: 500;
+font-size: 16px;
+line-height: 122%;
+color: #B1B1B1;
+text-align: left;
+/* border: 2px solid red; */
+}
+.nft-staking-p1{
+    font-weight: 400;
+font-size: 10px;
+line-height: 54%;
+color: #7E808D;
+text-align: left;
+/* border: 2px solid red; */
+}
+.nft-staking-b0xxs{
+    background: #3C2226;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    width: 155px;
+}
+.nftstaking-img{
+    width: 140px;
+}
+.nft-staking-btn{
+    background: linear-gradient(90deg, #F92D1E 1%, #FF5043 100%);
+border-radius: 20px;
+font-weight: 500;
+font-size: 12px;
+line-height: 7px;
+color: #FFFFFF;
+}
+.nft-staking-btn1{
+    background: linear-gradient(90deg, #565866 1.7%, #5E606E 100%);
+border-radius: 100px;
+font-weight: 500;
+font-size: 12px;
+line-height: 7px;
+color: #FFFFFF;
+}
+.nft-staking-btn1:hover{
+    background: linear-gradient(90deg, #565866 1.7%, #5E606E 100%);
+border-radius: 100px;
+font-weight: 500;
+font-size: 12px;
+line-height: 7px;
+color: #FFFFFF;
+}
+.nft-staking-btn3{
+    background: #3C2226;
+border: 1px solid #7E808D;
+box-sizing: border-box;
+border-radius: 50px;
+font-weight: 500;
+font-size: 12px;
+line-height: 7px;
+color: #FFFFFF;
+
+}
+
+.nft-staking-btn3:hover{
+    background: #ffffff;
+    border: 1px solid #7E808D;
+    box-sizing: border-box;
+    border-radius: 50px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 7px;
+    color: #3C2226;
+}

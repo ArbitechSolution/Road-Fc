@@ -2,6 +2,16 @@ import React from 'react'
 import { MdOutlineKeyboardBackspace } from 'react-icons/md';
 import { Link } from "react-router-dom";
 import "./NFTstaking.css"
+import image2 from "../../Assets/image 2.png"
+import pool1 from "../../Assets/pool1 1.png"
+import pool2 from "../../Assets/pool2 1.png"
+import pool3 from "../../Assets/pool3 1.png"
+import pool4 from "../../Assets/pool4 1.png"
+import pool5 from "../../Assets/pool5 1.png"
+import pool6 from "../../Assets/pool6 1.png"
+import Rectangle572 from "../../Assets/Rectangle 572.png"
+import Vector22 from "../../Assets/Vector22.png"
+import Vector33 from "../../Assets/Vector33.png"
 import Growth from "../../Assets/Growth.png"
 import Frame2 from "../../Assets/Frame 2.png"
 import Frame3 from "../../Assets/Frame 3.png"
@@ -23,7 +33,7 @@ function NFTstaking() {
                     </div>
                 </div>
                 <div className='row d-flex justify-content-center justify-content-around'>
-                <div className='col-3 staking-box'>
+                    <div className='col-3 staking-box'>
                         <div className='row d-flex justify-content-center mt-5 mb-3'>
                             <div className='col-11'>
                                 <div className="d-grid gap-2">
@@ -153,14 +163,277 @@ function NFTstaking() {
                         </div>
                     </div>
 
-                        <div className='col-lg-8 col-11 mb-md-1 mb-4 mt-4'>
-                            <div className='row d-flex justify-content-center mt-4 mb-1'>
-                                <div  className='col-lg-12 col-11 presale-box1'>
+                    <div className='col-lg-8 col-11 mb-md-1 mb-4 mt-4'>
+                        <div className='row d-flex justify-content-center mt-2 mb-1'>
+                            <div className='col-lg-12 col-11 presale-box1'>
                                 <img src={Title22} className="mint-image" />
+                                <div className='row'>
+                                    <div className='col-12'>
+                                        <span className='staking-span'>With NFTs card Stake and get your reward with $ROAD token!</span>
+                                    </div>
+                                </div>
+                                <div className='row d-flex justify-content-center mt-3 mb-3 ms-lg-1'>
+                                    <div className='col-lg-4 col-11 NFTstaking-boxes'>
+                                        <div className='row d-flex justify-content-center'>
+                                            <div className='col-12 NFTstaking-boxes1'>
+                                                <p className='nftstaking-p'>Total Rewards:</p>
+                                                <p className='nftstaking-p1'>1,500,000,000</p>
+                                            </div>
+                                            <div className='col-11 boxs-staking d-flex justify-content-between align-items-center mt-3'>
+                                                <span className='nftstaking-span2'>Remaining Rewards:</span>
+                                                <span className='nftstaking-span3'>450,000,000</span>
+                                            </div>
+                                        </div>
+                                        <div className='row d-flex justify-content-center justify-content-around'>
+                                            <div className='col-5  boxs-staking d-flex flex-column mt-3' >
+                                                <span className='nft-staking-p pb-2'>500,000</span>
+                                                <span className='nft-staking-p1'>Total Mining Power</span>
+                                            </div>
+                                            <div className='col-5 boxs-staking d-flex flex-column mt-3' >
+                                                <span className='nft-staking-p pb-2'>1,000</span>
+                                                <span className='nft-staking-p1'>My Mining Power</span>
+                                            </div>
+                                        </div>
+                                        <div className='row d-flex justify-content-center justify-content-around'>
+                                            <div className='col-5 boxs-staking d-flex flex-column mt-3' >
+                                                <span className='nft-staking-p pb-2'>250,000</span>
+                                                <span className='nft-staking-p1'>Total Staked Amount</span>
+                                            </div>
+                                            <div className='col-5 boxs-staking d-flex flex-column mt-3' >
+                                                <span className='nft-staking-p pb-2'>12,122</span>
+                                                <span className='nft-staking-p1'>My Staked Amount</span>
+                                            </div>
+                                        </div>
+                                        <div className='row d-flex justify-content-center '>
+                                            <div className='col-11 boxs-staking d-flex justify-content-between align-items-center mt-3'>
+                                                <span className='nftstaking-span2'>Total Staked Tokens($ROAD):</span>
+                                                <span className='nftstaking-span3'>100,000</span>
+                                            </div>
+                                        </div>
+                                        <div className='row d-flex justify-content-center '>
+                                            <div className='col-11 boxs-staking d-flex justify-content-between align-items-center mt-3'>
+                                                <span className='nftstaking-span2'>My Staked Tokens($ROAD):</span>
+                                                <span className='nftstaking-span3'>1,000</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className='col-lg-8'>
+                                        <div className='row d-flex justify-content-center justify-content-around'>
+                                            <div className='col-md-4 nft-staking-b0xxs p-2 mt-2'>
+                                                <div>
+                                                    <img src={pool1} className="nftstaking-img" />
+                                                    <p className='text-start' style={{ color: "white", }}>Pepe</p>
+                                                </div>
+                                                <div className='row d-flex justify-content-center justify-content-md-around'>
+                                                    <div className='col-lg-4 col-10'>
+                                                        <div className="d-grid gap-2">
+                                                            <button className='btn nft-staking-btn' size="sm">
+                                                                Stake
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <div className='col-lg-7 col-10'>
+                                                        <div className="d-grid gap-2">
+                                                            <button className='btn nft-staking-btn1' size="sm">
+                                                                Unstake
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className='row d-flex justify-content-center mt-2'>
+                                                    <div className='col-lg-8 col-10'>
+                                                        <div className="d-grid gap-2">
+                                                            <button className='btn nft-staking-btn3' size="sm">
+                                                                Claim
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className='col-md-4 nft-staking-b0xxs p-2 mt-2'>
+                                                <div>
+                                                    <img src={pool2} className="nftstaking-img" />
+                                                    <p className='text-start' style={{ color: "white", }}>Frankenstein</p>
+                                                </div>
+                                                <div className='row d-flex justify-content-center justify-content-md-around'>
+                                                    <div className='col-lg-4 col-10'>
+                                                        <div className="d-grid gap-2">
+                                                            <button className='btn nft-staking-btn' size="sm">
+                                                                Stake
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <div className='col-lg-7 col-10'>
+                                                        <div className="d-grid gap-2">
+                                                            <button className='btn nft-staking-btn1' size="sm">
+                                                                Unstake
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className='row d-flex justify-content-center mt-2'>
+                                                    <div className='col-lg-8 col-10'>
+                                                        <div className="d-grid gap-2">
+                                                            <button className='btn nft-staking-btn3' size="sm">
+                                                                Claim
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className='col-md-4 nft-staking-b0xxs p-2 mt-2'>
+                                                <div>
+                                                    <img src={pool3} className="nftstaking-img" />
+                                                    <p className='text-start' style={{ color: "white", }}>Vampire</p>
+                                                </div>
+                                                <div className='row d-flex justify-content-center justify-content-md-around'>
+                                                    <div className='col-lg-4 col-10'>
+                                                        <div className="d-grid gap-2">
+                                                            <button className='btn nft-staking-btn' size="sm">
+                                                                Stake
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <div className='col-lg-7 col-10'>
+                                                        <div className="d-grid gap-2">
+                                                            <button className='btn nft-staking-btn1' size="sm">
+                                                                Unstake
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className='row d-flex justify-content-center mt-2'>
+                                                    <div className='col-lg-8 col-10'>
+                                                        <div className="d-grid gap-2">
+                                                            <button className='btn nft-staking-btn3' size="sm">
+                                                                Claim
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className='col-md-4 nft-staking-b0xxs p-2 mt-2'>
+                                                <div>
+                                                    <img src={pool4} className="nftstaking-img" />
+                                                    <p className='text-start' style={{ color: "white", }}>Alien</p>
+                                                </div>
+                                                <div className='row d-flex justify-content-center justify-content-md-around'>
+                                                    <div className='col-lg-4 col-10'>
+                                                        <div className="d-grid gap-2">
+                                                            <button className='btn nft-staking-btn' size="sm">
+                                                                Stake
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <div className='col-lg-7 col-10'>
+                                                        <div className="d-grid gap-2">
+                                                            <button className='btn nft-staking-btn1' size="sm">
+                                                                Unstake
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className='row d-flex justify-content-center mt-2'>
+                                                    <div className='col-lg-8 col-10'>
+                                                        <div className="d-grid gap-2">
+                                                            <button className='btn nft-staking-btn3' size="sm">
+                                                                Claim
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className='col-md-4 nft-staking-b0xxs p-2 mt-2'>
+                                                <div>
+                                                    <img src={pool5} className="nftstaking-img" />
+                                                    <p className='text-start' style={{ color: "white", }}>Ape</p>
+                                                </div>
+                                                <div className='row d-flex justify-content-center justify-content-md-around'>
+                                                    <div className='col-lg-4 col-10'>
+                                                        <div className="d-grid gap-2">
+                                                            <button className='btn nft-staking-btn' size="sm">
+                                                                Stake
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <div className='col-lg-7 col-10'>
+                                                        <div className="d-grid gap-2">
+                                                            <button className='btn nft-staking-btn1' size="sm">
+                                                                Unstake
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className='row d-flex justify-content-center mt-2'>
+                                                    <div className='col-lg-8 col-10'>
+                                                        <div className="d-grid gap-2">
+                                                            <button className='btn nft-staking-btn3' size="sm">
+                                                                Claim
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className='col-md-4 nft-staking-b0xxs p-2 mt-2'>
+                                                <div>
+                                                    <img src={pool6} className="nftstaking-img" />
+                                                    <p className='text-start' style={{ color: "white", }}>Wolf</p>
+                                                </div>
+                                                <div className='row d-flex justify-content-center justify-content-md-around'>
+                                                    <div className='col-lg-4 col-10'>
+                                                        <div className="d-grid gap-2">
+                                                            <button className='btn nft-staking-btn' size="sm">
+                                                                Stake
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <div className='col-lg-7 col-10'>
+                                                        <div className="d-grid gap-2">
+                                                            <button className='btn nft-staking-btn1' size="sm">
+                                                                Unstake
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className='row d-flex justify-content-center mt-2'>
+                                                    <div className='col-lg-8 col-10'>
+                                                        <div className="d-grid gap-2">
+                                                            <button className='btn nft-staking-btn3' size="sm">
+                                                                Claim
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className='row d-flex flex-row justify-content-center justify-content-evenly mb-4 mt-4' >
 
+                                            <div className='col-1 d-flex align-items-center justify-content-center' style={{ cursor: "pointer" }}>
+                                                <img src={Rectangle572} style={{ position: "absolute" }} />
+                                                <img src={Vector22} style={{ position: " relative" }} />
+                                            </div>
+                                            <div className='col-lg-3 col-md-5 col d-flex flex-row align-items-center justify-content-evenly'>
+                                                <span className='MyCollectionspan'>Current</span>
+                                                <div className='bosCollection'>
+                                                    <span className='mycollectionsP '>1</span>
+                                                </div>
+                                                <span className='MyCollectionspan'>/3</span>
+                                            </div>
+
+                                            {/* <button className='btn '> */}
+                                            <div className='col-1 d-flex align-items-center justify-content-center ms-4' style={{ cursor: "pointer" }}>
+                                                <img src={Rectangle572} style={{ position: "absolute" }} />
+                                                <img src={Vector33} style={{ position: " relative" }} />
+                                            </div>
+                                            {/* </button> */}
+
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+
                         </div>
+                    </div>
                 </div>
             </div>
         </div>
