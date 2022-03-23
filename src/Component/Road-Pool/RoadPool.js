@@ -25,10 +25,10 @@ function RoadPool() {
                         <div className='row d-flex justify-content-center pb-3 pt-2'>
                             <div className='col-10 '>
                                 <div className="d-grid gap-2">
-                                        <button className='btn poolbtn1' size="lg" onClick={() => { window.scrollTo(0, 0);}}>
-                                    <Link to="/Staking" style={{textDecoration: "none", color: "white"}}>
-                                        Enter
-                                    </Link>
+                                    <button className='btn poolbtn1' size="lg" onClick={() => { window.scrollTo(0, 0); }}>
+                                        <Link to="/Staking" style={{ textDecoration: "none", color: "white" }}>
+                                            Enter
+                                        </Link>
                                     </button>
                                 </div>
                             </div>
@@ -42,10 +42,10 @@ function RoadPool() {
                         <div className='row d-flex justify-content-center pb-3 pt-2'>
                             <div className='col-10 '>
                                 <div className="d-grid gap-2">
-                                    <button className='btn poolbtn1' size="lg" onClick={() => { window.scrollTo(0, 0);}}>
-                                    <Link to="/Mint" style={{textDecoration: "none", color: "white"}}>
-                                    Mint
-                                    </Link>
+                                    <button className='btn poolbtn1' size="lg" onClick={() => { window.scrollTo(0, 0); }}>
+                                        <Link to="/Mint" style={{ textDecoration: "none", color: "white" }}>
+                                            Mint
+                                        </Link>
                                     </button>
 
                                 </div>
@@ -60,10 +60,10 @@ function RoadPool() {
                         <div className='row d-flex justify-content-center pb-3 pt-2'>
                             <div className='col-10 '>
                                 <div className="d-grid gap-2">
-                                    <button className='btn poolbtn1' size="lg" onClick={() => { window.scrollTo(0, 0);}}>
-                                    <Link to="/breed" style={{textDecoration: "none", color: "white"}}>
-                                    Enter
-                                    </Link>
+                                    <button className='btn poolbtn1' size="lg" onClick={() => { window.scrollTo(0, 0); }}>
+                                        <Link to="/breed" style={{ textDecoration: "none", color: "white" }}>
+                                            Enter
+                                        </Link>
                                     </button>
 
                                 </div>
@@ -78,8 +78,10 @@ function RoadPool() {
                         <div className='row d-flex justify-content-center pb-3 pt-2'>
                             <div className='col-10 '>
                                 <div className="d-grid gap-2">
-                                    <button className='btn poolbtn1' size="lg" onClick={() => { window.scrollTo(0, 0);}}>
-                                    Mint
+                                    <button className='btn poolbtn1' size="lg" onClick={() => { window.scrollTo(0, 0); }}>
+                                        <Link to="/MysteryBox" style={{ textDecoration: "none", color: "white" }}>
+                                            Mint
+                                        </Link>
                                     </button>
 
                                 </div>
@@ -94,9 +96,9 @@ function RoadPool() {
                         <div className='row d-flex justify-content-center pb-3 pt-2'>
                             <div className='col-10 '>
                                 <div className="d-grid gap-2">
-                                    <button className='btn poolbtn1' size="lg" onClick={() => { window.scrollTo(0, 0);}}>
-                                    <Link to="/NFTstaking" style={{textDecoration: "none", color: "white"}}>
-                                        Enter
+                                    <button className='btn poolbtn1' size="lg" onClick={() => { window.scrollTo(0, 0); }}>
+                                        <Link to="/NFTstaking" style={{ textDecoration: "none", color: "white" }}>
+                                            Enter
                                         </Link>
                                     </button>
 
@@ -112,8 +114,8 @@ function RoadPool() {
                         <div className='row d-flex justify-content-center pb-3 pt-2'>
                             <div className='col-10 '>
                                 <div className="d-grid gap-2">
-                                    <button className='btn poolbtn1' size="lg" onClick={() => { window.scrollTo(0, 0);}}>
-                                    Show Market
+                                    <button className='btn poolbtn1' size="lg" onClick={() => { window.scrollTo(0, 0); }}>
+                                        Show Market
                                     </button>
 
                                 </div>

@@ -15,6 +15,7 @@ import Mint from './Component/Mint/Mint';
 import Breed from './Component/Breed/Breed';
 import MyNFTs from './Component/MY-NFTs/MyNFTs';
 import NFTstaking from './Component/NFT-Staking/NFTstaking';
+import MysteryBox from './Component/Mystery-Box/MysteryBox';
 
 function App() {
   return (
@@ -28,7 +29,8 @@ function App() {
           <Route exact path='/Mint' element={<Mint />} />
           <Route exact path="/breed" element={<Breed />} />
           <Route exact path="/MyNFTs" element={<MyNFTs />} />
-          <Route exact path='/NFTstaking' element={<NFTstaking/>}/>
+          <Route exact path='/NFTstaking' element={<NFTstaking />} />
+          <Route exact path='/MysteryBox' element={<MysteryBox />} />
         </Routes>
         <Footer />
       </BrowserRouter>

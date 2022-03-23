@@ -299,10 +299,6 @@ function Staking() {
 
                                         </div>
                                     </div>
-
-
-
-
                                     <div className='col-lg-5 col-md-9 col-11 staking-box1111a mb-4'>
                                         <div className='row'>
                                             <div className='col-12 staking-col12-Box pb-2 pt-2'>
@@ -318,20 +314,13 @@ function Staking() {
                                                                     <ImInfo className='social__icon' />
                                                                     <div class="social__tooltip social__tooltip-bottom">
                                                                         <img src={Group494} className="staking-info-pic"/>
-
-
                                                                     </div>
                                                                 </div>
-
-
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-
-
                                             </div>
-
                                         </div>
                                         <div className='row d-flex justify-content-center mt-4 '>
                                             <div className='col-11 staking-box-col10'>

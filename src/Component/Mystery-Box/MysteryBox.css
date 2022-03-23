@@ -1,0 +1,79 @@
+.mystrybox {
+    background: #26282F;
+    box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.08);
+    backdrop-filter: blur(16px);
+    border-radius: 16px;
+    height: 464px;
+}
+
+.steryboxes {
+    background: #2B2D33;
+    backdrop-filter: blur(16px);
+    border-radius: 0px 0px 16px 16px;
+}
+
+.stery-span {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 12%;
+    color: #B1B1B1;
+    text-align: left;
+}
+
+.stery-span1 {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14%;
+    color: #7E808D;
+    text-align: left;
+
+}
+
+.mystery-h3 {
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 132%;
+    color: #5E606E;
+}
+
+.mystrybox-span1 {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #B1B1B1;
+}
+.mystrybtn{
+    background: linear-gradient(180deg, #FF5043 0%, #F92D1E 100%);
+border-radius: 50px;
+font-weight: 600;
+font-size: 15px;
+line-height: 132%;
+color: #FFFFFF;
+padding: 14px 10px;
+
+}
+@media(max-width: 1050px) {
+    .mystrybox {
+        background: #26282F;
+        box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.08);
+        backdrop-filter: blur(16px);
+        border-radius: 16px;
+        height: auto;
+    }
+
+    .mybox-image {
+        width: 300px;
+    }
+}
+
+@media(max-width: 600px) {
+    .mybox-image {
+        width: 240px;
+    }
+}
+
+@media(max-width: 400px) {
+    .mybox-image {
+        width: 200px;
+    }
+}
