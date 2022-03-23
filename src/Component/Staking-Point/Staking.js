@@ -189,7 +189,6 @@ function Staking() {
                                                     <div className='col-2'>
                                                         <div class="social">
                                                             <div class="social__container">
-
                                                                 <div class="social__content">
                                                                     <ImInfo className='social__icon' />
                                                                     <div class="social__tooltip social__tooltip-bottom">
