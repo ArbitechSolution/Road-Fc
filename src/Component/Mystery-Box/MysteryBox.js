@@ -4,7 +4,10 @@ import { RiCheckboxBlankCircleFill } from 'react-icons/ri'
 import { Link } from "react-router-dom";
 import "./MysteryBox.css"
 import Modal from 'react-bootstrap/Modal';
-
+// import Modal from 'react-bootstrap/Modal';
+import Group609 from "../../Assets/Group 609.png"
+import card1 from "../../Assets/card 1.png"
+import { IoMdClose } from "react-icons/io";
 import Box from "../../Assets/Box.png"
 import nft1 from "../../Assets/nft 1.png"
 import marketplace1 from "../../Assets/marketplace 1.png"
@@ -17,6 +20,8 @@ import Mins from "../../Assets/Mins.png"
 import plus from "../../Assets/plus.png"
 import RollIMG from "../../Assets/RollIMG.png"
 function MysteryBox() {
+    const [modalShow, setModalShow] = useState(false);
+    const [modalShowSecond, setModalShowSecond] = useState(false);
     let [valueone, setValueone] = useState(1)
     const increaseValuebox = () => {
         setValueone(++valueone)
@@ -169,6 +174,227 @@ function MysteryBox() {
                         </div>
                     </div>
                     <div className='col-lg-8 col-11 mb-md-1 mb-4 mt-4'>
+                        {modalShow ? <Modal
+                            show={modalShow}
+                            onHide={() => setModalShow(false)}
+                            size="lg"
+                            aria-labelledby="contained-modal-title-vcenter"
+                            centered
+                        >
+                            <div className='Breed-model-image'>
+                                <div className='row d-flex justify-content-center' >
+                                <div className=' col-12 d-flex flex-row justify-content-between mt-3'>
+                                    <h4 className='ps-3' style={{color: "white"}}>Mystery Box</h4>
+                                    <IoMdClose className='pe-3' onClick={() => setModalShow(false)} size={38} style={{ color: "white", cursor: "pointer" }} />
+                                </div>
+                                    <div className='col-md-12 d-flex justify-content-center'>
+                                        <img className='pt-3 congrat-image' src={Group609} />
+                                    </div>
+                                    <div className='col-md-12 d-flex justify-content-center mt-4'>
+                                        <p className='breed-p'>You got a fighter now!</p>
+                                    </div>
+                                    <div className='row d-flex justify-content-center justify-content-around mt-4 mb-4'>
+                                        <div className='col-md-3 box-mystry'>
+                                            <div className='col-md-12 d-flex justify-content-center mystrey-imagess mb-3'>
+                                                <img src={card1} className="mystrey-pic pt-4 pb-3" />
+                                            </div>
+                                            <div className='text-center'>
+                                                <span className='congrat-span'>#20211 Alien Fighter</span>
+                                            </div>
+                                            <div className='row d-flex justify-content-center mt-3'>
+                                                <div className='col-11 d-flex justify-content-between align-items-center mt-1'>
+                                                    <span className='mystrey-span21'>Rarity:</span>
+                                                    <span className='mystrey-span22'>Mythic</span>
+                                                </div>
+                                                <div className='col-11 mt-2' >
+                                                    <p style={{ border: "1px solid rgba(119, 119, 119, 0.25)" }}></p>
+                                                </div>
+                                            </div>
+                                            <div className='row d-flex justify-content-center mt-2'>
+                                                <div className='col-11 d-flex justify-content-between align-items-center mt-1'>
+                                                    <span className='mystrey-span21'>Level:</span>
+                                                    <span className='mystrey-span22'>+3</span>
+                                                </div>
+                                                <div className='col-11 mt-2' >
+                                                    <p style={{ border: "1px solid rgba(119, 119, 119, 0.25)" }}></p>
+                                                </div>
+                                            </div>
+                                            <div className='row d-flex justify-content-center mt-2'>
+                                                <div className='col-11 d-flex justify-content-between align-items-center mt-1'>
+                                                    <span className='mystrey-span21'>Has Power:</span>
+                                                    <span className='mystrey-span22'>15</span>
+                                                </div>
+                                                <div className='col-11 mt-2' >
+                                                    <p style={{ border: "1px solid rgba(119, 119, 119, 0.25)" }}></p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+                                        <div className='col-md-3 box-mystry'>
+                                            <div className='col-md-12 d-flex justify-content-center mystrey-imagess mb-3'>
+                                                <img src={card1} className="mystrey-pic pt-4 pb-3" />
+                                            </div>
+                                            <div className='text-center'>
+                                                <span className='congrat-span'>#20211 Alien Fighter</span>
+                                            </div>
+                                            <div className='row d-flex justify-content-center mt-3'>
+                                                <div className='col-11 d-flex justify-content-between align-items-center mt-1'>
+                                                    <span className='mystrey-span21'>Rarity:</span>
+                                                    <span className='mystrey-span22'>Mythic</span>
+                                                </div>
+                                                <div className='col-11 mt-2' >
+                                                    <p style={{ border: "1px solid rgba(119, 119, 119, 0.25)" }}></p>
+                                                </div>
+                                            </div>
+                                            <div className='row d-flex justify-content-center mt-2'>
+                                                <div className='col-11 d-flex justify-content-between align-items-center mt-1'>
+                                                    <span className='mystrey-span21'>Level:</span>
+                                                    <span className='mystrey-span22'>+3</span>
+                                                </div>
+                                                <div className='col-11 mt-2' >
+                                                    <p style={{ border: "1px solid rgba(119, 119, 119, 0.25)" }}></p>
+                                                </div>
+                                            </div>
+                                            <div className='row d-flex justify-content-center mt-2'>
+                                                <div className='col-11 d-flex justify-content-between align-items-center mt-1'>
+                                                    <span className='mystrey-span21'>Has Power:</span>
+                                                    <span className='mystrey-span22'>15</span>
+                                                </div>
+                                                <div className='col-11 mt-2' >
+                                                    <p style={{ border: "1px solid rgba(119, 119, 119, 0.25)" }}></p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+                                        <div className='col-md-3 box-mystry'>
+                                            <div className='col-md-12 d-flex justify-content-center mystrey-imagess mb-3'>
+                                                <img src={card1} className="mystrey-pic pt-4 pb-3" />
+                                            </div>
+                                            <div className='text-center'>
+                                                <span className='congrat-span'>#20211 Alien Fighter</span>
+                                            </div>
+                                            <div className='row d-flex justify-content-center mt-3'>
+                                                <div className='col-11 d-flex justify-content-between align-items-center mt-1'>
+                                                    <span className='mystrey-span21'>Rarity:</span>
+                                                    <span className='mystrey-span22'>Mythic</span>
+                                                </div>
+                                                <div className='col-11 mt-2' >
+                                                    <p style={{ border: "1px solid rgba(119, 119, 119, 0.25)" }}></p>
+                                                </div>
+                                            </div>
+                                            <div className='row d-flex justify-content-center mt-2'>
+                                                <div className='col-11 d-flex justify-content-between align-items-center mt-1'>
+                                                    <span className='mystrey-span21'>Level:</span>
+                                                    <span className='mystrey-span22'>+3</span>
+                                                </div>
+                                                <div className='col-11 mt-2' >
+                                                    <p style={{ border: "1px solid rgba(119, 119, 119, 0.25)" }}></p>
+                                                </div>
+                                            </div>
+                                            <div className='row d-flex justify-content-center mt-2'>
+                                                <div className='col-11 d-flex justify-content-between align-items-center mt-1'>
+                                                    <span className='mystrey-span21'>Has Power:</span>
+                                                    <span className='mystrey-span22'>15</span>
+                                                </div>
+                                                <div className='col-11 mt-2' >
+                                                    <p style={{ border: "1px solid rgba(119, 119, 119, 0.25)" }}></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {/* <div className='col-md-12 d-flex justify-content-center breed-imagess mt-3 mb-3'>
+                                        <img src={card1} className="mint-pic pt-4 pb-3" />
+                                    </div> */}
+                                    <div className='col-md-12 d-flex justify-content-center'>
+                                        <span className='congrat-span'>Do you want to Breed card or sell in the market?</span>
+                                    </div>
+
+                                </div>
+                                <div className='row d-flex justify-content-center'>
+                                    <div className='col-lg-2 col-md-3 mt-3 mb-3'>
+                                        <div className="d-grid gap-2">
+                                            <button className='btn btn-congrats' size="lg">
+                                                Breed
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div className='col-lg-2 col-md-3 mt-3 mb-3'>
+                                        <div className="d-grid gap-2">
+                                            <button className='btn btn1-congrats' size="lg" onClick={()=>setModalShowSecond(true)}>
+                                                Sell
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div className='col-lg-3 col-md-4 mt-3 mb-3'>
+                                        <div className="d-grid gap-2">
+                                            <button className='btn btn2-congrats' size="lg">
+                                                Do it Later
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {/* </Modal.Body> */}
+                        </Modal> : <></>}
+
+
+                        {modalShowSecond ? <Modal
+                            show={modalShowSecond}
+                            onHide={() => setModalShowSecond(false)}
+                            size="lg"
+                            aria-labelledby="contained-modal-title-vcenter"
+                            centered
+                            className='second-modal-color'
+                        >
+                            <div className='Breed-model-image'>
+                                <div className='row d-flex justify-content-center' >
+                                <div className=' col-12 d-flex flex-row justify-content-between mt-3'>
+                                    <h4 className='ps-3' style={{color: "white"}}>Mystery Box</h4>
+                                    <IoMdClose className='pe-3' onClick={() => setModalShowSecond(false)} size={38} style={{ color: "white", cursor: "pointer" }} />
+                                </div>
+                                    <div className='col-md-12 d-flex justify-content-center'>
+                                        <img className='pt-3 congrat-image' src={Group609} />
+                                    </div>
+                                    <div className='col-md-12 d-flex justify-content-center mt-4'>
+                                        <p className='breed-p'>You got a fighter now!</p>
+                                    </div>
+                                    <div className='row d-flex justify-content-center justify-content-around mt-4 mb-4'>
+                                        <div className='col-md-3 box-mystry'>
+                                            <div className='col-md-12 d-flex justify-content-center mystrey-imagess mb-3'>
+                                                <img src={card1} className="mystrey-pic pt-4 pb-3" />
+                                            </div>
+                                            <div className='text-center'>
+                                                <span className='congrat-span'>#20211 Alien Fighter</span>
+                                            </div>
+                                        </div>
+                                        <div className='col-md-3 box-mystry'>
+                                            <div className='col-md-12 d-flex justify-content-center mystrey-imagess mb-3'>
+                                                <img src={card1} className="mystrey-pic pt-4 pb-3" />
+                                            </div>
+                                            <div className='text-center'>
+                                                <span className='congrat-span'>#20211 Alien Fighter</span>
+                                            </div>
+                                        </div>
+                                        <div className='col-md-3 box-mystry'>
+                                            <div className='col-md-12 d-flex justify-content-center mystrey-imagess mb-3'>
+                                                <img src={card1} className="mystrey-pic pt-4 pb-3" />
+                                            </div>
+                                            <div className='text-center'>
+                                                <span className='congrat-span'>#20211 Alien Fighter</span>
+                                            </div>
+
+                                            <div className='col-md-6'>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </Modal> : <></>}
                         <div className='row d-flex justify-content-center mt-4 mb-4'>
                             <div className='col-lg-12 col-11 presale-box1'>
                                 <img src={mystery} className="mint-image" />
@@ -267,7 +493,7 @@ function MysteryBox() {
                                             <span className='mystrybox-span1'>MAXIMUM OF 3 NFTs Box PER tx</span>
                                             <div className='col-xl-7 mt-4 mb-2'>
                                                 <div className="d-grid gap-2">
-                                                    <button className='btn mystrybtn'>Open Box</button>
+                                                    <button className='btn mystrybtn' onClick={() => setModalShow(true)}>Open Box</button>
                                                 </div>
                                             </div>
                                         </div>

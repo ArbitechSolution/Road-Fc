@@ -42,16 +42,62 @@
     line-height: 17px;
     color: #B1B1B1;
 }
-.mystrybtn{
+
+.mystrybtn {
     background: linear-gradient(180deg, #FF5043 0%, #F92D1E 100%);
-border-radius: 50px;
-font-weight: 600;
-font-size: 15px;
-line-height: 132%;
-color: #FFFFFF;
-padding: 14px 10px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 132%;
+    color: #FFFFFF;
+    padding: 14px 10px;
 
 }
+
+.mystrey-imagess {
+    background-image: url("../../Assets/Group 480.png");
+    background-repeat: no-repeat;
+    background-position:center;
+    background-size: cover;
+    /* background-attachment: fixed; */
+    width:240px;
+    /* border: 2px solid red; */
+    /* padding-top: 30px; */
+}
+.second-modal-color{
+    background-color: #464649;
+}
+/* .mint-pic{
+    width: 200px;
+} */
+
+.mystrey-span21 {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 42%;
+    color: #FF5043;
+}
+
+.mystrey-span22 {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 42%;
+    color: #B1B1B1;
+}
+
+.mystrey-pic {
+    width: 100px;
+    /* box-shadow: 0px 0px 120px 0.1px rgba(255, 18, 0, 0.5); */
+}
+
+.box-mystry {
+    background: #26282F;
+    box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.08);
+    backdrop-filter: blur(16px);
+    border-radius: 16px;
+    width: 250px;
+}
+
 @media(max-width: 1050px) {
     .mystrybox {
         background: #26282F;
