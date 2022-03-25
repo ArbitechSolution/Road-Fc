@@ -70,7 +70,12 @@
 /* .mint-pic{
     width: 200px;
 } */
-
+.text-infom{
+    font-weight: 400;
+font-size: 16px;
+line-height: 144%;
+color: #7E808D;
+}
 .mystrey-span21 {
     font-weight: 500;
     font-size: 18px;

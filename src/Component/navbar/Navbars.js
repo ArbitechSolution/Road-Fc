@@ -5,6 +5,7 @@ import { FaTelegramPlane, FaYoutube } from 'react-icons/fa'
 import { RiGithubLine } from 'react-icons/ri'
 import { Link } from "react-router-dom";
 import "./navbars.css"
+import roadfc from "../../Assets/roadfc-logo 1.png"
 function Navbars() {
   return (
     <div className='navbariamge'>
@@ -15,7 +16,7 @@ function Navbars() {
 
                         <Navbar collapseOnSelect expand="lg" variant="dark">
                             {/* <Container> */}
-                           <Navbar.Brand href="#"><img src="https://i.ibb.co/J5BD1S8/logo.png" width="40px" /></Navbar.Brand>
+                           <Navbar.Brand href="#"><img src={roadfc} width="110px" /></Navbar.Brand>
                             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                             <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
                                 <Nav >
