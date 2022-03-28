@@ -16,6 +16,7 @@ import Breed from './Component/Breed/Breed';
 import MyNFTs from './Component/MY-NFTs/MyNFTs';
 import NFTstaking from './Component/NFT-Staking/NFTstaking';
 import MysteryBox from './Component/Mystery-Box/MysteryBox';
+import Marketplace from './Component/NFT-MarketPlace/Marketplace';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route exact path="/MyNFTs" element={<MyNFTs />} />
           <Route exact path='/NFTstaking' element={<NFTstaking />} />
           <Route exact path='/MysteryBox' element={<MysteryBox />} />
+          <Route exact path='/marketplace' element={<Marketplace />} />
         </Routes>
         <Footer />
       </BrowserRouter>

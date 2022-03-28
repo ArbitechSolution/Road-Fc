@@ -115,7 +115,9 @@ function RoadPool() {
                             <div className='col-10 '>
                                 <div className="d-grid gap-2">
                                     <button className='btn poolbtn1' size="lg" onClick={() => { window.scrollTo(0, 0); }}>
+                                    <Link to="/marketplace" style={{ textDecoration: "none", color: "white" }}>
                                         Show Market
+                                      </Link>
                                     </button>
 
                                 </div>
