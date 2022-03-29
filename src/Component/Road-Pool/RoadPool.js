@@ -89,7 +89,7 @@ function RoadPool() {
                         </div>
                     </div>
 
-                    <div className='col-lg-3 col-md-5 col-10 poolbox pt-4 m-1 mt-3'>
+                    <div className='col-lg-3 col-md-5 col-10 poolbox pt-4 m-1 mt-3' >
                         <img src={nft1} />
                         <h5 className='poolgh5 pt-4'>NFT Staking</h5>
                         <p className='pool-p pt-2'>Browse your personal Staking of NFTS</p>
@@ -106,7 +106,6 @@ function RoadPool() {
                             </div>
                         </div>
                     </div>
-
                     <div className='col-lg-3 col-md-5 col-10 poolbox pt-4 m-1 mt-3'>
                         <img src={marketplace1} />
                         <h5 className='poolgh5 pt-4'>NFT Market</h5>
@@ -115,9 +114,9 @@ function RoadPool() {
                             <div className='col-10 '>
                                 <div className="d-grid gap-2">
                                     <button className='btn poolbtn1' size="lg" onClick={() => { window.scrollTo(0, 0); }}>
-                                    <Link to="/marketplace" style={{ textDecoration: "none", color: "white" }}>
-                                        Show Market
-                                      </Link>
+                                        <Link to="/marketplace" style={{ textDecoration: "none", color: "white" }}>
+                                            Show Market
+                                        </Link>
                                     </button>
 
                                 </div>
