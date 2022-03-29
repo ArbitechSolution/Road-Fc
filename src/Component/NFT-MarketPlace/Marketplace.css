@@ -1,6 +1,22 @@
-.market-span{
+.market-span {
     font-weight: 600;
-font-size: 30px;
-line-height: 100%;
-color: #FF5043;
+    font-size: 30px;
+    line-height: 100%;
+    color: #FF5043;
 }
+
+.market-span1 {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 100%;
+    color: #FFFFFF;
+}
+input[type=checkbox] {
+    accent-color: #FF5043;
+  }
+  .checkinput{
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 100%;
+    color: #FFFFFF;
+  }
