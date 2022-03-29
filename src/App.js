@@ -4,6 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbars from './Component/navbar/Navbars';
 import RoadPool from './Component/Road-Pool/RoadPool';
 import Footer from './Component/Footer/Footer';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import {
   BrowserRouter,
   Routes,
@@ -21,6 +23,7 @@ import Marketplace from './Component/NFT-MarketPlace/Marketplace';
 function App() {
   return (
     <div className="App">
+      <ToastContainer/>
       <BrowserRouter>
         <Navbars />
         <Routes>

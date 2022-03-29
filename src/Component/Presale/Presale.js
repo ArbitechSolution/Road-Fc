@@ -2,8 +2,21 @@ import React from 'react'
 import { MdOutlineKeyboardBackspace } from 'react-icons/md';
 import "./Presale.css"
 import p305 from "../../Assets/305 1.png"
+import { getWallet } from '../Redux/actions/actions'
+import { useSelector, useDispatch } from 'react-redux';
+import {stakingContractAddress,stakingContractAbi} from '../Utils/stakingContract'
 import ProgressBar from 'react-bootstrap/ProgressBar'
 function Presale() {
+
+    let dispatch = useDispatch();   
+    let { acc } = useSelector(state => state.connectWallet);
+
+    const getWalletAddress = () => {
+        dispatch(getWallet());
+        // allImagesNfts()
+
+    }
+
     return (
         <div className='imagePool'>
             <div className='container'>
@@ -12,7 +25,8 @@ function Presale() {
                         <span id="presale-back"><MdOutlineKeyboardBackspace size={40} style={{ color: "white" }} /> Back</span>
                     </div>
                     <div className='col-lg-2 col-md-3'>
-                        <button className='btn poolbtn'>CONNECT</button>
+                    <button onClick={() => getWalletAddress()} className='btn poolbtn'>{acc === "No Wallet" ? "Insatll metamask" : acc === "Connect Wallet" ? acc : acc === "Connect to Rinkebey" ? acc : acc.substring(0, 5) + "..." + acc.substring(acc.length - 5)}</button>
+
                     </div>
                 </div>
                 <div className='row d-flex justify-content-center'>

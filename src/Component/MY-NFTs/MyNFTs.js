@@ -2,6 +2,8 @@ import React from 'react'
 import { MdOutlineKeyboardBackspace } from 'react-icons/md';
 import { Link } from "react-router-dom";
 import "./MyNFTs.css"
+import { getWallet } from '../Redux/actions/actions'
+import { useSelector, useDispatch } from 'react-redux';
 import Growth from "../../Assets/Growth.png"
 import Frame2 from "../../Assets/Frame 2.png"
 import Frame3 from "../../Assets/Frame 3.png"
@@ -14,6 +16,14 @@ import Rectangle572 from "../../Assets/Rectangle 572.png"
 import Vector22 from "../../Assets/Vector22.png"
 import Vector33 from "../../Assets/Vector33.png"
 function MyNFTs() {
+    let dispatch = useDispatch();   
+    let { acc } = useSelector(state => state.connectWallet);
+
+    const getWalletAddress = () => {
+        dispatch(getWallet());
+        // allImagesNfts()
+
+    }
     return (
         <div className='imagePool'>
             <div className='container'>
@@ -22,7 +32,8 @@ function MyNFTs() {
                         <span id="presale-back"><Link to="/"><MdOutlineKeyboardBackspace size={40} style={{ color: "white" }} /></Link> Back</span>
                     </div>
                     <div className='col-lg-2 col-md-3 col-5' >
-                        <button className='btn poolbtn'>CONNECT</button>
+                    <button onClick={() => getWalletAddress()} className='btn poolbtn'>{acc === "No Wallet" ? "Insatll metamask" : acc === "Connect Wallet" ? acc : acc === "Connect to Rinkebey" ? acc : acc.substring(0, 5) + "..." + acc.substring(acc.length - 5)}</button>
+
                     </div>
                 </div>
                 <div className='row d-flex justify-content-center justify-content-around'>

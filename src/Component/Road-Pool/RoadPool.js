@@ -4,16 +4,26 @@ import Growth from "../../Assets/Growth.png"
 import Frame2 from "../../Assets/Frame 2.png"
 import Frame3 from "../../Assets/Frame 3.png"
 import Box from "../../Assets/Box.png"
+import { getWallet } from '../Redux/actions/actions'
+import { useSelector, useDispatch } from 'react-redux';
 import nft1 from "../../Assets/nft 1.png"
 import marketplace1 from "../../Assets/marketplace 1.png"
 import { Link } from "react-router-dom";
 function RoadPool() {
+    let dispatch = useDispatch();   
+    let { acc } = useSelector(state => state.connectWallet);
+
+    const getWalletAddress = () => {
+        dispatch(getWallet());
+        // allImagesNfts()
+
+    }
     return (
         <div className='imagePool'>
             <div className='container'>
                 <div className='row d-flex justify-content-end pt-5'>
                     <div className='col-lg-2 col-md-3'>
-                        <button className='btn poolbtn'>CONNECT</button>
+                    <button onClick={() => getWalletAddress()} className='btn poolbtn'>{acc === "No Wallet" ? "Insatll metamask" : acc === "Connect Wallet" ? acc : acc === "Connect to Rinkebey" ? acc : acc.substring(0, 5) + "..." + acc.substring(acc.length - 5)}</button>
                     </div>
                 </div>
                 <div className='row d-flex justify-content-center flex-wrap pt-4 pb-4 justify-content-around'>
