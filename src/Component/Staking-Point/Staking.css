@@ -16,12 +16,12 @@
     font-size: 15px;
     line-height: 132%;
     color: #ffffff;
-    box-shadow: none !important
+    box-shadow: none !important;
+    outline: none;
 }
-
-.staking-btn:hover {
-    background-color: #FD5043;
-    opacity: 0.40;
+.active-link{
+  
+    /* opacity: 0.90;
     border-radius: 8px;
     font-weight: 600;
     font-size: 15px;
@@ -29,9 +29,25 @@
     color: #ffffff;
     outline: none;
     box-shadow: none;
+    outline: none; */
 }
-
+.staking-btn_active {
+    background-color: #FD5043;
+    opacity: 0.90;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 132%;
+    color: #ffffff;
+    outline: none;
+    box-shadow: none;
+    outline: none;
+}
 .staking-btn:focus {
+    outline: none;
+    box-shadow: none;
+}
+/* .staking-btn:focus {
     background-color: #FD5043;
     opacity: 1;
     border-radius: 8px;
@@ -65,7 +81,7 @@
     color: #ffffff;
     outline: none;
     box-shadow: none;
-}
+} */
 
 .staking-coll {
     display: none;

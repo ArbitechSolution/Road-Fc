@@ -15,8 +15,10 @@ import image2 from "../../Assets/image 2.png"
 import Rectangle572 from "../../Assets/Rectangle 572.png"
 import Vector22 from "../../Assets/Vector22.png"
 import Vector33 from "../../Assets/Vector33.png"
+import SideBar from "../SideBar/SideBar"
+import MediaSidebar from '../SideBar/MediaSidebar';
 function MyNFTs() {
-    let dispatch = useDispatch();   
+    let dispatch = useDispatch();
     let { acc } = useSelector(state => state.connectWallet);
 
     const getWalletAddress = () => {
@@ -38,133 +40,10 @@ function MyNFTs() {
                 </div>
                 <div className='row d-flex justify-content-center justify-content-around'>
                     <div className='col-3 staking-box'>
-                        <div className='row d-flex justify-content-center mt-5 mb-3'>
-                            <div className='col-11'>
-                                <div className="d-grid gap-2">
-                                    <button className='btn staking-btn text-start d-flex align-items-center ' >
-                                        <img src={Growth} width="30px" />&nbsp;&nbsp; Staking & Point
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div className='row d-flex justify-content-center mt-3 mb-3'>
-                            <div className='col-11'>
-                                <div className="d-grid gap-2">
-                                    <button className='btn staking-btn text-start d-flex align-items-center ' >
-                                        <img src={Frame2} width="30px" />&nbsp;&nbsp; Mint
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div className='row d-flex justify-content-center mt-3 mb-3'>
-                            <div className='col-11'>
-                                <div className="d-grid gap-2">
-                                    <button className='btn staking-btn text-start d-flex align-items-center' >
-                                        <img src={Frame3} width="24px" />&nbsp;&nbsp; Breed
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div className='row d-flex justify-content-center mt-3 mb-3'>
-                            <div className='col-11'>
-                                <div className="d-grid gap-2">
-                                    <button className='btn staking-btn text-start d-flex align-items-center' >
-                                        <img src={Box} width="30px" />&nbsp;&nbsp; Mystery Box
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div className='row d-flex justify-content-center mt-3 mb-3'>
-                            <div className='col-11'>
-                                <div className="d-grid gap-2">
-                                    <button className='btn staking-btn text-start d-flex align-items-center' >
-                                        <img src={nft1} width="30px" />&nbsp;&nbsp; NFT Staking
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div className='row d-flex justify-content-center mt-3 mb-3'>
-                            <div className='col-11'>
-                                <div className="d-grid gap-2">
-                                    <button className='btn staking-btn text-start d-flex align-items-center' >
-                                        <img src={marketplace1} width="30px" />&nbsp;&nbsp; NFT Market
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div className='row d-flex justify-content-center mt-3 mb-3'>
-                            <div className='col-11'>
-                                <div className="d-grid gap-2">
-                                    <button className='btn staking-btn text-start d-flex align-items-center active' >
-                                        <img src={Group593} width="30px" />&nbsp;&nbsp; My NFT
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
+                    <SideBar />
                     </div>
                     <div className='col-11 mb-3 staking-coll'>
-
-                        <div class="accordion " id="accordionFlushExample">
-                            <div class="accordion-item staking-boxResponsive">
-                                <h2 class="accordion-header" id="headingTwo">
-                                    <button class="accordion-button collapsed" type="button" style={{ color: "white" }} data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                                        <div className='col-10 active' >
-                                            <div className="d-grid gap-2">
-                                                <button className='btn staking-btn text-start d-flex align-items-center' >
-                                                    <img src={Growth} width="30px" />&nbsp;&nbsp; Staking & Point
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </button>
-                                </h2>
-                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        <div className='col-10'>
-                                            <div className="d-grid gap-2">
-                                                <button className='btn staking-btn text-start d-flex align-items-center' >
-                                                    <img src={Frame2} width="30px" />&nbsp;&nbsp; Mint
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <div className='col-10 mt-2'>
-                                            <div className="d-grid gap-2">
-                                                <button className='btn staking-btn text-start d-flex align-items-center' >
-                                                    <img src={Frame3} width="24px" />&nbsp;&nbsp; Breed
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <div className='col-10 mt-2'>
-                                            <div className="d-grid gap-2">
-                                                <button className='btn staking-btn text-start d-flex align-items-center' >
-                                                    <img src={Box} width="30px" />&nbsp;&nbsp; Mystery Box
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <div className='col-10 mt-2'>
-                                            <div className="d-grid gap-2">
-                                                <button className='btn staking-btn text-start d-flex align-items-center' >
-                                                    <img src={nft1} width="30px" />&nbsp;&nbsp; NFT Staking
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <div className='col-10 mt-2 '>
-                                            <div className="d-grid gap-2">
-                                                <button className='btn staking-btn text-start d-flex align-items-center' >
-                                                    <img src={marketplace1} width="30px" />&nbsp;&nbsp; NFT Market
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <div className='col-10 mt-2'>
-                                            <div className="d-grid gap-2">
-                                                <button className='btn staking-btn text-start d-flex align-items-center' >
-                                                    <img src={Group593} width="30px" />&nbsp;&nbsp; My NFT
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <MediaSidebar/>
                     </div>
 
                     <div className='col-lg-8 col-11 mb-md-1 mb-4'>
