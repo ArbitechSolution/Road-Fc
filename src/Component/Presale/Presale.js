@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useRef, useState} from 'react'
 import { MdOutlineKeyboardBackspace } from 'react-icons/md';
 import "./Presale.css"
 import p305 from "../../Assets/305 1.png"
@@ -6,15 +6,101 @@ import { getWallet } from '../Redux/actions/actions'
 import { useSelector, useDispatch } from 'react-redux';
 import {stakingContractAddress,stakingContractAbi} from '../Utils/stakingContract'
 import ProgressBar from 'react-bootstrap/ProgressBar'
-function Presale() {
+import {preSaleContractAddress,preSaleContractAbi} from '../Utils/preSale'
+import Web3 from "web3";
+import { toast } from 'react-toastify';
 
+
+const webSupply = new Web3("https://data-seed-prebsc-1-s1.binance.org:8545/");
+function Presale() {
+    let [reqBNB, setReqBNB]=useState(0)
+    let enteredBnb = useRef(0)
+    let requiredBNB =useRef(0)
     let dispatch = useDispatch();   
     let { acc } = useSelector(state => state.connectWallet);
+
+const calculatedRoadPrice =async()=>{
+    let preSaleContractOf = new webSupply.eth.Contract(preSaleContractAbi,preSaleContractAddress);
+    let userEnteredVal = enteredBnb.current.value;
+    if(parseFloat(userEnteredVal)>0){
+        let  userEnteredValToWei = webSupply.utils.toWei(userEnteredVal.toString())
+        console.log("userEnteredValToWei",userEnteredValToWei);
+    
+    
+        let calculatedRoad = await preSaleContractOf.methods.calculate_price(userEnteredValToWei).call();
+       calculatedRoad = webSupply.utils.fromWei(calculatedRoad)
+        console.log("calculatedRoad",calculatedRoad);
+        setReqBNB(calculatedRoad)
+    }else{
+        setReqBNB(0)
+    }
+    
+    // requiredBNB.current.value =calculatedRoad;
+
+}
+const buyRoadwithBnb =async()=>{
+    try{
+        if (acc == "No Wallet") {
+            console.log("wallet");
+            toast.error("Connect Wallet")
+        }
+        else if (acc == "Wrong Network") {
+            toast.error("Wrong Network")
+        } else if (acc == "Connect Wallet") {
+            console.log("Connect Wallet");
+            toast.error("Connect Wallet")
+        }else {
+           
+            let userEnteredVal = enteredBnb.current.value;
+            if(parseFloat(userEnteredVal)>0){
+                const web3 = window.web3;
+                let usersBNBBalance = await web3.eth.getBalance(acc);
+                console.log("userEnteredVal",usersBNBBalance);
+                // let usersBNBBalance = 
+                let preSaleContractOf = new web3.eth.Contract(preSaleContractAbi,preSaleContractAddress);
+                let  userEnteredValToWei = web3.utils.toWei(userEnteredVal.toString())
+                console.log("userEnteredValToWei",userEnteredValToWei);
+    
+                let calculatedRoad = await preSaleContractOf.methods.calculate_price(userEnteredValToWei).call();
+                console.log("calculatedRoad",calculatedRoad);
+
+
+                if(parseFloat(usersBNBBalance)>parseFloat(calculatedRoad)){
+                    if(parseFloat(web3.utils.fromWei(calculatedRoad))>= 0.1){
+
+                        await preSaleContractOf.methods.buy(userEnteredValToWei.toString()).send({
+                            from :acc,
+                            value: calculatedRoad
+                        })
+                        toast.success("Transaction Successfull")
+                    }else{
+                        toast.error("Minimum Purchase is of 0.1 BNB")
+                    }
+                }else{
+                    toast.error("Insufficient Balance")
+                }
+              
+            }else{
+                toast.error("Enterd Value Must Be Greater than 0")
+            }
+           
+            
+        }
+
+    }catch(e){
+        console.log("Error While Buying Road with BNB", e)
+        toast.error("Transaction Rejected")
+    }
+    
+
+}
+
+
+
 
     const getWalletAddress = () => {
         dispatch(getWallet());
         // allImagesNfts()
-
     }
 
     return (
@@ -59,16 +145,16 @@ function Presale() {
                                 <div className='row d-flex justify-content-center pt-4 pb-2'>
                                     <div className='col-11 text-start'>
                                         <form>
-                                            <label className="form-label  fw-bold" style={{ color: "#5E606E" }}>BNB</label>
-                                            <input type='number' class="form-control" placeholder='0.00' />
+                                            <label className="form-label  fw-bold" style={{ color: "#5E606E" }}>Road</label>
+                                            <input onChange={()=>calculatedRoadPrice()} ref={enteredBnb} type='number' class="form-control" placeholder='0.00' />
                                         </form>
                                     </div>
                                 </div>
                                 <div className='row d-flex justify-content-center pt-4 pb-2'>
                                     <div className='col-11 text-start'>
                                         <form>
-                                            <label className="form-label fw-bold" style={{ color: "#5E606E" }}>ROAD</label>
-                                            <input type='number' class="form-control" placeholder='0.00' />
+                                            <label className="form-label fw-bold" style={{ color: "#5E606E" }}>BNB</label>
+                                            <input type='number' class="form-control" placeholder={reqBNB} />
                                         </form>
                                     </div>
                                 </div>
@@ -76,7 +162,7 @@ function Presale() {
                                 <div className='row d-flex justify-content-center pt-5 pb-2'>
                                     <div className='col-6'>
                                         <div className="d-grid gap-2">
-                                            <button className='btn poolbtn1' size="lg">
+                                            <button onClick={()=>buyRoadwithBnb()} className='btn poolbtn1' size="lg">
                                                 Buy ROAD
                                             </button>
                                         </div>
