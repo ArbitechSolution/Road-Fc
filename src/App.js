@@ -6,6 +6,12 @@ import RoadPool from './Component/Road-Pool/RoadPool';
 import Footer from './Component/Footer/Footer';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+// import {
+//   BrowserRouter as Router,
+//   Switch,
+//   Route,
+//   Link
+// } from "react-router-dom";
 import {
   BrowserRouter,
   Routes,
@@ -22,8 +28,11 @@ import Marketplace from './Component/NFT-MarketPlace/Marketplace';
 // import SideBar from "././Component/SideBar/SideBar"
 function App() {
   return (
+
+      // <Router>
     <div className="App">
-      <ToastContainer/>
+      <ToastContainer />
+
 
       <BrowserRouter>
         <Navbars />
@@ -41,6 +50,7 @@ function App() {
         <Footer />
       </BrowserRouter>
     </div>
+    // </Router>
   );
 }
 

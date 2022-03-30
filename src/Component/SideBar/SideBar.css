@@ -1,0 +1,31 @@
+
+
+
+.form-select {
+    background: linear-gradient(180deg, rgba(26, 28, 35, 0.96) 0%, rgba(15, 17, 21, 0.96) 100%);
+    box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.08);
+    backdrop-filter: blur(16px);
+    border-radius: 10px;
+    border: 1px solid #FD5043;
+    color: white;
+}
+select option {
+    background: linear-gradient(180deg, rgba(26, 28, 35, 0.96) 0%, rgba(15, 17, 21, 0.96) 100%);
+    /* color: red !important; */
+  }
+select {
+    color:#fff;
+}
+option:checked {
+    background-color: #eee;
+    color:#555;
+  }
+  option:not(:checked) {
+    background-color: white;
+    color:white;
+  }
+
+  .bootstrap-select.btn-group .dropdown-menu li:hover{
+    background-color: rgb(191, 82, 121);
+    color: white;
+}

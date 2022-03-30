@@ -9,114 +9,88 @@ import Group593 from "../../Assets/Group 593.png"
 import { Link, NavLink } from "react-router-dom";
 function SideBar() {
 
-  let [isactivestake, setIsactivestake] = useState(true)
-  let [isActiveMint, setIsActiveMint] = useState(false)
-  let [isActiveBreed, setIsActiveBreed] = useState(false)
-
-  const changeStake = () => {
-    console.log("Inside changeStake")
-    setIsactivestake(true)
-    setIsActiveMint(false);
-    setIsActiveBreed(false)
-  }
-  const changeMint = () => {
-    console.log("Inside changeMint")
-
-    setIsactivestake(false)
-    setIsActiveMint(true);
-    setIsActiveBreed(false)
-  }
-  const changeBreed = () => {
-    console.log("Inside changeBreed")
-
-    setIsactivestake(false)
-    setIsActiveMint(false);
-    setIsActiveBreed(true)
-  }
   return (
     <div>
-      <div onClick={()=>changeStake()} className='row d-flex justify-content-center mt-3 mb-3'>
-        <div className='col-11'>
-          <div className="d-grid gap-2">
-            <Link to="/Staking" style={{ textDecoration: "none", color: "white" }} className={isactivestake ? "staking-btn_active" : "staking-btn"} >
-              <button className='btn  text-start d-flex align-items-center' >
+      <div className='row d-flex justify-content-center mt-3 mb-3'>
+        <NavLink to="/Staking" style={{ textDecoration: "none", color: "white" }} className={({ isActive }) => (isActive ? 'col-10 staking-btn_active' : 'col-10 staking-btn')}>
+          <div className=''>
+            <div className="d-grid gap-2">
+              <button className='btn text-start d-flex align-items-center' style={{color: "white", fontSize: "18px", fontWeight: "bold"}}>
                 <img src={Growth} width="30px" />&nbsp;&nbsp; Staking & Point
-
               </button>
-            </Link>
+            </div>
           </div>
-        </div>
+        </NavLink>
       </div>
-      <div onClick={()=>changeMint()} className='row d-flex justify-content-center mt-3 mb-3'>
-        <div className='col-11'>
-          <div className="d-grid gap-2">
-            <Link to="/Mint" style={{ textDecoration: "none", color: "white" }} className={isActiveMint ? "staking-btn_active" : "staking-btn"} >
-              <button className='btn text-start d-flex align-items-center' >
+      <div className='row d-flex justify-content-center mt-3 mb-3'>
+        <NavLink to="/Mint" style={{ textDecoration: "none", color: "white" }} className={({ isActive }) => (isActive ? 'col-10 staking-btn_active' : 'col-10 staking-btn')}>
+          <div className=''>
+            <div className="d-grid gap-2">
+              <button className='btn  text-start d-flex align-items-center' style={{color: "white", fontSize: "18px", fontWeight: "bold"}}>
                 <img src={Frame2} width="30px" />&nbsp;&nbsp; Mint
               </button>
-            </Link>
+            </div>
           </div>
-        </div>
+        </NavLink>
       </div>
-      <div onClick={()=>changeBreed()} className='row d-flex justify-content-center mt-3 mb-3'>
-        <div className='col-11'>
-          <div className="d-grid gap-2">
-            <Link to="/breed" style={{ textDecoration: "none", color: "white" }} className={isActiveBreed? "staking-btn_active" : "staking-btn"} >
-              <button className='btn text-start d-flex align-items-center' >
+      <div className='row d-flex justify-content-center mt-3 mb-3'>
+        <NavLink to="/breed" style={{ textDecoration: "none", color: "white" }} className={({ isActive }) => (isActive ? 'col-10 staking-btn_active' : 'col-10 staking-btn')}>
+          <div className=''>
+            <div className="d-grid gap-2">
+              <button className='btn text-start d-flex align-items-center' style={{color: "white", fontSize: "18px", fontWeight: "bold"}}>
                 <img src={Frame3} width="24px" />&nbsp;&nbsp; Breed
 
               </button>
-            </Link>
+            </div>
           </div>
-        </div>
+        </NavLink>
       </div>
       <div className='row d-flex justify-content-center mt-3 mb-3'>
-        <div className='col-11'>
-          <div className="d-grid gap-2">
-            <button className='btn staking-btn text-start d-flex align-items-center' >
-              <Link to="/MysteryBox" style={{ textDecoration: "none", color: "white" }}>
+        <NavLink to="/MysteryBox" style={{ textDecoration: "none", color: "white" }} className={({ isActive }) => (isActive ? 'col-10 staking-btn_active' : 'col-10 staking-btn')}>
+          <div className=''>
+            <div className="d-grid gap-2">
+              <button className='btn text-start d-flex align-items-center' style={{color: "white", fontSize: "18px", fontWeight: "bold"}}>
                 <img src={Box} width="30px" />&nbsp;&nbsp; Mystery Box
-              </Link>
 
-            </button>
+              </button>
+            </div>
           </div>
-        </div>
+        </NavLink>
       </div>
       <div className='row d-flex justify-content-center mt-3 mb-3'>
-        <div className='col-11'>
-          <div className="d-grid gap-2">
-            <button className='btn staking-btn text-start d-flex align-items-center' >
-              <Link to="/NFTstaking" style={{ textDecoration: "none", color: "white" }}>
+        <NavLink to="/NFTstaking" style={{ textDecoration: "none", color: "white" }} className={({ isActive }) => (isActive ? 'col-10 staking-btn_active' : 'col-10 staking-btn')}>
+          <div className=''>
+            <div className="d-grid gap-2">
+              <button className='btn text-start d-flex align-items-center' style={{color: "white", fontSize: "18px", fontWeight: "bold"}}>
                 <img src={nft1} width="30px" />&nbsp;&nbsp; NFT Staking
-              </Link>
 
-            </button>
+              </button>
+            </div>
           </div>
-        </div>
+        </NavLink>
       </div>
       <div className='row d-flex justify-content-center mt-3 mb-3'>
-        <div className='col-11'>
-          <div className="d-grid gap-2">
-            <button className='btn staking-btn text-start d-flex align-items-center' >
-              <Link to="/marketplace" style={{ textDecoration: "none", color: "white" }}>
+        <NavLink to="/marketplace" style={{ textDecoration: "none", color: "white" }} className={({ isActive }) => (isActive ? 'col-10 staking-btn_active' : 'col-10 staking-btn')}>
+          <div className=''>
+            <div className="d-grid gap-2">
+              <button className='btn text-start d-flex align-items-center' style={{color: "white", fontSize: "18px", fontWeight: "bold"}}>
                 <img src={marketplace1} width="30px" />&nbsp;&nbsp; NFT Market
-              </Link>
-
-            </button>
+              </button>
+            </div>
           </div>
-        </div>
+        </NavLink>
       </div>
       <div className='row d-flex justify-content-center mt-3 mb-3'>
-        <div className='col-11'>
-          <div className="d-grid gap-2">
-            <button className='btn staking-btn text-start d-flex align-items-center' >
-              <Link to="/MyNFTs" style={{ textDecoration: "none", color: "white" }}>
+        <NavLink to="/MyNFTs" style={{ textDecoration: "none", color: "white" }} className={({ isActive }) => (isActive ? 'col-10 staking-btn_active' : 'col-10 staking-btn')}>
+          <div className=''>
+            <div className="d-grid gap-2">
+              <button className='btn text-start d-flex align-items-center' style={{color: "white", fontSize: "18px", fontWeight: "bold"}}>
                 <img src={Group593} width="30px" />&nbsp;&nbsp; My NFT
-              </Link>
 
-            </button>
+              </button>
+            </div>
           </div>
-        </div>
+        </NavLink>
       </div>
     </div>
   )

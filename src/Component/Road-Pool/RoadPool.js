@@ -9,8 +9,15 @@ import { useSelector, useDispatch } from 'react-redux';
 import nft1 from "../../Assets/nft 1.png"
 import marketplace1 from "../../Assets/marketplace 1.png"
 import { Link } from "react-router-dom";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 function RoadPool() {
-    let dispatch = useDispatch();   
+    AOS.init({
+        offset: 300,
+        duration: 4000,
+    });
+    let dispatch = useDispatch();
     let { acc } = useSelector(state => state.connectWallet);
 
     const getWalletAddress = () => {
@@ -23,11 +30,11 @@ function RoadPool() {
             <div className='container'>
                 <div className='row d-flex justify-content-end pt-5'>
                     <div className='col-lg-2 col-md-3'>
-                    <button onClick={() => getWalletAddress()} className='btn poolbtn'>{acc === "No Wallet" ? "Insatll metamask" : acc === "Connect Wallet" ? acc : acc === "Connect to Rinkebey" ? acc : acc.substring(0, 5) + "..." + acc.substring(acc.length - 5)}</button>
+                        <button onClick={() => getWalletAddress()} className='btn poolbtn'>{acc === "No Wallet" ? "Insatll metamask" : acc === "Connect Wallet" ? acc : acc === "Connect to Rinkebey" ? acc : acc.substring(0, 5) + "..." + acc.substring(acc.length - 5)}</button>
                     </div>
                 </div>
                 <div className='row d-flex justify-content-center flex-wrap pt-4 pb-4 justify-content-around'>
-                    <div className='col-lg-3 col-md-5 col-10 poolbox pt-4 m-1'>
+                    <div className='col-lg-3 col-md-5 col-10 poolbox pt-4 m-1' data-aos="fade-up">
                         <img src={Growth} />
                         <h5 className='poolgh5 pt-4'>Staking & Point</h5>
                         <p className='pool-p pt-2
