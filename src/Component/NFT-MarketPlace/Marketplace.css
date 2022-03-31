@@ -1,22 +1,104 @@
 .market-span {
-    font-weight: 600;
-    font-size: 30px;
-    line-height: 100%;
-    color: #FF5043;
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 100%;
+  color: #FF5043;
 }
 
 .market-span1 {
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 100%;
-    color: #FFFFFF;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 100%;
+  color: #FFFFFF;
 }
+
 input[type=checkbox] {
-    accent-color: #FF5043;
-  }
-  .checkinput{
-    font-weight: 300;
-    font-size: 18px;
-    line-height: 100%;
-    color: #FFFFFF;
-  }
+  accent-color: #FF5043;
+}
+
+.checkinput {
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 100%;
+  color: #FFFFFF;
+}
+
+.secondary {
+  background: #32333E;
+  /* border-radius: 40px; */
+  font-weight: 500;
+font-size: 16px;
+padding: 10px 100px;
+line-height: 19px;
+color: #66676A;
+  border: 1px solid #32333E;
+}
+.btnplacebutton{
+  font-size: 30px;
+  line-height: 19px;
+
+  color: #FFFFFF;
+}
+.secondary1 {
+  background: #5E606E;
+  font-weight: 700;
+
+  /* border-radius: 80px; */
+  border: 1px solid #5E606E;
+}
+
+.textbutton {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  color: #FFFFFF;
+  border-radius: 80px;
+}
+
+.boxmarket {
+  width: 50px;
+  height: 50px;
+  background: #32333E;
+  border-radius: 90px;
+}
+
+.placespan {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 100%;
+  color: #FFFFFF;
+}
+
+.placespan1 {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 100%;
+  color: #FFFFFF;
+}
+
+.place-pp {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 100%;
+  color: #FF5043;
+}
+.palce-h6{
+  font-weight: 300;
+font-size: 14px;
+line-height: 100%;
+color: #FFFFFF;
+}
+.btnplace{
+  background: linear-gradient(90deg, #F92D1E 1.7%, #FF5043 100%);
+border-radius: 80px;
+font-weight: 500;
+font-size: 16px;
+line-height: 19px;
+color: #FFFFFF;
+}
+.boxplace{
+  width: 40px;
+  height: 40px;
+  background: #32333E;
+  border-radius: 90px;
+}
