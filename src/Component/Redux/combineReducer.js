@@ -9,6 +9,7 @@ import{getUserBrLplpoint} from './reducers/getUserBrlLpPoint'
 import {getBrawlPointMint} from './reducers/getUsersbrwalPointMint'
 import {setCurrentBpTokens} from "./reducers/getCurrentBpTokens";
 import { setMaxBpTokens } from './reducers/getMaxBpTokens';
+import {getRoadPrice} from './reducers/getRoadPrice'
 const allReducer = combineReducers({
 
     connectWallet:connectWallet,
@@ -20,7 +21,8 @@ const allReducer = combineReducers({
     getUserBrLplpoint:getUserBrLplpoint,
     getBrawlPointMint:getBrawlPointMint,
     setMaxBpTokens:setMaxBpTokens,
-    setCurrentBpTokens:setCurrentBpTokens
+    setCurrentBpTokens:setCurrentBpTokens,
+    getRoadPrice:getRoadPrice
 
 });
 

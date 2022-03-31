@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { MdOutlineKeyboardBackspace } from 'react-icons/md';
 import "./Staking.css"
 import { Link } from "react-router-dom";
@@ -261,6 +261,14 @@ function Staking() {
         // allImagesNfts()
 
     }
+    useEffect(()=>{
+        dispatch(getUserTHbTamount())
+        dispatch(getUserTHbLPTamount())
+        dispatch(getUserThbBalance())
+        dispatch(getUserBrLp())
+        dispatch(getUserBrl())
+        dispatch(getUserThbLpBalance())
+    },[acc])
 
     return (
         <div className='imagePool'>

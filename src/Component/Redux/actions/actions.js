@@ -1,7 +1,7 @@
 
 import {GET_USER_THB_BALANCE, GET_WALLET_ADDRESS,GET_USER_THB_LP_BALANCE,
     GET_USER_BRL,GET_USER_TAMOUNT,GET_USER_TAMOUNT_LP,GET_USER_BRL_LP,
-    GET_USER_MINT_BRAWL_POINTS,GET_CURRENT_BP_TOKENS,GET_MAX_BP_TOKENS} from '../type/types'
+    GET_USER_MINT_BRAWL_POINTS,GET_CURRENT_BP_TOKENS,GET_MAX_BP_TOKENS,GET_ROAD_PRICE} from '../type/types'
 import {loadWeb3} from '../../../Component/Api/api'
 import Web3 from "web3";
 import { thbTokenAddress, thbTokenAbi } from "../../../Component/Utils/ThbToken"
@@ -9,13 +9,14 @@ import { thbLpTokenAddress, thbLpTokenAbi } from '../../../Component/Utils/ThbLp
 import { stakingContractAddress, stakingContractAbi } from '../../../Component/Utils/Staking'
 import { toast } from 'react-toastify';
 import { nftContratAddress, nftContractAbi } from '../../../Component/Utils/Nft'
+import { preSaleContractAbi, preSaleContractAddress } from '../../Utils/preSale';
 
 const webSupply = new Web3("https://data-seed-prebsc-1-s1.binance.org:8545/");
 
 let thbTokenContractOf = new webSupply.eth.Contract(thbTokenAbi, thbTokenAddress);
 let thbLpTokenContractOf = new webSupply.eth.Contract(thbLpTokenAbi, thbLpTokenAddress);
 let stakingCOntractOf = new webSupply.eth.Contract(stakingContractAbi, stakingContractAddress);
-
+let presaleContractOf = new webSupply.eth.Contract(preSaleContractAbi,preSaleContractAddress)
 export const getWallet = () => async (dispatch) => {
 // console.log("get wallet 121212");
 let address = await loadWeb3();
@@ -196,12 +197,23 @@ export const  getCurrentBpTokens =()=> async(dispatch)=>{
     })
 }
 export const  getMaxBpTokens =()=> async(dispatch)=>{
-    const web3 = window.web3
+    // const web3 = window.web3
     let maxbp = await stakingCOntractOf.methods.maxBPToken().call();
     // console.log("maxbp bp in action",maxbp);
     dispatch({
         type:GET_MAX_BP_TOKENS,
         payload:maxbp
+    })
+}
+export const  getRoadPrice =()=> async(dispatch)=>{
+    // const web3 = window.web3
+    let roadPrice = await presaleContractOf.methods.price().call();
+    roadPrice = webSupply.utils.fromWei(roadPrice);
+    roadPrice = parseFloat(roadPrice).toFixed(4)
+    // console.log("maxbp bp in action",maxbp);
+    dispatch({
+        type:GET_ROAD_PRICE,
+        payload:roadPrice
     })
 }
 

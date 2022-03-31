@@ -1,8 +1,8 @@
-import React, {useRef, useState} from 'react'
+import React, {useEffect, useRef, useState} from 'react'
 import { MdOutlineKeyboardBackspace } from 'react-icons/md';
 import "./Presale.css"
 import p305 from "../../Assets/305 1.png"
-import { getWallet } from '../Redux/actions/actions'
+import { getWallet,getRoadPrice } from '../Redux/actions/actions'
 import { useSelector, useDispatch } from 'react-redux';
 import {stakingContractAddress,stakingContractAbi} from '../Utils/stakingContract'
 import ProgressBar from 'react-bootstrap/ProgressBar'
@@ -18,6 +18,8 @@ function Presale() {
     let requiredBNB =useRef(0)
     let dispatch = useDispatch();   
     let { acc } = useSelector(state => state.connectWallet);
+    let {roadPrice}= useSelector(state => state.getRoadPrice)
+    console.log("myRoadPrice",roadPrice);
 
 const calculatedRoadPrice =async()=>{
     let preSaleContractOf = new webSupply.eth.Contract(preSaleContractAbi,preSaleContractAddress);
@@ -52,56 +54,39 @@ const buyRoadwithBnb =async()=>{
         }else {
            
             let userEnteredVal = enteredBnb.current.value;
-            if(parseFloat(userEnteredVal)>0){
+            if(parseFloat(userEnteredVal)>0.1){
                 const web3 = window.web3;
                 let usersBNBBalance = await web3.eth.getBalance(acc);
                 console.log("userEnteredVal",usersBNBBalance);
-                // let usersBNBBalance = 
                 let preSaleContractOf = new web3.eth.Contract(preSaleContractAbi,preSaleContractAddress);
                 let  userEnteredValToWei = web3.utils.toWei(userEnteredVal.toString())
-                console.log("userEnteredValToWei",userEnteredValToWei);
-    
-                let calculatedRoad = await preSaleContractOf.methods.calculate_price(userEnteredValToWei).call();
-                console.log("calculatedRoad",calculatedRoad);
-
-
-                if(parseFloat(usersBNBBalance)>parseFloat(calculatedRoad)){
-                    if(parseFloat(web3.utils.fromWei(calculatedRoad))>= 0.1){
-
-                        await preSaleContractOf.methods.buy(userEnteredValToWei.toString()).send({
+                if(parseFloat(usersBNBBalance)>parseFloat(userEnteredValToWei)){
+                        await preSaleContractOf.methods.buy().send({
                             from :acc,
-                            value: calculatedRoad
+                            value:userEnteredValToWei.toString() 
                         })
                         toast.success("Transaction Successfull")
-                    }else{
-                        toast.error("Minimum Purchase is of 0.1 BNB")
-                    }
                 }else{
                     toast.error("Insufficient Balance")
-                }
-              
+                } 
             }else{
-                toast.error("Enterd Value Must Be Greater than 0")
-            }
-           
-            
+                toast.error("Minimum Purchase is of 0.1 BNB")
+            }   
         }
-
     }catch(e){
         console.log("Error While Buying Road with BNB", e)
         toast.error("Transaction Rejected")
     }
-    
-
 }
-
-
 
 
     const getWalletAddress = () => {
         dispatch(getWallet());
         // allImagesNfts()
     }
+    useEffect(()=>{
+        dispatch(getRoadPrice())
+    },[acc])
 
     return (
         <div className='imagePool'>
@@ -124,7 +109,7 @@ const buyRoadwithBnb =async()=>{
                                 <div className='d-flex justify-content-start align-items-center ps-md-3 '>
                                     <button className='btn presalebtn'>Buy ROAD Token</button>&nbsp;
 
-                                    <span id="presale-span1">Price: $0.009</span>
+                                    <span id="presale-span1">Price: ${roadPrice}</span>
                                 </div>
                             </div>
                             <div className='col-md-6 col-4 d-flex justify-content-end align-items-end'>
@@ -145,7 +130,7 @@ const buyRoadwithBnb =async()=>{
                                 <div className='row d-flex justify-content-center pt-4 pb-2'>
                                     <div className='col-11 text-start'>
                                         <form>
-                                            <label className="form-label  fw-bold" style={{ color: "#5E606E" }}>Road</label>
+                                            <label className="form-label  fw-bold" style={{ color: "#5E606E" }}>BNB</label>
                                             <input onChange={()=>calculatedRoadPrice()} ref={enteredBnb} type='number' class="form-control" placeholder='0.00' />
                                         </form>
                                     </div>
@@ -153,7 +138,7 @@ const buyRoadwithBnb =async()=>{
                                 <div className='row d-flex justify-content-center pt-4 pb-2'>
                                     <div className='col-11 text-start'>
                                         <form>
-                                            <label className="form-label fw-bold" style={{ color: "#5E606E" }}>BNB</label>
+                                            <label className="form-label fw-bold" style={{ color: "#5E606E" }}>Road</label>
                                             <input type='number' class="form-control" placeholder={reqBNB} />
                                         </form>
                                     </div>
