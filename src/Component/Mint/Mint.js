@@ -63,7 +63,7 @@ function Mint() {
                                     </div>
 
                                     <div className='col-md-12 d-flex justify-content-center'>
-                                        <img src={tiger} className="mint-pic pt-4 pb-3" />
+                                        <img src={tiger} className="mint-pic1 pt-4 pb-3" />
                                     </div>
                                     <div className='col-md-12 d-flex justify-content-center'>
                                         <span className='congrat-span'>Do you want to Breed card or sell in the market?</span>
@@ -103,7 +103,7 @@ function Mint() {
                                 <div className='row d-flex justify-content-center mt-1 mb-2'>
                                     <div className='col-md-11 col-11 mint-boxs  pb-4 mb-5'>
                                         <div className='row d-flex justify-content-center m-3'>
-                                            <div className='col-lg-6 d-flex justify-content-center align-items-center mt-3 mb-3'>
+                                            <div className='col-lg-6 d-flex justify-content-center align-items-center mt-3 mb-3' style={{border: "2px solid red"}}>
                                                 <img src={tiger} className="mint-pic" />
                                             </div>
                                             <div className='col-lg-6 d-flex flex-column justify-content-center'>
@@ -125,7 +125,7 @@ function Mint() {
                                                 <div className='d-flex justify-content-center align-items-center mt-lg-3 mt-3'>
                                                     <button className='btn mintbtn ' onClick={() => setModalShow(true)}>MINT</button>
                                                 </div>
-                                                <span className='mintspan23 pt-lg-4 pt-3'>MAXIMUM OF 10 tiger nfts CARD PER tx</span>
+                                                <span className='mintspan23 pt-lg-4 pt-3'>MAXIMUM OF 3 tiger nfts CARD PER tx</span>
                                             </div>
                                         </div>
                                     </div>
