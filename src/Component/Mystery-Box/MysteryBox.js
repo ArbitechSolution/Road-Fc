@@ -315,7 +315,7 @@ function MysteryBox() {
                                 </div>
                             </div>
                         </Modal> : <></>}
-                        <div className='row d-flex justify-content-center mt-4 mb-4'>
+                        <div className='row d-flex justify-content-center mt-4 mb-5'>
                             <div className='col-lg-12 col-11 presale-box1'>
                                 <img src={mystery} className="mint-image" />
                                 <div className='row d-flex justify-content-center justify-content-lg-around'>
@@ -419,7 +419,7 @@ function MysteryBox() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className='row'>
+                                <div className='row mb-5'>
                                     <div className='col-md-12 col-11 mint-Page-border mb-4'>
                                         <div className='row pt-3 text-start text-sm-center '>
                                             <div className='col-sm-4 text-start' >

@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Badge from 'react-bootstrap/Badge'
 import image2 from "../../Assets/image 2.png"
 import roadsign from "../../Assets/road-sign 1.png"
+import { InputGroup, FormControl } from 'react-bootstrap'
 import tin from "../../Assets/--40 1.png"
 import { ImInfo } from 'react-icons/im';
 import { RiCheckboxBlankCircleFill } from 'react-icons/ri';
@@ -278,7 +279,7 @@ function Staking() {
                         <span id="presale-back"><Link to="/"><MdOutlineKeyboardBackspace size={40} style={{ color: "white" }} /></Link> Back</span>
                     </div>
                     <div className='col-lg-2 col-md-3 col-5' >
-                        <button onClick={() => getWalletAddress()} className='btn poolbtn'>{acc === "No Wallet" ? "Insatll metamask" : acc === "Connect Wallet" ? acc : acc === "Connect to Rinkebey" ? acc : acc.substring(0, 5) + "..." + acc.substring(acc.length - 5)}</button>
+                        <button onClick={() => getWalletAddress()} className='btn poolbtn'>{acc === "No Wallet" ? "Connect" : acc === "Connect" ? acc : acc === "Connect to Rinkebey" ? acc : acc.substring(0, 5) + "..." + acc.substring(acc.length - 5)}</button>
 
                     </div>
                 </div>
@@ -289,13 +290,14 @@ function Staking() {
                     <div className='col-11 mb-3 staking-coll'>
                         <MediaSidebar />
                     </div>
-                    <div className='col-lg-8 col-11 mb-md-1 mb-4'>
+                    <div className='col-lg-8 col-11 mb-md-1 pb-5 mb-4'>
                         <div className='row'>
                             <div className='col-lg-12 col-12 staking-box1111'>
                                 <div className='row'>
                                     <div className='col-md-6 col-8 pt-4 pb-4 ps-md-4'>
                                         <h4 className='staking-h4 pt-4 text-start'>NFT Fighter Card Want?</h4>
-                                        <p className='staking-pp pt-2'>Need energy point to mint NFTs Stake ROAD token to earn energy points now !</p>
+                                        <p className='staking-pp pt-2'>Need energy point to mint NFTs </p>
+                                        <p className='staking-pp pt-2'>Stake ROAD token to earn energy points now!</p>
                                     </div>
                                     <div className='col-md-6 col-4 pt-3 pb-3 staking-colllll'>
                                         <img src={image2} className="Staking-image" />
@@ -388,13 +390,24 @@ function Staking() {
                                                                 <div className='row d-flex justify-content-center mt-4'>
                                                                     <div className='col-8 '>
                                                                         {/* <span className='staking-tab-span'>0.00</span>&nbsp;<span className='presale-span1'>road</span> */}
-                                                                        <form>
-                                                                            {/* <label className="form-label fw-bold" style={{ color: "#5E606E" }}>ROAD</label> */}
+                                                                        <InputGroup >
+                                                                            <FormControl
+                                                                                ref={stakeAmount}
+                                                                                className="pointinput form-control staking-tab-b0xes"
+                                                                                type="number"
+                                                                                placeholder="0.0"
+                                                                                min={1}
+                                                                                aria-label="Recipient's username with two button addons"
+                                                                            />
+                                                                            <InputGroup.Text className="presale-span1 staking-tab-b0xes">Road</InputGroup.Text>
+                                                                        </InputGroup>
+                                                                        {/* <form>
                                                                             <input ref={stakeAmount} type='number' class="form-control" placeholder='0.00' />
-                                                                        </form>
+                                                                        </form> */}
                                                                     </div>
-                                                                    <div className='col-2'>
-                                                                        <Badge onClick={() => stakeAmount.current.value = tamount} bg="secondary">Max</Badge>
+                                                                    <div className='col-2 mt-2'>
+                                                                        <button onClick={() => stakeAmount.current.value = tamount} className="btn btn-secondary" bg="secondary">Max</button>
+                                                                        {/* <Badge onClick={() => stakeAmount.current.value = tamount} bg="secondary"></Badge> */}
                                                                     </div>
                                                                     <div className='col-7 mt-3 mb-2'>
                                                                         <div className="d-grid gap-2">
@@ -410,11 +423,14 @@ function Staking() {
                                                                     <div className='col-12 mb-2'>
                                                                         <span id='Skaing-span' className=''>Locked until 2022-06-02 utc 19:00</span>
                                                                     </div>
-                                                                    <div className='col-8 staking-tab-b0xes'>
+                                                                    <div className='col-8 staking-tab-b0xes pt-2'>
                                                                         <span className='staking-tab-span'>{tamount.toLocaleString()}</span>&nbsp;<span className='presale-span1'>road</span>
                                                                     </div>
                                                                     <div className='col-2'>
-                                                                        <Badge bg="secondary">Max</Badge>
+                                                                        <div className='col-2 mt-1'>
+                                                                            <button className="btn btn-secondary" bg="secondary">Max</button>
+                                                                            {/* <Badge onClick={() => stakeAmount.current.value = tamount} bg="secondary"></Badge> */}
+                                                                        </div>
                                                                     </div>
                                                                     <div className='col-7 mt-3 mb-2'>
                                                                         <div className="d-grid gap-2">
@@ -511,14 +527,32 @@ function Staking() {
                                                             <label for="tab4">UNSTAKE</label>
                                                             <div className="tab__content">
                                                                 <div className='row d-flex justify-content-center mt-4'>
-                                                                    <div className='col-8 '>
+                                                                <div className='col-8 '>
                                                                         {/* <span className='staking-tab-span'>0.00</span>&nbsp;<span className='presale-span1'>road</span> */}
+                                                                        <InputGroup >
+                                                                            <FormControl
+                                                                                ref={stakeAmountLp}
+                                                                                className="pointinput form-control staking-tab-b0xes"
+                                                                                type="number"
+                                                                                placeholder="0.0"
+                                                                                min={1}
+                                                                                aria-label="Recipient's username with two button addons"
+                                                                            />
+                                                                            <InputGroup.Text className="presale-span1 staking-tab-b0xes">Road</InputGroup.Text>
+                                                                        </InputGroup>
+
+                                                                    </div>
+                                                                    <div className='col-2 mt-2'>
+                                                                        <button onClick={() => stakeAmountLp.current.value = tamountlp} className="btn btn-secondary" bg="secondary">Max</button>
+                                                                    </div>
+                                                                    {/* <div className='col-8 '>
+
                                                                         <input ref={stakeAmountLp} type='number' class="form-control" placeholder='0.00' />
 
                                                                     </div>
                                                                     <div className='col-2'>
                                                                         <Badge onClick={() => stakeAmountLp.current.value = tamountlp} bg="secondary">Max</Badge>
-                                                                    </div>
+                                                                    </div> */}
                                                                     <div className='col-7 mt-3 mb-2'>
                                                                         <div className="d-grid gap-2">
                                                                             <button onClick={() => stakeLpVal()} variant="primary" className='btn staking-tab-btn' size="lg">
@@ -533,12 +567,16 @@ function Staking() {
                                                                     <div className='col-12 mb-2'>
                                                                         <span id='Skaing-span' className=''>Locked until 2022-06-02 utc 19:00</span>
                                                                     </div>
-                                                                    <div className='col-8 staking-tab-b0xes'>
+                                                                    <div className='col-8 staking-tab-b0xes pt-2'>
                                                                         <span className='staking-tab-span'>{tamountlp.toLocaleString()}</span>&nbsp;<span className='presale-span1'>road</span>
                                                                     </div>
-                                                                    <div className='col-2'>
-                                                                        <Badge bg="secondary">Max</Badge>
+                                                                    <div className='col-2 mt-1'>
+                                                                        <button  className="btn btn-secondary" bg="secondary">Max</button>
+
                                                                     </div>
+                                                                    {/* <div className='col-2'>
+                                                                        <Badge bg="secondary">Max</Badge>
+                                                                    </div> */}
                                                                     <div className='col-7 mt-3 mb-2'>
                                                                         <div className="d-grid gap-2">
                                                                             <button onClick={() => unstakeLp()} variant="primary" className='btn staking-tab-btn' size="lg">

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import "./Marketplace.css"
-import Box from '@mui/material/Box';
-import Slider from '@mui/material/Slider';
+// import Box from '@mui/material/Box';
+// import Slider from '@mui/material/Slider';
 import circle from "../../Assets/circle.png"
 import { HiShoppingCart } from "react-icons/hi"
 // import { makeStyles } from "@material-ui/core/styles";
@@ -81,14 +81,14 @@ function Marketplace() {
     // };
     // const classes = useStyles();
 
-    let [checked, setChecked] = useState(false);
-    let [radioValue, setRadioValue] = useState('1');
-    const radios = [
-        { name: 'Marketplace', value: '1' },
-        { name: 'Sell', value: '2' },
-        { name: 'Listed', value: '3' },
-        { name: 'Transaction Log', value: '4' },
-    ];
+    // let [checked, setChecked] = useState(false);
+    // let [radioValue, setRadioValue] = useState('1');
+    // const radios = [
+    //     { name: 'Marketplace', value: '1' },
+    //     { name: 'Sell', value: '2' },
+    //     { name: 'Listed', value: '3' },
+    //     { name: 'Transaction Log', value: '4' },
+    // ];
     return (
         <div className='imagePool'>
             <div className='container'>
@@ -347,7 +347,61 @@ function Marketplace() {
                                     <span className='placespan'>Lv. 10</span>
                                     <span className='placespan1'><img src={Frame26} width="24px" /> 1</span>
                                 </div>
+                                <img src={tiger11} className="nfts-image " />
+                                <div className='d-flex flex-row justify-content-between align-items-center mt-3 '>
+                                    <span className='nfts-h6'>Alien</span>
+                                    <span className='place-pp'>50 ROAD</span>
+                                </div>
+                                <div className='d-flex flex-row justify-content-between align-items-center mt-3 '>
+                                    <span className='palce-h6'>Legendary</span>
+                                    <span className='palce-h6'>20 USD</span>
+                                </div>
+                                <div className='d-flex flex-row justify-content-between align-items-center'>
+                                    <div className='col-4'>
+                                        <div className="d-grid gap-2 mt-4 mb-2">
+                                            <button className='btn btnplace' size="lg">
+                                                Buy
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div className='col-1 boxplace d-flex justify-content-center align-items-center mt-3' >
+                                        <HiShoppingCart size={20} style={{ color: "white" }} />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='col-md-3 nft-boxx p-2 mt-3'>
+                                <div className='d-flex flex-row justify-content-between align-items-center mb-2'>
+                                    <span className='placespan'>Lv. 10</span>
+                                    <span className='placespan1'><img src={Frame26} width="24px" /> 1</span>
+                                </div>
                                 <img src={image2} className="nfts-image " />
+                                <div className='d-flex flex-row justify-content-between align-items-center mt-3 '>
+                                    <span className='nfts-h6'>Alien</span>
+                                    <span className='place-pp'>50 ROAD</span>
+                                </div>
+                                <div className='d-flex flex-row justify-content-between align-items-center mt-3 '>
+                                    <span className='palce-h6'>Legendary</span>
+                                    <span className='palce-h6'>20 USD</span>
+                                </div>
+                                <div className='d-flex flex-row justify-content-between align-items-center'>
+                                    <div className='col-4'>
+                                        <div className="d-grid gap-2 mt-4 mb-2">
+                                            <button className='btn btnplace' size="lg">
+                                                Buy
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div className='col-1 boxplace d-flex justify-content-center align-items-center mt-3' >
+                                        <HiShoppingCart size={20} style={{ color: "white" }} />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='col-md-3 nft-boxx p-2 mt-3'>
+                                <div className='d-flex flex-row justify-content-between align-items-center mb-2'>
+                                    <span className='placespan'>Lv. 10</span>
+                                    <span className='placespan1'><img src={Frame26} width="24px" /> 1</span>
+                                </div>
+                                <img src={tiger12} className="nfts-image " />
                                 <div className='d-flex flex-row justify-content-between align-items-center mt-3 '>
                                     <span className='nfts-h6'>Alien</span>
                                     <span className='place-pp'>50 ROAD</span>

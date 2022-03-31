@@ -20,7 +20,7 @@
     outline: none;
 }
 .active-link{
-  
+
     /* opacity: 0.90;
     border-radius: 8px;
     font-weight: 600;
@@ -109,8 +109,8 @@
 
 .staking-pp {
     font-weight: normal;
-    font-size: 17px;
-    line-height: 100%;
+    font-size: 19px;
+    line-height: 40%;
     color: #FFFFFF;
     text-align: left;
 }
@@ -414,14 +414,14 @@ li {
 
 .social__tooltip-bottom {
 
-    left: -100px;
+    left: -142px;
     top: 0px;
 
     transform: translate(-48%, 38%);
 }
 
 .social__tooltip-bottom::after {
-    left: -100px;
+    left: -120px;
     transform: translate(-50%, -50%) rotate(45deg);
     top: 23px;
 }
@@ -432,7 +432,7 @@ li {
 }
 
 .staking-info-pic {
-    width: 300px;
+    width: 430px;
 
 }
 

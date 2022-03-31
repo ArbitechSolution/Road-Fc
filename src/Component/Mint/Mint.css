@@ -21,14 +21,14 @@
     border-radius: 16px;
 }
 
-.mint-pic {
-    width: 800px;
+#mint-pic {
+    width: 300px;
 }
 
-.mint-pic1 {
+/* .mint-pic1 {
     width: 300px;
     margin-left: 40px;
-}
+} */
 
 .mint-boxes {
     background: linear-gradient(90deg, #1A1C23 0%, rgba(26, 28, 35, 0) 100%);
@@ -67,10 +67,10 @@
     background: linear-gradient(180deg, #FF5043 0%, #F92D1E 100%);
     border-radius: 50px;
     font-style: normal;
-    font-weight: bold;
-    font-size: 22px;
+    /* font-weight: bold; */
+    font-size: 20px;
     line-height: 33px;
-    padding: 8px 37px;
+    padding: 8px 87px;
     color: #FFFFFF;
 }
 

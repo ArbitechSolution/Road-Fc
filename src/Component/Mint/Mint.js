@@ -96,15 +96,15 @@ function Mint() {
                             </Modal.Body>
                         </Modal> : <></>}
 
-                        <div className='row d-flex justify-content-center mt-4 mb-1'>
+                        <div className='row d-flex justify-content-center mt-4 mb-5'>
                             <div className='col-lg-12 col-11 presale-box1'>
                                 <img src={Title} className="mint-image" />
 
                                 <div className='row d-flex justify-content-center mt-1 mb-2'>
                                     <div className='col-md-11 col-11 mint-boxs  pb-4 mb-5'>
                                         <div className='row d-flex justify-content-center m-3'>
-                                            <div className='col-lg-6 d-flex justify-content-center align-items-center mt-3 mb-3' style={{border: "2px solid red"}}>
-                                                <img src={tiger} className="mint-pic" />
+                                            <div className='col-lg-6 d-flex justify-content-center align-items-center mt-3 mb-3' >
+                                                <img src={tiger} id="mint-pic" />
                                             </div>
                                             <div className='col-lg-6 d-flex flex-column justify-content-center'>
                                                 <div className='col-11 mint-boxes d-flex justify-content-between mb-3 pt-3 pb-3'>
@@ -122,7 +122,7 @@ function Mint() {
                                                     <a onClick={increaseValue} style={{ cursor: "pointer" }}> <img src={plus} /></a>
                                                 </div>
 
-                                                <div className='d-flex justify-content-center align-items-center mt-lg-3 mt-3'>
+                                                <div className=' d-flex justify-content-center align-items-center mt-lg-3 mt-3'>
                                                     <button className='btn mintbtn ' onClick={() => setModalShow(true)}>MINT</button>
                                                 </div>
                                                 <span className='mintspan23 pt-lg-4 pt-3'>MAXIMUM OF 3 tiger nfts CARD PER tx</span>
@@ -131,7 +131,7 @@ function Mint() {
                                     </div>
                                 </div>
 
-                                <div className='row'>
+                                <div className='row mb-5'>
                                     <div className='col-md-12 col-11 mint-Page-border mb-4'>
                                         <div className='row pt-3 text-start text-sm-center '>
                                             <div className='col-sm-4 text-start' >

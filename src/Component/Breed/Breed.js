@@ -45,7 +45,7 @@ function Breed() {
                     <div className='col-11 mb-3 staking-coll'>
                     <MediaSidebar />
                     </div>
-                    <div className='col-lg-8 col-11 mb-md-1 mb-4 mt-4 '>
+                    <div className='col-lg-8  col-11 mb-md-1 mb-4 mt-4 '>
                         {modalShow ? <Modal
                             show={modalShow}
                             onHide={() => setModalShow(false)}
@@ -152,7 +152,7 @@ function Breed() {
                                 </div>
                             </Modal.Body>
                         </Modal> : <></>}
-                        <div className='row d-flex justify-content-center mt-4 mb-1'>
+                        <div className='row d-flex justify-content-center mt-4 mb-5 ms-2'>
                             <div className='col-lg-12 col-11 presale-box1'>
                                 <img src={Breedimag} className="mint-image" />
 
@@ -179,7 +179,7 @@ function Breed() {
                                                 <div className=' BreedBoxs'>
                                                     <img src={Group195} className='pt-5 pb-5' width="30px" />
                                                     <div className='  BreedminiBox p-2'>
-                                                        Trainer 1
+                                                        Trainer 2
                                                     </div>
                                                     <p className='Breedtext pt-4 pb-4'></p>
                                                 </div>
@@ -190,7 +190,7 @@ function Breed() {
                                                 <span className='bredd-span'>Available</span>
                                                 <span className='bredd-span'><span className='breed-psans'>10,000</span> $ROAD</span>
                                             </div>
-                                            <div className='col-lg-4 col-md-7 col-10 mt-3 mb-3'>
+                                            <div className='col-lg-5 col-md-7 col-10 mt-3 mb-3'>
                                                 <div className="d-grid gap-2">
 
                                                     <button className='btn breed-btn' size="lg" onClick={() => setModalShow(true)}>

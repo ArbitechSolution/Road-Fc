@@ -82,6 +82,7 @@ breedtext1 {
     font-size: 15px;
     line-height: 132%;
     color: #FFFFFF;
+    padding: 14px 0px;
 }
 
 .breed-btn:hover {
@@ -116,8 +117,13 @@ font-size: 16px;
 line-height: 144%;
 color: #7E808D;
 }
-@media(max-width: 400px) {
+@media(max-width: 1100px){
     .breedImages {
-        width: 180px;
+        width: 80px;
+    }
+}
+@media(max-width: 480px) {
+    .breedImages {
+        width: 170px;
     }
 }
