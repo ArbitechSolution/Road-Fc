@@ -61,7 +61,7 @@ color: white;
         height: 100vh;
     }
 }
-@media(min-width: 1300px) and (max-width: 1599px){
+@media(min-width: 1400px) and (max-width: 1599px){
     .imagePool{
         background-image: url("../../Assets/BG.png"),url("../../Assets/BG1.png");
         background-repeat: no-repeat;

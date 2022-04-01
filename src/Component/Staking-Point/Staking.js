@@ -373,7 +373,7 @@ function Staking() {
                                                     </div>
                                                     <div className='col-12 pt-2 pb-3 d-flex justify-content-between align-items-center' style={{ borderTop: "2px solid #5A5C6A" }}>
                                                         <span id='Skaing-span'>Total ROAD Staked</span>
-                                                        <span id='Skaing-spans'>3,014,000</span>
+                                                        <span id='Skaing-spans'>0.00</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -517,7 +517,7 @@ function Staking() {
                                                     </div>
                                                     <div className='col-12 pt-2 pb-3 d-flex justify-content-between align-items-center' style={{ borderTop: "2px solid #5A5C6A" }}>
                                                         <span id='Skaing-span'>Total ROAD Staked</span>
-                                                        <span id='Skaing-spans'>3,014,000</span>
+                                                        <span id='Skaing-spans'>0.00</span>
                                                     </div>
                                                 </div>
                                             </div>

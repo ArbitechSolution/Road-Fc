@@ -401,12 +401,12 @@ function MysteryBox() {
                                             <div className='col-12 mt-5'>
                                                 <h3 className='mystery-h3'>Mystery Box Amount</h3>
                                             </div>
-                                            <div className=' d-flex justify-content-center justify-content-around align-items-center mt-4'>
+                                            <div className=' d-flex justify-content-center justify-content-around align-items-center mt-2'>
                                                 <a onClick={decreaseValuebox} style={{ cursor: "pointer" }}><img src={Mins} /></a>
                                                 <div className='boxess d-flex justify-content-center align-items-center'>{valueone}</div>
                                                 <a onClick={increaseValuebox} style={{ cursor: "pointer" }}> <img src={plus} /></a>
                                             </div>
-                                            <div className='col-11 mint-boxes d-flex justify-content-between mt-5 mb-3 pt-3 pb-3'>
+                                            <div className='col-11 mint-boxes d-flex justify-content-between mt-4 mb-3 pt-3 pb-3'>
                                                 <span className='mint-span ps-2'>Total Cost:</span>
                                                 <span className='mint-span1'>1,000 $ROAD</span>
                                             </div>

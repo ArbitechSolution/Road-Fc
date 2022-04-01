@@ -66,7 +66,7 @@ const calculatedRoadPrice =async()=>{
     }else{
         setReqBNB(0)
     }
-    
+
     // requiredBNB.current.value =calculatedRoad;
 
 }
@@ -82,7 +82,7 @@ const buyRoadwithBnb =async()=>{
             console.log("Connect Wallet");
             toast.error("Connect Wallet")
         }else {
-           
+
             let userEnteredVal = enteredBnb.current.value;
             if(parseFloat(userEnteredVal)>=0.1){
                 const web3 = window.web3;
@@ -93,17 +93,17 @@ const buyRoadwithBnb =async()=>{
                 if(parseFloat(usersBNBBalance)>parseFloat(userEnteredValToWei)){
                         await preSaleContractOf.methods.buy().send({
                             from :acc,
-                            value:userEnteredValToWei.toString() 
+                            value:userEnteredValToWei.toString()
                         })
                         toast.success("Transaction Successfull")
                         dispatch(getTotalsold())
                         calucaltePercentage()
                 }else{
                     toast.error("Insufficient Balance")
-                } 
+                }
             }else{
                 toast.error("Minimum Purchase is of 0.1 BNB")
-            }   
+            }
         }
     }catch(e){
         console.log("Error While Buying Road with BNB", e)
@@ -175,14 +175,7 @@ useEffect(()=>{
                             <div className='col-lg-5 col-md-7 col-11 pool-box3 mb-4 mt-4'>
                                 <h5 className='bool-h55 pt-5 fw-bold'>PRE-SALE</h5>
                                 <div className='row d-flex justify-content-center pt-4 pb-2'>
-                                    <div className='col-11 text-start' data-aos="fade-up"
-                                        data-aos-anchor-placement="bottom-bottom"
-                                        data-aos-offset="200"
-                                        data-aos-delay="100"
-                                        data-aos-duration="1000"
-                                        // data-aos-easing="ease-in-out"
-                                        data-aos-mirror="true"
-                                        // data-aos-once="false"
+                                    <div className='col-11 text-start'
                                         >
                                         <form>
                                             <label className="form-label  fw-bold" style={{ color: "#5E606E" }}>$Road</label>
@@ -191,14 +184,7 @@ useEffect(()=>{
                                     </div>
                                 </div>
                                 <div className='row d-flex justify-content-center pt-4 pb-2'>
-                                    <div className='col-11 text-start' data-aos="fade-up"
-                                        data-aos-anchor-placement="bottom-bottom"
-                                        data-aos-offset="200"
-                                        data-aos-delay="100"
-                                        data-aos-duration="1000"
-                                        // data-aos-easing="ease-in-out"
-                                        data-aos-mirror="true"
-                                        // data-aos-once="false"
+                                    <div className='col-11 text-start'
                                         >
                                         <form>
                                             <label className="form-label fw-bold" style={{ color: "#5E606E" }}>$BNB</label>
@@ -223,7 +209,23 @@ useEffect(()=>{
                                     </div>
                                     <div className='col-11 presale-b0x1 pt-4 pb-4 mt-2'>
                                     <ProgressBar variant={"YOU_PICK_A_NAME"} style={{ Color: "#E24034" }} now={percentageValue} />
-                                       
+                                        {/* <div className='progress'>
+                                            <div
+                                            className='bar'
+                                            width="80%" data-aos="fade-right"
+                                            data-aos-offset="200"
+                                            data-aos-delay="100"
+                                            data-aos-duration="1000"
+                                            data-aos-easing="ease-in-out"
+                                            data-aos-mirror="true"
+                                            data-aos-once="false">
+                                            </div>
+                                        </div> */}
+                                        {/* <div className="progress">
+                                            <div className="bar" style="width:35%">
+                                            </div>
+                                        </div> */}
+                                        {/* <ProgressBar variant="warning" style={{ Color: "#E24034" }} now={40} /> */}
                                         <div className='d-flex justify-content-between justify-content-center'>
                                             <span className='span-presale'>{percentageValue}%</span>
                                             <span className='span-presale'>100,000,000 $ROAD (Sold out)</span>

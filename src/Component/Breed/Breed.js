@@ -159,7 +159,7 @@ function Breed() {
                                 <div className='row d-flex justify-content-lg-start justify-content-center'>
                                     <div className='col-lg-7'>
                                         <div className='row d-flex justify-content-center'>
-                                            <div className='col-lg-11 col-10 Breed-box p-3'>
+                                            <div className='col-lg-12 col-10 Breed-box p-3 ms-2'>
                                                 <span>Select two Trainer Fighters who will perform the breed to make more powerful fighter. You can check rarity level HERE.</span>
                                             </div>
                                         </div>
@@ -167,7 +167,7 @@ function Breed() {
                                             <div className="col-lg-6 col-10  mb-lg-1 mb-5">
                                                 <p className='breedtext1 mt-3'>TRAINER</p>
                                                 <div className=' BreedBoxs'>
-                                                    <img src={Group195} className='pt-5 pb-5' width="30px" />
+                                                    <img src={Group195} className='pt-5 pb-5' width="35px" />
                                                     <div className='  BreedminiBox p-2'>
                                                         Trainer 1
                                                     </div>
@@ -177,7 +177,7 @@ function Breed() {
                                             <div className="col-lg-6 col-10  mb-lg-1 mb-5">
                                                 <p className='breedtext1 mt-3'>TRAINER</p>
                                                 <div className=' BreedBoxs'>
-                                                    <img src={Group195} className='pt-5 pb-5' width="30px" />
+                                                    <img src={Group195} className='pt-5 pb-5' width="35px" />
                                                     <div className='  BreedminiBox p-2'>
                                                         Trainer 2
                                                     </div>
@@ -190,10 +190,9 @@ function Breed() {
                                                 <span className='bredd-span'>Available</span>
                                                 <span className='bredd-span'><span className='breed-psans'>10,000</span> $ROAD</span>
                                             </div>
-                                            <div className='col-lg-5 col-md-7 col-10 mt-3 mb-3'>
+                                            <div className='col-lg-5 col-md-7 col-10 mt-5 mb-3'>
                                                 <div className="d-grid gap-2">
-
-                                                    <button className='btn breed-btn' size="lg" onClick={() => setModalShow(true)}>
+                                                    <button className='btn breed-btn mt-3' size="lg" onClick={() => setModalShow(true)}>
                                                         Breed
                                                     </button>
                                                 </div>
