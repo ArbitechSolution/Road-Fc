@@ -20,7 +20,10 @@ font-weight: 600;
 font-size: 20px;
 line-height: 132%;
 color: white;
-padding: 7px 4px;
+padding: 7px 14px;
+}
+.presalesbtn1:hover{
+    color: white;
 }
 .Presale-p {
     font-weight: 600;

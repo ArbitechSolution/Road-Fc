@@ -17,12 +17,13 @@
 .BreedBoxs {
     background: #000000;
     border-radius: 16px;
+    box-shadow: 0px 0px 15px rgba(254, 75, 62, 0.25);
 }
 
 .BreedminiBox {
     background: linear-gradient(90deg, rgba(243, 68, 30, 0.5) 0%, rgba(243, 119, 30, 0.5) 48.96%, rgba(243, 68, 30, 0.5) 100%);
     font-weight: 600;
-    font-size: 26px;
+    font-size: 22px;
     line-height: 100%;
     color: #FFFFFF;
 }
@@ -82,7 +83,7 @@ breedtext1 {
     font-size: 15px;
     line-height: 132%;
     color: #FFFFFF;
-    padding: 14px 0px;
+    padding: 10px 0px;
 }
 
 .breed-btn:hover {
