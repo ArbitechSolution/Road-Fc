@@ -2,7 +2,12 @@ import React, { useEffect, useRef, useState } from 'react'
 import { MdOutlineKeyboardBackspace } from 'react-icons/md';
 import "./Presale.css"
 import p305 from "../../Assets/305 1.png"
+<<<<<<< Updated upstream
 import { getWallet, getRoadPrice } from '../Redux/actions/actions'
+=======
+import { getWallet,getRoadPrice,getRoadTotalSupply,getHardCap,getSoftCap,getMinPurchase,
+    getMaxPurchase,getTotalsold } from '../Redux/actions/actions'
+>>>>>>> Stashed changes
 import { useSelector, useDispatch } from 'react-redux';
 import { stakingContractAddress, stakingContractAbi } from '../Utils/stakingContract'
 // import ProgressBar from 'react-bootstrap/ProgressBar'
@@ -14,11 +19,17 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 const webSupply = new Web3("https://data-seed-prebsc-1-s1.binance.org:8545/");
 function Presale() {
+<<<<<<< Updated upstream
     let [reqBNB, setReqBNB] = useState("0.00")
+=======
+    let [percentageValue,setpercentageValue]= useState(0)
+    let [reqBNB, setReqBNB]=useState(0)
+>>>>>>> Stashed changes
     let enteredBnb = useRef(0)
     let requiredBNB = useRef(0)
     let dispatch = useDispatch();
     let { acc } = useSelector(state => state.connectWallet);
+<<<<<<< Updated upstream
     let { roadPrice } = useSelector(state => state.getRoadPrice)
     console.log("myRoadPrice", roadPrice);
     AOS.init();
@@ -28,6 +39,32 @@ function Presale() {
         if (parseFloat(userEnteredVal) > 0) {
             let userEnteredValToWei = webSupply.utils.toWei(userEnteredVal.toString())
             console.log("userEnteredValToWei", userEnteredValToWei);
+=======
+    let {roadPrice}= useSelector(state => state.getRoadPrice);
+    let {myroadTotalSupply}= useSelector(state =>state.getRoadTotalSupply);
+    let {myHardCap} = useSelector(state=> state.getHardCap);
+    let {mysoftCap} = useSelector(state => state.getSoftCap);
+    let {myMinPurchase} =useSelector(state=> state.getMinimumPurchase);
+    let {myMaxPurchase} = useSelector(state=>state.getMaximumPurchase);
+    let {myTotalSold} = useSelector(state=> state.getTotalSoldTokens);
+    
+    myTotalSold= parseInt(myTotalSold);
+
+    console.log("myTotalSold",myTotalSold);
+
+
+const calucaltePercentage =()=>{
+    let total = parseInt(myroadTotalSupply);
+    let sold = parseInt(myTotalSold);
+    let myPercent = myTotalSold/500000;
+    myPercent =myPercent*100;
+    myPercent = parseFloat(myPercent).toFixed(1)
+    console.log("percentageValue",sold);
+    console.log("percentageValue",myPercent);
+
+    setpercentageValue(myPercent)
+}
+>>>>>>> Stashed changes
 
 
             let calculatedRoad = await preSaleContractOf.methods.calculate_price(userEnteredValToWei).call();
@@ -37,6 +74,7 @@ function Presale() {
         } else {
             setReqBNB(0)
         }
+<<<<<<< Updated upstream
 
         // requiredBNB.current.value =calculatedRoad;
 
@@ -62,11 +100,29 @@ function Presale() {
                     let preSaleContractOf = new web3.eth.Contract(preSaleContractAbi, preSaleContractAddress);
                     let userEnteredValToWei = web3.utils.toWei(userEnteredVal.toString())
                     if (parseFloat(usersBNBBalance) > parseFloat(userEnteredValToWei)) {
+=======
+        else if (acc == "Wrong Network") {
+            toast.error("Wrong Network")
+        } else if (acc == "Connect Wallet") {
+            console.log("Connect Wallet");
+            toast.error("Connect Wallet")
+        }else {
+           
+            let userEnteredVal = enteredBnb.current.value;
+            if(parseFloat(userEnteredVal)>=0.1){
+                const web3 = window.web3;
+                let usersBNBBalance = await web3.eth.getBalance(acc);
+                console.log("userEnteredVal",usersBNBBalance);
+                let preSaleContractOf = new web3.eth.Contract(preSaleContractAbi,preSaleContractAddress);
+                let  userEnteredValToWei = web3.utils.toWei(userEnteredVal.toString())
+                if(parseFloat(usersBNBBalance)>parseFloat(userEnteredValToWei)){
+>>>>>>> Stashed changes
                         await preSaleContractOf.methods.buy().send({
                             from: acc,
                             value: userEnteredValToWei.toString()
                         })
                         toast.success("Transaction Successfull")
+<<<<<<< Updated upstream
                     } else {
                         toast.error("Insufficient Balance")
                     }
@@ -77,6 +133,16 @@ function Presale() {
         } catch (e) {
             console.log("Error While Buying Road with BNB", e)
             toast.error("Transaction Rejected")
+=======
+                        dispatch(getTotalsold())
+                        calucaltePercentage()
+                }else{
+                    toast.error("Insufficient Balance")
+                } 
+            }else{
+                toast.error("Minimum Purchase is of 0.1 BNB")
+            }   
+>>>>>>> Stashed changes
         }
     }
 
@@ -85,9 +151,30 @@ function Presale() {
         dispatch(getWallet());
         // allImagesNfts()
     }
+<<<<<<< Updated upstream
     useEffect(() => {
         dispatch(getRoadPrice())
     }, [acc])
+=======
+
+useEffect(()=>{
+    calucaltePercentage()
+},[myTotalSold])
+
+    useEffect(()=>{
+
+
+        dispatch(getRoadPrice())
+        dispatch(getRoadTotalSupply())
+        dispatch(getHardCap())
+        dispatch(getSoftCap())
+        dispatch(getMinPurchase())
+        dispatch(getMaxPurchase())
+        dispatch(getTotalsold())
+        calucaltePercentage()
+
+    },[acc])
+>>>>>>> Stashed changes
 
     return (
         <div className='imagePool'>
@@ -176,6 +263,7 @@ function Presale() {
                                         <span className='presale-span1'>Current Pool</span>
                                     </div>
                                     <div className='col-11 presale-b0x1 pt-4 pb-4 mt-2'>
+<<<<<<< Updated upstream
                                         <div className='progress'>
                                             <div className='bar' width="80%" data-aos="fade-right"
                                             data-aos-offset="200"
@@ -195,6 +283,12 @@ function Presale() {
                                         <div className='d-flex justify-content-between justify-content-center'>
                                             <span className='span-presale'>100%</span>
                                             <span className='span-presale'>100,000,000 $ROAD (Sold out)</span>
+=======
+                                        <ProgressBar variant="warning" style={{ Color: "#E24034" }} now={percentageValue} />
+                                        <div className='d-flex justify-content-between pt-1'>
+                                            <span className='span-presale'>{percentageValue}%</span>
+                                            <span className='span-presale'>120,000,000 ROAD</span>
+>>>>>>> Stashed changes
                                         </div>
                                     </div>
                                 </div>
@@ -205,7 +299,7 @@ function Presale() {
                                 <div className='row d-flex justify-content-center mt-4'>
                                     <div className='col-11 d-flex justify-content-between align-items-center mt-2'>
                                         <span className='presale-span21'>Total Supply</span>
-                                        <span className='presale-span22'>10,000,000,000 &nbsp;<span className='presale-span1'>ROAD</span></span>
+                                        <span className='presale-span22'>{myroadTotalSupply.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} &nbsp;<span className='presale-span1'>ROAD</span></span>
                                     </div>
                                     <div className='col-11 mt-3' >
                                         <p style={{ border: "1px solid #292C38" }}></p>
@@ -223,7 +317,7 @@ function Presale() {
                                 <div className='row d-flex justify-content-center '>
                                     <div className='col-11 d-flex justify-content-between align-items-center mt-1'>
                                         <span className='presale-span21'>Price</span>
-                                        <span className='presale-span22'>$0.009</span>
+                                        <span className='presale-span22'>${roadPrice}</span>
                                     </div>
                                     <div className='col-11 mt-2' >
                                         <p style={{ border: "1px solid #292C38" }}></p>
@@ -232,7 +326,7 @@ function Presale() {
                                 <div className='row d-flex justify-content-center '>
                                     <div className='col-11 d-flex justify-content-between align-items-center mt-1'>
                                         <span className='presale-span21'>Minimum Purchase</span>
-                                        <span className='presale-span22'>0.1 BNB</span>
+                                        <span className='presale-span22'>{myMinPurchase} BNB</span>
                                     </div>
                                     <div className='col-11 mt-2' >
                                         <p style={{ border: "1px solid #292C38" }}></p>
@@ -241,7 +335,7 @@ function Presale() {
                                 <div className='row d-flex justify-content-center '>
                                     <div className='col-11 d-flex justify-content-between align-items-center mt-1'>
                                         <span className='presale-span21'>Max Purchase</span>
-                                        <span className='presale-span22'>12 BNB</span>
+                                        <span className='presale-span22'>{myMaxPurchase} BNB</span>
                                     </div>
                                     <div className='col-11 mt-2' >
                                         <p style={{ border: "1px solid #292C38" }}></p>
@@ -268,7 +362,7 @@ function Presale() {
                                 <div className='row d-flex justify-content-center '>
                                     <div className='col-11 d-flex justify-content-between align-items-center mt-1'>
                                         <span className='presale-span21'>Soft Cap</span>
-                                        <span className='presale-span22'>1,000 BNB</span>
+                                        <span className='presale-span22'>{mysoftCap} BNB</span>
                                     </div>
                                     <div className='col-11 mt-2' >
                                         <p style={{ border: "1px solid #292C38" }}></p>
@@ -277,7 +371,7 @@ function Presale() {
                                 <div className='row d-flex justify-content-center '>
                                     <div className='col-11 d-flex justify-content-between align-items-center mt-1'>
                                         <span className='presale-span21'>Hard Cap</span>
-                                        <span className='presale-span22'>2,000 BNB</span>
+                                        <span className='presale-span22'>{myHardCap} BNB</span>
                                     </div>
                                     <div className='col-11 mt-2' >
                                         <p style={{ border: "1px solid #292C38" }}></p>

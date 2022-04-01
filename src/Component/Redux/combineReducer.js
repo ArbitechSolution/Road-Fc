@@ -10,6 +10,12 @@ import {getBrawlPointMint} from './reducers/getUsersbrwalPointMint'
 import {setCurrentBpTokens} from "./reducers/getCurrentBpTokens";
 import { setMaxBpTokens } from './reducers/getMaxBpTokens';
 import {getRoadPrice} from './reducers/getRoadPrice'
+import {getRoadTotalSupply} from './reducers/getRoadTotalSupply';
+import {getHardCap} from './reducers/getPresaleHardCap';
+import {getSoftCap} from './reducers/getPresaleSoftCap';
+import {getMinimumPurchase} from './reducers/getMinimumPurchase';
+import {getMaximumPurchase} from './reducers/getMaximumPurchase';
+import {getTotalSoldTokens} from './reducers/getTotalSoldTokens';
 const allReducer = combineReducers({
 
     connectWallet:connectWallet,
@@ -22,7 +28,13 @@ const allReducer = combineReducers({
     getBrawlPointMint:getBrawlPointMint,
     setMaxBpTokens:setMaxBpTokens,
     setCurrentBpTokens:setCurrentBpTokens,
-    getRoadPrice:getRoadPrice
+    getRoadPrice:getRoadPrice,
+    getRoadTotalSupply:getRoadTotalSupply,
+    getHardCap:getHardCap,
+    getSoftCap:getSoftCap,
+    getMinimumPurchase:getMinimumPurchase,
+    getMaximumPurchase:getMaximumPurchase,
+    getTotalSoldTokens:getTotalSoldTokens
 
 });
 
