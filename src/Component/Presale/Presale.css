@@ -175,7 +175,10 @@ color: #A0A0A0;
     background:#31343E;
     border-radius:6px;
   }
-
+  .bg-YOU_PICK_A_NAME{
+    background-color: #E24034!important;
+    color: #E24034;
+  }
   .bar {
   /* 	position:relative; */
     float:left;

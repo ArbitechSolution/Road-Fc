@@ -1,13 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { MdOutlineKeyboardBackspace } from 'react-icons/md';
 import "./Presale.css"
+import ProgressBar from 'react-bootstrap/ProgressBar'
+
 import p305 from "../../Assets/305 1.png"
-<<<<<<< Updated upstream
-import { getWallet, getRoadPrice } from '../Redux/actions/actions'
-=======
 import { getWallet,getRoadPrice,getRoadTotalSupply,getHardCap,getSoftCap,getMinPurchase,
     getMaxPurchase,getTotalsold } from '../Redux/actions/actions'
->>>>>>> Stashed changes
 import { useSelector, useDispatch } from 'react-redux';
 import { stakingContractAddress, stakingContractAbi } from '../Utils/stakingContract'
 // import ProgressBar from 'react-bootstrap/ProgressBar'
@@ -18,28 +16,14 @@ import { toast } from 'react-toastify';
 import AOS from "aos";
 import "aos/dist/aos.css";
 const webSupply = new Web3("https://data-seed-prebsc-1-s1.binance.org:8545/");
+
+
 function Presale() {
-<<<<<<< Updated upstream
-    let [reqBNB, setReqBNB] = useState("0.00")
-=======
     let [percentageValue,setpercentageValue]= useState(0)
-    let [reqBNB, setReqBNB]=useState(0)
->>>>>>> Stashed changes
+    let [reqBNB, setReqBNB]=useState("0.00")
     let enteredBnb = useRef(0)
-    let requiredBNB = useRef(0)
     let dispatch = useDispatch();
     let { acc } = useSelector(state => state.connectWallet);
-<<<<<<< Updated upstream
-    let { roadPrice } = useSelector(state => state.getRoadPrice)
-    console.log("myRoadPrice", roadPrice);
-    AOS.init();
-    const calculatedRoadPrice = async () => {
-        let preSaleContractOf = new webSupply.eth.Contract(preSaleContractAbi, preSaleContractAddress);
-        let userEnteredVal = enteredBnb.current.value;
-        if (parseFloat(userEnteredVal) > 0) {
-            let userEnteredValToWei = webSupply.utils.toWei(userEnteredVal.toString())
-            console.log("userEnteredValToWei", userEnteredValToWei);
-=======
     let {roadPrice}= useSelector(state => state.getRoadPrice);
     let {myroadTotalSupply}= useSelector(state =>state.getRoadTotalSupply);
     let {myHardCap} = useSelector(state=> state.getHardCap);
@@ -64,43 +48,30 @@ const calucaltePercentage =()=>{
 
     setpercentageValue(myPercent)
 }
->>>>>>> Stashed changes
 
-
-            let calculatedRoad = await preSaleContractOf.methods.calculate_price(userEnteredValToWei).call();
-            calculatedRoad = webSupply.utils.fromWei(calculatedRoad)
-            console.log("calculatedRoad", calculatedRoad);
-            setReqBNB(calculatedRoad)
-        } else {
-            setReqBNB(0)
-        }
-<<<<<<< Updated upstream
-
-        // requiredBNB.current.value =calculatedRoad;
-
+const calculatedRoadPrice =async()=>{
+    let preSaleContractOf = new webSupply.eth.Contract(preSaleContractAbi,preSaleContractAddress);
+    let userEnteredVal = enteredBnb.current.value;
+    if(parseFloat(userEnteredVal)>0){
+        let  userEnteredValToWei = webSupply.utils.toWei(userEnteredVal.toString())
+        console.log("userEnteredValToWei",userEnteredValToWei);
+        let calculatedRoad = await preSaleContractOf.methods.calculate_price(userEnteredValToWei).call();
+       calculatedRoad = webSupply.utils.fromWei(calculatedRoad)
+        console.log("calculatedRoad",calculatedRoad);
+        setReqBNB(calculatedRoad)
+    }else{
+        setReqBNB(0)
     }
-    const buyRoadwithBnb = async () => {
-        try {
-            if (acc == "No Wallet") {
-                console.log("wallet");
-                toast.error("Connect Wallet")
-            }
-            else if (acc == "Wrong Network") {
-                toast.error("Wrong Network")
-            } else if (acc == "Connect Wallet") {
-                console.log("Connect Wallet");
-                toast.error("Connect Wallet")
-            } else {
+    
+    // requiredBNB.current.value =calculatedRoad;
 
-                let userEnteredVal = enteredBnb.current.value;
-                if (parseFloat(userEnteredVal) > 0.1) {
-                    const web3 = window.web3;
-                    let usersBNBBalance = await web3.eth.getBalance(acc);
-                    console.log("userEnteredVal", usersBNBBalance);
-                    let preSaleContractOf = new web3.eth.Contract(preSaleContractAbi, preSaleContractAddress);
-                    let userEnteredValToWei = web3.utils.toWei(userEnteredVal.toString())
-                    if (parseFloat(usersBNBBalance) > parseFloat(userEnteredValToWei)) {
-=======
+}
+const buyRoadwithBnb =async()=>{
+    try{
+        if (acc == "No Wallet") {
+            console.log("wallet");
+            toast.error("Connect Wallet")
+        }
         else if (acc == "Wrong Network") {
             toast.error("Wrong Network")
         } else if (acc == "Connect Wallet") {
@@ -116,24 +87,11 @@ const calucaltePercentage =()=>{
                 let preSaleContractOf = new web3.eth.Contract(preSaleContractAbi,preSaleContractAddress);
                 let  userEnteredValToWei = web3.utils.toWei(userEnteredVal.toString())
                 if(parseFloat(usersBNBBalance)>parseFloat(userEnteredValToWei)){
->>>>>>> Stashed changes
                         await preSaleContractOf.methods.buy().send({
-                            from: acc,
-                            value: userEnteredValToWei.toString()
+                            from :acc,
+                            value:userEnteredValToWei.toString() 
                         })
                         toast.success("Transaction Successfull")
-<<<<<<< Updated upstream
-                    } else {
-                        toast.error("Insufficient Balance")
-                    }
-                } else {
-                    toast.error("Minimum Purchase is of 0.1 BNB")
-                }
-            }
-        } catch (e) {
-            console.log("Error While Buying Road with BNB", e)
-            toast.error("Transaction Rejected")
-=======
                         dispatch(getTotalsold())
                         calucaltePercentage()
                 }else{
@@ -142,20 +100,17 @@ const calucaltePercentage =()=>{
             }else{
                 toast.error("Minimum Purchase is of 0.1 BNB")
             }   
->>>>>>> Stashed changes
         }
+    }catch(e){
+        console.log("Error While Buying Road with BNB", e)
+        toast.error("Transaction Rejected")
     }
-
+}
 
     const getWalletAddress = () => {
         dispatch(getWallet());
         // allImagesNfts()
     }
-<<<<<<< Updated upstream
-    useEffect(() => {
-        dispatch(getRoadPrice())
-    }, [acc])
-=======
 
 useEffect(()=>{
     calucaltePercentage()
@@ -174,7 +129,6 @@ useEffect(()=>{
         calucaltePercentage()
 
     },[acc])
->>>>>>> Stashed changes
 
     return (
         <div className='imagePool'>
@@ -184,7 +138,7 @@ useEffect(()=>{
                         <span id="presale-back"><MdOutlineKeyboardBackspace size={40} style={{ color: "white" }} /> Back</span>
                     </div>
                     <div className='col-lg-2 col-md-3'>
-                        <button onClick={() => getWalletAddress()} className='btn poolbtn'>{acc === "No Wallet" ? "Connect metamask" : acc === "Connect Wallet" ? acc : acc === "Connect to Rinkebey" ? acc : acc.substring(0, 5) + "..." + acc.substring(acc.length - 5)}</button>
+                    <button onClick={() => getWalletAddress()} className='btn poolbtn'>{acc === "Wrong Network" ? "Wrong Networkk":acc === "Connect" ? "Connect" : acc === "No Wallet" ? "Connect" : acc.substring(0, 5) + "..." + acc.substring(acc.length - 5)}</button>
 
                     </div>
                 </div>
@@ -263,32 +217,27 @@ useEffect(()=>{
                                         <span className='presale-span1'>Current Pool</span>
                                     </div>
                                     <div className='col-11 presale-b0x1 pt-4 pb-4 mt-2'>
-<<<<<<< Updated upstream
-                                        <div className='progress'>
-                                            <div className='bar' width="80%" data-aos="fade-right"
+                                    <ProgressBar variant={"YOU_PICK_A_NAME"} style={{ Color: "#E24034" }} now={percentageValue} />
+                                        {/* <div className='progress'>
+                                            <div
+                                            className='bar' 
+                                            width="80%" data-aos="fade-right"
                                             data-aos-offset="200"
                                             data-aos-delay="100"
                                             data-aos-duration="1000"
                                             data-aos-easing="ease-in-out"
                                             data-aos-mirror="true"
                                             data-aos-once="false">
-                                                {/* <p class="percent">35%</p> */}
                                             </div>
-                                        </div>
+                                        </div> */}
                                         {/* <div className="progress">
                                             <div className="bar" style="width:35%">
                                             </div>
                                         </div> */}
                                         {/* <ProgressBar variant="warning" style={{ Color: "#E24034" }} now={40} /> */}
                                         <div className='d-flex justify-content-between justify-content-center'>
-                                            <span className='span-presale'>100%</span>
-                                            <span className='span-presale'>100,000,000 $ROAD (Sold out)</span>
-=======
-                                        <ProgressBar variant="warning" style={{ Color: "#E24034" }} now={percentageValue} />
-                                        <div className='d-flex justify-content-between pt-1'>
                                             <span className='span-presale'>{percentageValue}%</span>
-                                            <span className='span-presale'>120,000,000 ROAD</span>
->>>>>>> Stashed changes
+                                            <span className='span-presale'>100,000,000 $ROAD (Sold out)</span>
                                         </div>
                                     </div>
                                 </div>
