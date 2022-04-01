@@ -81,7 +81,11 @@ const buyRoadwithBnb =async()=>{
         } else if (acc == "Connect Wallet") {
             console.log("Connect Wallet");
             toast.error("Connect Wallet")
-        }else {
+        }
+        else if (acc=="Connect"){
+            toast.error("Not Connected")
+        }
+        else {
 
             let userEnteredVal = enteredBnb.current.value;
             if(parseFloat(userEnteredVal)>=0.1){
