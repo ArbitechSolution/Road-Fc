@@ -16,6 +16,7 @@ import {getSoftCap} from './reducers/getPresaleSoftCap';
 import {getMinimumPurchase} from './reducers/getMinimumPurchase';
 import {getMaximumPurchase} from './reducers/getMaximumPurchase';
 import {getTotalSoldTokens} from './reducers/getTotalSoldTokens';
+import {getStartTime} from './reducers/getStartTime'
 const allReducer = combineReducers({
 
     connectWallet:connectWallet,
@@ -34,7 +35,8 @@ const allReducer = combineReducers({
     getSoftCap:getSoftCap,
     getMinimumPurchase:getMinimumPurchase,
     getMaximumPurchase:getMaximumPurchase,
-    getTotalSoldTokens:getTotalSoldTokens
+    getTotalSoldTokens:getTotalSoldTokens,
+    getStartTime:getStartTime
 
 });
 

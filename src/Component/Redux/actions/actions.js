@@ -3,7 +3,7 @@ import {GET_USER_THB_BALANCE, GET_WALLET_ADDRESS,GET_USER_THB_LP_BALANCE,
     GET_USER_BRL,GET_USER_TAMOUNT,GET_USER_TAMOUNT_LP,GET_USER_BRL_LP,
     GET_USER_MINT_BRAWL_POINTS,GET_CURRENT_BP_TOKENS,GET_MAX_BP_TOKENS,GET_ROAD_PRICE,
     GET_ROAD_TOTALSUPPLY,GET_PRESALE_HARD_CAP,GET_PRESALE_SOFT_CAP,GET_MIN_PURCHASE,
-    GET_MAX_PURCHASE,GET_TOTAL_SOLD_TOKENS} from '../type/types'
+    GET_MAX_PURCHASE,GET_TOTAL_SOLD_TOKENS,GET_START_TIME,GET_END_TIME} from '../type/types'
 import {loadWeb3} from '../../../Component/Api/api'
 import Web3 from "web3";
 import { thbTokenAddress, thbTokenAbi } from "../../../Component/Utils/ThbToken"
@@ -283,6 +283,34 @@ export const  getTotalsold =()=> async(dispatch)=>{
         dispatch({
             type:GET_TOTAL_SOLD_TOKENS,
             payload:totalSoldTokens
+        })
+    }catch(e){
+        console.log("Error While Getting hard cap data");
+    }
+  
+}
+export const  getStartTime =()=> async(dispatch)=>{
+    try{
+        let startTime = await presaleContractOf.methods.startTime().call();
+        // startTime = webSupply.utils.fromWei(startTime);
+        console.log("In startTime",startTime);
+        dispatch({
+            type:GET_START_TIME,
+            payload:startTime
+        })
+    }catch(e){
+        console.log("Error While Getting hard cap data");
+    }
+  
+}
+export const  getEndTime =()=> async(dispatch)=>{
+    try{
+        let endTime = await presaleContractOf.methods.startTime().call();
+        // startTime = webSupply.utils.fromWei(startTime);
+        console.log("In startTime",endTime);
+        dispatch({
+            type:GET_END_TIME,
+            payload:endTime
         })
     }catch(e){
         console.log("Error While Getting hard cap data");

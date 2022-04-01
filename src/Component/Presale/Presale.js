@@ -5,7 +5,7 @@ import ProgressBar from 'react-bootstrap/ProgressBar'
 
 import p305 from "../../Assets/305 1.png"
 import { getWallet,getRoadPrice,getRoadTotalSupply,getHardCap,getSoftCap,getMinPurchase,
-    getMaxPurchase,getTotalsold } from '../Redux/actions/actions'
+    getMaxPurchase,getTotalsold,getStartTime } from '../Redux/actions/actions'
 import { useSelector, useDispatch } from 'react-redux';
 import { stakingContractAddress, stakingContractAbi } from '../Utils/stakingContract'
 // import ProgressBar from 'react-bootstrap/ProgressBar'
@@ -31,10 +31,14 @@ function Presale() {
     let {myMinPurchase} =useSelector(state=> state.getMinimumPurchase);
     let {myMaxPurchase} = useSelector(state=>state.getMaximumPurchase);
     let {myTotalSold} = useSelector(state=> state.getTotalSoldTokens);
+    let {myStartTime} = useSelector(state => state.getStartTime);
+    myStartTime = parseInt(myStartTime)
+    var myDate = new Date(myStartTime*1000);
+        console.log("asasd",myDate.toLocaleString());   
     
     myTotalSold= parseInt(myTotalSold);
 
-    console.log("myTotalSold",myTotalSold);
+    console.log("myStartTime",myStartTime);
 
 
 const calucaltePercentage =()=>{
@@ -126,6 +130,7 @@ useEffect(()=>{
         dispatch(getMinPurchase())
         dispatch(getMaxPurchase())
         dispatch(getTotalsold())
+        dispatch(getStartTime())
         calucaltePercentage()
 
     },[acc])
@@ -218,23 +223,7 @@ useEffect(()=>{
                                     </div>
                                     <div className='col-11 presale-b0x1 pt-4 pb-4 mt-2'>
                                     <ProgressBar variant={"YOU_PICK_A_NAME"} style={{ Color: "#E24034" }} now={percentageValue} />
-                                        {/* <div className='progress'>
-                                            <div
-                                            className='bar' 
-                                            width="80%" data-aos="fade-right"
-                                            data-aos-offset="200"
-                                            data-aos-delay="100"
-                                            data-aos-duration="1000"
-                                            data-aos-easing="ease-in-out"
-                                            data-aos-mirror="true"
-                                            data-aos-once="false">
-                                            </div>
-                                        </div> */}
-                                        {/* <div className="progress">
-                                            <div className="bar" style="width:35%">
-                                            </div>
-                                        </div> */}
-                                        {/* <ProgressBar variant="warning" style={{ Color: "#E24034" }} now={40} /> */}
+                                       
                                         <div className='d-flex justify-content-between justify-content-center'>
                                             <span className='span-presale'>{percentageValue}%</span>
                                             <span className='span-presale'>100,000,000 $ROAD (Sold out)</span>
@@ -293,7 +282,7 @@ useEffect(()=>{
                                 <div className='row d-flex justify-content-center '>
                                     <div className='col-11 d-flex justify-content-between align-items-center mt-1'>
                                         <span className='presale-span21'>Start time</span>
-                                        <span className='presale-span22'>15 Apr, 2022 UTC 21:00</span>
+                                        <span className='presale-span22'>{myDate.toLocaleString()}</span>
                                     </div>
                                     <div className='col-11 mt-2' >
                                         <p style={{ border: "1px solid #292C38" }}></p>
