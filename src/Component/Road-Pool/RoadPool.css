@@ -52,12 +52,21 @@ font-size: 20px;
 line-height: 132%;
 color: white;
 }
-@media(min-width: 1600px) and (max-width: 6000px){
+@media(min-width: 1600px) and (max-width: 6000px ){
     .imagePool{
         background-image: url("../../Assets/BG.png"),url("../../Assets/BG1.png");
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-size: cover;
         height: 100vh;
+    }
+}
+@media(min-width: 1300px) and (max-width: 1599px){
+    .imagePool{
+        background-image: url("../../Assets/BG.png"),url("../../Assets/BG1.png");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        height: 100%;
     }
 }

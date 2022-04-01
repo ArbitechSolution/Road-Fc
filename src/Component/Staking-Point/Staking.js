@@ -19,6 +19,8 @@ import { stakingContractAddress, stakingContractAbi } from '../../Component/Util
 import { toast } from 'react-toastify';
 import SideBar from "../SideBar/SideBar"
 import MediaSidebar from '../SideBar/MediaSidebar';
+import AOS from "aos";
+import "aos/dist/aos.css";
 function Staking() {
 
     let stakeAmount = useRef(0);
@@ -262,16 +264,18 @@ function Staking() {
         // allImagesNfts()
 
     }
-    useEffect(()=>{
+    useEffect(() => {
         dispatch(getUserTHbTamount())
         dispatch(getUserTHbLPTamount())
         dispatch(getUserThbBalance())
         dispatch(getUserBrLp())
         dispatch(getUserBrl())
         dispatch(getUserThbLpBalance())
-    },[acc])
 
+    }, [acc])
+    AOS.init();
     return (
+
         <div className='imagePool'>
             <div className='container'>
                 <div className='row d-flex justify-content-between align-items-center pt-5 pb-3'>
@@ -294,13 +298,42 @@ function Staking() {
                         <div className='row'>
                             <div className='col-lg-12 col-12 staking-box1111'>
                                 <div className='row'>
-                                    <div className='col-md-6 col-8 pt-4 pb-4 ps-md-4'>
-                                        <h4 className='staking-h4 pt-4 text-start'>NFT Fighter Card Want?</h4>
-                                        <p className='staking-pp pt-2'>Need energy point to mint NFTs </p>
-                                        <p className='staking-pp pt-2'>Stake ROAD token to earn energy points now!</p>
+                                    <div className='col-md-7 col-8 pt-4 pb-4 ps-md-4'>
+
+                                        <h4 className='staking-h4 pt-4 pb-3 text-start' data-aos="fade-right"
+                                            data-aos-offset="200"
+                                            data-aos-delay="50"
+                                            data-aos-duration="1000"
+                                            data-aos-easing="ease-in-out"
+                                            data-aos-mirror="true"
+                                            data-aos-once="false">NFT Fighter Card Want?</h4>
+
+
+                                        <p className='staking-pp pt-2' data-aos="fade-up"
+                                            data-aos-offset="200"
+                                            data-aos-delay="50"
+                                            data-aos-duration="2700"
+                                            data-aos-easing="ease-in-out"
+                                            data-aos-mirror="true"
+                                            data-aos-once="false">Need energy point to mint NFTs </p>
+
+
+                                        <p className='staking-pp pt-2' data-aos="flip-left"
+                                            data-aos-offset="200"
+                                            data-aos-delay="50"
+                                            data-aos-duration="2000"
+                                            data-aos-easing="ease-in-out"
+                                            data-aos-mirror="true"
+                                            data-aos-once="false">Stake ROAD token to earn energy points now!</p>
+
                                     </div>
-                                    <div className='col-md-6 col-4 pt-3 pb-3 staking-colllll'>
-                                        <img src={image2} className="Staking-image" />
+                                    <div className='col-md-5 col-4 pt-3 pb-3 staking-colllll'>
+                                        <img src={image2} className="Staking-image" data-aos="zoom-in" data-aos-offset="200"
+                                            data-aos-delay="100"
+                                            data-aos-duration="3000"
+                                            data-aos-easing="ease-in-out"
+                                            data-aos-mirror="true"
+                                            data-aos-once="false" />
                                     </div>
                                 </div>
                             </div>
@@ -380,7 +413,12 @@ function Staking() {
                                                         <span id='Skaing-span' className='mt-1'>ENERGY POINT</span>
                                                         <span id='Skaing-spans' className='mt-1'>0.0000</span>
                                                     </div>
-                                                    <div className='col-12'>
+                                                    <div className='col-12' data-aos="zoom-in-down" ata-aos-offset="200"
+                                                        data-aos-delay="50"
+                                                        data-aos-duration="1000"
+                                                        data-aos-easing="ease-in-out"
+                                                        data-aos-mirror="true"
+                                                        data-aos-once="false">
                                                         <div class="tab-wrap">
                                                             <input type="radio" id="tab1" name="tabGroup1" className="tab" checked />
                                                             <label for="tab1" >Stake</label>
@@ -519,7 +557,12 @@ function Staking() {
                                                         <span id='Skaing-span' className='mt-1'>ENERGY POINT</span>
                                                         <span id='Skaing-spans' className='mt-1'>0.0000</span>
                                                     </div>
-                                                    <div className='col-12'>
+                                                    <div className='col-12' data-aos="zoom-in-left" ata-aos-offset="200"
+                                                        data-aos-delay="50"
+                                                        data-aos-duration="1000"
+                                                        data-aos-easing="ease-in-out"
+                                                        data-aos-mirror="true"
+                                                        data-aos-once="false">
                                                         <div class="tab-wrap">
                                                             <input type="radio" id="tab3" name="tabGroup2" className="tab" checked />
                                                             <label for="tab3" >Stake</label>
@@ -527,7 +570,7 @@ function Staking() {
                                                             <label for="tab4">UNSTAKE</label>
                                                             <div className="tab__content">
                                                                 <div className='row d-flex justify-content-center mt-4'>
-                                                                <div className='col-8 '>
+                                                                    <div className='col-8 '>
                                                                         {/* <span className='staking-tab-span'>0.00</span>&nbsp;<span className='presale-span1'>road</span> */}
                                                                         <InputGroup >
                                                                             <FormControl
@@ -571,7 +614,7 @@ function Staking() {
                                                                         <span className='staking-tab-span'>{tamountlp.toLocaleString()}</span>&nbsp;<span className='presale-span1'>road</span>
                                                                     </div>
                                                                     <div className='col-2 mt-1'>
-                                                                        <button  className="btn btn-secondary" bg="secondary">Max</button>
+                                                                        <button className="btn btn-secondary" bg="secondary">Max</button>
 
                                                                     </div>
                                                                     {/* <div className='col-2'>

@@ -13,7 +13,15 @@
     border-radius: 27px;
     background-size: cover;
 }
-
+.presalesbtn1{
+    background: linear-gradient(180deg, #FF5043 0%, #F92D1E 100%);
+border-radius: 50px;
+font-weight: 600;
+font-size: 20px;
+line-height: 132%;
+color: white;
+padding: 7px 4px;
+}
 .Presale-p {
     font-weight: 600;
     font-size: 34px;
@@ -158,6 +166,33 @@ font-size: 15px;
 line-height: 18px;
 color: #A0A0A0;
 }
+.progress {
+    margin:20px auto;
+    padding:0;
+    width:100%;
+    height:10px;
+    overflow:hidden;
+    background:#31343E;
+    border-radius:6px;
+  }
+
+  .bar {
+  /* 	position:relative; */
+    float:left;
+    min-width:100%;
+    height:100%;
+    background: #E24034;
+  }
+  /* .percent {
+	position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  margin:0;
+  font-family:tahoma,arial,helvetica;
+  font-size:12px;
+  color:white;
+} */
 @media(max-width: 600px) {
     .Presale-p {
         font-weight: 500;
