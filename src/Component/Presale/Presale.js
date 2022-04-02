@@ -306,7 +306,7 @@ useEffect(()=>{
                                 <div className='row d-flex justify-content-center '>
                                     <div className='col-11 d-flex justify-content-between align-items-center mt-1'>
                                         <span className='presale-span21'>Soft Cap</span>
-                                        <span className='presale-span22'>{mysoftCap} BNB</span>
+                                        <span className='presale-span22'>{mysoftCap.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} BNB</span>
                                     </div>
                                     <div className='col-11 mt-2' >
                                         <p style={{ border: "1px solid #292C38" }}></p>
@@ -315,7 +315,7 @@ useEffect(()=>{
                                 <div className='row d-flex justify-content-center '>
                                     <div className='col-11 d-flex justify-content-between align-items-center mt-1'>
                                         <span className='presale-span21'>Hard Cap</span>
-                                        <span className='presale-span22'>{myHardCap} BNB</span>
+                                        <span className='presale-span22'>{myHardCap.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} BNB</span>
                                     </div>
                                     <div className='col-11 mt-2' >
                                         <p style={{ border: "1px solid #292C38" }}></p>
