@@ -19,6 +19,7 @@ import { stakingContractAddress, stakingContractAbi } from '../../Component/Util
 import { toast } from 'react-toastify';
 import SideBar from "../SideBar/SideBar"
 import MediaSidebar from '../SideBar/MediaSidebar';
+import Rare1000 from "../../Assets/3-Rare-1000x1000 (1).gif"
 import AOS from "aos";
 import "aos/dist/aos.css";
 function Staking() {
@@ -348,7 +349,7 @@ function Staking() {
 
                                                 <div className='row'>
                                                     <div className='col-10'>
-                                                        ROAD STAKING
+                                                        $ROAD STAKING
                                                     </div>
                                                     <div className='col-2'>
                                                         <div class="social">
@@ -365,7 +366,40 @@ function Staking() {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className='row d-flex justify-content-center mt-4 '>
+                                        <div className="row d-flex justify-content-center">
+                                            <div className='col-11 mt-4'>
+                                                <img src={Rare1000} width="230px" />
+                                            </div>
+                                        </div>
+                                        <div className='col-11 Staking-boxese d-flex justify-content-between mt-5 mb-3 pt-3 pb-3'>
+                                            <span className='staking-span98 ps-2'>Wallet:</span>
+                                            <span className='staking-span97'>0.000 $ROAD</span>
+                                        </div>
+                                        <div className='col-11 Staking-boxese d-flex justify-content-between mt-2 mb-3 pt-3 pb-3'>
+                                            <span className='staking-span98 ps-2'>Energy Point:</span>
+                                            <span className='staking-span97'>0.000</span>
+                                        </div>
+                                        <div className='col-11 Staking-boxese d-flex justify-content-between mt-2 mb-3 pt-3 pb-3'>
+                                            <span className='staking-span98 ps-2'>Staked:</span>
+                                            <span className='staking-span97'>0.000</span>
+                                        </div>
+                                        <div className='col-11 Staking-boxese d-flex justify-content-between align-item-center mt-2 mb-3 pt-3 pb-3'>
+                                            <span className='staking-span98 ps-2'>Enter $ROAD:</span>
+                                            <div className='col-4'>
+
+                                                <input
+                                                style={{backgroundColor: "#1C1F26", color: "white   "}}
+                                                    className="pointinput form-control staking-tab-b0xes"
+                                                    type="number"
+                                                    placeholder="0"
+                                                    min={1}
+                                                    aria-label="Recipient's username with two button addons"
+                                                />
+
+
+                                            </div>
+                                        </div>
+                                        {/* <div className='row d-flex justify-content-center mt-4 '>
                                             <div className='col-11 staking-box-col10'>
                                                 <div className='row'>
                                                     <div className='col-12 pt-2 pb-2'>
@@ -377,9 +411,9 @@ function Staking() {
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> */}
 
-                                        <div className='row d-flex justify-content-center mt-4 '>
+                                        {/* <div className='row d-flex justify-content-center mt-4 '>
                                             <div className='col-11 staking-box-col10'>
                                                 <div className='row'>
                                                     <div className='col-12 pt-2 pb-2'>
@@ -395,9 +429,9 @@ function Staking() {
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> */}
 
-                                        <div className='row d-flex justify-content-center mt-4'>
+                                        {/* <div className='row d-flex justify-content-center mt-4'>
                                             <div className='col-11 staking-boxes'>
                                                 <div className='row d-flex justify-content-center'>
                                                     <div className='col-12 staking-col12-Box pb-2 pt-2'>
@@ -427,7 +461,7 @@ function Staking() {
                                                             <div className="tab__content">
                                                                 <div className='row d-flex justify-content-center mt-4'>
                                                                     <div className='col-8 '>
-                                                                        {/* <span className='staking-tab-span'>0.00</span>&nbsp;<span className='presale-span1'>road</span> */}
+
                                                                         <InputGroup >
                                                                             <FormControl
                                                                                 ref={stakeAmount}
@@ -439,13 +473,11 @@ function Staking() {
                                                                             />
                                                                             <InputGroup.Text className="presale-span1 staking-tab-b0xes">Road</InputGroup.Text>
                                                                         </InputGroup>
-                                                                        {/* <form>
-                                                                            <input ref={stakeAmount} type='number' class="form-control" placeholder='0.00' />
-                                                                        </form> */}
+
                                                                     </div>
                                                                     <div className='col-2 mt-2'>
                                                                         <button onClick={() => stakeAmount.current.value = tamount} className="btn btn-secondary" bg="secondary">Max</button>
-                                                                        {/* <Badge onClick={() => stakeAmount.current.value = tamount} bg="secondary"></Badge> */}
+
                                                                     </div>
                                                                     <div className='col-7 mt-3 mb-2'>
                                                                         <div className="d-grid gap-2">
@@ -467,7 +499,7 @@ function Staking() {
                                                                     <div className='col-2'>
                                                                         <div className='col-2 mt-1'>
                                                                             <button className="btn btn-secondary" bg="secondary">Max</button>
-                                                                            {/* <Badge onClick={() => stakeAmount.current.value = tamount} bg="secondary"></Badge> */}
+
                                                                         </div>
                                                                     </div>
                                                                     <div className='col-7 mt-3 mb-2'>
@@ -483,8 +515,7 @@ function Staking() {
                                                     </div>
                                                 </div>
                                             </div>
-
-                                        </div>
+                                        </div> */}
                                     </div>
                                     <div className='col-lg-5 col-md-9 col-11 staking-box1111a mb-4'>
                                         <div className='row'>

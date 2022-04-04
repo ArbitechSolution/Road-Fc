@@ -25,6 +25,7 @@ import MyNFTs from './Component/MY-NFTs/MyNFTs';
 import NFTstaking from './Component/NFT-Staking/NFTstaking';
 import MysteryBox from './Component/Mystery-Box/MysteryBox';
 import Marketplace from './Component/NFT-MarketPlace/Marketplace';
+import FooterDown from './Component/FooterDown/FooterDown';
 // import SideBar from "././Component/SideBar/SideBar"
 function App() {
   return (
@@ -47,6 +48,7 @@ function App() {
           <Route exact path='/MysteryBox' element={<MysteryBox />} />
           <Route exact path='/marketplace' element={<Marketplace />} />
         </Routes>
+        <FooterDown/> 
         <Footer />
       </BrowserRouter>
     </div>

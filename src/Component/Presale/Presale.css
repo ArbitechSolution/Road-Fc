@@ -33,7 +33,12 @@ padding: 7px 14px;
     text-align: left;
 
 }
-
+#preale-Available{
+    font-weight: 500;
+font-size: 16px;
+line-height: 132%;
+color: #FFFFFF;
+}
 .presale-p1 {
     font-weight: 600;
     font-size: 44px;
@@ -229,8 +234,8 @@ color: #A0A0A0;
     }
     .pool-h4 {
         font-weight: bold;
-        font-size: 18px;
-        line-height: 100%;
+        font-size: 22px;
+        line-height: 120%;
         color: #FFFFFF;
     }
     .pool-p2 {
@@ -247,6 +252,18 @@ color: #A0A0A0;
         font-size: 13px;
         line-height: 24px;
         color: #FFFFFF;
+    }
+    .presalesbtn1{
+        background: linear-gradient(180deg, #FF5043 0%, #F92D1E 100%);
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 132%;
+    color: white;
+    padding: 7px 14px;
+    }
+    .presalesbtn1:hover{
+        color: white;
     }
 }
 
@@ -287,8 +304,8 @@ color: #A0A0A0;
     }
     .pool-h4 {
         font-weight: bold;
-        font-size: 15px;
-        line-height: 100%;
+        font-size: 22px;
+        line-height: 120%;
         color: #FFFFFF;
     }
     .pool-p2 {
@@ -299,13 +316,13 @@ color: #A0A0A0;
     }
     .presale-span21{
         font-weight: bold;
-    font-size: 11px;
+    font-size: 12px;
     line-height: 17px;
     color: #565A69;
     }
     .presale-span22{
         font-weight: 500;
-    font-size: 11px;
+    font-size: 12px;
     line-height: 18px;
     color: #A0A0A0;
     }

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import "./Mint.css"
 import Modal from 'react-bootstrap/Modal'
 import Title from "../../Assets/Title.png"
-import tiger from "../../Assets/tiger 1 1.png"
+import tiger from "../../Assets/1-Common-1000x1000.gif"
 import Vector from "../../Assets/Vector.png"
 import Mins from "../../Assets/Mins.png"
 import plus from "../../Assets/plus.png"

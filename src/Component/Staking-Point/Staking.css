@@ -128,27 +128,44 @@
     color: #FFFFFF;
 }
 
-.staking-box-col10 {
+.pointinput {
     background: #000000;
     border: 2px solid #5A5C6A;
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
     border-radius: 10px;
 }
-
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: White;
+    opacity: 1; /* Firefox */
+  }
 .staking-spann {
     font-weight: normal;
     font-size: 16px;
     line-height: 19px;
     color: #FFFFFF;
 }
-
+.Staking-boxese{
+    background: linear-gradient(90deg, #1A1C23 0%, rgba(26, 28, 35, 0) 100%);
+border-radius: 8px;
+}
 #Skaing-span {
     font-weight: bold;
     font-size: 13px;
     line-height: 17px;
     color: #565A69;
 }
-
+.staking-span98{
+    font-weight: 400;
+font-size: 20px;
+line-height: 144%;
+color: #7E808D;
+}
+.staking-span97{
+    font-weight: 500;
+font-size: 20px;
+line-height: 132%;
+color: #B1B1B1;
+}
 #Skaing-spans {
     font-weight: 700;
     font-size: 14px;
@@ -289,10 +306,10 @@
 }
 
 .staking-tab-b0xes {
-    background: rgba(41, 44, 56, 0.16);
-    border: 2px solid #292C38;
-    box-sizing: border-box;
-    border-radius: 8px;
+    background: #1C1F26;
+border: 2px solid #292C38;
+box-sizing: border-box;
+border-radius: 8px;
 }
 
 .staking-tab-span {
