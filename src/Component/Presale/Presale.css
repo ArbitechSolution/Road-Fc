@@ -265,6 +265,11 @@ color: #A0A0A0;
     .presalesbtn1:hover{
         color: white;
     }
+.pool-box3 {
+        background: #000000;
+        border-radius: 16px;
+        height: auto;
+    }
 }
 
 @media(max-width: 400px) {
@@ -295,6 +300,11 @@ color: #A0A0A0;
         padding: 5px 10px;
 
     }
+    .pool-box3 {
+        background: #000000;
+        border-radius: 16px;
+        height: auto;
+    }
 
     #presale-span1 {
         font-weight: normal;
@@ -319,12 +329,14 @@ color: #A0A0A0;
     font-size: 12px;
     line-height: 17px;
     color: #565A69;
+    text-align: left;
     }
     .presale-span22{
         font-weight: 500;
     font-size: 12px;
     line-height: 18px;
     color: #A0A0A0;
+    text-align: end;
     }
     .presale-image{
         width: 120px;

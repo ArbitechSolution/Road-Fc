@@ -57,7 +57,7 @@ function MyNFTs() {
                                 <p className='nft-p'>Total <span className='nft-span'>(58)</span></p>
                             </div>
                         </div>
-                        <div className='row d-flex justify-content-center justify-content-md-between mb-3'>
+                        <div className='row d-flex justify-content-center justify-content-between mb-3'>
                             <div className='col-md-2 nft-boxx p-2 mt-3 '>
                                 <img src={image2} className="nfts-image " />
                                 <p className='nfts-h6 mt-3'>#20211 Trainer</p>

@@ -214,33 +214,16 @@ function Presale() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className='row d-flex justify-content-center pt-5 pb-2'>
+                                <div className='row d-flex justify-content-center pt-5 pb-2 mb-3'>
                                     <div className='col-11 d-flex justify-content-between align-items-center'>
                                         <span className='presale-span'>Progress</span>
                                         <span className='presale-span1'>Current Pool</span>
                                     </div>
                                     <div className='col-11 presale-b0x1 pt-4 pb-4 mt-2'>
                                         <ProgressBar variant={"YOU_PICK_A_NAME"} style={{ Color: "#E24034" }} now={percentageValue} />
-                                        {/* <div className='progress'>
-                                            <div
-                                            className='bar'
-                                            width="80%" data-aos="fade-right"
-                                            data-aos-offset="200"
-                                            data-aos-delay="100"
-                                            data-aos-duration="1000"
-                                            data-aos-easing="ease-in-out"
-                                            data-aos-mirror="true"
-                                            data-aos-once="false">
-                                            </div>
-                                        </div> */}
-                                        {/* <div className="progress">
-                                            <div className="bar" style="width:35%">
-                                            </div>
-                                        </div> */}
-                                        {/* <ProgressBar variant="warning" style={{ Color: "#E24034" }} now={40} /> */}
                                         <div className='d-flex justify-content-between justify-content-center'>
                                             <span className='span-presale'>{percentageValue}%</span>
-                                            <span className='span-presale'>100,000,000 $ROAD</span>
+                                            <span className='span-presale'>200,000,000 $ROAD</span>
                                         </div>
                                     </div>
                                 </div>
@@ -262,7 +245,7 @@ function Presale() {
                                 <div className='row d-flex justify-content-center '>
                                     <div className='col-11 d-flex justify-content-between align-items-center mt-1'>
                                         <span className='presale-span21'>Token for Presales</span>
-                                        <span className='presale-span22'>100,000,000 &nbsp;<span className='presale-span1'>ROAD</span></span>
+                                        <span className='presale-span22'>200,000,000 &nbsp;<span className='presale-span1'>ROAD</span></span>
                                     </div>
                                     <div className='col-11 mt-2' >
                                         <p style={{ border: "1px solid #292C38" }}></p>
@@ -319,7 +302,7 @@ function Presale() {
                                 <div className='row d-flex justify-content-center '>
                                     <div className='col-11 d-flex justify-content-between align-items-center mt-1'>
                                         <span className='presale-span21'>Soft Cap</span>
-                                        <span className='presale-span22'>1,500&nbsp;
+                                        <span className='presale-span22'>2,000&nbsp;
                                             {/* {mysoftCap.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} */}
                                             BNB</span>
                                     </div>
@@ -330,7 +313,7 @@ function Presale() {
                                 <div className='row d-flex justify-content-center '>
                                     <div className='col-11 d-flex justify-content-between align-items-center mt-1'>
                                         <span className='presale-span21'>Hard Cap</span>
-                                        <span className='presale-span22'>3,000&nbsp;
+                                        <span className='presale-span22'>4,000&nbsp;
                                             {/* {myHardCap.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} */}
                                             BNB</span>
                                     </div>
@@ -339,7 +322,7 @@ function Presale() {
                                     </div>
                                 </div>
 
-                                <h5 className='bool-h55 pt-3 fw-bold'>We accepted BNB</h5>
+                                <h5 className='bool-h55 pt-3 fw-bold mb-3'>We accepted BNB</h5>
                             </div>
                         </div>
                     </div>

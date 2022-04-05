@@ -22,6 +22,8 @@ import MediaSidebar from '../SideBar/MediaSidebar';
 import Rare1000 from "../../Assets/3-Rare-1000x1000 (1).gif"
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Epic1000 from "../../Assets/4-Epic-1000x1000.gif"
+import speaker from "../../Assets/speaker.png"
 function Staking() {
 
     let stakeAmount = useRef(0);
@@ -301,40 +303,13 @@ function Staking() {
                                 <div className='row'>
                                     <div className='col-md-7 col-8 pt-4 pb-4 ps-md-4'>
 
-                                        <h4 className='staking-h4 pt-4 pb-3 text-start' data-aos="fade-right"
-                                            data-aos-offset="200"
-                                            data-aos-delay="50"
-                                            data-aos-duration="1000"
-                                            data-aos-easing="ease-in-out"
-                                            data-aos-mirror="true"
-                                            data-aos-once="false">NFT Fighter Card Want?</h4>
-
-
-                                        <p className='staking-pp pt-2' data-aos="fade-up"
-                                            data-aos-offset="200"
-                                            data-aos-delay="50"
-                                            data-aos-duration="2700"
-                                            data-aos-easing="ease-in-out"
-                                            data-aos-mirror="true"
-                                            data-aos-once="false">Need energy point to mint NFTs </p>
-
-
-                                        <p className='staking-pp pt-2' data-aos="flip-left"
-                                            data-aos-offset="200"
-                                            data-aos-delay="50"
-                                            data-aos-duration="2000"
-                                            data-aos-easing="ease-in-out"
-                                            data-aos-mirror="true"
-                                            data-aos-once="false">Stake ROAD token to earn energy points now!</p>
+                                        <h4 className='staking-h4 pt-4 pb-3 text-start'>NFT Fighter Card Want?</h4>
+                                        <p className='staking-pp pt-2'>Need energy point to mint NFTs </p>
+                                        <p className='staking-pp pt-2'>Stake ROAD token to earn energy points now!</p>
 
                                     </div>
                                     <div className='col-md-5 col-4 pt-3 pb-3 staking-colllll'>
-                                        <img src={image2} className="Staking-image" data-aos="zoom-in" data-aos-offset="200"
-                                            data-aos-delay="100"
-                                            data-aos-duration="3000"
-                                            data-aos-easing="ease-in-out"
-                                            data-aos-mirror="true"
-                                            data-aos-once="false" />
+                                        <img src={image2} className="Staking-image"  />
                                     </div>
                                 </div>
                             </div>
@@ -342,6 +317,11 @@ function Staking() {
 
                         <div className='row d-flex justify-content-center mt-4 mb-4'>
                             <div className='col-lg-12 col-11 presale-box1'>
+                                <div className='row'>
+                                    <div className='col-10 ps-sm-5 ps-4 text-start mt-3 '>
+                                        <img src={speaker}/>
+                                    </div>
+                                </div>
                                 <div className='row d-flex justify-content-center justify-content-evenly mt-4'>
                                     <div className='col-lg-5 col-md-9 col-11 staking-box1111a mb-4'>
                                         <div className='row'>
@@ -383,20 +363,43 @@ function Staking() {
                                             <span className='staking-span98 ps-2'>Staked:</span>
                                             <span className='staking-span97'>0.000</span>
                                         </div>
-                                        <div className='col-11 Staking-boxese d-flex justify-content-between align-item-center mt-2 mb-3 pt-3 pb-3'>
-                                            <span className='staking-span98 ps-2'>Enter $ROAD:</span>
+                                        <div className='col-11 Staking-boxese d-flex justify-content-between align-item-center mt-2 mb-3 pt-2 pb-2'>
+                                            <span className='staking-span98 ps-2 pt-2'>Enter $ROAD:</span>
                                             <div className='col-4'>
 
                                                 <input
-                                                style={{backgroundColor: "#1C1F26", color: "white   "}}
+                                                    style={{ backgroundColor: "#1C1F26", color: "white   " }}
                                                     className="pointinput form-control staking-tab-b0xes"
                                                     type="number"
                                                     placeholder="0"
                                                     min={1}
                                                     aria-label="Recipient's username with two button addons"
                                                 />
-
-
+                                            </div>
+                                        </div>
+                                        <div className='row d-flex justify-content-center'>
+                                            <div className='col-6'>
+                                                <div className="d-grid gap-2">
+                                                    <button className='btn btn-staking-button'>
+                                                        Stake
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div className='col-6'>
+                                                <div className="d-grid gap-2">
+                                                    <button className='btn btn-staking-button'>
+                                                    Unstake
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className='row d-flex justify-content-center mt-3 mb-3'>
+                                            <div className='col-12'>
+                                            <div className="d-grid gap-2">
+                                                    <button className='btn btn-staking-redeem'>
+                                                    Redeem
+                                                    </button>
+                                                </div>
                                             </div>
                                         </div>
                                         {/* <div className='row d-flex justify-content-center mt-4 '>
@@ -540,7 +543,63 @@ function Staking() {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className='row d-flex justify-content-center mt-4 '>
+                                        <div className="row d-flex justify-content-center">
+                                            <div className='col-11 mt-4'>
+                                                <img src={Epic1000} width="230px" />
+                                            </div>
+                                        </div>
+                                        <div className='col-11 Staking-boxese d-flex justify-content-between mt-5 mb-3 pt-3 pb-3'>
+                                            <span className='staking-span98 ps-2'>Wallet:</span>
+                                            <span className='staking-span97'>0.000 $ROAD LP</span>
+                                        </div>
+                                        <div className='col-11 Staking-boxese d-flex justify-content-between mt-2 mb-3 pt-3 pb-3'>
+                                            <span className='staking-span98 ps-2'>Energy Point:</span>
+                                            <span className='staking-span97'>0.000</span>
+                                        </div>
+                                        <div className='col-11 Staking-boxese d-flex justify-content-between mt-2 mb-3 pt-3 pb-3'>
+                                            <span className='staking-span98 ps-2'>Staked:</span>
+                                            <span className='staking-span97'>0.000</span>
+                                        </div>
+                                        <div className='col-11 Staking-boxese d-flex justify-content-between align-item-center mt-2 mb-3 pt-2 pb-2'>
+                                            <span className='staking-span98 ps-2 pt-2'>Enter $ROAD LP:</span>
+                                            <div className='col-4'>
+
+                                                <input
+                                                    style={{ backgroundColor: "#1C1F26", color: "white   " }}
+                                                    className="pointinput form-control staking-tab-b0xes"
+                                                    type="number"
+                                                    placeholder="0"
+                                                    min={1}
+                                                    aria-label="Recipient's username with two button addons"
+                                                />
+                                            </div>
+                                        </div>
+                                        <div className='row d-flex justify-content-center'>
+                                            <div className='col-6'>
+                                                <div className="d-grid gap-2">
+                                                    <button className='btn btn-staking-button'>
+                                                        Stake
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div className='col-6'>
+                                                <div className="d-grid gap-2">
+                                                    <button className='btn btn-staking-button'>
+                                                    Unstake
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className='row d-flex justify-content-center mt-3 mb-3'>
+                                            <div className='col-12'>
+                                            <div className="d-grid gap-2">
+                                                    <button className='btn btn-staking-redeem'>
+                                                    Redeem
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {/* <div className='row d-flex justify-content-center mt-4 '>
                                             <div className='col-11 staking-box-col10'>
                                                 <div className='row'>
                                                     <div className='col-12 pt-2 pb-2'>
@@ -552,9 +611,9 @@ function Staking() {
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> */}
 
-                                        <div className='row d-flex justify-content-center mt-4 '>
+                                        {/* <div className='row d-flex justify-content-center mt-4 '>
                                             <div className='col-11 staking-box-col10'>
                                                 <div className='row'>
                                                     <div className='col-12 pt-2 pb-2'>
@@ -570,9 +629,9 @@ function Staking() {
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> */}
 
-                                        <div className='row d-flex justify-content-center mt-4'>
+                                        {/* <div className='row d-flex justify-content-center mt-4'>
                                             <div className='col-11 staking-boxes'>
                                                 <div className='row d-flex justify-content-center'>
                                                     <div className='col-12 staking-col12-Box pb-2 pt-2'>
@@ -602,7 +661,7 @@ function Staking() {
                                                             <div className="tab__content">
                                                                 <div className='row d-flex justify-content-center mt-4'>
                                                                     <div className='col-8 '>
-                                                                        {/* <span className='staking-tab-span'>0.00</span>&nbsp;<span className='presale-span1'>road</span> */}
+
                                                                         <InputGroup >
                                                                             <FormControl
                                                                                 ref={stakeAmountLp}
@@ -619,14 +678,7 @@ function Staking() {
                                                                     <div className='col-2 mt-2'>
                                                                         <button onClick={() => stakeAmountLp.current.value = tamountlp} className="btn btn-secondary" bg="secondary">Max</button>
                                                                     </div>
-                                                                    {/* <div className='col-8 '>
 
-                                                                        <input ref={stakeAmountLp} type='number' class="form-control" placeholder='0.00' />
-
-                                                                    </div>
-                                                                    <div className='col-2'>
-                                                                        <Badge onClick={() => stakeAmountLp.current.value = tamountlp} bg="secondary">Max</Badge>
-                                                                    </div> */}
                                                                     <div className='col-7 mt-3 mb-2'>
                                                                         <div className="d-grid gap-2">
                                                                             <button onClick={() => stakeLpVal()} variant="primary" className='btn staking-tab-btn' size="lg">
@@ -648,9 +700,7 @@ function Staking() {
                                                                         <button className="btn btn-secondary" bg="secondary">Max</button>
 
                                                                     </div>
-                                                                    {/* <div className='col-2'>
-                                                                        <Badge bg="secondary">Max</Badge>
-                                                                    </div> */}
+
                                                                     <div className='col-7 mt-3 mb-2'>
                                                                         <div className="d-grid gap-2">
                                                                             <button onClick={() => unstakeLp()} variant="primary" className='btn staking-tab-btn' size="lg">
@@ -665,7 +715,7 @@ function Staking() {
                                                 </div>
                                             </div>
 
-                                        </div>
+                                        </div> */}
                                     </div>
                                 </div>
                             </div>

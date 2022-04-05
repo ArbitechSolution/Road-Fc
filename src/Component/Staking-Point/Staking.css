@@ -38,7 +38,7 @@
     font-weight: 600;
     font-size: 15px;
     line-height: 132%;
-    color: #ffffff;
+    color: #FD5043;
     outline: none;
     box-shadow: none;
     outline: none;
@@ -342,6 +342,32 @@ border-radius: 8px;
 
 /* Tooltip */
 
+.btn-staking-button{
+    background: #5C5E6C;
+border-radius: 80px;
+font-weight: 700;
+font-size: 18px;
+line-height: 21px;
+color: #FFFFFF;
+padding: 10px 20px
+}
+.btn-staking-button:hover{
+    color: #5C5E6C;
+    background:#FFFFFF;
+}
+.btn-staking-redeem{
+    background: linear-gradient(90deg, #F92D1E 1.7%, #FF5043 100%);
+border-radius: 80px;
+font-weight: 700;
+font-size: 18px;
+line-height: 21px;
+color: #FFFFFF;
+padding: 10px 20px
+}
+.btn-staking-redeem:hover{
+    background:#FFFFFF;
+    color: #F92D1E;
+}
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap");
 
 
@@ -578,6 +604,18 @@ li {
     .staking-box1111a {
         background: rgba(0, 0, 0, 0.96);
         border-radius: 24px;
-        height: 830px;
+        height: auto;
+    }
+    .staking-span98{
+        font-weight: 400;
+    font-size: 17px;
+    line-height: 144%;
+    color: #7E808D;
+    }
+    .staking-span97{
+        font-weight: 500;
+    font-size: 15px;
+    line-height: 132%;
+    color: #B1B1B1;
     }
 }

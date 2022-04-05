@@ -125,6 +125,39 @@ color: #7E808D;
 }
 @media(max-width: 480px) {
     .breedImages {
-        width: 170px;
+        width: 100px;
+    }
+    .Breed-box {
+        background: #26282F;
+        border-radius: 15px;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 17px;
+        color: #B1B1B1;
+    }
+    .BreedBoxs {
+        background: #000000;
+        border-radius: 16px;
+        box-shadow: 0px 0px 15px rgba(254, 75, 62, 0.25);
+        width: 145px;
+    }
+    .breedboxs123 {
+
+        /* box-sizing: border-box; */
+        height: 520px;
+        /* width: 300px; */
+        overflow-y: scroll;
+        -webkit-appearance: none;
+    }
+}
+@media(max-width: 400px){
+    .BreedBoxs {
+        background: #000000;
+        border-radius: 16px;
+        box-shadow: 0px 0px 15px rgba(254, 75, 62, 0.25);
+        width: 125px;
+    }
+    .breedImages {
+        width: 70px;
     }
 }

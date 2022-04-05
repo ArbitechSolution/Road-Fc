@@ -20,10 +20,10 @@ function SideBar() {
          data-aos-easing="ease-in-out"
          data-aos-mirror="true"
          data-aos-once="false">
-          <NavLink to="/Staking" style={{ textDecoration: "none", color: "white" }} className={({ isActive }) => (isActive ? 'col-10 staking-btn_active' : 'col-10 staking-btn')}>
+          <NavLink to="/Staking" style={{ textDecoration: "none" }} className={({ isActive }) => (isActive ? 'col-10 staking-btn_active' : 'col-10 staking-btn')}>
             <div className=''>
               <div className="d-grid gap-2" >
-                <button className='btn text-start d-flex align-items-center' style={{ color: "white", fontSize: "18px", fontWeight: "bold" }}>
+                <button className='btn text-start d-flex align-items-center' style={{ color: "white",fontSize: "18px", fontWeight: "bold" }}>
                   <img src={Growth} width="30px" />&nbsp;&nbsp; Staking & Point
                 </button>
               </div>
