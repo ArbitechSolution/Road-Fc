@@ -45,7 +45,7 @@ function MarketPlaceSell() {
   return (
     <div className="imagePool">
       <div className="container">
-        <div className="row d-flex justify-content-between align-items-center pt-5 pb-3">
+        <div className="row d-flex justify-content-between align-items-center pt-5 pb-3" >
           <div className="col-lg-3 col-md-3 col-4 d-flex justify-content-start btnBack">
             <span id="presale-back">
               <Link to="/">
@@ -87,7 +87,7 @@ function MarketPlaceSell() {
           </div>
         </div>
 
-        <div className="row d-flex justify-content-center justify-content-around pb-5">
+        <div className="row d-flex justify-content-center justify-content-around pb-5" >
           <div className="col-3 staking-box">
             <SideBar />
           </div>
@@ -95,7 +95,7 @@ function MarketPlaceSell() {
             <MediaSidebar />
           </div>
 
-          <div className="col-lg-8 col-11 mb-md-1 mb-4">
+          <div className="col-lg-8 col-11 mb-md-1 ">
             <div className="row d-flex justify-content-center mb-1">
               <div className="col-12">
                 <h4 className="nft-h4">MY NFTs</h4>
@@ -104,7 +104,7 @@ function MarketPlaceSell() {
                 </p>
               </div>
             </div>
-            <div className="row d-flex justify-content-center justify-content-md-between mb-3">
+            <div className="row d-flex justify-content-center justify-content-md-between">
               <div className="col-md-2 nft-boxx p-2 mt-3 ">
                 <img src={image2} className="nfts-image " />
                 <p className="nfts-h6 mt-3">#20211 Trainer</p>
@@ -263,7 +263,7 @@ function MarketPlaceSell() {
               </div>
             </div>
 
-            <div className="row d-flex flex-row justify-content-center justify-content-evenly mt-3 mb-4">
+            <div className="row d-flex flex-row justify-content-center justify-content-evenly mt-3 ">
               <div
                 className="col-1 d-flex align-items-center justify-content-center"
                 style={{ cursor: "pointer" }}
@@ -307,9 +307,7 @@ function MarketPlaceSell() {
           </Modal.Header>
           <Modal.Body className='model2-image'>
             <div className='row d-flex justify-content-center' >
-              {/* <div className='col-md-12 d-flex justify-content-center'>
-                <img className='pt-3 congrat-image' src={Group609} />
-              </div> */}
+              
 
               <div className="col-md-3 nft-boxx p-2 mt-3">
                 <div className="d-flex flex-row justify-content-between align-items-center mb-2">

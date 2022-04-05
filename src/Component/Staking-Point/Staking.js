@@ -45,7 +45,7 @@ function Staking() {
             }
             else if (acc == "Wrong Network") {
                 toast.error("Wrong Newtwork please connect to test net")
-    
+
             } else if (acc == "Connect Wallet") {
                 toast.error("Not Connected")
             } else {
@@ -64,7 +64,7 @@ function Staking() {
                                     from: acc
                                 })
                                 toast.success("Transaction Confirmed")
-    
+
                                 await stakingCOntractOf.methods.Stake(enteredVal).send({
                                     from: acc
                                 })
@@ -76,7 +76,7 @@ function Staking() {
                                 dispatch(getUserThbLpBalance())
                                 dispatch(getUserBrLp())
                                 dispatch(getUserBrl())
-    
+
                             } else {
                                 toast.error("You Have Already Staked. Please Unstake and try again")
                             }
@@ -84,7 +84,7 @@ function Staking() {
                             toast.error("Insufficient balance")
                             console.log("Insufficient Balance your Current Balance is ", parseFloat(userThbBal));
                         }
-    
+
                     } else {
                         console.log("Staking Amount must be greater than 0");
                         toast.error("Staking Amount must be greater than 0")
@@ -143,13 +143,13 @@ function Staking() {
             }
         }
         }
-        
+
     }
     const redeem = async () => {
         try{
             if (acc == "No Wallet") {
                 toast.error("Not Connected to Wallet")
-    
+
             }
             else if (acc == "Wrong Network") {
                 toast.error("Wrong Newtwork please connect to test net")
@@ -172,7 +172,7 @@ function Staking() {
             try{
                 if (acc == "No Wallet") {
                     toast.error("Not Connected to Wallet")
-        
+
                 }
                 else if (acc == "Wrong Network") {
                     toast.error("Wrong Newtwork please connect to test net")
@@ -194,7 +194,7 @@ function Staking() {
     // Unstake Function for Thb
     const unstake = async () => {
         // console.log("ACC=", acc)
-        
+
 
     }
     // stake functions for Lp THB
@@ -211,7 +211,7 @@ function Staking() {
                     toast.error("Not Connected")
                 } else {
                     try {
-        
+
                         let enteredVal = stakeAmountLp.current.value;
                         // console.log("U NEterd", enteredVal);
                         const web3 = window.web3;
@@ -240,13 +240,13 @@ function Staking() {
                                 } else {
                                     toast.error("You have staked already. Unstake and try again.")
                                 }
-        
-        
+
+
                             } else {
                                 toast.error("Insufficient Balance")
                                 console.log("Insufficient Balance");
                             }
-        
+
                         } else {
                             console.log("Staking Amount must be greater than 0");
                             toast.error("Staking Amount must be greater than 0")
@@ -254,7 +254,7 @@ function Staking() {
                     } catch (e) {
                         console.log("Error while staking amount", e);
                         toast.error("Transaction Failed")
-        
+
                     }
                 }
             }else if(isCheck == "unStake"){
@@ -265,7 +265,7 @@ function Staking() {
                 else if (acc == "Wrong Network") {
                     //   setBtTxt("Wrong Network")
                     toast.error("Not Connected")
-        
+
                 } else if (acc == "Connect Wallet") {
                     toast.error("Not Connected")
                 } else {
@@ -298,8 +298,8 @@ function Staking() {
                             } else {
                                 toast.error("Unlocked Time Not Reached !")
                             }
-        
-        
+
+
                         } else {
                             toast.error("You have not staked any Lp Tokens yet")
                             console.log("You have not staked any Lp Tokens yet");
@@ -307,7 +307,7 @@ function Staking() {
                     }else{
                         toast.info("your point is low")
                     }
-        
+
                     }else{
                             toast.info("Please enter amount or click max")
                     }
@@ -410,8 +410,8 @@ function Staking() {
                     <div className='col-lg-2 col-md-3 col-4 d-flex justify-content-start' >
                         <span id="presale-back"><Link to="/"><MdOutlineKeyboardBackspace size={40} style={{ color: "white" }} /></Link> Back</span>
                     </div>
-                    <div className='col-lg-2 col-md-3 col-5' >
-                        <button onClick={() => getWalletAddress()} className='btn poolbtn'>{acc === "No Wallet" ? "Connect Wallet" : acc === "Connect Wallet" ? "Connect" : acc === "Wrong Network" ? acc : acc.substring(0, 5) + "..." + acc.substring(acc.length - 5)}</button>
+                    <div className='col-lg-3 col-md-4 col-5' >
+                        <button onClick={() => getWalletAddress()} className='btn poolbtn'>{acc === "No Wallet" ? "Connect Wallet" : acc === "Connect Wallet" ? "Connect" : acc === "Wrong Network" ? acc : acc.substring(0, 4) + "..." + acc.substring(acc.length - 4)}</button>
 
                     </div>
                 </div>
