@@ -2,63 +2,63 @@
   font-weight: 600;
   font-size: 30px;
   line-height: 100%;
-  color: #FF5043;
+  color: #ff5043;
 }
 
 .market-span1 {
   font-weight: 500;
   font-size: 20px;
   line-height: 100%;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
-input[type=checkbox] {
-  accent-color: #FF5043;
+input[type="checkbox"] {
+  accent-color: #ff5043;
 }
 
 .checkinput {
   font-weight: 300;
   font-size: 18px;
   line-height: 100%;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .secondary {
-  background: #32333E;
+  background: #32333e;
   /* border-radius: 40px; */
   font-weight: 500;
-font-size: 16px;
-padding: 10px 100px;
-line-height: 19px;
-color: #66676A;
-  border: 1px solid #32333E;
+  font-size: 16px;
+  padding: 10px 100px;
+  line-height: 19px;
+  color: #66676a;
+  border: 1px solid #32333e;
 }
-.btnplacebutton{
+.btnplacebutton {
   font-size: 30px;
   line-height: 19px;
 
-  color: #FFFFFF;
+  color: #ffffff;
 }
 .secondary1 {
-  background: #5E606E;
+  background: #5e606e;
   font-weight: 700;
 
   /* border-radius: 80px; */
-  border: 1px solid #5E606E;
+  border: 1px solid #5e606e;
 }
 
 .textbutton {
   font-weight: 700;
   font-size: 16px;
   line-height: 19px;
-  color: #FFFFFF;
+  color: #ffffff;
   border-radius: 80px;
 }
 
 .boxmarket {
   width: 50px;
   height: 50px;
-  background: #32333E;
+  background: #32333e;
   border-radius: 90px;
 }
 
@@ -66,39 +66,80 @@ color: #66676A;
   font-weight: 400;
   font-size: 14px;
   line-height: 100%;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .placespan1 {
   font-weight: 600;
   font-size: 18px;
   line-height: 100%;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .place-pp {
   font-weight: 500;
   font-size: 14px;
   line-height: 100%;
-  color: #FF5043;
+  color: #ff5043;
 }
-.palce-h6{
+.palce-h6 {
   font-weight: 300;
-font-size: 14px;
-line-height: 100%;
-color: #FFFFFF;
+  font-size: 14px;
+  line-height: 100%;
+  color: #ffffff;
 }
-.btnplace{
-  background: linear-gradient(90deg, #F92D1E 1.7%, #FF5043 100%);
-border-radius: 80px;
-font-weight: 500;
-font-size: 16px;
-line-height: 19px;
-color: #FFFFFF;
+.btnplace,
+.btnBuy,
+.btnEdit {
+  border-radius: 100px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  color: #ffffff;
 }
-.boxplace{
+.btnplace,
+.btnBuy {
+  background: linear-gradient(90deg, #f92d1e 1.7%, #ff5043 100%);
+}
+.btnEdit {
+  background: linear-gradient(90deg, #565866 1.7%, #5e606e 100%);
+}
+.btnBuy,
+.btnEdit {
+  padding: 3px 0px !important;
+}
+.boxplace {
   width: 40px;
   height: 40px;
-  background: #32333E;
+  background: #32333e;
   border-radius: 90px;
+}
+.btnBack {
+  padding-left: 30px;
+}
+.congrtsText{
+  font-family: 'Rubik';
+font-style: normal;
+font-weight: 600;
+font-size: 24px;
+
+color: #FFFFFF;
+
+}
+.cardListedText{
+  font-family: 'Rubik';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+color: #FFFFFF;
+
+}
+.cardPriceText{
+  font-family: 'Rubik';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+
+color: #FF5043;
+
 }

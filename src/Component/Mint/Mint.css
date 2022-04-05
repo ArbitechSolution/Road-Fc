@@ -93,7 +93,17 @@
     width: 100%;
 
 }
+.model2-image{
+    background-image: url("../../Assets/bgRed.png");
+    background-repeat: no-repeat;
+    /* background-position: center; */
+    background-size: cover;
+    /* border: 2px solid red; */
+    background-color: rgba(26, 28, 35, 0.96);
+    box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.08);
 
+    width: 100%;
+}
 .congrat-span {
     font-weight: 400;
     font-size: 20px;
@@ -101,7 +111,7 @@
     color: #FFFFFF;
 }
 
-.btn-congrats {
+.btn-congrats,.btn-no {
     background: linear-gradient(180deg, #FF5043 0%, #F92D1E 100%);
     border-radius: 50px;
     font-weight: 600;
@@ -134,8 +144,13 @@
     color: #7E808D;
 }
 
-.btn-congrats:hover {
+.btn-congrats:hover,
+.btn-no:hover {
     color: white;
+}
+.btn-no:hover{
+    background: #1A1C23;
+color: #7E808D;
 }
 
 .btn1-congrats:hover {
@@ -200,4 +215,19 @@ color: #FFFFFF;
     .congrat-image {
         width: 270px;
     }
+}
+.btn-yes{
+    background: #1A1C23;
+border-radius: 5px;
+border-radius: 50px;
+font-weight: 600;
+font-size: 15px;
+line-height: 132%;
+padding: 8px 24px;
+color: #7E808D;
+}
+.btn-yes:hover{
+    background: linear-gradient(180deg, #FF5043 0%, #F92D1E 100%);
+
+color: #fff;
 }

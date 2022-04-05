@@ -109,3 +109,9 @@ color: #5E606E;
         border-radius: 5px;
     }
 }
+.inputBox::placeholder{
+color: #fff;
+}
+.inputBox{
+    padding: 5px 10px !important;
+}
