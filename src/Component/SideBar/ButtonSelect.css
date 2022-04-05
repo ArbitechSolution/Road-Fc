@@ -1,0 +1,18 @@
+.btnMarketPlace,
+.btnSell,
+.btnListed,
+.btnTransaction {
+  color: #fff !important;
+  padding: 10px 20px !important;
+}
+.nav-pills .nav-link.active {
+  background: #5e606e !important;
+  color: #fff !important;
+  border-radius: 80px !important;
+  padding: 10px 20px !important;
+  border: #5e606e !important;
+}
+.navSection {
+  border-radius: 80px !important;
+  background: #32333e !important;
+}

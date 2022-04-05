@@ -110,8 +110,8 @@ color: #5E606E;
     }
     .nfts-image {
         width: 150px;
-    }
-}
+    }}
+
 @media(max-width: 400px){
     .nft-boxx {
         width: 160px;
@@ -130,4 +130,11 @@ color: #5E606E;
         color: #FFFFFF;
         text-align: left;
     }
+}
+
+.inputBox::placeholder{
+color: #fff;
+}
+.inputBox{
+    padding: 5px 10px !important;
 }
