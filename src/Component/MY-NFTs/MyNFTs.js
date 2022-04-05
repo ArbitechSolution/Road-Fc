@@ -38,7 +38,7 @@ function MyNFTs() {
                         <span id="presale-back"><Link to="/"><MdOutlineKeyboardBackspace size={40} style={{ color: "white" }} /></Link> Back</span>
                     </div>
                     <div className='col-lg-2 col-md-3 col-5' >
-                        <button onClick={() => getWalletAddress()} className='btn poolbtn'>{acc === "No Wallet" ? "Insatll metamask" : acc === "Connect Wallet" ? acc : acc === "Connect to Rinkebey" ? acc : acc.substring(0, 5) + "..." + acc.substring(acc.length - 5)}</button>
+                    <button onClick={() => getWalletAddress()} className='btn poolbtn'>{acc === "Wrong Network" ? "Wrong Networkk":acc === "Connect" ? "Connect" : acc === "No Wallet" ? "Connect" : acc.substring(0, 5) + "..." + acc.substring(acc.length - 5)}</button>
 
                     </div>
                 </div>
@@ -57,7 +57,7 @@ function MyNFTs() {
                                 <p className='nft-p'>Total <span className='nft-span'>(58)</span></p>
                             </div>
                         </div>
-                        <div className='row d-flex justify-content-center justify-content-md-between mb-3'>
+                        <div className='row d-flex justify-content-center justify-content-between mb-3'>
                             <div className='col-md-2 nft-boxx p-2 mt-3 '>
                                 <img src={image2} className="nfts-image " />
                                 <p className='nfts-h6 mt-3'>#20211 Trainer</p>

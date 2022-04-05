@@ -104,7 +104,7 @@ function MysteryBox() {
 
 
 
-                                        <div className='col-md-3 box-mystry'>
+                                        {/* <div className='col-md-3 box-mystry'>
                                             <div className='col-md-12 d-flex justify-content-center mystrey-imagess mb-3'>
                                                 <img src={card1} className="mystrey-pic pt-4 pb-3" />
                                             </div>
@@ -138,11 +138,11 @@ function MysteryBox() {
                                                     <p style={{ border: "1px solid rgba(119, 119, 119, 0.25)" }}></p>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> */}
 
 
 
-                                        <div className='col-md-3 box-mystry'>
+                                        {/* <div className='col-md-3 box-mystry'>
                                             <div className='col-md-12 d-flex justify-content-center mystrey-imagess mb-3'>
                                                 <img src={card1} className="mystrey-pic pt-4 pb-3" />
                                             </div>
@@ -176,32 +176,32 @@ function MysteryBox() {
                                                     <p style={{ border: "1px solid rgba(119, 119, 119, 0.25)" }}></p>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> */}
                                     </div>
                                     {/* <div className='col-md-12 d-flex justify-content-center breed-imagess mt-3 mb-3'>
                                         <img src={card1} className="mint-pic pt-4 pb-3" />
                                     </div> */}
-                                    <div className='col-md-12 d-flex justify-content-center'>
-                                        <span className='congrat-span'>Do you want to Breed card or sell in the market?</span>
+                                    <div className='col-md-11 col-11 d-flex justify-content-center'>
+                                        <span className='congrat-span text-center'>Do you want to Breed card or sell in the market?</span>
                                     </div>
 
                                 </div>
-                                <div className='row d-flex justify-content-center'>
-                                    <div className='col-lg-2 col-md-3 mt-3 mb-3'>
+                                <div className='row d-flex justify-content-center justify-content-evenly'>
+                                    <div className='col-3 mt-3 mb-3'>
                                         <div className="d-grid gap-2">
                                             <button className='btn btn-congrats' size="lg">
                                                 Breed
                                             </button>
                                         </div>
                                     </div>
-                                    <div className='col-lg-2 col-md-3 mt-3 mb-3'>
+                                    <div className='col-3 mt-3 mb-3'>
                                         <div className="d-grid gap-2">
                                             <button className='btn btn1-congrats' size="lg" onClick={() => setModalShowSecond(true)}>
                                                 Sell
                                             </button>
                                         </div>
                                     </div>
-                                    <div className='col-lg-3 col-md-4 mt-3 mb-3'>
+                                    <div className='col-5 mt-3 mb-3'>
                                         <div className="d-grid gap-2">
                                             <button className='btn btn2-congrats' size="lg">
                                                 Do it Later
@@ -243,12 +243,12 @@ function MysteryBox() {
                                                 <span className='congrat-span'>#20211 Alien Fighter</span>
                                             </div>
                                             <div className='d-flex flex-row mt-3 mb-3'>
-                                                <div className='col-md-6'>
+                                                <div className='col-md-6 col-5'>
                                                     <form>
                                                         <input type='number' class="form-control" placeholder='0' style={{ border: "2px solid " }} />
                                                     </form>
                                                 </div>
-                                                <div className='col-md-6 d-flex align-items-center'>
+                                                <div className='col-md-6 col-5 d-flex align-items-center'>
                                                     <span className='text-infom'>ROAD ($100.82)</span>
                                                 </div>
                                             </div>
@@ -260,7 +260,7 @@ function MysteryBox() {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className='col-md-3 box-mystry mt-3'>
+                                        {/* <div className='col-md-3 box-mystry mt-3'>
                                             <div className='col-md-12 d-flex justify-content-center mystrey-imagess mb-3'>
                                                 <img src={card1} className="mystrey-pic pt-4 pb-3" />
                                             </div>
@@ -284,8 +284,8 @@ function MysteryBox() {
                                                     </button>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div className='col-md-3 box-mystry mt-3'>
+                                        </div> */}
+                                        {/* <div className='col-md-3 box-mystry mt-3'>
                                             <div className='col-md-12 d-flex justify-content-center mystrey-imagess mb-3'>
                                                 <img src={card1} className="mystrey-pic pt-4 pb-3" />
                                             </div>
@@ -310,7 +310,7 @@ function MysteryBox() {
                                                     </button>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> */}
                                     </div>
                                 </div>
                             </div>
@@ -401,12 +401,12 @@ function MysteryBox() {
                                             <div className='col-12 mt-5'>
                                                 <h3 className='mystery-h3'>Mystery Box Amount</h3>
                                             </div>
-                                            <div className=' d-flex justify-content-center justify-content-around align-items-center mt-4'>
+                                            <div className=' d-flex justify-content-center justify-content-around align-items-center mt-2'>
                                                 <a onClick={decreaseValuebox} style={{ cursor: "pointer" }}><img src={Mins} /></a>
                                                 <div className='boxess d-flex justify-content-center align-items-center'>{valueone}</div>
                                                 <a onClick={increaseValuebox} style={{ cursor: "pointer" }}> <img src={plus} /></a>
                                             </div>
-                                            <div className='col-11 mint-boxes d-flex justify-content-between mt-5 mb-3 pt-3 pb-3'>
+                                            <div className='col-11 mint-boxes d-flex justify-content-between mt-4 mb-3 pt-3 pb-3'>
                                                 <span className='mint-span ps-2'>Total Cost:</span>
                                                 <span className='mint-span1'>1,000 $ROAD</span>
                                             </div>
@@ -421,7 +421,19 @@ function MysteryBox() {
                                 </div>
                                 <div className='row mb-5'>
                                     <div className='col-md-12 col-11 mint-Page-border mb-4'>
-                                        <div className='row pt-3 text-start text-sm-center '>
+                                    <table class="table table-borderless">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col" className='Mint-Time text-start'>Time</th>
+                                            <th scope="col" className='Mint-Time'>Type</th>
+                                            <th scope="col" className='Mint-Time'>Amount</th>
+                                            <th scope="col" className='Mint-Time'>Status</th>
+                                            <th scope="col" className='Mint-Time'>TX</th>
+                                        </tr>
+                                    </thead>
+
+                                </table>
+                                        {/* <div className='row pt-3 text-start text-sm-center '>
                                             <div className='col-sm-4 text-start' >
                                                 <span className='Mint-Time '>Time</span>
                                             </div>
@@ -437,7 +449,7 @@ function MysteryBox() {
                                             <div className='col-sm-2 text-start'>
                                                 <span className='Mint-Time'>TX</span>
                                             </div>
-                                        </div>
+                                        </div> */}
                                     </div>
                                 </div>
                             </div>

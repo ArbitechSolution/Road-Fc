@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import "./Mint.css"
 import Modal from 'react-bootstrap/Modal'
 import Title from "../../Assets/Title.png"
-import tiger from "../../Assets/tiger 1 1.png"
+import tiger from "../../Assets/1-Common-1000x1000.gif"
 import Vector from "../../Assets/Vector.png"
 import Mins from "../../Assets/Mins.png"
 import plus from "../../Assets/plus.png"
@@ -104,7 +104,13 @@ function Mint() {
                                     <div className='col-md-11 col-11 mint-boxs  pb-4 mb-5'>
                                         <div className='row d-flex justify-content-center m-3'>
                                             <div className='col-lg-6 d-flex justify-content-center align-items-center mt-3 mb-3' >
-                                                <img src={tiger} id="mint-pic" />
+                                                <img src={tiger} id="mint-pic" data-aos="zoom-in"
+                                                 data-aos-offset="100"
+                                                 data-aos-delay="100"
+                                                 data-aos-duration="1000"
+                                                 data-aos-easing="ease-in-out"
+                                                 data-aos-mirror="true"
+                                                 data-aos-once="false"/>
                                             </div>
                                             <div className='col-lg-6 d-flex flex-column justify-content-center'>
                                                 <div className='col-11 mint-boxes d-flex justify-content-between mb-3 pt-3 pb-3'>

@@ -19,7 +19,7 @@ function RoadPool() {
     });
     let dispatch = useDispatch();
     let { acc } = useSelector(state => state.connectWallet);
-
+    console.log("acc", acc);
     const getWalletAddress = () => {
         dispatch(getWallet());
         // allImagesNfts()
@@ -29,14 +29,19 @@ function RoadPool() {
         <div className='imagePool'>
             <div className='container'>
                 <div className='row d-flex justify-content-end pt-5'>
-                    <div className='col-lg-2 col-md-3'>
-                        <button onClick={() => getWalletAddress()} className='btn poolbtn'>{acc === "No Wallet" ? "Insatll metamask" : acc === "Connect Wallet" ? acc : acc === "Connect to Rinkebey" ? acc : acc.substring(0, 5) + "..." + acc.substring(acc.length - 5)}</button>
+                    <div className='col-lg-2 col-md-3 d-flex justify-content-end '>
+                        <button onClick={() => getWalletAddress()} className='btn poolbtn'>{acc === "Wrong Network" ? "Wrong Networkk":acc === "Connect" ? "Connect" : acc === "No Wallet" ? "Connect" : acc.substring(0, 5) + "..." + acc.substring(acc.length - 5)}</button>
                     </div>
                 </div>
                 <div className='row d-flex justify-content-center flex-wrap pt-4 pb-4 justify-content-around'>
                     <div className='col-lg-3 col-md-5 col-10 poolbox pt-4 m-1' data-aos="fade-up">
                         <img src={Growth} />
-                        <h5 className='poolgh5 pt-4'>Staking & Point</h5>
+                        <h5 className='poolgh5 pt-4' data-aos="flip-left" data-aos-offset="100"
+                            data-aos-delay="180"
+                            data-aos-duration="1000"
+                            data-aos-easing="ease-in-out"
+                            data-aos-mirror="true"
+                            data-aos-once="false">Staking & Point</h5>
                         <p className='pool-p pt-2
                         '>Welcome to the Road pool. Here you are able to benefit from staking tokens and receiving</p>
                         <div className='row d-flex justify-content-center pb-3 pt-2'>
@@ -54,7 +59,13 @@ function RoadPool() {
 
                     <div className='col-lg-3 col-md-5 col-10 poolbox pt-4 m-1'>
                         <img src={Frame2} />
-                        <h5 className='poolgh5 pt-4'>Mint</h5>
+                        <h5 className='poolgh5 pt-4' data-aos="flip-left" data-aos-offset="100"
+                            data-aos-delay="180"
+                            data-aos-duration="1000"
+                            data-aos-easing="ease-in-out"
+                            data-aos-mirror="true"
+                            data-aos-once="false"
+                        >Mint</h5>
                         <p className='pool-p pt-2'>With uncertainity, comes excitement,You never know what you are going to get.Try your luck!</p>
                         <div className='row d-flex justify-content-center pb-3 pt-2'>
                             <div className='col-10 '>
@@ -72,7 +83,12 @@ function RoadPool() {
 
                     <div className='col-lg-3 col-md-5 col-10 poolbox pt-4 m-1'>
                         <img src={Frame3} />
-                        <h5 className='poolgh5 pt-4'>Breed</h5>
+                        <h5 className='poolgh5 pt-4' data-aos="flip-left" data-aos-offset="100"
+                            data-aos-delay="180"
+                            data-aos-duration="1000"
+                            data-aos-easing="ease-in-out"
+                            data-aos-mirror="true"
+                            data-aos-once="false">Breed</h5>
                         <p className='pool-p pt-2'>Select two fighters who will perform the breed to get higher level card in exchange.</p>
                         <div className='row d-flex justify-content-center pb-3 pt-2'>
                             <div className='col-10 '>
@@ -90,7 +106,12 @@ function RoadPool() {
 
                     <div className='col-lg-3 col-md-5 col-10 poolbox pt-4 m-1 mt-3'>
                         <img src={Box} />
-                        <h5 className='poolgh5 pt-4'>Mystery Box</h5>
+                        <h5 className='poolgh5 pt-4' data-aos="flip-left" data-aos-offset="100"
+                            data-aos-delay="180"
+                            data-aos-duration="1000"
+                            data-aos-easing="ease-in-out"
+                            data-aos-mirror="true"
+                            data-aos-once="false">Mystery Box</h5>
                         <p className='pool-p pt-2'>Costs 1,000 Energy PointsWhat fighter will you get?</p>
                         <div className='row d-flex justify-content-center pb-3 pt-2'>
                             <div className='col-10 '>
@@ -108,7 +129,12 @@ function RoadPool() {
 
                     <div className='col-lg-3 col-md-5 col-10 poolbox pt-4 m-1 mt-3' >
                         <img src={nft1} />
-                        <h5 className='poolgh5 pt-4'>NFT Staking</h5>
+                        <h5 className='poolgh5 pt-4'data-aos="flip-left" data-aos-offset="100"
+                            data-aos-delay="180"
+                            data-aos-duration="1000"
+                            data-aos-easing="ease-in-out"
+                            data-aos-mirror="true"
+                            data-aos-once="false">NFT Staking</h5>
                         <p className='pool-p pt-2'>Browse your personal Staking of NFTS</p>
                         <div className='row d-flex justify-content-center pb-3 pt-2'>
                             <div className='col-10 '>
@@ -125,7 +151,12 @@ function RoadPool() {
                     </div>
                     <div className='col-lg-3 col-md-5 col-10 poolbox pt-4 m-1 mt-3'>
                         <img src={marketplace1} />
-                        <h5 className='poolgh5 pt-4'>NFT Market</h5>
+                        <h5 className='poolgh5 pt-4'data-aos="flip-left" data-aos-offset="100"
+                            data-aos-delay="180"
+                            data-aos-duration="1000"
+                            data-aos-easing="ease-in-out"
+                            data-aos-mirror="true"
+                            data-aos-once="false">NFT Market</h5>
                         <p className='pool-p pt-2'>Buy and Sell large collection of NFTSg</p>
                         <div className='row d-flex justify-content-center pb-3 pt-2'>
                             <div className='col-10 '>

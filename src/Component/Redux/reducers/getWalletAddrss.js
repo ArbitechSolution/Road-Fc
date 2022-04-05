@@ -1,7 +1,7 @@
 
 import {GET_WALLET_ADDRESS} from "../type/types";
 
-let initialState = {acc:"Connect"};
+let initialState = {acc:"Connect Wallet"};
 
 export const connectWallet = (state = initialState, action) => {
 

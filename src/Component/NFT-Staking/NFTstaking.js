@@ -56,7 +56,7 @@ function NFTstaking() {
                                         <div className='row d-flex justify-content-center'>
                                             <div className='col-12 NFTstaking-boxes1'>
                                                 <p className='nftstaking-p'>Total Rewards:</p>
-                                                <p className='nftstaking-p1'>1,500,000,000</p>
+                                                <p className='nftstaking-p1'>0.00</p>
                                             </div>
                                             <div className='col-11 boxs-staking d-flex justify-content-between align-items-center mt-3'>
                                                 <span className='nftstaking-span2'>Remaining Rewards:</span>
@@ -64,35 +64,35 @@ function NFTstaking() {
                                             </div>
                                         </div>
                                         <div className='row d-flex justify-content-center justify-content-around'>
-                                            <div className='col-5  boxs-staking d-flex flex-column mt-3' >
-                                                <span className='nft-staking-p pb-2'>500,000</span>
+                                            <div className='col-5  boxs-staking d-flex flex-column mt-3 text-start' >
+                                                <span className='nft-staking-p pb-2'>0.00</span>
                                                 <span className='nft-staking-p1'>Total Mining Power</span>
                                             </div>
                                             <div className='col-5 boxs-staking d-flex flex-column mt-3' >
-                                                <span className='nft-staking-p pb-2'>1,000</span>
+                                                <span className='nft-staking-p pb-2'>0.00</span>
                                                 <span className='nft-staking-p1'>My Mining Power</span>
                                             </div>
                                         </div>
                                         <div className='row d-flex justify-content-center justify-content-around'>
                                             <div className='col-5 boxs-staking d-flex flex-column mt-3' >
-                                                <span className='nft-staking-p pb-2'>250,000</span>
+                                                <span className='nft-staking-p pb-2'>0.00</span>
                                                 <span className='nft-staking-p1'>Total Staked Amount</span>
                                             </div>
                                             <div className='col-5 boxs-staking d-flex flex-column mt-3' >
-                                                <span className='nft-staking-p pb-2'>12,122</span>
+                                                <span className='nft-staking-p pb-2'>0.00</span>
                                                 <span className='nft-staking-p1'>My Staked Amount</span>
                                             </div>
                                         </div>
                                         <div className='row d-flex justify-content-center '>
                                             <div className='col-11 boxs-staking d-flex justify-content-between align-items-center mt-3'>
                                                 <span className='nftstaking-span2'>Total Staked Tokens($ROAD):</span>
-                                                <span className='nftstaking-span3'>100,000</span>
+                                                <span className='nftstaking-span3'>0.00</span>
                                             </div>
                                         </div>
-                                        <div className='row d-flex justify-content-center '>
+                                        <div className='row d-flex justify-content-center  mb-3'>
                                             <div className='col-11 boxs-staking d-flex justify-content-between align-items-center mt-3'>
                                                 <span className='nftstaking-span2'>My Staked Tokens($ROAD):</span>
-                                                <span className='nftstaking-span3'>1,000</span>
+                                                <span className='nftstaking-span3'>0.00</span>
                                             </div>
                                         </div>
                                     </div>
@@ -207,13 +207,13 @@ function NFTstaking() {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className='row d-flex flex-row justify-content-center justify-content-evenly mb-4 mt-4' >
+                                        <div className='row d-flex flex-row justify-content-center justify-content-md-evenly mb-4 mt-4' >
 
-                                            <div className='col-1 d-flex align-items-center justify-content-center' style={{ cursor: "pointer" }}>
+                                            <div className='col-1 d-flex align-items-center justify-content-center ps-md-1 ps-4' style={{ cursor: "pointer" }}>
                                                 <img src={Rectangle572} style={{ position: "absolute" }} />
                                                 <img src={Vector22} style={{ position: " relative" }} />
                                             </div>
-                                            <div className='col-lg-3 col-md-5 col d-flex flex-row align-items-center justify-content-evenly'>
+                                            <div className='col-lg-3 col-md-5 col d-flex flex-row justify-content-center align-items-center justify-content-md-evenly'>
                                                 <span className='MyCollectionspan'>Current</span>
                                                 <div className='bosCollection'>
                                                     <span className='mycollectionsP '>1</span>
@@ -222,7 +222,7 @@ function NFTstaking() {
                                             </div>
 
                                             {/* <button className='btn '> */}
-                                            <div className='col-1 d-flex align-items-center justify-content-center ms-4' style={{ cursor: "pointer" }}>
+                                            <div className='col-1 d-flex align-items-center justify-content-center  pe-md-1 pe-4' style={{ cursor: "pointer" }}>
                                                 <img src={Rectangle572} style={{ position: "absolute" }} />
                                                 <img src={Vector33} style={{ position: " relative" }} />
                                             </div>

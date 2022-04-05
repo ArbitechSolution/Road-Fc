@@ -74,22 +74,22 @@ function Breed() {
                                     </div>
 
                                 </div>
-                                <div className='row d-flex justify-content-center'>
-                                    <div className='col-lg-2 col-md-3 mt-3 mb-3'>
+                                <div className='row d-flex justify-content-center justify-content-evenly'>
+                                    <div className='col-3  mt-3 mb-3'>
                                         <div className="d-grid gap-2">
                                             <button className='btn btn-congrats' size="lg">
                                                 Breed
                                             </button>
                                         </div>
                                     </div>
-                                    <div className='col-lg-2 col-md-3 mt-3 mb-3'>
+                                    <div className='col-3 mt-3 mb-3'>
                                         <div className="d-grid gap-2">
                                             <button className='btn btn1-congrats' size="lg" onClick={() => setModalShowone(true)}>
                                                 Sell
                                             </button>
                                         </div>
                                     </div>
-                                    <div className='col-lg-3 col-md-4 mt-3 mb-3'>
+                                    <div className=' col-5 mt-3 mb-3'>
                                         <div className="d-grid gap-2">
                                             <button className='btn btn2-congrats' size="lg">
                                                 Do it Later
@@ -137,7 +137,7 @@ function Breed() {
                                     </div>
                                     <div className="col-lg-3 col-4 d-flex align-items-center">
 
-                                        <p className='breed-sell-span'>ROAD ($100.82)</p>
+                                        <p className='breed-sell-span'>ROAD ($  )</p>
                                     </div>
                                 </div>
                                 <div className='row d-flex justify-content-center'>
@@ -159,41 +159,40 @@ function Breed() {
                                 <div className='row d-flex justify-content-lg-start justify-content-center'>
                                     <div className='col-lg-7'>
                                         <div className='row d-flex justify-content-center'>
-                                            <div className='col-lg-11 col-10 Breed-box p-3'>
+                                            <div className='col-lg-12 col-11 Breed-box p-3 ms-2'>
                                                 <span>Select two Trainer Fighters who will perform the breed to make more powerful fighter. You can check rarity level HERE.</span>
                                             </div>
                                         </div>
                                         <div className='row d-flex justify-content-center'>
-                                            <div className="col-lg-6 col-10  mb-lg-1 mb-5">
+                                            <div className="col-6  mb-lg-1 mb-5">
                                                 <p className='breedtext1 mt-3'>TRAINER</p>
                                                 <div className=' BreedBoxs'>
-                                                    <img src={Group195} className='pt-5 pb-5' width="30px" />
+                                                    <img src={Group195} className='pt-sm-5 pt-4 pb-sm-5 pb-4' width="35px" />
                                                     <div className='  BreedminiBox p-2'>
                                                         Trainer 1
                                                     </div>
-                                                    <p className='Breedtext pt-4 pb-4'></p>
+                                                    <p className='Breedtext pt-sm-4 pt-3 pb-sm-4 pb-3'></p>
                                                 </div>
                                             </div>
-                                            <div className="col-lg-6 col-10  mb-lg-1 mb-5">
+                                            <div className="col-6 mb-lg-1 mb-5">
                                                 <p className='breedtext1 mt-3'>TRAINER</p>
                                                 <div className=' BreedBoxs'>
-                                                    <img src={Group195} className='pt-5 pb-5' width="30px" />
-                                                    <div className='  BreedminiBox p-2'>
+                                                    <img src={Group195} className='pt-sm-5 pt-4 pb-sm-5 pb-4' width="35px" />
+                                                    <div className='  BreedminiBox  p-2'>
                                                         Trainer 2
                                                     </div>
-                                                    <p className='Breedtext pt-4 pb-4'></p>
+                                                    <p className='Breedtext pt-sm-4 pt-3 pb-sm-4 pb-3'></p>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className='row d-flex justify-content-center justify-conten-around  mt-3'>
+                                        <div className='row d-flex justify-content-center justify-conten-around  mt-sm-3 '>
                                             <div className='col-10 d-flex justify-content-evenly'>
                                                 <span className='bredd-span'>Available</span>
                                                 <span className='bredd-span'><span className='breed-psans'>10,000</span> $ROAD</span>
                                             </div>
-                                            <div className='col-lg-5 col-md-7 col-10 mt-3 mb-3'>
+                                            <div className='col-lg-5 col-md-7 col-10 mt-sm-5 mt-3 mb-3'>
                                                 <div className="d-grid gap-2">
-
-                                                    <button className='btn breed-btn' size="lg" onClick={() => setModalShow(true)}>
+                                                    <button className='btn breed-btn mt-3' size="lg" onClick={() => setModalShow(true)}>
                                                         Breed
                                                     </button>
                                                 </div>
@@ -202,7 +201,7 @@ function Breed() {
                                     </div>
                                     <div className='col-lg-5 col-10 breed-box11 mb-3'>
                                         <div className='row d-flex justify-content-center'>
-                                            <div className='col-lg-10 col-10 breedboxs12'>
+                                            <div className='col-lg-10 col-11 breedboxs12'>
                                                 <div className='row'>
                                                     <div className='col-12 d-flex flex-row'>
                                                         <div>

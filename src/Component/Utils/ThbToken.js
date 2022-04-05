@@ -1,4 +1,4 @@
-export const thbTokenAddress = "0x7fbD42218d9C01C355e6BDdEE9985757943D1a5a";
+export const thbTokenAddress = "0x7e8ea2B90B916f3fAba56162E89A11dDD160aA49";
 export const thbTokenAbi = [{
     "inputs": [],
     "stateMutability": "nonpayable",
@@ -28,81 +28,6 @@ export const thbTokenAbi = [{
     "inputs": [{
         "indexed": true,
         "internalType": "address",
-        "name": "account",
-        "type": "address"
-    }, {
-        "indexed": false,
-        "internalType": "bool",
-        "name": "isExcluded",
-        "type": "bool"
-    }],
-    "name": "ExcludeFromFees",
-    "type": "event"
-}, {
-    "anonymous": false,
-    "inputs": [{
-        "indexed": false,
-        "internalType": "address[]",
-        "name": "accounts",
-        "type": "address[]"
-    }, {
-        "indexed": false,
-        "internalType": "bool",
-        "name": "isExcluded",
-        "type": "bool"
-    }],
-    "name": "ExcludeMultipleAccountsFromFees",
-    "type": "event"
-}, {
-    "anonymous": false,
-    "inputs": [{
-        "indexed": true,
-        "internalType": "address",
-        "name": "previousOwner",
-        "type": "address"
-    }, {
-        "indexed": true,
-        "internalType": "address",
-        "name": "newOwner",
-        "type": "address"
-    }],
-    "name": "OwnershipTransferred",
-    "type": "event"
-}, {
-    "anonymous": false,
-    "inputs": [{
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "tokensSwapped",
-        "type": "uint256"
-    }, {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "amount",
-        "type": "uint256"
-    }],
-    "name": "SendDividendsToMarketing",
-    "type": "event"
-}, {
-    "anonymous": false,
-    "inputs": [{
-        "indexed": true,
-        "internalType": "address",
-        "name": "pair",
-        "type": "address"
-    }, {
-        "indexed": true,
-        "internalType": "bool",
-        "name": "value",
-        "type": "bool"
-    }],
-    "name": "SetAutomatedMarketMakerPair",
-    "type": "event"
-}, {
-    "anonymous": false,
-    "inputs": [{
-        "indexed": true,
-        "internalType": "address",
         "name": "from",
         "type": "address"
     }, {
@@ -119,15 +44,15 @@ export const thbTokenAbi = [{
     "name": "Transfer",
     "type": "event"
 }, {
-    "anonymous": false,
     "inputs": [{
-        "indexed": true,
-        "internalType": "address",
-        "name": "newAddress",
-        "type": "address"
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
     }],
-    "name": "UpdateUniswapV2Router",
-    "type": "event"
+    "name": "Mint",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
 }, {
     "inputs": [{
         "internalType": "address",
@@ -153,7 +78,7 @@ export const thbTokenAbi = [{
         "type": "address"
     }, {
         "internalType": "uint256",
-        "name": "amount",
+        "name": "value",
         "type": "uint256"
     }],
     "name": "approve",
@@ -163,20 +88,6 @@ export const thbTokenAbi = [{
         "type": "bool"
     }],
     "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "name": "automatedMarketMakerPairs",
-    "outputs": [{
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-    }],
-    "stateMutability": "view",
     "type": "function"
 }, {
     "inputs": [{
@@ -191,6 +102,16 @@ export const thbTokenAbi = [{
         "type": "uint256"
     }],
     "stateMutability": "view",
+    "type": "function"
+}, {
+    "inputs": [{
+        "internalType": "uint256",
+        "name": "_value",
+        "type": "uint256"
+    }],
+    "name": "burn",
+    "outputs": [],
+    "stateMutability": "nonpayable",
     "type": "function"
 }, {
     "inputs": [],
@@ -223,34 +144,6 @@ export const thbTokenAbi = [{
 }, {
     "inputs": [{
         "internalType": "address",
-        "name": "account",
-        "type": "address"
-    }, {
-        "internalType": "bool",
-        "name": "excluded",
-        "type": "bool"
-    }],
-    "name": "excludeFromFees",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address[]",
-        "name": "accounts",
-        "type": "address[]"
-    }, {
-        "internalType": "bool",
-        "name": "excluded",
-        "type": "bool"
-    }],
-    "name": "excludeMultipleAccountsFromFees",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
         "name": "spender",
         "type": "address"
     }, {
@@ -267,50 +160,6 @@ export const thbTokenAbi = [{
     "stateMutability": "nonpayable",
     "type": "function"
 }, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "account",
-        "type": "address"
-    }],
-    "name": "isExcludedFromFees",
-    "outputs": [{
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "marketingAddress",
-    "outputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "marketingFee",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "minTokensBeforeSwap",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
     "inputs": [],
     "name": "name",
     "outputs": [{
@@ -319,66 +168,6 @@ export const thbTokenAbi = [{
         "type": "string"
     }],
     "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "owner",
-    "outputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "renounceOwnership",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "pair",
-        "type": "address"
-    }, {
-        "internalType": "bool",
-        "name": "value",
-        "type": "bool"
-    }],
-    "name": "setAutomatedMarketMakerPair",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "value",
-        "type": "uint256"
-    }],
-    "name": "setMarketingFee",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "wallet",
-        "type": "address"
-    }],
-    "name": "setMarketingWallet",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "amount",
-        "type": "uint256"
-    }],
-    "name": "setMinTokensBeforeSwap",
-    "outputs": [],
-    "stateMutability": "nonpayable",
     "type": "function"
 }, {
     "inputs": [],
@@ -440,37 +229,4 @@ export const thbTokenAbi = [{
     }],
     "stateMutability": "nonpayable",
     "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "newOwner",
-        "type": "address"
-    }],
-    "name": "transferOwnership",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "uniswapV2Pair",
-    "outputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "uniswapV2Router",
-    "outputs": [{
-        "internalType": "contract IUniswapV2Router02",
-        "name": "",
-        "type": "address"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "stateMutability": "payable",
-    "type": "receive"
 }]

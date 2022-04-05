@@ -3,7 +3,7 @@
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-    height: 100%;
+    min-height: 100%
 }
 .poolbtn{
     background: linear-gradient(90deg, #F92D1E 1.7%, #FF5043 100%);
@@ -21,7 +21,9 @@ backdrop-filter: blur(16px);
 border-top: 2px solid #FF5043;
 /* border-left: 2px solid #FF5043;
 border-right: 2px solid #FF5043; */
-
+-webkit-box-shadow: 0 10px 8px -4px black;
+	   -moz-box-shadow: 0 10px 8px -4px black;
+	        box-shadow: 0 10px 8px -4px black;
 border-radius: 16px;
 }
 .poolgh5{
@@ -52,7 +54,7 @@ font-size: 20px;
 line-height: 132%;
 color: white;
 }
-@media(min-width: 1600px) and (max-width: 6000px){
+@media(min-width: 2400px) and (max-width: 6000px ){
     .imagePool{
         background-image: url("../../Assets/BG.png"),url("../../Assets/BG1.png");
         background-repeat: no-repeat;
@@ -61,3 +63,12 @@ color: white;
         height: 100vh;
     }
 }
+/* @media(min-width: 1400px) and (max-width: 1599px){
+    .imagePool{
+        background-image: url("../../Assets/BG.png"),url("../../Assets/BG1.png");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        height: 100%;
+    }
+} */
