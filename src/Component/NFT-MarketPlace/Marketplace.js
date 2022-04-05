@@ -65,6 +65,51 @@ import ButtonSelect from '../SideBar/ButtonSelect';
 // }));
 function Marketplace() {
 
+
+    (function() {
+
+        var parent = document.querySelector("#rangeSlider");
+        if(!parent) return;
+
+        var
+        rangeS = parent.querySelectorAll("input[type=range]"),
+            numberS = parent.querySelectorAll("input[type=number]");
+
+        rangeS.forEach(function(el) {
+            el.oninput = function() {
+                var slide1 = parseFloat(rangeS[0].value),
+                    slide2 = parseFloat(rangeS[1].value);
+
+                if (slide1 > slide2) {
+                    [slide1, slide2] = [slide2, slide1];
+                    // var tmp = slide2;
+                    // slide2 = slide1;
+                    // slide1 = tmp;
+                }
+
+                numberS[0].value = slide1;
+                numberS[1].value = slide2;
+            }
+        });
+
+        numberS.forEach(function(el) {
+            el.oninput = function() {
+                var number1 = parseFloat(numberS[0].value),
+                    number2 = parseFloat(numberS[1].value);
+
+                if (number1 > number2) {
+                    var tmp = number1;
+                    numberS[0].value = number2;
+                    numberS[1].value = tmp;
+                }
+
+                rangeS[0].value = number1;
+                rangeS[1].value = number2;
+
+            }
+        });
+
+    })();
     // const classes = useStyles();
     // const [value, setValue] = useState([0, 100]);
 
@@ -165,6 +210,32 @@ function Marketplace() {
                                 </div>
                                 <p className='market-span1 text-start'>Level</p>
                                 <div className=''>
+                                    <div class="filter level-filter level-req">
+                                        <div id="rangeSlider" class="range-slider">
+
+                                            <div class="range-group">
+                                                <input class="range-input" value="10" min="1" max="50" step="1" type="range" />
+                                                <input class="range-input" value="50" min="1" max="50" step="1" type="range" />
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    {/* <div class="filter level-filter level-req">
+                                        <div id="rangeSlider" class="range-slider">
+
+                                            <div class="range-group">
+                                                <input class="range-input" value="10" min="1" max="50" step="1" type="range" />
+                                                <input class="range-input" value="50" min="1" max="50" step="1" type="range" />
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div className="slider">
+                                        <div className="slider__track" />
+
+                                        <div className="slider__left-value">0</div>
+                                        <div className="slider__right-value">9</div>
+                                    </div> */}
                                     {/* <Slider
                                         classes={{
                                             thumb: classes.thumb,
@@ -197,7 +268,7 @@ function Marketplace() {
                     <div className="col-lg-8">
                         <div className='row d-flex justify-content-center justify-content-around'>
                             <div className='col-lg-7 d-flex justify-content-left'>
-                               <ButtonSelect/>
+                                <ButtonSelect />
                             </div>
                             <div className='col-1 boxmarket d-flex justify-content-left align-items-center' >
                                 <HiShoppingCart size={30} style={{ color: "white" }} />

@@ -23,7 +23,7 @@ function SideBar() {
           <NavLink to="/Staking" style={{ textDecoration: "none" }} className={({ isActive }) => (isActive ? 'col-10 staking-btn_active' : 'col-10 staking-btn')}>
             <div className=''>
               <div className="d-grid gap-2" >
-                <button className='btn text-start d-flex align-items-center' style={{ color: "white",fontSize: "18px", fontWeight: "bold" }}>
+                <button className='btn text-start d-flex align-items-center' style={{ color: "#FD5043",fontSize: "18px", fontWeight: "bold" }}>
                   <img src={Growth} width="30px" />&nbsp;&nbsp; Staking & Point
                 </button>
               </div>
@@ -41,7 +41,7 @@ function SideBar() {
           <NavLink to="/Mint" style={{ textDecoration: "none", color: "white" }} className={({ isActive }) => (isActive ? 'col-10 staking-btn_active' : 'col-10 staking-btn')}>
             <div className=''>
               <div className="d-grid gap-2">
-                <button className='btn  text-start d-flex align-items-center' style={{ color: "white", fontSize: "18px", fontWeight: "bold" }}>
+                <button className='btn  text-start d-flex align-items-center' style={{ color: "#FD5043", fontSize: "18px", fontWeight: "bold" }}>
                   <img src={Frame2} width="30px" />&nbsp;&nbsp; Mint
                 </button>
               </div>
@@ -60,7 +60,7 @@ function SideBar() {
           <NavLink to="/breed" style={{ textDecoration: "none", color: "white" }} className={({ isActive }) => (isActive ? 'col-10 staking-btn_active' : 'col-10 staking-btn')}>
             <div className=''>
               <div className="d-grid gap-2">
-                <button className='btn text-start d-flex align-items-center' style={{ color: "white", fontSize: "18px", fontWeight: "bold" }}>
+                <button className='btn text-start d-flex align-items-center' style={{ color: "#FD5043", fontSize: "18px", fontWeight: "bold" }}>
                   <img src={Frame3} width="24px" />&nbsp;&nbsp; Breed
 
                 </button>
@@ -81,7 +81,7 @@ function SideBar() {
         <NavLink to="/MysteryBox" style={{ textDecoration: "none", color: "white" }} className={({ isActive }) => (isActive ? 'col-10 staking-btn_active' : 'col-10 staking-btn')}>
           <div className=''>
             <div className="d-grid gap-2">
-              <button className='btn text-start d-flex align-items-center' style={{ color: "white", fontSize: "18px", fontWeight: "bold" }}>
+              <button className='btn text-start d-flex align-items-center' style={{ color: "#FD5043", fontSize: "18px", fontWeight: "bold" }}>
                   <img src={Box} width="30px" />&nbsp;&nbsp; Mystery Box
               </button>
             </div>
@@ -99,7 +99,7 @@ function SideBar() {
         <NavLink to="/NFTstaking" style={{ textDecoration: "none", color: "white" }} className={({ isActive }) => (isActive ? 'col-10 staking-btn_active' : 'col-10 staking-btn')}>
           <div className=''>
             <div className="d-grid gap-2">
-              <button className='btn text-start d-flex align-items-center' style={{ color: "white", fontSize: "18px", fontWeight: "bold" }}>
+              <button className='btn text-start d-flex align-items-center' style={{ color: "#FD5043", fontSize: "18px", fontWeight: "bold" }}>
                 <img src={nft1} width="30px" />&nbsp;&nbsp; NFT Staking
 
               </button>
@@ -117,7 +117,7 @@ function SideBar() {
         <NavLink to="/marketplace" style={{ textDecoration: "none", color: "white" }} className={({ isActive }) => (isActive ? 'col-10 staking-btn_active' : 'col-10 staking-btn')}>
           <div className=''>
             <div className="d-grid gap-2">
-              <button className='btn text-start d-flex align-items-center' style={{ color: "white", fontSize: "18px", fontWeight: "bold" }}>
+              <button className='btn text-start d-flex align-items-center' style={{ color: "#FD5043", fontSize: "18px", fontWeight: "bold" }}>
                 <img src={marketplace1} width="30px" />&nbsp;&nbsp; NFT Market
               </button>
             </div>
@@ -134,7 +134,7 @@ function SideBar() {
         <NavLink to="/MyNFTs" style={{ textDecoration: "none", color: "white" }} className={({ isActive }) => (isActive ? 'col-10 staking-btn_active' : 'col-10 staking-btn')}>
           <div className=''>
             <div className="d-grid gap-2">
-              <button className='btn text-start d-flex align-items-center' style={{ color: "white", fontSize: "18px", fontWeight: "bold" }}>
+              <button className='btn text-start d-flex align-items-center' style={{ color: "#FD5043", fontSize: "18px", fontWeight: "bold" }}>
                 <img src={Group593} width="30px" />&nbsp;&nbsp; My NFT
 
               </button>

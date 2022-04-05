@@ -525,7 +525,7 @@ function Staking() {
                                             <div className='col-12 staking-col12-Box pb-2 pt-2'>
                                                 <div className='row'>
                                                     <div className='col-10'>
-                                                        ROAD/BNB STAKING
+                                                        $ROAD/$BNB STAKING
                                                     </div>
                                                     <div className='col-2'>
                                                         <div class="social">
