@@ -38,66 +38,63 @@ function Staking() {
     let { brlLPPoint } = useSelector(state => state.getUserBrLplpoint)
 
 
-    const stakeVal = async () => {
-        if (acc == "No Wallet") {
-            toast.error("Connect Wallet")
-        }
-        else if (acc == "Wrong Network") {
-            toast.error("Wrong Newtwork please connect to test net")
-
-        } else if (acc == "Connect Wallet") {
-            toast.error("Not Connected")
-        } else {
-            try {
-                let enteredVal = stakeAmount.current.value;
-                // console.log("U NEterd", enteredVal);
-                const web3 = window.web3;
-                let thbTokenContractOf = new web3.eth.Contract(thbTokenAbi, thbTokenAddress);
-                let stakingCOntractOf = new web3.eth.Contract(stakingContractAbi, stakingContractAddress);
-                let userThbBal = web3.utils.toWei(thbBal.toString())
-                if (enteredVal > 0) {
-                    if (parseFloat(userThbBal) >= parseFloat(enteredVal)) {
-                        if (tamount <= 0) {
-                            enteredVal = web3.utils.toWei(enteredVal.toString());
-                            await thbTokenContractOf.methods.approve(stakingContractAddress, enteredVal.toString()).send({
-                                from: acc
-                            })
-                            toast.success("Transaction Confirmed")
-
-                            await stakingCOntractOf.methods.Stake(enteredVal.toString()).send({
-                                from: acc
-                            })
-                            stakeAmount.current.value = ""
-                            toast.success("Transaction Confirmed")
-                            dispatch(getUserTHbTamount())
-                            // dispatch(getUserTHbLPTamount())
-                            // dispatch(getUserThbBalance())
-                            dispatch(getUserThbLpBalance())
-                            dispatch(getUserBrLp())
-                            dispatch(getUserBrl())
-
-                        } else {
-                            toast.error("You Have Already Staked. Please Unstake and try again")
-                        }
-                    } else {
-                        toast.error("Insufficient balance")
-                        console.log("Insufficient Balance your Current Balance is ", parseFloat(userThbBal));
-                    }
-
-                } else {
-                    console.log("Staking Amount must be greater than 0");
-                    toast.error("Staking Amount must be greater than 0")
-                }
-            } catch (e) {
-                console.log("Error while staking amount", e);
-                toast.error("Transaction Failed")
+    const stakeVal = async (isCheck) => {
+        if(isCheck == "stake"){
+            if (acc == "No Wallet") {
+                toast.error("Connect Wallet")
             }
-        }
-    }
-
-    // Unstake Function for Thb
-    const unstake = async () => {
-        // console.log("ACC=", acc)
+            else if (acc == "Wrong Network") {
+                toast.error("Wrong Newtwork please connect to test net")
+    
+            } else if (acc == "Connect Wallet") {
+                toast.error("Not Connected")
+            } else {
+                try {
+                    let enteredVal = parseFloat(stakeAmount.current.value);
+                    console.log("U NEterd", acc);
+                    const web3 = window.web3;
+                    let thbTokenContractOf = new web3.eth.Contract(thbTokenAbi, thbTokenAddress);
+                    let stakingCOntractOf = new web3.eth.Contract(stakingContractAbi, stakingContractAddress);
+                    let userThbBal = web3.utils.toWei(thbBal.toString())
+                    if (enteredVal > 0) {
+                        if (parseFloat(userThbBal) >= enteredVal) {
+                            if (tamount <= 0) {
+                                enteredVal = web3.utils.toWei(enteredVal.toString());
+                                await thbTokenContractOf.methods.approve(stakingContractAddress, enteredVal.toString()).send({
+                                    from: acc
+                                })
+                                toast.success("Transaction Confirmed")
+    
+                                await stakingCOntractOf.methods.Stake(enteredVal).send({
+                                    from: acc
+                                })
+                                stakeAmount.current.value = ""
+                                toast.success("Transaction Confirmed")
+                                dispatch(getUserTHbTamount())
+                                // dispatch(getUserTHbLPTamount())
+                                // dispatch(getUserThbBalance())
+                                dispatch(getUserThbLpBalance())
+                                dispatch(getUserBrLp())
+                                dispatch(getUserBrl())
+    
+                            } else {
+                                toast.error("You Have Already Staked. Please Unstake and try again")
+                            }
+                        } else {
+                            toast.error("Insufficient balance")
+                            console.log("Insufficient Balance your Current Balance is ", parseFloat(userThbBal));
+                        }
+    
+                    } else {
+                        console.log("Staking Amount must be greater than 0");
+                        toast.error("Staking Amount must be greater than 0")
+                    }
+                } catch (e) {
+                    console.log("Error while staking amount", e);
+                    toast.error("Transaction Failed")
+                }
+            }
+        }else if(isCheck == "unStake"){
         if (acc == "No Wallet") {
             toast.error("Not Connected to Wallet")
 
@@ -110,13 +107,17 @@ function Staking() {
 
         else {
             try {
-
+                let amount = parseFloat(stakeAmount.current.value).toString()
+                console.log("amount", amount);
+                if(amount >0){
                 const web3 = window.web3
                 let stakingCOntractOf = new web3.eth.Contract(stakingContractAbi, stakingContractAddress);
                 if (tamount > 0) {
-                    await stakingCOntractOf.methods.withdrawtoken().send({
+                    if(amount <= tamount){
+                    await stakingCOntractOf.methods.withdrawtoken(web3.utils.toWei(amount)).send({
                         from: acc
                     })
+                    stakeAmount.current.value = ""
                     toast.success("Transaction Confirmed")
                     dispatch(getUserTHbTamount())
                     dispatch(getUserTHbLPTamount())
@@ -124,11 +125,16 @@ function Staking() {
                     dispatch(getUserThbLpBalance())
                     dispatch(getUserBrLp())
                     dispatch(getUserBrl())
+                }else{
+                    toast.error("your amount is grater than you have staked")
+                }
                 } else {
                     toast.error("You have not staked yet")
                     console.log("You have not staked yet");
                 }
-
+            }else{
+                toast.error("Please enter the value or click max")
+            }
 
             } catch (e) {
                 console.log("Error while staking amount", e);
@@ -136,69 +142,183 @@ function Staking() {
 
             }
         }
+        }
+        
+    }
+    const redeem = async () => {
+        try{
+            if (acc == "No Wallet") {
+                toast.error("Not Connected to Wallet")
+    
+            }
+            else if (acc == "Wrong Network") {
+                toast.error("Wrong Newtwork please connect to test net")
+            } else if (acc == "Connect Wallet") {
+                toast.error("Not Connected")
+            }else {
+                const web3 = window.web3
+                let stakingCOntractOf = new web3.eth.Contract(stakingContractAbi, stakingContractAddress);
+                await stakingCOntractOf.methods.redeem().send({
+                    from :acc
+                })
+                toast.success("Transaction Confirmed")
+            }
+        }catch(e){
+            console.log("error while redeem token", e);
+        }
+        }
+
+        const redeemLp = async () => {
+            try{
+                if (acc == "No Wallet") {
+                    toast.error("Not Connected to Wallet")
+        
+                }
+                else if (acc == "Wrong Network") {
+                    toast.error("Wrong Newtwork please connect to test net")
+                } else if (acc == "Connect Wallet") {
+                    toast.error("Not Connected")
+                }else {
+                    const web3 = window.web3
+                    let stakingCOntractOf = new web3.eth.Contract(stakingContractAbi, stakingContractAddress);
+                    await stakingCOntractOf.methods.redeemforLp().send({
+                        from :acc
+                    })
+                    toast.success("Transaction Confirmed")
+                }
+            }catch(e){
+                console.log("error while redeem token", e);
+            }
+            }
+
+    // Unstake Function for Thb
+    const unstake = async () => {
+        // console.log("ACC=", acc)
+        
 
     }
     // stake functions for Lp THB
 
-    const stakeLpVal = async () => {
-        // console.log("ACC=",acc)
-        if (acc == "No Wallet") {
-            //   setBtTxt("Connect Wallet")
-            toast.error("Not Connected")
-        }
-        else if (acc == "Wrong Network") {
-            //   setBtTxt("Wrong Network")
-        } else if (acc == "Connect Wallet") {
-            toast.error("Not Connected")
-        } else {
-            try {
-
-                let enteredVal = stakeAmountLp.current.value;
-                // console.log("U NEterd", enteredVal);
-                const web3 = window.web3;
-                let thbLpTokenContractOf = new web3.eth.Contract(thbLpTokenAbi, thbLpTokenAddress);
-                let stakingCOntractOf = new web3.eth.Contract(stakingContractAbi, stakingContractAddress);
-                let userThbLpBal = web3.utils.toWei(thbLpBal.toString())
-                if (enteredVal > 0) {
-                    if (parseFloat(userThbLpBal) >= parseFloat(enteredVal)) {
-                        if (tamountlp <= 0) {
-                            enteredVal = web3.utils.toWei(enteredVal.toString());
-                            await thbLpTokenContractOf.methods.approve(stakingContractAddress, enteredVal.toString()).send({
-                                from: acc
-                            })
-                            toast.success("Transaction Confirmed")
-                            await stakingCOntractOf.methods.StakeforLP(enteredVal.toString()).send({
-                                from: acc
-                            })
-                            stakeAmountLp.current.value = ""
-                            toast.success("Transaction Confirmed")
-                            dispatch(getUserTHbTamount())
-                            dispatch(getUserTHbLPTamount())
-                            dispatch(getUserThbBalance())
-                            dispatch(getUserThbLpBalance())
-                            dispatch(getUserBrLp())
-                            dispatch(getUserBrl())
-                        } else {
-                            toast.error("You have staked already. Unstake and try again.")
-                        }
-
-
-                    } else {
-                        toast.error("Insufficient Balance")
-                        console.log("Insufficient Balance");
-                    }
-
-                } else {
-                    console.log("Staking Amount must be greater than 0");
-                    toast.error("Staking Amount must be greater than 0")
+    const stakeLpVal = async (isCheck) => {
+            if(isCheck == "stake"){
+                if (acc == "No Wallet") {
+                    //   setBtTxt("Connect Wallet")
+                    toast.error("Not Connected")
                 }
-            } catch (e) {
-                console.log("Error while staking amount", e);
-                toast.error("Transaction Failed")
-
+                else if (acc == "Wrong Network") {
+                    //   setBtTxt("Wrong Network")
+                } else if (acc == "Connect Wallet") {
+                    toast.error("Not Connected")
+                } else {
+                    try {
+        
+                        let enteredVal = stakeAmountLp.current.value;
+                        // console.log("U NEterd", enteredVal);
+                        const web3 = window.web3;
+                        let thbLpTokenContractOf = new web3.eth.Contract(thbLpTokenAbi, thbLpTokenAddress);
+                        let stakingCOntractOf = new web3.eth.Contract(stakingContractAbi, stakingContractAddress);
+                        let userThbLpBal = web3.utils.toWei(thbLpBal.toString())
+                        if (enteredVal > 0) {
+                            if (parseFloat(userThbLpBal) >= parseFloat(enteredVal)) {
+                                if (tamountlp <= 0) {
+                                    enteredVal = web3.utils.toWei(enteredVal.toString());
+                                    await thbLpTokenContractOf.methods.approve(stakingContractAddress, enteredVal.toString()).send({
+                                        from: acc
+                                    })
+                                    toast.success("Transaction Confirmed")
+                                    await stakingCOntractOf.methods.StakeforLP(enteredVal.toString()).send({
+                                        from: acc
+                                    })
+                                    stakeAmountLp.current.value = ""
+                                    toast.success("Transaction Confirmed")
+                                    dispatch(getUserTHbTamount())
+                                    dispatch(getUserTHbLPTamount())
+                                    dispatch(getUserThbBalance())
+                                    dispatch(getUserThbLpBalance())
+                                    dispatch(getUserBrLp())
+                                    dispatch(getUserBrl())
+                                } else {
+                                    toast.error("You have staked already. Unstake and try again.")
+                                }
+        
+        
+                            } else {
+                                toast.error("Insufficient Balance")
+                                console.log("Insufficient Balance");
+                            }
+        
+                        } else {
+                            console.log("Staking Amount must be greater than 0");
+                            toast.error("Staking Amount must be greater than 0")
+                        }
+                    } catch (e) {
+                        console.log("Error while staking amount", e);
+                        toast.error("Transaction Failed")
+        
+                    }
+                }
+            }else if(isCheck == "unStake"){
+                if (acc == "No Wallet") {
+                    //   setBtTxt("Connect Wallet")
+                    toast.error("Not Connected")
+                }
+                else if (acc == "Wrong Network") {
+                    //   setBtTxt("Wrong Network")
+                    toast.error("Not Connected")
+        
+                } else if (acc == "Connect Wallet") {
+                    toast.error("Not Connected")
+                } else {
+                    try {
+                        let amount = parseFloat(stakeAmountLp.current.value).toString()
+                        if(amount > 0){
+                            if(tamountlp>= amount){
+                        let timestamp = Math.floor(new Date().getTime() / 1000)
+                        // console.log("timestamp", timestamp);
+                        const web3 = window.web3;
+                        let stakingCOntractOf = new web3.eth.Contract(stakingContractAbi, stakingContractAddress);
+                        let lpLockTime = await stakingCOntractOf.methods.LPlocktime().call()
+                        let userLP = await stakingCOntractOf.methods.UserLP(acc).call()
+                        let depositTimes = userLP.Deposit_time
+                        let AddTime = +lpLockTime + +depositTimes;
+                        // console.log("AddTime", AddTime);
+                        if (tamountlp > 0) {
+                            if (timestamp >= AddTime) {
+                                await stakingCOntractOf.methods.withdrawLPtoken(web3.utils.toWei(amount)).send({
+                                    from: acc
+                                })
+                                stakeAmountLp.current.value = ""
+                                toast.success("Transaction Confirmed")
+                                dispatch(getUserTHbTamount())
+                                dispatch(getUserTHbLPTamount())
+                                dispatch(getUserThbBalance())
+                                dispatch(getUserThbLpBalance())
+                                dispatch(getUserBrLp())
+                                dispatch(getUserBrl())
+                            } else {
+                                toast.error("Unlocked Time Not Reached !")
+                            }
+        
+        
+                        } else {
+                            toast.error("You have not staked any Lp Tokens yet")
+                            console.log("You have not staked any Lp Tokens yet");
+                        }
+                    }else{
+                        toast.info("your point is low")
+                    }
+        
+                    }else{
+                            toast.info("Please enter amount or click max")
+                    }
+                    } catch (e) {
+                        console.log("Error while staking amount", e);
+                        toast.error("Transaction Failed")
+                    }
+                }
             }
-        }
     }
+
 
     // // function for Unstaking LPThb
 
@@ -268,6 +388,11 @@ function Staking() {
 
     }
     useEffect(() => {
+        setInterval(function() {
+            // method to be executed;
+            dispatch(getUserBrLp())
+            dispatch(getUserBrl())
+          }, 9000);
         dispatch(getUserTHbTamount())
         dispatch(getUserTHbLPTamount())
         dispatch(getUserThbBalance())
@@ -286,7 +411,7 @@ function Staking() {
                         <span id="presale-back"><Link to="/"><MdOutlineKeyboardBackspace size={40} style={{ color: "white" }} /></Link> Back</span>
                     </div>
                     <div className='col-lg-2 col-md-3 col-5' >
-                        <button onClick={() => getWalletAddress()} className='btn poolbtn'>{acc === "No Wallet" ? "Connect" : acc === "Connect" ? acc : acc === "Connect to Rinkebey" ? acc : acc.substring(0, 5) + "..." + acc.substring(acc.length - 5)}</button>
+                        <button onClick={() => getWalletAddress()} className='btn poolbtn'>{acc === "No Wallet" ? "Connect Wallet" : acc === "Connect Wallet" ? "Connect" : acc === "Wrong Network" ? acc : acc.substring(0, 5) + "..." + acc.substring(acc.length - 5)}</button>
 
                     </div>
                 </div>
@@ -353,15 +478,15 @@ function Staking() {
                                         </div>
                                         <div className='col-11 Staking-boxese d-flex justify-content-between mt-5 mb-3 pt-3 pb-3'>
                                             <span className='staking-span98 ps-2'>Wallet:</span>
-                                            <span className='staking-span97'>0.000 $ROAD</span>
+                                            <span className='staking-span97'>{thbBal.toLocaleString()}</span>
                                         </div>
                                         <div className='col-11 Staking-boxese d-flex justify-content-between mt-2 mb-3 pt-3 pb-3'>
                                             <span className='staking-span98 ps-2'>Energy Point:</span>
-                                            <span className='staking-span97'>0.000</span>
+                                            <span className='staking-span97'>{brlPoint}</span>
                                         </div>
                                         <div className='col-11 Staking-boxese d-flex justify-content-between mt-2 mb-3 pt-3 pb-3'>
                                             <span className='staking-span98 ps-2'>Staked:</span>
-                                            <span className='staking-span97'>0.000</span>
+                                            <span className='staking-span97'>{tamount}</span>
                                         </div>
                                         <div className='col-11 Staking-boxese d-flex justify-content-between align-item-center mt-2 mb-3 pt-2 pb-2'>
                                             <span className='staking-span98 ps-2 pt-2'>Enter $ROAD:</span>
@@ -370,6 +495,7 @@ function Staking() {
                                                 <input
                                                     style={{ backgroundColor: "#1C1F26", color: "white   " }}
                                                     className="pointinput form-control staking-tab-b0xes"
+                                                    ref={stakeAmount}
                                                     type="number"
                                                     placeholder="0"
                                                     min={1}
@@ -380,14 +506,18 @@ function Staking() {
                                         <div className='row d-flex justify-content-center'>
                                             <div className='col-6'>
                                                 <div className="d-grid gap-2">
-                                                    <button className='btn btn-staking-button'>
+                                                    <button className='btn btn-staking-button'
+                                                    onClick={() => stakeVal("stake")}
+                                                    >
                                                         Stake
                                                     </button>
                                                 </div>
                                             </div>
                                             <div className='col-6'>
                                                 <div className="d-grid gap-2">
-                                                    <button className='btn btn-staking-button'>
+                                                    <button className='btn btn-staking-button'
+                                                    onClick={() => stakeVal("unStake")}
+                                                    >
                                                     Unstake
                                                     </button>
                                                 </div>
@@ -396,7 +526,9 @@ function Staking() {
                                         <div className='row d-flex justify-content-center mt-3 mb-3'>
                                             <div className='col-12'>
                                             <div className="d-grid gap-2">
-                                                    <button className='btn btn-staking-redeem'>
+                                                    <button className='btn btn-staking-redeem'
+                                                    onClick={redeem}
+                                                    >
                                                     Redeem
                                                     </button>
                                                 </div>
@@ -550,15 +682,15 @@ function Staking() {
                                         </div>
                                         <div className='col-11 Staking-boxese d-flex justify-content-between mt-5 mb-3 pt-3 pb-3'>
                                             <span className='staking-span98 ps-2'>Wallet:</span>
-                                            <span className='staking-span97'>0.000 $ROAD LP</span>
+                                            <span className='staking-span97'>{thbLpBal.toLocaleString()}</span>
                                         </div>
                                         <div className='col-11 Staking-boxese d-flex justify-content-between mt-2 mb-3 pt-3 pb-3'>
                                             <span className='staking-span98 ps-2'>Energy Point:</span>
-                                            <span className='staking-span97'>0.000</span>
+                                            <span className='staking-span97'>{brlLPPoint.toLocaleString()}</span>
                                         </div>
                                         <div className='col-11 Staking-boxese d-flex justify-content-between mt-2 mb-3 pt-3 pb-3'>
                                             <span className='staking-span98 ps-2'>Staked:</span>
-                                            <span className='staking-span97'>0.000</span>
+                                            <span className='staking-span97'>{tamountlp}</span>
                                         </div>
                                         <div className='col-11 Staking-boxese d-flex justify-content-between align-item-center mt-2 mb-3 pt-2 pb-2'>
                                             <span className='staking-span98 ps-2 pt-2'>Enter $ROAD LP:</span>
@@ -567,6 +699,7 @@ function Staking() {
                                                 <input
                                                     style={{ backgroundColor: "#1C1F26", color: "white   " }}
                                                     className="pointinput form-control staking-tab-b0xes"
+                                                   ref={stakeAmountLp}
                                                     type="number"
                                                     placeholder="0"
                                                     min={1}
@@ -577,14 +710,22 @@ function Staking() {
                                         <div className='row d-flex justify-content-center'>
                                             <div className='col-6'>
                                                 <div className="d-grid gap-2">
-                                                    <button className='btn btn-staking-button'>
+                                                    <button className='btn btn-staking-button'
+                                                        onClick={()=>{
+                                                            stakeLpVal("stake")
+                                                        }}
+                                                    >
                                                         Stake
                                                     </button>
                                                 </div>
                                             </div>
                                             <div className='col-6'>
                                                 <div className="d-grid gap-2">
-                                                    <button className='btn btn-staking-button'>
+                                                    <button className='btn btn-staking-button'
+                                                    onClick={()=>{
+                                                        stakeLpVal("unStake")
+                                                    }}
+                                                    >
                                                     Unstake
                                                     </button>
                                                 </div>
@@ -593,7 +734,9 @@ function Staking() {
                                         <div className='row d-flex justify-content-center mt-3 mb-3'>
                                             <div className='col-12'>
                                             <div className="d-grid gap-2">
-                                                    <button className='btn btn-staking-redeem'>
+                                                    <button className='btn btn-staking-redeem'
+                                                    onClick={redeemLp}
+                                                    >
                                                     Redeem
                                                     </button>
                                                 </div>
