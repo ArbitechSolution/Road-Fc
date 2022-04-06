@@ -24,6 +24,7 @@ import MarketPlaceSell from "./Component/NFT-MarketPlace/MarketplaceSell";
 import MarketPlaceList from "./Component/NFT-MarketPlace/MarketplaceList";
 // import Staking from "./Component/Staking-Point/Staking"
 import FooterDown from './Component/FooterDown/FooterDown';
+import TransactionLog from "./Component/NFT-MarketPlace/TransactionLog";
 // import SideBar from "././Component/SideBar/SideBar"
 function App() {
   return (
@@ -49,6 +50,7 @@ function App() {
             path="/marketplaceList"
             element={<MarketPlaceList />}
           />
+          <Route exact path="/transactionlog" element={<TransactionLog/>}/>
         </Routes>
         <FooterDown />
         <Footer />

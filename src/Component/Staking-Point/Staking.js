@@ -24,6 +24,8 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Epic1000 from "../../Assets/4-Epic-1000x1000.gif"
 import speaker from "../../Assets/speaker.png"
+import rare2 from "../../Assets/rare 2.png"
+import epic2 from "../../Assets/epic(2) 1.png"
 function Staking() {
 
     let stakeAmount = useRef(0);
@@ -472,8 +474,8 @@ function Staking() {
                                             </div>
                                         </div>
                                         <div className="row d-flex justify-content-center">
-                                            <div className='col-11 mt-4'>
-                                                <img src={Rare1000} width="230px" />
+                                            <div className='col-11 mt-4 d-flex justify-content-center align-items-center'>
+                                                <img src={rare2} width="230px" />
                                             </div>
                                         </div>
                                         <div className='col-11 Staking-boxese d-flex justify-content-between mt-5 mb-3 pt-3 pb-3'>
@@ -676,8 +678,8 @@ function Staking() {
                                             </div>
                                         </div>
                                         <div className="row d-flex justify-content-center">
-                                            <div className='col-11 mt-4'>
-                                                <img src={Epic1000} width="230px" />
+                                            <div className='col-11 mt-4 d-flex justify-content-center align-items-center'>
+                                                <img src={epic2} width="230px" />
                                             </div>
                                         </div>
                                         <div className='col-11 Staking-boxese d-flex justify-content-between mt-5 mb-3 pt-3 pb-3'>

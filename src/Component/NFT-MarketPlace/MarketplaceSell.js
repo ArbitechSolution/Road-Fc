@@ -57,15 +57,7 @@ function MarketPlaceSell() {
               Back
             </span>
           </div>
-          {/* <div className="col-lg-2 col-md-3 col-5"> */}
-          {/* <div className="row d-flex justify-content-center justify-content-around">
-              <div className="col-lg-7 d-flex justify-content-right">
-                <ButtonSelect />
-              </div>
-              <div className="col-1 boxmarket d-flex justify-content-right align-items-center">
-                <HiShoppingCart size={30} style={{ color: "white" }} />
-              </div>
-            </div> */}
+
 
           <div className="col-lg-6 col-md-9 col-8 d-flex justify-content-left">
             <ButtonSelect />
@@ -279,7 +271,7 @@ function MarketPlaceSell() {
                 <span className="MyCollectionspan">/3</span>
               </div>
 
-              {/* <button className='btn '> */}
+
               <div
                 className="col-1 d-flex align-items-center justify-content-center ms-4"
                 style={{ cursor: "pointer" }}
@@ -287,12 +279,12 @@ function MarketPlaceSell() {
                 <img src={Rectangle572} style={{ position: "absolute" }} />
                 <img src={Vector33} style={{ position: " relative" }} />
               </div>
-              {/* </button> */}
+
             </div>
           </div>
         </div>
       </div>
-      <div className='col-lg-8 col-11 mb-md-1 mb-4 mt-4'>
+      <div className=''>
         {modalShow ? <Modal
           show={modalShow}
           onHide={() => setModalShow(false)}
@@ -307,7 +299,7 @@ function MarketPlaceSell() {
           </Modal.Header>
           <Modal.Body className='model2-image'>
             <div className='row d-flex justify-content-center' >
-              
+
 
               <div className="col-md-3 nft-boxx p-2 mt-3">
                 <div className="d-flex flex-row justify-content-between align-items-center mb-2">
@@ -355,15 +347,15 @@ function MarketPlaceSell() {
           </Modal.Body>
         </Modal> : <></>}
 
-
       </div>
-      <div className='col-lg-8 col-11 mb-md-1 mb-4 mt-4'>
+      <div className='col-lg-8 col-11'>
         {congratsModalShow ? <Modal
           show={congratsModalShow}
           onHide={() => setCongratsModalShow(false)}
           size="lg"
           aria-labelledby="contained-modal-title-vcenter"
           centered
+          style={{backgroundColor: "#13151b"}}
         >
           <Modal.Header closeButton className='model2-image'>
             <Modal.Title id="contained-modal-title-vcenter" style={{ color: "white", fontSize: "30px" }}>

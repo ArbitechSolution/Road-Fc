@@ -1,0 +1,196 @@
+.tabset{
+    background-color: rgba(26, 28, 35, 0.96);
+      border: 2 px solid #FF5043;
+    border-radius: 24px;
+    text-align: left;
+  }
+  .tabset > input[type="radio"] {
+    position: absolute;
+    left: -200vw;
+    text-align: left;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .tabset .tab-panel {
+    display: none;
+    /* text-align: left; */
+  }
+
+  .tabset > input:first-child:checked ~ .tab-panels > .tab-panel:first-child,
+  .tabset > input:nth-child(3):checked ~ .tab-panels > .tab-panel:nth-child(2),
+  .tabset > input:nth-child(5):checked ~ .tab-panels > .tab-panel:nth-child(3),
+  .tabset > input:nth-child(7):checked ~ .tab-panels > .tab-panel:nth-child(4),
+  .tabset > input:nth-child(9):checked ~ .tab-panels > .tab-panel:nth-child(5),
+  .tabset > input:nth-child(11):checked ~ .tab-panels > .tab-panel:nth-child(6) {
+    display: block;
+
+  }
+
+  /*
+   Styling
+  /* */
+  .logtext {
+    font: 16px/1.5em "Overpass", "Open Sans", Helvetica, sans-serif;
+    color: #66676A;
+    font-weight: 300;
+    font-size: 18px;
+
+  }
+
+  .tabset > label {
+    position: relative;
+    display: inline-block;
+    padding: 15px 15px 10px;
+    border: 1px solid transparent;
+    border-bottom: 0;
+    cursor: pointer;
+    font-weight: 600;
+    /* text-align: left; */
+  }
+
+
+
+  .tabset > label:hover,
+  .tabset > input:focus + label {
+    color: #FFFFFF;
+  }
+
+
+  .tabset > input:checked + label {
+
+    border-bottom: 3px solid #FF5043;
+    margin-bottom: -1px;
+  }
+
+  .tab-panel {
+    padding: 30px 0;
+    border-top: 1px solid #32333E;
+    text-align: left;
+
+  }
+
+  /*
+   Demo purposes only
+  */
+  *,
+  *:before,
+  *:after {
+    box-sizing: border-box;
+    /* text-align: left; */
+
+  }
+
+  #log-span{
+    font-weight: 500;
+font-size: 20px;
+line-height: 24px;
+color: #66676A;
+  }
+
+  #log-span1{
+    font-weight: 400;
+font-size: 34px;
+line-height: 40px;
+color: #FFFFFF;
+  }
+
+  /* second Tap */
+  .centerThings {
+    text-align: center;
+  }
+
+  .tabs {
+    margin: 0 auto;
+    /* width: 80%;  */
+    border: 1px solid #FF5043; /* border of the whole tabs section */
+    border-radius: 24px;
+    background: black;
+    color: #66676A;
+    font-size: 20px; /* color of the text in each tab card */
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .tabs label {
+    order: 1; /* Put labels first */
+    display: block;
+    padding: 1rem 2rem;
+    margin-right: 0.2rem;
+    cursor: pointer;
+  /*   background: #5D76FF; */
+    border-radius: 24px;
+    font-weight: bold;
+  /*   transition: background ease 0.3s; */
+  }
+
+  /* .tabs label:hover {
+    background: #8597FF;
+  } */
+
+  .tabs .tab {
+    order: 99; /* Put tabs last*/
+    flex-grow: 1;
+    width: 100%;
+    min-height: 350px; /* minimum height of the tab content */
+    display: block; /* HIDES unselected tab content with "none" */
+    border-radius: 24px;
+    position: absolute;
+    right: -9999px; /* move everything to the right to hide the content (not selected) */
+    padding: 1rem;
+    background: black; /* color of tab content */
+    color: #fff;
+
+  }
+
+  .tabs input[type="radio"] {
+    display: none; /* hides circles of radio style */
+  }
+
+  .tabs input[type="radio"]:checked + label {
+    background: black;
+    border-bottom: 3px solid #FF5043/* color of selected tab */
+  }
+
+  .tabs input[type="radio"]:checked + label + .tab {
+    display: block; /* SHOWS selected tab */
+    position: relative;
+    right: 0px;
+    transition: .3s ease;
+  }
+
+  @media (max-width: 45em) {
+    .tabs .tab,
+    .tabs label {
+      order: initial;
+    }
+    .tabs label {
+      width: 100%;
+      margin-right: 0;
+      margin-top: 0.2rem;
+    }
+  }
+  /* second tap */
+
+  .log-table-tr{
+    font-weight: 700;
+font-size: 20px;
+line-height: 24px;
+color: #5E606E;
+  }
+  .log-tr-box{
+    background: rgba(68, 73, 88, 0.96);
+border-radius: 20px;
+/* margin-top: 30px; */
+
+  }
+  .table-log {
+    border-collapse: separate;
+    border-spacing:0 15px;
+}
+.log-text-td{
+  font-weight: 300;
+font-size: 20px;
+line-height: 24px;
+padding-top: 20px;
+color: #FFFFFF;
+}

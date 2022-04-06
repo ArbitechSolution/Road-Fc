@@ -383,7 +383,7 @@ function MarketPlaceListed() {
           </div>
         </div>
       </div>
-      <div className='col-lg-8 col-11 mb-md-1 mb-4 mt-4'>
+      <div className='col-lg-8 col-11'>
         {modalShow ? <Modal
           show={modalShow}
           onHide={() => setModalShow(false)}
