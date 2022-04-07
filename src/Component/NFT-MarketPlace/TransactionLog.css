@@ -96,78 +96,57 @@ color: #FFFFFF;
   }
 
   /* second Tap */
-  .centerThings {
-    text-align: center;
+  .tabs-container {
+
+    border-radius: 50px;
   }
 
-  .tabs {
-    margin: 0 auto;
-    /* width: 80%;  */
-    border: 1px solid #FF5043; /* border of the whole tabs section */
-    border-radius: 24px;
-    background: black;
+  .tabs-container .tabs .tab, .tabs-container .tabs input[type=radio] {
+    display: none;
+    text-align: left;
+
+  }
+  .tabs{
+    background-color: black;
     color: #66676A;
-    font-size: 20px; /* color of the text in each tab card */
-    display: flex;
-    flex-wrap: wrap;
+    text-align: left;
+
+
   }
-  .tabs label {
-    order: 1; /* Put labels first */
-    display: block;
-    padding: 1rem 2rem;
-    margin-right: 0.2rem;
+  .tabs-container .tabs input[type=radio] + label {
+    display: inline-block;
+    margin: 0;
+    padding: 0.5rem 1.5rem;
+    font-size: 1.6rem;
+    opacity: 0.6;
     cursor: pointer;
-  /*   background: #5D76FF; */
-    border-radius: 24px;
-    font-weight: bold;
-  /*   transition: background ease 0.3s; */
-  }
+    user-select: none;
+    text-align: left;
 
-  /* .tabs label:hover {
-    background: #8597FF;
-  } */
-
-  .tabs .tab {
-    order: 99; /* Put tabs last*/
-    flex-grow: 1;
-    width: 100%;
-    min-height: 350px; /* minimum height of the tab content */
-    display: block; /* HIDES unselected tab content with "none" */
-    border-radius: 24px;
-    position: absolute;
-    right: -9999px; /* move everything to the right to hide the content (not selected) */
-    padding: 1rem;
-    background: black; /* color of tab content */
-    color: #fff;
 
   }
 
-  .tabs input[type="radio"] {
-    display: none; /* hides circles of radio style */
+  .tabs-container .tabs input[type=radio]:checked + label {
+    border-bottom: 3px solid #FF5043;
+    opacity: 1;
+    text-align: left;
+
   }
 
-  .tabs input[type="radio"]:checked + label {
-    background: black;
-    border-bottom: 3px solid #FF5043/* color of selected tab */
+  .tabs-container .tabs .tab {
+    margin: 0;
+    padding: 2rem 0;
+    border-top-width: 2px;
+    border-top-style: solid;
+    border-color: #000000;
+    text-align: left;
   }
 
-  .tabs input[type="radio"]:checked + label + .tab {
-    display: block; /* SHOWS selected tab */
-    position: relative;
-    right: 0px;
-    transition: .3s ease;
-  }
+  .tabs input:first-of-type:checked + label ~ .tab:first-of-type,
+  .tabs input:nth-of-type(2):checked + label ~ .tab:nth-of-type(2),
+  .tabs input:nth-of-type(3):checked + label ~ .tab:nth-of-type(3) {
+    display: block;
 
-  @media (max-width: 45em) {
-    .tabs .tab,
-    .tabs label {
-      order: initial;
-    }
-    .tabs label {
-      width: 100%;
-      margin-right: 0;
-      margin-top: 0.2rem;
-    }
   }
   /* second tap */
 
@@ -193,4 +172,57 @@ font-size: 20px;
 line-height: 24px;
 padding-top: 20px;
 color: #FFFFFF;
+}
+.log-image-size{
+  width: 57px;
+}
+@media(max-width: 600px){
+  .table-log {
+    overflow-y: hidden;
+    white-space: nowrap;
+    /* width:330px; */
+  overflow-x: auto;
+}
+.table-log th td{
+  display: inline-block;
+    vertical-align: middle;
+}
+.scroll-tab{
+  overflow-y: hidden;
+    white-space: nowrap;
+    overflow-x: auto;
+}
+.logtext {
+  font: 16px/1.5em "Overpass", "Open Sans", Helvetica, sans-serif;
+  color: #66676A;
+  font-weight: 300;
+  font-size: 12px;
+
+}
+.tabs-container .tabs input[type=radio] + label {
+  display: inline-block;
+  margin: 0;
+  /* padding: 0.5rem 1.5rem; */
+  font-size: 0.9rem;
+  /* opacity: 0.8; */
+  cursor: pointer;
+  user-select: none;
+  text-align: left;
+}
+.log-table-tr{
+  font-weight: 700;
+font-size: 15px;
+line-height: 24px;
+color: #5E606E;
+}
+.log-image-size{
+  width: 47px;
+}
+.log-text-td{
+  font-weight: 300;
+font-size: 14px;
+line-height: 24px;
+padding-top: 20px;
+color: #FFFFFF;
+}
 }

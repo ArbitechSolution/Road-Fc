@@ -21,21 +21,21 @@
   .navSection {
     border-radius: 50px !important;
     background: #32333e !important;
-    width: 300px;
-    border: 2px solid red
+    /* width: 300px; */
+    /* border: 2px solid red */
   }
   .btnMarketPlace,
 .btnSell,
 .btnListed,
 .btnTransaction {
   color: #fff !important;
-  padding: 5px 5px !important;
+  padding: 10px 6px !important;
 }
 .nav-pills .nav-link.active {
   background: #5e606e !important;
   color: #fff !important;
   border-radius: 80px !important;
-  padding: 5px 10px !important;
+  padding: 10px 10px !important;
   border: #5e606e !important;
 }
 }

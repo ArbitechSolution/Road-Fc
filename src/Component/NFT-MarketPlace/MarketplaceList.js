@@ -76,8 +76,8 @@ function MarketPlaceListed() {
           <div className="col-lg-2 col-md-3 col-5 d-flex justify-content-end">
             <button onClick={() => getWalletAddress()} className="btn poolbtn">
               {acc === "No Wallet"
-                ? "Insatll metamask"
-                : acc === "Connect Wallet"
+                ? "Connect"
+                : acc === "Connect "
                   ? acc
                   : acc === "Connect to Rinkebey"
                     ? acc

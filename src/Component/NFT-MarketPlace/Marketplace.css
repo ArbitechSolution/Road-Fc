@@ -179,7 +179,7 @@ input[type="checkbox"] {
   height: 2px;
   cursor: pointer;
   -webkit-animation: 0.4s;
-          animation: 0.4s;
+  animation: 0.4 s;
   background: #3FAFFA;
   border-radius: 1px;
   box-shadow: none;
@@ -282,3 +282,92 @@ font-size: 14px;
 color: #FF5043;
 
 }
+
+
+
+/* popovers Button css */
+a {
+  text-decoration: none;
+}
+
+.popover__title {
+  font-size: 24px;
+  line-height: 36px;
+  text-decoration: none;
+  color: rgb(228, 68, 68);
+  text-align: center;
+  padding: 15px 0;
+}
+
+.popover__wrapper {
+  position: relative;
+  margin-top: 1.5rem;
+  display: inline-block;
+}
+.popover__content {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  left: -10px;
+  top: 80px;
+  transform: translate(0, 10px);
+  background: #22242C;
+  border: 1px solid #FF5043;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 15px rgba(255, 80, 67, 0.5);
+  border-radius: 10px;
+  padding: 1.5rem;
+
+  width: 200px;
+}
+.popover__content:before {
+  position: absolute;
+  z-index: -1;
+  content: "";
+  right: calc(50% - 10px);
+  top: -8px;
+  border-style: solid;
+  border-width: 0 10px 10px 10px;
+  border-color: #FF5043 #FF5043 #22242C #FF5043;
+  transition-duration: 0.3s;
+  transition-property: transform;
+}
+.popover__wrapper:hover .popover__content {
+  z-index: 10;
+  opacity: 1;
+  visibility: visible;
+  transform: translate(0, -20px);
+  transition: all 0.5s cubic-bezier(0.75, -0.02, 0.2, 0.97);
+}
+.popover__message {
+  font-weight: 500;
+font-size: 18px;
+line-height: 11px;
+color: #FFFFFF;
+text-align: left;
+}
+.mini-box{
+  background: #2D2F38;
+border-radius: 50px;
+font-weight: 500;
+font-size: 18px;
+line-height: 17px;
+color: #5E606E;
+padding: 5px 0px;
+
+}
+.marketplacetext-span{
+  font-weight: 600;
+font-size: 19px;
+line-height: 12px;
+color: #5E606E;
+text-align: left;
+}
+.marketplacetext-span1{
+  font-weight: 600;
+font-size: 18px;
+line-height: 19px;
+color: #FFFFFF;
+text-align: left;
+}
+/* popovers Button css */

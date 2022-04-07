@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { MdOutlineKeyboardBackspace } from 'react-icons/md';
 import { Link } from "react-router-dom";
-
+import Common1000 from "../../Assets/tiger 1 1.png"
 import "./Mint.css"
 import Modal from 'react-bootstrap/Modal'
 import Title from "../../Assets/Title.png"
@@ -63,7 +63,7 @@ function Mint() {
                                     </div>
 
                                     <div className='col-md-12 d-flex justify-content-center'>
-                                        <img src={tiger} className="mint-pic1 pt-4 pb-3" />
+                                        <img src={Common1000} className="mint-pic1 pt-4 pb-3" />
                                     </div>
                                     <div className='col-md-12 d-flex justify-content-center'>
                                         <span className='congrat-span'>Do you want to Breed card or sell in the market?</span>

@@ -27,8 +27,10 @@ import Modal from 'react-bootstrap/Modal'
 import tiger from "../../Assets/tiger 1 1.png"
 import Group609 from "../../Assets/Group 609.png"
 import Frame26 from "../../Assets/Frame 26.png";
-
-
+import BinanceCoin from "../../Assets/Binance-Coin-BNB-icon 1.png"
+import roadsign from "../../Assets/road-sign 3.png"
+import grit from "../../Assets/grit 1.png"
+import fourty from "../../Assets/--40 3.png"
 // import Marketplace from "./Marketplace";
 import { HiShoppingCart } from "react-icons/hi";
 function MarketPlaceSell() {
@@ -46,7 +48,7 @@ function MarketPlaceSell() {
     <div className="imagePool">
       <div className="container">
         <div className="row d-flex justify-content-between align-items-center pt-5 pb-3" >
-          <div className="col-lg-3 col-md-3 col-4 d-flex justify-content-start btnBack">
+          <div className="col-lg-3  col-12 d-flex justify-content-start btnBack">
             <span id="presale-back">
               <Link to="/">
                 <MdOutlineKeyboardBackspace
@@ -59,23 +61,37 @@ function MarketPlaceSell() {
           </div>
 
 
-          <div className="col-lg-6 col-md-9 col-8 d-flex justify-content-left">
+          <div className="col-lg-6 col-md-9 col-12 d-flex justify-content-left">
             <ButtonSelect />
-            <div className="col-1 col-md-3 col-5 ms-2 boxmarket d-flex justify-content-center align-items-center">
+            <div className="col-1 col-12 ms-2 boxmarket d-flex justify-content-center align-items-center">
               <HiShoppingCart size={30} style={{ color: "white" }} />
             </div>
           </div>
 
-          <div className="col-lg-2 col-md-3 col-5 d-flex justify-content-end">
-            <button onClick={() => getWalletAddress()} className="btn poolbtn">
-              {acc === "No Wallet"
-                ? "Insatll metamask"
-                : acc === "Connect Wallet"
-                  ? acc
-                  : acc === "Connect to Rinkebey"
-                    ? acc
-                    : acc.substring(0, 5) + "..." + acc.substring(acc.length - 5)}
+          <div className="col-lg-2 col-12 d-flex justify-content-end">
+            <div class="popover__wrapper">
+              <a href="#">
+              <button onClick={() => getWalletAddress()} className="btn poolbtn">
+              My Account
             </button>
+
+              </a>
+              <div class="popover__content">
+                <p class="popover__message">Wallet</p>
+                <div className='mini-box mb-3'>0X67...282A</div>
+                <p style={{border: "1px solid #5E606E"}}></p>
+
+                <div className=''>
+                  <p className='marketplacetext-span text-start' style={{textAlign: "left"}}>Total Balance</p>
+
+                  <p className='marketplacetext-span1'><img src={BinanceCoin}/>&nbsp; 0.0000 <span style={{color: "#5E606E"}}>BNB</span></p>
+                  <p className='marketplacetext-span1'><img src={roadsign}/>&nbsp; 0.0000 <span style={{color: "#5E606E"}}>ROAD</span></p>
+                  <p className='marketplacetext-span1'><img src={grit}/>&nbsp; 0.0000 <span style={{color: "#5E606E"}}>GRIT</span></p>
+                  <p className='marketplacetext-span1 ps-1'><img src={fourty}/>&nbsp; 0.0000 <span style={{color: "#5E606E"}}>POINT</span></p>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
 
@@ -355,7 +371,7 @@ function MarketPlaceSell() {
           size="lg"
           aria-labelledby="contained-modal-title-vcenter"
           centered
-          style={{backgroundColor: "#13151b"}}
+          style={{ backgroundColor: "#13151b" }}
         >
           <Modal.Header closeButton className='model2-image'>
             <Modal.Title id="contained-modal-title-vcenter" style={{ color: "white", fontSize: "30px" }}>

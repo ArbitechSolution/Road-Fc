@@ -45,10 +45,10 @@ function TransactionLog() {
         <div className='imagePool'>
             <div className='container'>
                 <div className="row d-flex justify-content-between align-items-center pt-5 pb-3" >
-                    <div className="col-lg-6 col-md-9 col-8 d-flex justify-content-left">
+                    <div className="col-lg-6 col-md-9 col-11 d-flex justify-content-left">
                         <ButtonSelect />
                     </div>
-                    <div className="col-lg-3 col-md-4 col-5 d-flex justify-content-end">
+                    <div className="col-lg-3 col-md-4 col-12 d-flex justify-content-end">
                         <button onClick={() => getWalletAddress()} className="btn poolbtn">
                             {acc === "No Wallet"
                                 ? "Connect"
@@ -81,7 +81,7 @@ function TransactionLog() {
                             <div class="tab-panels">
                                 <section id="marzen" class="tab-panel">
                                     <div className='row d-flex justify-content-center'>
-                                        <div className='col-md-4 col-10 d-flex flex-row justify-content-center' >
+                                        <div className='col-md-4 col-10 d-flex flex-row justify-content-md-center mt-3'>
                                             <div className=' d-flex align-items-center justify-content-center' style={{ cursor: "pointer" }}>
                                                 <img src={Ellipse37} style={{ position: "absolute", width: "50px" }} />
                                                 <img src={linechart} style={{ position: " relative", width: "22px" }} />
@@ -94,20 +94,20 @@ function TransactionLog() {
                                         </div>
 
 
-                                        <div className='col-md-4 col-10 d-flex flex-row justify-content-center' >
+                                        <div className='col-md-4 col-11 d-flex flex-row justify-content-md-center mt-3' >
                                             <div className=' d-flex align-items-center justify-content-center' style={{ cursor: "pointer" }}>
                                                 <img src={roadsign} style={{ width: "50px" }} />
                                                 {/* <img src={linechart} style={{ position: " relative", width: "22px" }} /> */}
 
                                             </div>
-                                            <div className='ms-4'>
+                                            <div className='ms-md-4 ms-3'>
                                                 <span id='log-span'>Total Volume</span><br />
                                                 <span id='log-span1'>201,211</span>
                                             </div>
                                         </div>
 
 
-                                        <div className='col-md-4 col-10 d-flex flex-row justify-content-center' >
+                                        <div className='col-md-4 col-10 d-flex flex-row justify-content-md-center mt-3'>
                                             <div className=' d-flex align-items-center justify-content-center' style={{ cursor: "pointer" }}>
                                                 <img src={Ellipse39} style={{ position: "absolute", width: "50px" }} />
                                                 <img src={discount} style={{ position: " relative", width: "22px" }} />
@@ -123,7 +123,7 @@ function TransactionLog() {
                                 </section>
                                 <section id="rauchbier" class="tab-panel">
                                     <div className='row d-flex justify-content-center'>
-                                        <div className='col-md-4 col-10 d-flex flex-row justify-content-center' >
+                                        <div className='col-md-4 col-10 d-flex flex-row justify-content-md-center mt-3'>
                                             <div className=' d-flex align-items-center justify-content-center' style={{ cursor: "pointer" }}>
                                                 <img src={Ellipse37} style={{ position: "absolute", width: "50px" }} />
                                                 <img src={linechart} style={{ position: " relative", width: "22px" }} />
@@ -136,20 +136,20 @@ function TransactionLog() {
                                         </div>
 
 
-                                        <div className='col-md-4 col-10 d-flex flex-row justify-content-center' >
+                                        <div className='col-md-4 col-11 d-flex flex-row justify-content-md-center mt-3' >
                                             <div className=' d-flex align-items-center justify-content-center' style={{ cursor: "pointer" }}>
                                                 <img src={roadsign} style={{ width: "50px" }} />
                                                 {/* <img src={linechart} style={{ position: " relative", width: "22px" }} /> */}
 
                                             </div>
-                                            <div className='ms-4'>
+                                            <div className='ms-md-4 ms-3'>
                                                 <span id='log-span'>Total Volume</span><br />
                                                 <span id='log-span1'>201,211</span>
                                             </div>
                                         </div>
 
 
-                                        <div className='col-md-4 col-10 d-flex flex-row justify-content-center' >
+                                        <div className='col-md-4 col-10 d-flex flex-row justify-content-md-center mt-3'>
                                             <div className=' d-flex align-items-center justify-content-center' style={{ cursor: "pointer" }}>
                                                 <img src={Ellipse39} style={{ position: "absolute", width: "50px" }} />
                                                 <img src={discount} style={{ position: " relative", width: "22px" }} />
@@ -165,7 +165,7 @@ function TransactionLog() {
                                 </section>
                                 <section id="dunkles" class="tab-panel">
                                     <div className='row d-flex justify-content-center'>
-                                        <div className='col-md-4 col-10 d-flex flex-row justify-content-center' >
+                                        <div className='col-md-4 col-10 d-flex flex-row justify-content-md-center mt-3'>
                                             <div className=' d-flex align-items-center justify-content-center' style={{ cursor: "pointer" }}>
                                                 <img src={Ellipse37} style={{ position: "absolute", width: "50px" }} />
                                                 <img src={linechart} style={{ position: " relative", width: "22px" }} />
@@ -178,20 +178,20 @@ function TransactionLog() {
                                         </div>
 
 
-                                        <div className='col-md-4 col-10 d-flex flex-row justify-content-center' >
+                                        <div className='col-md-4 col-11 d-flex flex-row justify-content-md-center mt-3' >
                                             <div className=' d-flex align-items-center justify-content-center' style={{ cursor: "pointer" }}>
                                                 <img src={roadsign} style={{ width: "50px" }} />
                                                 {/* <img src={linechart} style={{ position: " relative", width: "22px" }} /> */}
 
                                             </div>
-                                            <div className='ms-4'>
+                                            <div className='ms-md-4 ms-3'>
                                                 <span id='log-span'>Total Volume</span><br />
                                                 <span id='log-span1'>201,211</span>
                                             </div>
                                         </div>
 
 
-                                        <div className='col-md-4 col-10 d-flex flex-row justify-content-center' >
+                                        <div className='col-md-4 col-10 d-flex flex-row justify-content-md-center mt-3'>
                                             <div className=' d-flex align-items-center justify-content-center' style={{ cursor: "pointer" }}>
                                                 <img src={Ellipse39} style={{ position: "absolute", width: "50px" }} />
                                                 <img src={discount} style={{ position: " relative", width: "22px" }} />
@@ -207,7 +207,7 @@ function TransactionLog() {
                                 </section>
                                 <section id="All" class="tab-panel">
                                     <div className='row d-flex justify-content-center'>
-                                        <div className='col-md-4 col-10 d-flex flex-row justify-content-center' >
+                                        <div className='col-md-4 col-10 d-flex flex-row justify-content-md-center mt-3'>
                                             <div className=' d-flex align-items-center justify-content-center' style={{ cursor: "pointer" }}>
                                                 <img src={Ellipse37} style={{ position: "absolute", width: "50px" }} />
                                                 <img src={linechart} style={{ position: " relative", width: "22px" }} />
@@ -220,20 +220,20 @@ function TransactionLog() {
                                         </div>
 
 
-                                        <div className='col-md-4 col-10 d-flex flex-row justify-content-center' >
+                                        <div className='col-md-4 col-11 d-flex flex-row justify-content-md-center mt-3' >
                                             <div className=' d-flex align-items-center justify-content-center' style={{ cursor: "pointer" }}>
                                                 <img src={roadsign} style={{ width: "50px" }} />
                                                 {/* <img src={linechart} style={{ position: " relative", width: "22px" }} /> */}
 
                                             </div>
-                                            <div className='ms-4'>
+                                            <div className='ms-md-4 ms-3'>
                                                 <span id='log-span'>Total Volume</span><br />
                                                 <span id='log-span1'>201,211</span>
                                             </div>
                                         </div>
 
 
-                                        <div className='col-md-4 col-10 d-flex flex-row justify-content-center' >
+                                        <div className='col-md-4 col-10 d-flex flex-row justify-content-md-center mt-3'>
                                             <div className=' d-flex align-items-center justify-content-center' style={{ cursor: "pointer" }}>
                                                 <img src={Ellipse39} style={{ position: "absolute", width: "50px" }} />
                                                 <img src={discount} style={{ position: " relative", width: "22px" }} />
@@ -251,25 +251,32 @@ function TransactionLog() {
                         </div>
                     </div>
                 </div>
-                <div className='row d-flex justify-content-center pb-4'>
-                    <div className='col-12 '>
-                        <div className="tabs">
-                            <input type="radio" name="tabs" id="tabone" checked={secondcolorChange == "recent" ? true : false} />
-                            <label for="tabone" style={{ color: secondcolorChange == "recent" ? "white" : "#66676A" }} onClick={() => secondchangeTab("recent")}>Recent</label>
-                            <div className="tab">
-                                <table className="table table-borderless table-responsive mt-4 table-log">
+                <div className='row d-flex justify-content-center pb-4' >
+                    <div className='col-12 ' >
+                        <div className="tabs-container">
+                            <div className="tabs">
+                                <input type="radio" name="tabs" id="tab-1" checked={secondcolorChange == "recent" ? true: false} />
+                                <label for="tab-1" style={{ color: secondcolorChange == "recent" ? "white" : "#66676A" }} onClick={()=>secondchangeTab("recent")}>Recent</label>
+
+                                <input type="radio" name="tabs" id="tab-2" checked={secondcolorChange == "Top" ? true: false}/>
+                                <label for="tab-2" style={{ color: secondcolorChange == "Top" ? "white" : "#66676A" }} onClick={()=>secondchangeTab("Top")}>Top 50 (24h)</label>
+
+                                <input type="radio" name="tabs" id="tab-3"  checked={secondcolorChange == "Mylog" ? true: false}/>
+                                <label for="tab-3" style={{ color: secondcolorChange == "Mylog" ? "white" : "#66676A" }} onClick={()=>secondchangeTab("Mylog")}>My Log (0)</label>
+                                <div className="tab scroll-tab">
+                                <table className="table table-borderless table-responsive table-log p-3">
                                     <thead style={{ borderBottom: "3px solid #32333E" }}>
                                         <tr>
                                             <th scope="col" className='text-start log-table-tr'>Card</th>
-                                            <th scope="col" className='text-center log-table-tr'>Buyer</th>
-                                            <th scope="col" className='text-center log-table-tr'>Seller</th>
-                                            <th scope="col" className='text-center log-table-tr'>Price</th>
+                                            <th scope="col" className='text-start log-table-tr'>Buyer</th>
+                                            <th scope="col" className='text-start log-table-tr'>Seller</th>
+                                            <th scope="col" className='text-start log-table-tr'>Price</th>
                                             <th scope="col" className='text-end log-table-tr'>Time</th>
                                         </tr>
                                     </thead>
                                     <tbody className='m-3 '>
                                         <tr className='log-tr-box mt-2 '>
-                                            <td className='text-start'><img src={image3} width="57px"/></td>
+                                            <td className='text-start'><img src={image3} className="log-image-size"/></td>
                                             <td className='log-text-td pt-4'>0x64F5...7895</td>
                                             <td className='log-text-td pt-4'>0xfAea...8888</td>
                                             <td className='log-text-td pt-4'> <img src={roadsign} style={{ width: "30px" }} /> 40.2 ROAD</td>
@@ -279,7 +286,7 @@ function TransactionLog() {
                                             </td>
                                         </tr>
                                         <tr className='log-tr-box mt-2 '>
-                                            <td className='text-start'><img src={image3} width="57px"/></td>
+                                            <td className='text-start'><img src={image3}  className="log-image-size"/></td>
                                             <td className='log-text-td pt-4'>0x64F5...7895</td>
                                             <td className='log-text-td pt-4'>0xfAea...8888</td>
                                             <td className='log-text-td pt-4'> <img src={roadsign} style={{ width: "30px" }} /> 40.2 ROAD</td>
@@ -289,7 +296,7 @@ function TransactionLog() {
                                             </td>
                                         </tr>
                                         <tr className='log-tr-box mt-2 '>
-                                            <td className='text-start'><img src={image3} width="57px"/></td>
+                                            <td className='text-start'><img src={image3}  className="log-image-size"/></td>
                                             <td className='log-text-td pt-4'>0x64F5...7895</td>
                                             <td className='log-text-td pt-4'>0xfAea...8888</td>
                                             <td className='log-text-td pt-4'> <img src={roadsign} style={{ width: "30px" }} /> 40.2 ROAD</td>
@@ -299,7 +306,7 @@ function TransactionLog() {
                                             </td>
                                         </tr>
                                         <tr className='log-tr-box mt-2 '>
-                                            <td className='text-start'><img src={image3} width="57px"/></td>
+                                            <td className='text-start'><img src={image3}  className="log-image-size"/></td>
                                             <td className='log-text-td pt-4'>0x64F5...7895</td>
                                             <td className='log-text-td pt-4'>0xfAea...8888</td>
                                             <td className='log-text-td pt-4'> <img src={roadsign} style={{ width: "30px" }} /> 40.2 ROAD</td>
@@ -309,7 +316,7 @@ function TransactionLog() {
                                             </td>
                                         </tr>
                                         <tr className='log-tr-box mt-2 '>
-                                            <td className='text-start'><img src={image3} width="57px"/></td>
+                                            <td className='text-start'><img src={image3}  className="log-image-size"/></td>
                                             <td className='log-text-td pt-4'>0x64F5...7895</td>
                                             <td className='log-text-td pt-4'>0xfAea...8888</td>
                                             <td className='log-text-td pt-4'> <img src={roadsign} style={{ width: "30px" }} /> 40.2 ROAD</td>
@@ -319,7 +326,7 @@ function TransactionLog() {
                                             </td>
                                         </tr>
                                         <tr className='log-tr-box mt-2 '>
-                                            <td className='text-start'><img src={image3} width="57px"/></td>
+                                            <td className='text-start'><img src={image3}  className="log-image-size"/></td>
                                             <td className='log-text-td pt-4'>0x64F5...7895</td>
                                             <td className='log-text-td pt-4'>0xfAea...8888</td>
                                             <td className='log-text-td pt-4'> <img src={roadsign} style={{ width: "30px" }} /> 40.2 ROAD</td>
@@ -329,7 +336,7 @@ function TransactionLog() {
                                             </td>
                                         </tr>
                                         <tr className='log-tr-box mt-2 '>
-                                            <td className='text-start'><img src={image3} width="57px"/></td>
+                                            <td className='text-start'><img src={image3} className="log-image-size"/></td>
                                             <td className='log-text-td pt-4'>0x64F5...7895</td>
                                             <td className='log-text-td pt-4'>0xfAea...8888</td>
                                             <td className='log-text-td pt-4'> <img src={roadsign} style={{ width: "30px" }} /> 40.2 ROAD</td>
@@ -341,21 +348,181 @@ function TransactionLog() {
 
                                     </tbody>
                                 </table>
-                            </div>
+                                </div>
+                                <div className="tab scroll-tab">
+                                <table className="table table-borderless table-responsive table-log p-3">
+                                    <thead style={{ borderBottom: "3px solid #32333E" }}>
+                                        <tr>
+                                            <th scope="col" className='text-start log-table-tr'>Card</th>
+                                            <th scope="col" className='text-start log-table-tr'>Buyer</th>
+                                            <th scope="col" className='text-start log-table-tr'>Seller</th>
+                                            <th scope="col" className='text-start log-table-tr'>Price</th>
+                                            <th scope="col" className='text-end log-table-tr'>Time</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody className='m-3 '>
+                                        <tr className='log-tr-box mt-2 '>
+                                            <td className='text-start'><img src={image3} className="log-image-size"/></td>
+                                            <td className='log-text-td pt-4'>0x64F5...7895</td>
+                                            <td className='log-text-td pt-4'>0xfAea...8888</td>
+                                            <td className='log-text-td pt-4'> <img src={roadsign} style={{ width: "30px" }} /> 40.2 ROAD</td>
+                                            <td className='text-end '>
+                                                <span className='log-text-td'>2022.02.03</span><br/>
+                                                <span className='log-text-td'>17:24:12</span>
+                                            </td>
+                                        </tr>
+                                        <tr className='log-tr-box mt-2 '>
+                                            <td className='text-start'><img src={image3}  className="log-image-size"/></td>
+                                            <td className='log-text-td pt-4'>0x64F5...7895</td>
+                                            <td className='log-text-td pt-4'>0xfAea...8888</td>
+                                            <td className='log-text-td pt-4'> <img src={roadsign} style={{ width: "30px" }} /> 40.2 ROAD</td>
+                                            <td className='text-end '>
+                                                <span className='log-text-td'>2022.02.03</span><br/>
+                                                <span className='log-text-td'>17:24:12</span>
+                                            </td>
+                                        </tr>
+                                        <tr className='log-tr-box mt-2 '>
+                                            <td className='text-start'><img src={image3}  className="log-image-size"/></td>
+                                            <td className='log-text-td pt-4'>0x64F5...7895</td>
+                                            <td className='log-text-td pt-4'>0xfAea...8888</td>
+                                            <td className='log-text-td pt-4'> <img src={roadsign} style={{ width: "30px" }} /> 40.2 ROAD</td>
+                                            <td className='text-end '>
+                                                <span className='log-text-td'>2022.02.03</span><br/>
+                                                <span className='log-text-td'>17:24:12</span>
+                                            </td>
+                                        </tr>
+                                        <tr className='log-tr-box mt-2 '>
+                                            <td className='text-start'><img src={image3}  className="log-image-size"/></td>
+                                            <td className='log-text-td pt-4'>0x64F5...7895</td>
+                                            <td className='log-text-td pt-4'>0xfAea...8888</td>
+                                            <td className='log-text-td pt-4'> <img src={roadsign} style={{ width: "30px" }} /> 40.2 ROAD</td>
+                                            <td className='text-end '>
+                                                <span className='log-text-td'>2022.02.03</span><br/>
+                                                <span className='log-text-td'>17:24:12</span>
+                                            </td>
+                                        </tr>
+                                        <tr className='log-tr-box mt-2 '>
+                                            <td className='text-start'><img src={image3}  className="log-image-size"/></td>
+                                            <td className='log-text-td pt-4'>0x64F5...7895</td>
+                                            <td className='log-text-td pt-4'>0xfAea...8888</td>
+                                            <td className='log-text-td pt-4'> <img src={roadsign} style={{ width: "30px" }} /> 40.2 ROAD</td>
+                                            <td className='text-end '>
+                                                <span className='log-text-td'>2022.02.03</span><br/>
+                                                <span className='log-text-td'>17:24:12</span>
+                                            </td>
+                                        </tr>
+                                        <tr className='log-tr-box mt-2 '>
+                                            <td className='text-start'><img src={image3}  className="log-image-size"/></td>
+                                            <td className='log-text-td pt-4'>0x64F5...7895</td>
+                                            <td className='log-text-td pt-4'>0xfAea...8888</td>
+                                            <td className='log-text-td pt-4'> <img src={roadsign} style={{ width: "30px" }} /> 40.2 ROAD</td>
+                                            <td className='text-end '>
+                                                <span className='log-text-td'>2022.02.03</span><br/>
+                                                <span className='log-text-td'>17:24:12</span>
+                                            </td>
+                                        </tr>
+                                        <tr className='log-tr-box mt-2 '>
+                                            <td className='text-start'><img src={image3} className="log-image-size"/></td>
+                                            <td className='log-text-td pt-4'>0x64F5...7895</td>
+                                            <td className='log-text-td pt-4'>0xfAea...8888</td>
+                                            <td className='log-text-td pt-4'> <img src={roadsign} style={{ width: "30px" }} /> 40.2 ROAD</td>
+                                            <td className='text-end '>
+                                                <span className='log-text-td'>2022.02.03</span><br/>
+                                                <span className='log-text-td'>17:24:12</span>
+                                            </td>
+                                        </tr>
 
-                            <input type="radio" name="tabs" id="tabtwo" checked={secondcolorChange == "Top" ? true : false} />
-                            <label for="tabtwo" style={{ color: secondcolorChange == "Top" ? "white" : "#66676A" }} onClick={() => secondchangeTab("Top")}>Top 50 (24h)</label>
-                            <div className="tab">
+                                    </tbody>
+                                </table>
+                                </div>
+                                <div className="tab scroll-tab">
+                                <table className="table table-borderless table-responsive table-log p-3">
+                                    <thead style={{ borderBottom: "3px solid #32333E" }}>
+                                        <tr>
+                                            <th scope="col" className='text-start log-table-tr'>Card</th>
+                                            <th scope="col" className='text-start log-table-tr'>Buyer</th>
+                                            <th scope="col" className='text-start log-table-tr'>Seller</th>
+                                            <th scope="col" className='text-start log-table-tr'>Price</th>
+                                            <th scope="col" className='text-end log-table-tr'>Time</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody className='m-3 '>
+                                        <tr className='log-tr-box mt-2 '>
+                                            <td className='text-start'><img src={image3} className="log-image-size"/></td>
+                                            <td className='log-text-td pt-4'>0x64F5...7895</td>
+                                            <td className='log-text-td pt-4'>0xfAea...8888</td>
+                                            <td className='log-text-td pt-4'> <img src={roadsign} style={{ width: "30px" }} /> 40.2 ROAD</td>
+                                            <td className='text-end '>
+                                                <span className='log-text-td'>2022.02.03</span><br/>
+                                                <span className='log-text-td'>17:24:12</span>
+                                            </td>
+                                        </tr>
+                                        <tr className='log-tr-box mt-2 '>
+                                            <td className='text-start'><img src={image3}  className="log-image-size"/></td>
+                                            <td className='log-text-td pt-4'>0x64F5...7895</td>
+                                            <td className='log-text-td pt-4'>0xfAea...8888</td>
+                                            <td className='log-text-td pt-4'> <img src={roadsign} style={{ width: "30px" }} /> 40.2 ROAD</td>
+                                            <td className='text-end '>
+                                                <span className='log-text-td'>2022.02.03</span><br/>
+                                                <span className='log-text-td'>17:24:12</span>
+                                            </td>
+                                        </tr>
+                                        <tr className='log-tr-box mt-2 '>
+                                            <td className='text-start'><img src={image3}  className="log-image-size"/></td>
+                                            <td className='log-text-td pt-4'>0x64F5...7895</td>
+                                            <td className='log-text-td pt-4'>0xfAea...8888</td>
+                                            <td className='log-text-td pt-4'> <img src={roadsign} style={{ width: "30px" }} /> 40.2 ROAD</td>
+                                            <td className='text-end '>
+                                                <span className='log-text-td'>2022.02.03</span><br/>
+                                                <span className='log-text-td'>17:24:12</span>
+                                            </td>
+                                        </tr>
+                                        <tr className='log-tr-box mt-2 '>
+                                            <td className='text-start'><img src={image3}  className="log-image-size"/></td>
+                                            <td className='log-text-td pt-4'>0x64F5...7895</td>
+                                            <td className='log-text-td pt-4'>0xfAea...8888</td>
+                                            <td className='log-text-td pt-4'> <img src={roadsign} style={{ width: "30px" }} /> 40.2 ROAD</td>
+                                            <td className='text-end '>
+                                                <span className='log-text-td'>2022.02.03</span><br/>
+                                                <span className='log-text-td'>17:24:12</span>
+                                            </td>
+                                        </tr>
+                                        <tr className='log-tr-box mt-2 '>
+                                            <td className='text-start'><img src={image3}  className="log-image-size"/></td>
+                                            <td className='log-text-td pt-4'>0x64F5...7895</td>
+                                            <td className='log-text-td pt-4'>0xfAea...8888</td>
+                                            <td className='log-text-td pt-4'> <img src={roadsign} style={{ width: "30px" }} /> 40.2 ROAD</td>
+                                            <td className='text-end '>
+                                                <span className='log-text-td'>2022.02.03</span><br/>
+                                                <span className='log-text-td'>17:24:12</span>
+                                            </td>
+                                        </tr>
+                                        <tr className='log-tr-box mt-2 '>
+                                            <td className='text-start'><img src={image3}  className="log-image-size"/></td>
+                                            <td className='log-text-td pt-4'>0x64F5...7895</td>
+                                            <td className='log-text-td pt-4'>0xfAea...8888</td>
+                                            <td className='log-text-td pt-4'> <img src={roadsign} style={{ width: "30px" }} /> 40.2 ROAD</td>
+                                            <td className='text-end '>
+                                                <span className='log-text-td'>2022.02.03</span><br/>
+                                                <span className='log-text-td'>17:24:12</span>
+                                            </td>
+                                        </tr>
+                                        <tr className='log-tr-box mt-2 '>
+                                            <td className='text-start'><img src={image3} className="log-image-size"/></td>
+                                            <td className='log-text-td pt-4'>0x64F5...7895</td>
+                                            <td className='log-text-td pt-4'>0xfAea...8888</td>
+                                            <td className='log-text-td pt-4'> <img src={roadsign} style={{ width: "30px" }} /> 40.2 ROAD</td>
+                                            <td className='text-end '>
+                                                <span className='log-text-td'>2022.02.03</span><br/>
+                                                <span className='log-text-td'>17:24:12</span>
+                                            </td>
+                                        </tr>
 
-                            </div>
-
-                            <input type="radio" name="tabs" id="tabthree" checked={secondcolorChange == "Mylog" ? true : false} />
-                            <label for="tabthree" style={{ color: secondcolorChange == "Mylog" ? "white" : "#66676A" }} onClick={() => secondchangeTab("Mylog")}>My Log (0)</label>
-                            <div className="tab">
-                                
+                                    </tbody>
+                                </table>
+                                </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
