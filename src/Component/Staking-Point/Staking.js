@@ -376,7 +376,15 @@ function Staking() {
             }
         }
     }
-
+    const getData = () => {
+        if (acc != "No Wallet" && acc != "Wrong Network" && acc != "Connect Wallet") {
+            setInterval(function() {
+                // method to be executed;
+                dispatch(getUserBrLp())
+                dispatch(getUserBrl())
+              }, 9000);
+        }
+    }
 
     const getWalletAddress = () => {
         dispatch(getWallet());
@@ -386,22 +394,9 @@ function Staking() {
         dispatch(getUserBrLp())
         dispatch(getUserBrl())
         dispatch(getUserThbLpBalance())
-        // allImagesNfts()
-
     }
     useEffect(() => {
-        setInterval(function() {
-            // method to be executed;
-            dispatch(getUserBrLp())
-            dispatch(getUserBrl())
-          }, 9000);
-        dispatch(getUserTHbTamount())
-        dispatch(getUserTHbLPTamount())
-        dispatch(getUserThbBalance())
-        dispatch(getUserBrLp())
-        dispatch(getUserBrl())
-        dispatch(getUserThbLpBalance())
-
+        getData()
     }, [acc])
     AOS.init();
     return (
