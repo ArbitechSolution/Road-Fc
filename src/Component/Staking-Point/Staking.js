@@ -158,13 +158,17 @@ function Staking() {
             } else if (acc == "Connect Wallet") {
                 toast.error("Not Connected")
             }else {
+                if(brlPoint > 0){
                 const web3 = window.web3
                 let stakingCOntractOf = new web3.eth.Contract(stakingContractAbi, stakingContractAddress);
                 await stakingCOntractOf.methods.redeem().send({
                     from :acc
                 })
                 toast.success("Transaction Confirmed")
+            }else{
+                toast.info("You have no Energy Point yet")
             }
+        }
         }catch(e){
             console.log("error while redeem token", e);
         }
@@ -181,13 +185,17 @@ function Staking() {
                 } else if (acc == "Connect Wallet") {
                     toast.error("Not Connected")
                 }else {
+                    if(brlLPPoint > 0){
                     const web3 = window.web3
                     let stakingCOntractOf = new web3.eth.Contract(stakingContractAbi, stakingContractAddress);
                     await stakingCOntractOf.methods.redeemforLp().send({
                         from :acc
                     })
                     toast.success("Transaction Confirmed")
+                }else{
+                    toast.info("You have no Energy Point yet")
                 }
+            }
             }catch(e){
                 console.log("error while redeem token", e);
             }
