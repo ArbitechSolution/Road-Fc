@@ -1,4 +1,4 @@
-export const stakingContractAddress = "0x83dBa80b6baA0F9Be7e5d42A06922530dfD9D7aE";
+export const stakingContractAddress = "0xf2Fd6Ed96D28fc4fe4718e3793b3546d26FB863c";
 export const stakingContractAbi = [{
     "inputs": [{
         "internalType": "contract IERC20",
@@ -275,6 +275,16 @@ export const stakingContractAbi = [{
     "stateMutability": "view",
     "type": "function"
 }, {
+    "inputs": [{
+        "internalType": "uint256",
+        "name": "_maxBp",
+        "type": "uint256"
+    }],
+    "name": "maxbpTokenn",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
     "inputs": [],
     "name": "owner",
     "outputs": [{
@@ -327,6 +337,16 @@ export const stakingContractAbi = [{
         "type": "uint256"
     }],
     "name": "setLPlocktime",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [{
+        "internalType": "uint256",
+        "name": "_settimee",
+        "type": "uint256"
+    }],
+    "name": "settime",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
