@@ -1,10 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { MdOutlineKeyboardBackspace } from 'react-icons/md';
 import { Link } from "react-router-dom";
 import Common1000 from "../../Assets/tiger 1 1.png"
 import "./Mint.css"
 import speaker from "../../Assets/speaker.png"
-
 import Modal from 'react-bootstrap/Modal'
 import Title from "../../Assets/Title.png"
 import tiger from "../../Assets/1-Common-1000x1000.gif"
@@ -14,19 +13,107 @@ import plus from "../../Assets/plus.png"
 import Group609 from "../../Assets/Group 609.png"
 import SideBar from "../SideBar/SideBar"
 import MediaSidebar from '../SideBar/MediaSidebar';
-function Mint() {
+import { toast } from 'react-toastify';
+import { useSelector, useDispatch } from 'react-redux'
+import { getWallet, getTotalEnergy } from '../Redux/actions/actions'
+import {nftContractAbi, nftContratAddress} from '../Utils/Nft'
+import {stakingContractAbi, stakingContractAddress} from '../Utils/Staking'
 
+import { formHelperTextClasses } from '@mui/material';
+function Mint() {
+    const dispatch = useDispatch()
+    let { acc } = useSelector(state => state.connectWallet)
+    let { energyPoint,minintPrice } = useSelector(state => state.mintngInfo)
     let [value, setValue] = useState(1)
     const [modalShow, setModalShow] = useState(false);
     const increaseValue = () => {
-        setValue(++value)
+        if (value < 3) {
+            setValue(++value)
+        }
     }
     const decreaseValue = () => {
         if (value > 1) {
-
             setValue(--value)
         }
     }
+
+    const mint = async () => {
+        try {
+            if (acc == "No Wallet") {
+                //   setBtTxt("Connect Wallet")
+                toast.info("Not Connected")
+            }
+            else if (acc == "Wrong Network") {
+                //   setBtTxt("Wrong Network")
+                toast.info("Not Connected")
+            } else if (acc == "Connect Wallet") {
+                toast.info("Not Connected")
+            } else {
+                const web3 = window.web3;
+                const stakingContract = new web3.eth.Contract(stakingContractAbi, stakingContractAddress);
+                let stakingTime =await stakingContract.methods.getstakeTime(acc).call();
+                stakingTime = parseInt(stakingTime);
+                
+                console.log("stakingTime", stakingTime);
+                let currentTime = Math.floor(new Date().getTime() / 1000.0);
+                currentTime  = currentTime;
+                console.log("currentTime",currentTime);
+                console.log("compare",  currentTime >= stakingTime );
+                if(currentTime >= stakingTime){
+                let count = minintPrice * value;
+                if(count <=energyPoint){
+                    console.log("val", value);
+                    const nftContract = new web3.eth.Contract(nftContractAbi, nftContratAddress);
+                    await nftContract.methods.mint(value).send({
+                        from:acc
+                    })
+                    dispatch(getTotalEnergy())
+
+                }else{
+                    
+                    toast.info(`Requied energy:${count}`)
+                }
+            }else{
+                toast.info("your time is remaning")
+            }
+            }
+        } catch (e) {
+            console.error("error while mint",e);
+        }
+    }
+
+    const getCurrentNfts = async () => {
+        try{
+            if (acc == "No Wallet") {
+                //   setBtTxt("Connect Wallet")
+                toast.info("Not Connected")
+            }
+            else if (acc == "Wrong Network") {
+                //   setBtTxt("Wrong Network")
+                toast.info("Not Connected")
+            } else if (acc == "Connect Wallet") {
+                toast.info("Not Connected")
+            } else {
+                const web3 = window.web3;
+                const nftContract = new web3.eth.Contract(nftContractAbi, nftContratAddress);
+                let totalIds
+            }
+        }catch(e){
+            console.error("error while get current nfts", e);
+        }
+    }
+    const getWalletAddress = () => {
+        dispatch(getWallet());
+        dispatch(getTotalEnergy())
+    }
+    const getData = () => {
+        if (acc != "No Wallet" && acc != "Wrong Network" && acc != "Connect Wallet") {
+            dispatch(getTotalEnergy())
+        }
+    }
+    useEffect(() => {
+        getData()
+    }, [acc])
     return (
         <div className='imagePool'>
             <div className='container'>
@@ -35,7 +122,9 @@ function Mint() {
                         <span id="presale-back"><Link to="/"><MdOutlineKeyboardBackspace size={40} style={{ color: "white" }} /></Link> Back</span>
                     </div>
                     <div className='col-lg-2 col-md-3 col-5' >
-                        <button className='btn poolbtn'>CONNECT</button>
+                        <button className='btn poolbtn'
+                            onClick={getWalletAddress}
+                        >{acc === "No Wallet" ? "Connect Wallet" : acc === "Connect Wallet" ? "Connect" : acc === "Wrong Network" ? acc : acc.substring(0, 4) + "..." + acc.substring(acc.length - 4)}</button>
                     </div>
                 </div>
                 <div className='row d-flex justify-content-center justify-content-around'>
@@ -115,7 +204,9 @@ function Mint() {
                                             <div className='col-lg-6 d-flex flex-column justify-content-center'>
                                                 <div className='col-11 mint-boxes d-flex justify-content-between mb-3 pt-3 pb-3'>
                                                     <span className='mint-span ps-2'>Your Energy:</span>
-                                                    <span className='mint-span1'>0.00 Point &nbsp;<img src={Vector} /></span>
+                                                    <span className='mint-span1'>{(energyPoint).toLocaleString(undefined, { minimumFractionDigits: 1, maximumFractionDigits: 1 })}&nbsp;<img src={Vector} /></span>
+                                                    {/* <span className='mint-span1'>{parseFloat(energyPoint)toFixed(2)}<img src={Vector} /></span> */}
+
                                                 </div>
                                                 <div className='col-11 mint-boxes d-flex justify-content-between mt-3 pt-3 pb-3'>
                                                     <span className='mint-span ps-2'>Energy Spend:</span>
@@ -129,7 +220,7 @@ function Mint() {
                                                 </div>
 
                                                 <div className=' d-flex justify-content-center align-items-center mt-lg-3 mt-3'>
-                                                    <button className='btn mintbtn ' onClick={() => setModalShow(true)}>MINT</button>
+                                                    <button className='btn mintbtn ' onClick={() => mint(true)}>MINT</button>
                                                 </div>
                                                 <span className='mintspan23 pt-lg-4 pt-3'>MAXIMUM OF 3 NFTs CARD PER tx</span>
                                             </div>

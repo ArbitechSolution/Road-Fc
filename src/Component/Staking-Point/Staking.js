@@ -11,7 +11,9 @@ import { ImInfo } from 'react-icons/im';
 import { RiCheckboxBlankCircleFill } from 'react-icons/ri';
 import Group637 from "../../Assets/Group 637.png"
 import Group636 from "../../Assets/Group 636.png"
-import { getWallet, getUserThbBalance, getUserThbLpBalance, getUserTHbTamount, getUserTHbLPTamount, getUserBrLp, getUserBrl } from '../../Component/Redux/actions/actions';
+import { getWallet, getUserThbBalance, getUserThbLpBalance,
+     getUserTHbTamount, getUserTHbLPTamount, getUserBrLp,
+      getUserBrl, getUserDepositTime } from '../../Component/Redux/actions/actions';
 import { useSelector, useDispatch } from 'react-redux';
 import { thbTokenAddress, thbTokenAbi } from "../../Component/Utils/ThbToken"
 import { thbLpTokenAddress, thbLpTokenAbi } from '../../Component/Utils/ThbLpToken'
@@ -38,7 +40,7 @@ function Staking() {
     let { tamountlp } = useSelector(state => state.tAmountLp)
     let { brlPoint } = useSelector(state => state.getUserBrlpoint)
     let { brlLPPoint } = useSelector(state => state.getUserBrLplpoint)
-
+    let {userDepositTime} = useSelector(state => state.userDepositTime);
 
     const stakeVal = async (isCheck) => {
         if (isCheck == "stake") {
@@ -73,8 +75,6 @@ function Staking() {
                                 stakeAmount.current.value = ""
                                 toast.success("Transaction Confirmed")
                                 dispatch(getUserTHbTamount())
-                                // dispatch(getUserTHbLPTamount())
-                                // dispatch(getUserThbBalance())
                                 dispatch(getUserThbLpBalance())
                                 dispatch(getUserBrLp())
                                 dispatch(getUserBrl())
@@ -135,7 +135,7 @@ function Staking() {
                             console.log("You have not staked yet");
                         }
                     } else {
-                        toast.error("Please enter the value or click max")
+                        toast.info("Please enter amount")
                     }
 
                 } catch (e) {
@@ -247,6 +247,7 @@ function Staking() {
                                 dispatch(getUserThbLpBalance())
                                 dispatch(getUserBrLp())
                                 dispatch(getUserBrl())
+                                dispatch(getUserDepositTime())
                             } else {
                                 toast.error("You have staked already. Unstake and try again.")
                             }
@@ -306,7 +307,7 @@ function Staking() {
                                     dispatch(getUserBrLp())
                                     dispatch(getUserBrl())
                                 } else {
-                                    toast.error("Unlocked Time Not Reached !")
+                                    toast.info(`Remaining Time: ${userDepositTime.days} Days ${userDepositTime.hours} hours ${userDepositTime.minutes} Minutes ${userDepositTime.seconds} seconds`)
                                 }
 
 
@@ -319,7 +320,7 @@ function Staking() {
                         }
 
                     } else {
-                        toast.info("Please enter amount or click max")
+                        toast.info("Please enter amount")
                     }
                 } catch (e) {
                     console.log("Error while staking amount", e);
@@ -386,6 +387,13 @@ function Staking() {
     }
     const getData = () => {
         if (acc != "No Wallet" && acc != "Wrong Network" && acc != "Connect Wallet") {
+            dispatch(getUserTHbTamount())
+            dispatch(getUserTHbLPTamount())
+            dispatch(getUserThbBalance())
+            dispatch(getUserBrLp())
+            dispatch(getUserBrl())
+            dispatch(getUserThbLpBalance())
+            dispatch(getUserDepositTime())
             setInterval(function () {
                 // method to be executed;
                 dispatch(getUserBrLp())
@@ -402,6 +410,7 @@ function Staking() {
         dispatch(getUserBrLp())
         dispatch(getUserBrl())
         dispatch(getUserThbLpBalance())
+        dispatch(getUserDepositTime())
     }
     useEffect(() => {
         getData()

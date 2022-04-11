@@ -3,14 +3,16 @@ import {GET_USER_THB_BALANCE, GET_WALLET_ADDRESS,GET_USER_THB_LP_BALANCE,
     GET_USER_BRL,GET_USER_TAMOUNT,GET_USER_TAMOUNT_LP,GET_USER_BRL_LP,
     GET_USER_MINT_BRAWL_POINTS,GET_CURRENT_BP_TOKENS,GET_MAX_BP_TOKENS,
      GET_PRE_SALE_INFO,
-     GET_WALLET_BALANCE} from '../type/types'
+     GET_WALLET_BALANCE,
+     USER_DEPOSIT_TIME,
+     MINTING_INFO} from '../type/types'
 import {loadWeb3} from '../../../Component/Api/api'
 import Web3 from "web3";
 import { thbTokenAddress, thbTokenAbi } from "../../../Component/Utils/ThbToken"
 import { thbLpTokenAddress, thbLpTokenAbi } from '../../../Component/Utils/ThbLpToken'
 import { stakingContractAddress, stakingContractAbi } from '../../../Component/Utils/Staking'
 import{roadTokenAddress, roadTokenAbi}  from '../../../Component/Utils/roadToken';
-// import { nftContratAddress, nftContractAbi } from '../../../Component/Utils/Nft'
+import { nftContratAddress, nftContractAbi } from '../../../Component/Utils/Nft'
 import { preSaleContractAbi, preSaleContractAddress } from '../../Utils/preSale';
 
 const webSupply = new Web3("https://data-seed-prebsc-1-s1.binance.org:8545/");
@@ -272,6 +274,115 @@ if (address != "No Wallet" && address != "Wrong Network" && address != "Connect 
 
     }catch(e){
         console.error("error while get balance",e);
+    }
+}
+
+
+export const getUserDepositTime = () => async (dispatch) => {
+    let decidedVar= true;
+    let tiemObj ={};
+   
+   let address = await loadWeb3();
+   if (address == "No Wallet") {
+       console.log("Not Connected")
+   } else if (address == "Wrong Network") {
+       console.log("Wrong Network")
+   } else {
+       let timestamp = Math.floor(new Date().getTime() / 1000)
+   let lpLockTime = await stakingCOntractOf.methods.LPlocktime().call()
+   let userLP = await stakingCOntractOf.methods.UserLP(address).call()
+   let remainingTime;
+   let depositTimes = userLP.Deposit_time;
+   let addedTime =  parseInt(depositTimes)+ parseInt(lpLockTime);
+   if (timestamp<addedTime ){
+
+       remainingTime = parseInt(addedTime)-parseInt(timestamp);
+
+       if (parseInt(remainingTime)>0){
+           let d = Math.floor(remainingTime / (3600*24));
+           let h = Math.floor(remainingTime % (3600*24) / 3600);
+           let m = Math.floor(remainingTime % 3600 / 60);
+           let s = Math.floor(remainingTime % 60);
+
+           if(d>0){
+               tiemObj = {...tiemObj, days:d}
+               
+           }else{
+           console.log("Less Than Zero");
+           tiemObj = {...tiemObj, days:0}
+
+           }if(h>0){
+               tiemObj = {...tiemObj, hours:h}
+           }else{
+               tiemObj = {...tiemObj, hours:0}
+
+               console.log("Less Than Zero");
+
+           }if(m>0){
+               tiemObj = {...tiemObj, minutes:m}
+
+           }else{
+               console.log("Less Than Zero");
+               tiemObj = {...tiemObj, minutes:0}
+
+
+           }if(s>0){
+               tiemObj = {...tiemObj, seconds:s}
+             
+           }else{
+               console.log("Less Than Zero");
+               tiemObj = {...tiemObj, seconds:0}
+
+           }
+         }
+
+   }else{
+       remainingTime =0;
+          tiemObj = {
+               days:0,
+               hours:0,
+               minutes:0,
+               seconds:0
+           }
+       // decidedVar = true
+   }
+
+   dispatch({
+       type: USER_DEPOSIT_TIME,
+       payload: tiemObj
+   })
+}
+}
+
+
+// acitons for minting section
+
+export const getTotalEnergy = () => async (dispatch) => {
+    try{
+        let address = await loadWeb3();
+   if (address == "No Wallet") {
+       console.log("Not Connected")
+   } else if (address == "Wrong Network") {
+       console.log("Wrong Network")
+   } else {
+       let mintInfo = {}
+       const web3 = window.web3;
+        const nftContract = new web3.eth.Contract(nftContractAbi, nftContratAddress);
+        let energyBal = await nftContract.methods.checkBPEnergy(address).call()
+        energyBal = web3.utils.fromWei(energyBal);
+        energyBal = parseFloat(energyBal)
+        mintInfo = {...mintInfo, energyBal}
+        let minintPrice = await nftContract.methods.MinitngPrice().call();
+        minintPrice = web3.utils.fromWei(minintPrice)
+        minintPrice = parseFloat(minintPrice)
+        mintInfo = {...mintInfo, minintPrice}
+        dispatch({
+            type:MINTING_INFO,
+            payload:mintInfo
+        })
+   }
+    }catch(e){
+        console.error("error while get total energy", e)
     }
 }
 

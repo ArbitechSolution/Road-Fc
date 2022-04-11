@@ -1,4 +1,4 @@
-export const stakingContractAddress = "0x232c9fbe8A4A520da1Ef68516e8c560ad056F9a7";
+export const stakingContractAddress = "0x99C783284A9A4B6E96269cfA46b2bf0a253a2e90";
 export const stakingContractAbi = [{
     "inputs": [{
         "internalType": "contract IERC20",
@@ -287,6 +287,16 @@ export const stakingContractAbi = [{
         "type": "uint256"
     }],
     "stateMutability": "view",
+    "type": "function"
+}, {
+    "inputs": [{
+        "internalType": "uint256",
+        "name": "_time",
+        "type": "uint256"
+    }],
+    "name": "mintlocktimee",
+    "outputs": [],
+    "stateMutability": "nonpayable",
     "type": "function"
 }, {
     "inputs": [],

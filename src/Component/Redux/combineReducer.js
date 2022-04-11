@@ -10,7 +10,9 @@ import {getBrawlPointMint} from './reducers/getUsersbrwalPointMint'
 import {setCurrentBpTokens} from "./reducers/getCurrentBpTokens";
 import { setMaxBpTokens } from './reducers/getMaxBpTokens';
 import {setPreSaleInfo} from './reducers/setPreSaleInfo';
-import {setUserBalance} from './reducers/setUserBalance'
+import {setUserBalance} from './reducers/setUserBalance';
+import {setUserDepositTime} from './reducers/setUserDepositTime';
+import {setMintingInfo} from './reducers/setMintingInfo'
 const allReducer = combineReducers({
 
     connectWallet:connectWallet,
@@ -24,7 +26,9 @@ const allReducer = combineReducers({
     setMaxBpTokens:setMaxBpTokens,
     setCurrentBpTokens:setCurrentBpTokens,
     preSaleInfo : setPreSaleInfo,
-    userBalance:setUserBalance
+    userBalance:setUserBalance,
+    userDepositTime: setUserDepositTime,
+    mintngInfo:setMintingInfo
 
 });
 

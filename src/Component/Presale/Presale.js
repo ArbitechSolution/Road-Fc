@@ -131,7 +131,7 @@ function Presale() {
     }
     const getdata = () => {
         if (acc != "No Wallet" && acc != "Wrong Network" && acc != "Connect Wallet"){
-
+            dispatch(getUserBalance())
             
         }
       
