@@ -20,10 +20,12 @@ import {nftContractAbi, nftContratAddress} from '../Utils/Nft'
 import {stakingContractAbi, stakingContractAddress} from '../Utils/Staking'
 
 import { formHelperTextClasses } from '@mui/material';
+import axios from 'axios';
 function Mint() {
     const dispatch = useDispatch()
     let { acc } = useSelector(state => state.connectWallet)
-    let { energyPoint,minintPrice } = useSelector(state => state.mintngInfo)
+    let { energyPoint,minintPrice } = useSelector(state => state.mintngInfo);
+    let [mintArray, setMintArray] = useState([]);
     let [value, setValue] = useState(1)
     const [modalShow, setModalShow] = useState(false);
     const increaseValue = () => {
@@ -62,12 +64,13 @@ function Mint() {
                 if(currentTime >= stakingTime){
                 let count = minintPrice * value;
                 if(count <=energyPoint){
-                    console.log("val", value);
+                    
                     const nftContract = new web3.eth.Contract(nftContractAbi, nftContratAddress);
                     await nftContract.methods.mint(value).send({
                         from:acc
                     })
                     dispatch(getTotalEnergy())
+                    getCurrentNfts()
 
                 }else{
                     
@@ -96,12 +99,25 @@ function Mint() {
             } else {
                 const web3 = window.web3;
                 const nftContract = new web3.eth.Contract(nftContractAbi, nftContratAddress);
-                let totalIds
+                let totalIds = await nftContract.methods.walletOfOwner(acc).call();
+                
+                totalIds = totalIds.slice(-value)
+                let simplleArray = [];
+                totalIds.forEach(async(ids)=> {
+                    let res = await axios.get(`/config/json/${ids}.json`)
+                    let imageUrl = res.data.image;
+                    let imageName = res.data.name;
+                    simplleArray = [...simplleArray, {imageUrl,imageName}];
+                    setMintArray(simplleArray);
+                })
+                setModalShow(true)
+               
             }
         }catch(e){
             console.error("error while get current nfts", e);
         }
     }
+    
     const getWalletAddress = () => {
         dispatch(getWallet());
         dispatch(getTotalEnergy())
@@ -152,10 +168,26 @@ function Mint() {
                                     <div className='col-md-12 d-flex justify-content-center'>
                                         <img className='pt-3 congrat-image' src={Group609} />
                                     </div>
-
                                     <div className='col-md-12 d-flex justify-content-center'>
-                                        <img src={Common1000} className="mint-pic1 pt-4 pb-3" />
+                                    {
+                                        mintArray?.map((item, index)=>{
+                                            return (
+                                                <>
+                                                <div key={index}>
+                                                <div>
+
+                                        <img src={`/config/${item.imageUrl}`} className="mint-pic1 pt-4 pb-3" width="200px" />
+                                                </div>
+                                        
+                                        <div className='text-white' >{item.imageName}</div>
+                                                </div>
+                                                &nbsp;&nbsp;
+                                                </>
+                                            )
+                                        })
+                                    }
                                     </div>
+                                    
                                     <div className='col-md-12 d-flex justify-content-center'>
                                         <span className='congrat-span'>Do you want to Breed card or sell in the market?</span>
                                     </div>

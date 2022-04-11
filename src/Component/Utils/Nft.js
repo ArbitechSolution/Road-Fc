@@ -1,4 +1,4 @@
-export const nftContratAddress = "0xF186c47fa6a24C476b8790EE9c77493A21EdD9Da";
+export const nftContratAddress = "0x7A2Be89E6a7c4Ef09FC9EAbF2c1dB246f9e9CB5B";
 export const nftContractAbi = [{
     "inputs": [{
         "internalType": "string",
@@ -240,6 +240,16 @@ export const nftContractAbi = [{
     "type": "function"
 }, {
     "inputs": [],
+    "name": "mintTIME",
+    "outputs": [{
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+    }],
+    "stateMutability": "view",
+    "type": "function"
+}, {
+    "inputs": [],
     "name": "name",
     "outputs": [{
         "internalType": "string",
@@ -415,12 +425,8 @@ export const nftContractAbi = [{
         "type": "uint256"
     }],
     "name": "setMintingTime",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
+    "outputs": [],
+    "stateMutability": "nonpayable",
     "type": "function"
 }, {
     "inputs": [{
