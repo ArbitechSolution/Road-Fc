@@ -1,9 +1,9 @@
 
 import {GET_USER_THB_BALANCE, GET_WALLET_ADDRESS,GET_USER_THB_LP_BALANCE,
     GET_USER_BRL,GET_USER_TAMOUNT,GET_USER_TAMOUNT_LP,GET_USER_BRL_LP,
-    GET_USER_MINT_BRAWL_POINTS,GET_CURRENT_BP_TOKENS,GET_MAX_BP_TOKENS,GET_ROAD_PRICE,
-    GET_ROAD_TOTALSUPPLY,GET_PRESALE_HARD_CAP,GET_PRESALE_SOFT_CAP,GET_MIN_PURCHASE,
-    GET_MAX_PURCHASE,GET_TOTAL_SOLD_TOKENS,GET_START_TIME,GET_END_TIME} from '../type/types'
+    GET_USER_MINT_BRAWL_POINTS,GET_CURRENT_BP_TOKENS,GET_MAX_BP_TOKENS,
+     GET_PRE_SALE_INFO,
+     GET_WALLET_BALANCE} from '../type/types'
 import {loadWeb3} from '../../../Component/Api/api'
 import Web3 from "web3";
 import { thbTokenAddress, thbTokenAbi } from "../../../Component/Utils/ThbToken"
@@ -208,134 +208,72 @@ export const  getMaxBpTokens =()=> async(dispatch)=>{
         payload:maxbp
     })
 }
-export const  getRoadPrice =()=> async(dispatch)=>{
-    // const web3 = window.web3
+
+export const getPreSaleInfo = () => async (dispatch) => {
+    try{
+    let preSaleInfo = {}
+    // get road price
     let roadPrice = await presaleContractOf.methods.price().call();
     roadPrice = webSupply.utils.fromWei(roadPrice);
-    // roadPrice = parseFloat(roadPrice).toFixed(4)
-    // console.log("maxbp bp in action",maxbp);
-    dispatch({
-        type:GET_ROAD_PRICE,
-        payload:roadPrice
-    })
-}
-export const  getHardCap =()=> async(dispatch)=>{
-    try{
-        let hardCap = await presaleContractOf.methods.hardCap().call();
-        hardCap = webSupply.utils.fromWei(hardCap);
-        dispatch({
-            type:GET_PRESALE_HARD_CAP,
-            payload:hardCap
-        })
-    }catch(e){
-        console.log("Error While Getting hard cap data");
-    }
-  
-}
-
-export const  getSoftCap =()=> async(dispatch)=>{
-    try{
-        let softCap = await presaleContractOf.methods.softCap().call();
+    preSaleInfo = {...preSaleInfo, roadPrice:roadPrice}
+    // hard cap info
+    let hardCap = await presaleContractOf.methods.hardCap().call();
+    hardCap = webSupply.utils.fromWei(hardCap);
+    preSaleInfo = {...preSaleInfo, hardCap:hardCap}
+    // soft cap info
+    let softCap = await presaleContractOf.methods.softCap().call();
         softCap = webSupply.utils.fromWei(softCap);
-        console.log("In Action",softCap);
-        dispatch({
-            type:GET_PRESALE_SOFT_CAP,
-            payload:softCap
-        })
-    }catch(e){
-        console.log("Error While Getting hard cap data");
-    }
-  
-}
-export const  getMinPurchase =()=> async(dispatch)=>{
-    try{
+        preSaleInfo = {...preSaleInfo, softCap:softCap}
+        // minium purchase
         let minPurchase = await presaleContractOf.methods.minimum().call();
         minPurchase = webSupply.utils.fromWei(minPurchase);
-        console.log("In Action",minPurchase);
-        dispatch({
-            type:GET_MIN_PURCHASE,
-            payload:minPurchase
-        })
-    }catch(e){
-        console.log("Error While Getting hard cap data");
-    }
-  
-}
-export const  getMaxPurchase =()=> async(dispatch)=>{
-    try{
+        preSaleInfo = {...preSaleInfo, minPurchase:minPurchase}
+        // max purchase
         let maxPurchase = await presaleContractOf.methods.maximum().call();
         maxPurchase = webSupply.utils.fromWei(maxPurchase);
-        console.log("In Action",maxPurchase);
-        dispatch({
-            type:GET_MAX_PURCHASE,
-            payload:maxPurchase
-        })
-    }catch(e){
-        console.log("Error While Getting hard cap data");
-    }
-  
-}
-export const  getTotalsold =()=> async(dispatch)=>{
-    try{
+        preSaleInfo = {...preSaleInfo, maxPurchase:maxPurchase};
+        // total sold
         let totalSoldTokens = await presaleContractOf.methods.totalSold().call();
         totalSoldTokens = webSupply.utils.fromWei(totalSoldTokens);
-        console.log("In Action",totalSoldTokens);
-        dispatch({
-            type:GET_TOTAL_SOLD_TOKENS,
-            payload:totalSoldTokens
-        })
-    }catch(e){
-        console.log("Error While Getting hard cap data");
-    }
-  
-}
-export const  getStartTime =()=> async(dispatch)=>{
-    try{
+        preSaleInfo = {...preSaleInfo, totalSoldTokens:totalSoldTokens};
+        // start time 
         let startTime = await presaleContractOf.methods.startTime().call();
-        // startTime = webSupply.utils.fromWei(startTime);
-        console.log("In startTime",startTime);
-        dispatch({
-            type:GET_START_TIME,
-            payload:startTime
-        })
-    }catch(e){
-        console.log("Error While Getting hard cap data");
-    }
-  
-}
-export const  getEndTime =()=> async(dispatch)=>{
-    try{
+        preSaleInfo = {...preSaleInfo, startTime:startTime};
+        // end time 
         let endTime = await presaleContractOf.methods.startTime().call();
-        // startTime = webSupply.utils.fromWei(startTime);
-        console.log("In startTime",endTime);
-        dispatch({
-            type:GET_END_TIME,
-            payload:endTime
-        })
-    }catch(e){
-        console.log("Error While Getting hard cap data");
-    }
-  
-}
-
-
-export const  getRoadTotalSupply =()=> async(dispatch)=>{
-
-
-    // const web3 = window.web3
-    try{
+        preSaleInfo = {...preSaleInfo, endTime:endTime};
+        // road total supply
         let roadTotalSupply = await roadTokenContractOf.methods.totalSupply().call();;
         roadTotalSupply = webSupply.utils.fromWei(roadTotalSupply);
-        // roadPrice = parseFloat(roadPrice).toFixed(4)
-        // console.log("maxbp bp in action",maxbp);
-        dispatch({
-            type:GET_ROAD_TOTALSUPPLY,
-            payload:roadTotalSupply
-        })
-    }catch(e){
-        console.log("Error While Getting  roadTotalSupply",e );
-    }
-  
+        preSaleInfo = {...preSaleInfo, roadTotalSupply:roadTotalSupply};
+    dispatch({
+        type:GET_PRE_SALE_INFO,
+        payload : preSaleInfo
+    })
+            
+}catch(e){
+    console.log("error while get preSaleInfo", e);
 }
+}
+
+export const getUserBalance = () => async (dispatch) =>  {
+    try{
+        let address = await loadWeb3();
+if (address != "No Wallet" && address != "Wrong Network" && address != "Connect Wallet"){
+    const web3 = window.web3;
+    let bal = await web3.eth.getBalance(address);
+    bal = web3.utils.fromWei(bal)
+    bal = parseFloat(bal).toFixed(3)
+    dispatch({
+        type:GET_WALLET_BALANCE,
+        payload:bal
+    })
+}
+
+    }catch(e){
+        console.error("error while get balance",e);
+    }
+}
+
 
 

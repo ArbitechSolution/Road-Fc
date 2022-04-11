@@ -4,6 +4,209 @@
     line-height: 26px;
     color: white;
 }
+.dot-collision-bal {
+    position: relative;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #5E606E;
+    color: #5E606E;
+  }
+  
+  .dot-collision-bal::before, .dot-collision-bal::after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    /* top: 0px; */
+    top: -15px;
+    left: 0px;
+  }
+  
+  .dot-collision-bal::before {
+    /* left: 10px; */
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #5E606E;
+    color: #5E606E;
+    animation: dotCollisionBefore 2s infinite ease-in;
+  }
+  
+  .dot-collision-bal::after {
+    /* left: 10px; */
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #5E606E;
+    color: #5E606E;
+    animation: dotCollisionAfter 2s infinite ease-in;
+    animation-delay: 1s;
+  }
+  
+  @keyframes dotCollisionBefore {
+    0%,
+    50%,
+    75%,
+    100% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(-15px);
+    }
+  }
+  
+  @keyframes dotCollisionAfter {
+    0%,
+    50%,
+    75%,
+    100% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(15px);
+    }
+  }
+
+/* type animation  */
+.dot-collision {
+    position: relative;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #5E606E;
+    color: #5E606E;
+  }
+  
+  .dot-collision::before, .dot-collision::after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    /* top: 0px; */
+    top: -10px;
+    left: -30px;
+  }
+  
+  .dot-collision::before {
+    /* left: 10px; */
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #5E606E;
+    color: #5E606E;
+    animation: dotCollisionBefore 2s infinite ease-in;
+  }
+  
+  .dot-collision::after {
+    /* left: 10px; */
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #5E606E;
+    color: #5E606E;
+    animation: dotCollisionAfter 2s infinite ease-in;
+    animation-delay: 1s;
+  }
+  
+  @keyframes dotCollisionBefore {
+    0%,
+    50%,
+    75%,
+    100% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(-15px);
+    }
+  }
+  
+  @keyframes dotCollisionAfter {
+    0%,
+    50%,
+    75%,
+    100% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(15px);
+    }
+  }
+/* /// dot animation ///// */
+
+.dot-stretching {
+    position: relative;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #fff;
+    transform: scale(1.25, 1.25);
+    animation: dotStretching 2s infinite ease-in;
+  }
+  
+  .dot-stretching::before, .dot-stretching::after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+  
+  .dot-stretching::before {
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #fff;
+    animation: dotStretchingBefore 2s infinite ease-in;
+  }
+  
+  .dot-stretching::after {
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #fff;
+    animation: dotStretchingAfter 2s infinite ease-in;
+  }
+  
+  @keyframes dotStretching {
+    0% {
+      transform: scale(1.25, 1.25);
+    }
+    50%,
+    60% {
+      transform: scale(0.8, 0.8);
+    }
+    100% {
+      transform: scale(1.25, 1.25);
+    }
+  }
+  
+  @keyframes dotStretchingBefore {
+    0% {
+      transform: translate(0) scale(0.7, 0.7);
+    }
+    50%,
+    60% {
+      transform: translate(-20px) scale(1, 1);
+    }
+    100% {
+      transform: translate(0) scale(0.7, 0.7);
+    }
+  }
+  
+  @keyframes dotStretchingAfter {
+    0% {
+      transform: translate(0) scale(0.7, 0.7);
+    }
+    50%,
+    60% {
+      transform: translate(20px) scale(1, 1);
+    }
+    100% {
+      transform: translate(0) scale(0.7, 0.7);
+    }
+  }
 
 .presale-box {
     background-image: url("../../Assets/Popup-BG.png"), url("../../Assets/bg 1.png");

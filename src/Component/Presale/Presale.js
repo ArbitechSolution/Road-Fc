@@ -2,11 +2,10 @@ import React, { useEffect, useRef, useState } from 'react'
 import { MdOutlineKeyboardBackspace } from 'react-icons/md';
 import "./Presale.css"
 import ProgressBar from 'react-bootstrap/ProgressBar'
-
+import Skeleton from '@mui/material/Skeleton';
 import p305 from "../../Assets/305 1.png"
 import {
-    getWallet, getRoadPrice, getRoadTotalSupply, getHardCap, getSoftCap, getMinPurchase,
-    getMaxPurchase, getTotalsold, getStartTime
+    getWallet,getPreSaleInfo,getUserBalance
 } from '../Redux/actions/actions'
 import { useSelector, useDispatch } from 'react-redux';
 import { stakingContractAddress, stakingContractAbi } from '../Utils/stakingContract'
@@ -27,27 +26,34 @@ function Presale() {
     let enteredBnb = useRef(0)
     let dispatch = useDispatch();
     let { acc } = useSelector(state => state.connectWallet);
-    let { roadPrice } = useSelector(state => state.getRoadPrice);
-    let { myroadTotalSupply } = useSelector(state => state.getRoadTotalSupply);
-    let { myHardCap } = useSelector(state => state.getHardCap);
-    let { mysoftCap } = useSelector(state => state.getSoftCap);
-    let { myMinPurchase } = useSelector(state => state.getMinimumPurchase);
-    let { myMaxPurchase } = useSelector(state => state.getMaximumPurchase);
-    let { myTotalSold } = useSelector(state => state.getTotalSoldTokens);
-    let { myStartTime } = useSelector(state => state.getStartTime);
-    myStartTime = parseInt(myStartTime)
-    var myDate = new Date(myStartTime * 1000);
-    console.log("asasd", myDate.toLocaleString());
+    let {userBalance} = useSelector(state => state.userBalance)
 
-    myTotalSold = parseInt(myTotalSold);
+    let {
+        roadPrice,
+        roadTotalSupply,
+        softCap,
+        hardCap,
+        minPurchase,
+        maxPurchase,
+        totalSoldTokens,
+        startTime,
+        endTime
+    } = useSelector(state => state.preSaleInfo)
+    
 
-    console.log("myStartTime", myStartTime);
+    startTime = parseInt(startTime)
+    var myDate = new Date(startTime * 1000);
+
+
+    totalSoldTokens = parseInt(totalSoldTokens);
+
+
 
 
     const calucaltePercentage = () => {
-        let total = parseInt(myroadTotalSupply);
-        let sold = parseInt(myTotalSold);
-        let myPercent = myTotalSold / 500000;
+        let total = parseInt(roadTotalSupply);
+        let sold = parseInt(totalSoldTokens);
+        let myPercent = totalSoldTokens / 500000;
         myPercent = myPercent * 100;
         myPercent = parseFloat(myPercent).toFixed(1)
         console.log("percentageValue", sold);
@@ -103,7 +109,7 @@ function Presale() {
                             value: userEnteredValToWei.toString()
                         })
                         toast.success("Transaction Successfull")
-                        dispatch(getTotalsold())
+                        dispatch(getPreSaleInfo())
                         calucaltePercentage()
                     } else {
                         toast.error("Insufficient Balance")
@@ -122,24 +128,20 @@ function Presale() {
         dispatch(getWallet());
         // allImagesNfts()
     }
+    const getdata = () => {
+
+             dispatch(getUserBalance())
+      
+    }
 
     useEffect(() => {
         calucaltePercentage()
-    }, [myTotalSold])
+    }, [totalSoldTokens])
 
     useEffect(() => {
-
-
-        dispatch(getRoadPrice())
-        dispatch(getRoadTotalSupply())
-        dispatch(getHardCap())
-        dispatch(getSoftCap())
-        dispatch(getMinPurchase())
-        dispatch(getMaxPurchase())
-        dispatch(getTotalsold())
-        dispatch(getStartTime())
         calucaltePercentage()
-
+        dispatch(getPreSaleInfo())
+        getdata()
     }, [acc])
 
     return (
@@ -164,7 +166,12 @@ function Presale() {
                                 <div className='d-flex justify-content-start align-items-center ps-md-3 '>
                                     <button className='btn presalebtn'>ROAD Token</button>&nbsp;
 
-                                    <span id="presale-span1">Price: ${roadPrice}</span>
+                                    <span id="presale-span1">Price:{roadPrice ? `$ ${roadPrice}` :
+                                    <span className='dot-stretching'></span>
+                                    //  <span> <Skeleton animation="wave" width={50}/></span>
+                                     }
+                                    
+                                    </span>
                                 </div>
                             </div>
                             <div className='col-md-6 col-4 d-flex justify-content-end align-items-end'>
@@ -202,7 +209,7 @@ function Presale() {
                                 </div>
                                 <div className='row'>
                                     <div className='col-11 text-end'>
-                                        <span id="preale-Available">Available: 0.0000 BNB</span>
+                                        <span id="preale-Available">Available: {userBalance ? ` ${userBalance} BNB`:<>&nbsp;&nbsp;<br/> <span className='dot-collision-bal'></span></> } </span>
                                     </div>
                                 </div>
                                 <div className='row d-flex justify-content-center pt-4 pb-2'>
@@ -254,7 +261,10 @@ function Presale() {
                                 <div className='row d-flex justify-content-center '>
                                     <div className='col-11 d-flex justify-content-between align-items-center mt-1'>
                                         <span className='presale-span21'>Price</span>
-                                        <span className='presale-span22'>${roadPrice}</span>
+                                        <span className='presale-span22'>{roadPrice ? `$ ${roadPrice}` :
+                                    <span className='dot-collision'></span>
+                                    //  <span> <Skeleton animation="wave" width={50}/></span>
+                                     }</span>
                                     </div>
                                     <div className='col-11 mt-2' >
                                         <p style={{ border: "1px solid #292C38" }}></p>
@@ -263,7 +273,7 @@ function Presale() {
                                 <div className='row d-flex justify-content-center '>
                                     <div className='col-11 d-flex justify-content-between align-items-center mt-1'>
                                         <span className='presale-span21'>Minimum Purchase</span>
-                                        <span className='presale-span22'>{myMinPurchase} BNB</span>
+                                        <span className='presale-span22'>{minPurchase ? `${minPurchase}BNB` :<span className='dot-collision'></span> } </span>
                                     </div>
                                     <div className='col-11 mt-2' >
                                         <p style={{ border: "1px solid #292C38" }}></p>
@@ -272,7 +282,7 @@ function Presale() {
                                 <div className='row d-flex justify-content-center '>
                                     <div className='col-11 d-flex justify-content-between align-items-center mt-1'>
                                         <span className='presale-span21'>Max Purchase</span>
-                                        <span className='presale-span22'>{myMaxPurchase} BNB</span>
+                                        <span className='presale-span22'>{maxPurchase ? `${maxPurchase}BNB` :<span className='dot-collision'></span> }</span>
                                     </div>
                                     <div className='col-11 mt-2' >
                                         <p style={{ border: "1px solid #292C38" }}></p>
