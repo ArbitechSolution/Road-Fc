@@ -489,7 +489,7 @@ function Staking() {
                                             <span className='staking-span97'>{tamount}</span>
                                         </div>
                                         <div className='col-11 Staking-boxese d-flex justify-content-between align-item-center mt-2 mb-3 pt-2 pb-2'>
-                                            <span className='staking-span98 ps-2 pt-3' style={{fontSize: "18px"}}>Enter $ROAD:</span>
+                                            <span className='staking-span98 pt-3' style={{fontSize: "17px"}}>Enter $ROAD:</span>
                                             <div className='col-6'>
 
                                                 <input
@@ -693,7 +693,7 @@ function Staking() {
                                             <span className='staking-span97'>{tamountlp}</span>
                                         </div>
                                         <div className='col-11 Staking-boxese d-flex justify-content-between align-item-center mt-2 mb-3 pt-2 pb-2'>
-                                            <span className='staking-span98 pt-2' style={{fontSize: "18px"}}>Enter $ROAD LP:</span>
+                                            <span className='staking-span98 pt-3' style={{fontSize: "17px"}}>Enter $ROAD LP:</span>
                                             <div className='col-6'>
 
                                                 <input
