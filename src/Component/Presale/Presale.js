@@ -126,11 +126,14 @@ function Presale() {
 
     const getWalletAddress = () => {
         dispatch(getWallet());
+        dispatch(getUserBalance())
         // allImagesNfts()
     }
     const getdata = () => {
+        if (acc != "No Wallet" && acc != "Wrong Network" && acc != "Connect Wallet"){
 
-             dispatch(getUserBalance())
+            
+        }
       
     }
 
