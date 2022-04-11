@@ -137,7 +137,7 @@ function Mint() {
                                                 <div className=' d-flex justify-content-center align-items-center mt-lg-3 mt-3'>
                                                     <button className='btn mintbtn ' onClick={() => setModalShow(true)}>MINT</button>
                                                 </div>
-                                                <span className='mintspan23 pt-lg-4 pt-3'>MAXIMUM OF 3 tiger nfts CARD PER tx</span>
+                                                <span className='mintspan23 pt-lg-4 pt-3'>MAXIMUM OF 3 NFTs CARD PER tx</span>
                                             </div>
                                         </div>
                                     </div>
