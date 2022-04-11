@@ -9,8 +9,8 @@ import { InputGroup, FormControl } from 'react-bootstrap'
 import tin from "../../Assets/--40 1.png"
 import { ImInfo } from 'react-icons/im';
 import { RiCheckboxBlankCircleFill } from 'react-icons/ri';
-import Group494 from "../../Assets/Group 494.png"
-import Group493 from "../../Assets/Group 493.png"
+import Group637 from "../../Assets/Group 637.png"
+import Group636 from "../../Assets/Group 636.png"
 import { getWallet, getUserThbBalance, getUserThbLpBalance, getUserTHbTamount, getUserTHbLPTamount, getUserBrLp, getUserBrl } from '../../Component/Redux/actions/actions';
 import { useSelector, useDispatch } from 'react-redux';
 import { thbTokenAddress, thbTokenAbi } from "../../Component/Utils/ThbToken"
@@ -447,11 +447,6 @@ function Staking() {
 
                         <div className='row d-flex justify-content-center mt-4 mb-4'>
                             <div className='col-lg-12 col-11 presale-box1'>
-                                <div className='row'>
-                                    <div className='col-10 ps-sm-5 ps-4 text-start mt-3 '>
-                                        <img src={speaker}/>
-                                    </div>
-                                </div>
                                 <div className='row d-flex justify-content-center justify-content-evenly mt-4'>
                                     <div className='col-lg-5 col-md-9 col-11 staking-box1111a mb-4'>
                                         <div className='row'>
@@ -467,7 +462,7 @@ function Staking() {
                                                                 <div class="social__content">
                                                                     <ImInfo className='social__icon' />
                                                                     <div class="social__tooltip social__tooltip-bottom">
-                                                                        <img src={Group493} className="staking-info-pic" />
+                                                                        <img src={Group636} className="staking-info-pic" />
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -494,8 +489,8 @@ function Staking() {
                                             <span className='staking-span97'>{tamount}</span>
                                         </div>
                                         <div className='col-11 Staking-boxese d-flex justify-content-between align-item-center mt-2 mb-3 pt-2 pb-2'>
-                                            <span className='staking-span98 ps-2 pt-2'>Enter $ROAD:</span>
-                                            <div className='col-4'>
+                                            <span className='staking-span98 ps-2 pt-3' style={{fontSize: "18px"}}>Enter $ROAD:</span>
+                                            <div className='col-6'>
 
                                                 <input
                                                     style={{ backgroundColor: "#1C1F26", color: "white   " }}
@@ -671,7 +666,7 @@ function Staking() {
                                                                 <div class="social__content">
                                                                     <ImInfo className='social__icon' />
                                                                     <div class="social__tooltip social__tooltip-bottom">
-                                                                        <img src={Group494} className="staking-info-pic" />
+                                                                        <img src={Group637} className="staking-info-pic" />
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -698,11 +693,11 @@ function Staking() {
                                             <span className='staking-span97'>{tamountlp}</span>
                                         </div>
                                         <div className='col-11 Staking-boxese d-flex justify-content-between align-item-center mt-2 mb-3 pt-2 pb-2'>
-                                            <span className='staking-span98 ps-2 pt-2'>Enter $ROAD LP:</span>
-                                            <div className='col-4'>
+                                            <span className='staking-span98 pt-2' style={{fontSize: "18px"}}>Enter $ROAD LP:</span>
+                                            <div className='col-6'>
 
                                                 <input
-                                                    style={{ backgroundColor: "#1C1F26", color: "white   " }}
+                                                    style={{ backgroundColor: "#1C1F26", color: "white" }}
                                                     className="pointinput form-control staking-tab-b0xes"
                                                    ref={stakeAmountLp}
                                                     type="number"

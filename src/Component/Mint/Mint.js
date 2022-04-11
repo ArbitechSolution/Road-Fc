@@ -3,6 +3,8 @@ import { MdOutlineKeyboardBackspace } from 'react-icons/md';
 import { Link } from "react-router-dom";
 import Common1000 from "../../Assets/tiger 1 1.png"
 import "./Mint.css"
+import speaker from "../../Assets/speaker.png"
+
 import Modal from 'react-bootstrap/Modal'
 import Title from "../../Assets/Title.png"
 import tiger from "../../Assets/1-Common-1000x1000.gif"
@@ -38,10 +40,10 @@ function Mint() {
                 </div>
                 <div className='row d-flex justify-content-center justify-content-around'>
                     <div className='col-3 staking-box'>
-                    <SideBar />
+                        <SideBar />
                     </div>
                     <div className='col-11 mb-3 staking-coll'>
-                       <MediaSidebar/>
+                        <MediaSidebar />
                     </div>
                     <div className='col-lg-8 col-11 mb-md-1 mb-4 mt-4'>
                         {modalShow ? <Modal
@@ -99,27 +101,31 @@ function Mint() {
                         <div className='row d-flex justify-content-center mt-4 mb-5'>
                             <div className='col-lg-12 col-11 presale-box1'>
                                 <img src={Title} className="mint-image" />
-
+                                <div className='row'>
+                                    <div className='col-11 ps-sm-5  text-end mt-3 mb-1'>
+                                        <img src={speaker} />
+                                    </div>
+                                </div>
                                 <div className='row d-flex justify-content-center mt-1 mb-2'>
                                     <div className='col-md-11 col-11 mint-boxs  pb-4 mb-5'>
                                         <div className='row d-flex justify-content-center m-3'>
                                             <div className='col-lg-6 d-flex justify-content-center align-items-center mt-3 mb-3' >
                                                 <img src={tiger} id="mint-pic" data-aos="zoom-in"
-                                                 data-aos-offset="100"
-                                                 data-aos-delay="100"
-                                                 data-aos-duration="1000"
-                                                 data-aos-easing="ease-in-out"
-                                                 data-aos-mirror="true"
-                                                 data-aos-once="false"/>
+                                                    data-aos-offset="100"
+                                                    data-aos-delay="100"
+                                                    data-aos-duration="1000"
+                                                    data-aos-easing="ease-in-out"
+                                                    data-aos-mirror="true"
+                                                    data-aos-once="false" />
                                             </div>
                                             <div className='col-lg-6 d-flex flex-column justify-content-center'>
                                                 <div className='col-11 mint-boxes d-flex justify-content-between mb-3 pt-3 pb-3'>
                                                     <span className='mint-span ps-2'>Your Energy:</span>
-                                                    <span className='mint-span1'>1,000 Point &nbsp;<img src={Vector} /></span>
+                                                    <span className='mint-span1'>0.00 Point &nbsp;<img src={Vector} /></span>
                                                 </div>
                                                 <div className='col-11 mint-boxes d-flex justify-content-between mt-3 pt-3 pb-3'>
                                                     <span className='mint-span ps-2'>Energy Spend:</span>
-                                                    <span className='mint-span1'>500 Point &nbsp;<img src={Vector} /></span>
+                                                    <span className='mint-span1'>0.00 Point &nbsp;<img src={Vector} /></span>
                                                 </div>
 
                                                 <div className=' d-flex justify-content-center justify-content-around align-items-center mt-4'>
