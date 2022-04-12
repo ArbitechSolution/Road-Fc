@@ -489,10 +489,10 @@ useEffect(() => {
                                                         href={`https://testnet.bscscan.com/tx/${transctionData.transactionHash}`}
                                                         target="blank"
                                                     >
-                                                        {transctionData.transactionHash?.substring(0, 3) +
+                                                        {transctionData.transactionHash?.substring(0, 6) +
                                                             "..." +
                                                             transctionData.transactionHash?.substring(
-                                                                transctionData.transactionHash?.length - 3
+                                                                transctionData.transactionHash?.length - 6
                                                             )}
                                                     </a></th>
                                                 </tr>
