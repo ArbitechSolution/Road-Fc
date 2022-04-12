@@ -575,6 +575,28 @@ li {
         background-color: transparent !important;
         color: #FFFFFF;
     }
+    .staking-info-pic {
+        width: 330px;
+
+    }
+    .social__tooltip-bottom {
+
+        left: -115px;
+        top: 0px;
+
+        transform: translate(-48%, 38%);
+    }
+
+    .social__tooltip-bottom::after {
+        left: -120px;
+        transform: translate(-50%, -50%) rotate(45deg);
+        top: 23px;
+    }
+
+    .social__content:hover .social__tooltip-bottom {
+        opacity: 1;
+        bottom: -1rem;
+    }
 }
 
 @media(max-width: 600px) {

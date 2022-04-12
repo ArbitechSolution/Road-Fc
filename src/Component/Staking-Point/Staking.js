@@ -3,7 +3,7 @@ import { MdOutlineKeyboardBackspace } from 'react-icons/md';
 import "./Staking.css"
 import { Link } from "react-router-dom";
 import Badge from 'react-bootstrap/Badge'
-import image2 from "../../Assets/image 2.png"
+import image2 from "../../Assets/RCP_1_1500x500 1.png"
 import roadsign from "../../Assets/road-sign 1.png"
 import { InputGroup, FormControl } from 'react-bootstrap'
 import tin from "../../Assets/--40 1.png"
@@ -493,11 +493,11 @@ function Staking() {
                                         </div>
                                         <div className='col-11 Staking-boxese d-flex justify-content-between mt-2 mb-3 pt-3 pb-3'>
                                             <span className='staking-span98 ps-2'>Energy Point:</span>
-                                            <span className='staking-span97'>{brlPoint}</span>
+                                            <span className='staking-span97'>{brlPoint.toLocaleString()}</span>
                                         </div>
                                         <div className='col-11 Staking-boxese d-flex justify-content-between mt-2 mb-3 pt-3 pb-3'>
                                             <span className='staking-span98 ps-2'>Staked:</span>
-                                            <span className='staking-span97'>{tamount}</span>
+                                            <span className='staking-span97'>{tamount.toLocaleString()}</span>
                                         </div>
                                         <div className='col-11 Staking-boxese d-flex justify-content-between align-item-center mt-2 mb-3 pt-2 pb-2'>
                                             <div className='col-6 pt-3'>
@@ -704,7 +704,7 @@ function Staking() {
                                         </div>
                                         <div className='col-11 Staking-boxese d-flex justify-content-between mt-2 mb-3 pt-3 pb-3'>
                                             <span className='staking-span98 ps-2'>Staked:</span>
-                                            <span className='staking-span97'>{tamountlp}</span>
+                                            <span className='staking-span97'>{tamountlp.toLocaleString()}</span>
                                         </div>
 
                                         <div className='col-11 Staking-boxese d-flex justify-content-between align-item-center mt-2 mb-3 pt-2 pb-2'>

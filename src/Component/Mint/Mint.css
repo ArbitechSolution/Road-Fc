@@ -5,9 +5,9 @@
 }
 
 .mint-image2 {
-    position: relative;
-    top: -49px;
-    left: 290px;
+    position: absolute;
+    top: -32px;
+    left: 300px;
 }
 
 .congrat-image {
@@ -115,7 +115,7 @@ width: 240px;
     /* border: 2px solid red; */
     background-color: rgba(26, 28, 35, 0.96);
     box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.08);
-
+padding-bottom: -200px;
     width: 100%;
 
 }
@@ -152,7 +152,7 @@ width: 240px;
     background: linear-gradient(90deg, #565866 1.7%, #5E606E 100%);
     border-radius: 50px;
     font-weight: 600;
-    font-size: 15px;
+    font-size: 13px;
     line-height: 132%;
     padding: 8px 24px;
     color: #FFFFFF;
@@ -164,8 +164,8 @@ width: 240px;
     box-sizing: border-box;
     border-radius: 50px;
     font-weight: 600;
-    font-size: 15px;
-    padding: 8px 24px;
+    font-size: 13px;
+    padding: 10px 24px;
     line-height: 132%;
     color: #7E808D;
 }
@@ -195,6 +195,13 @@ color: #7E808D;
 font-size: 14px;
 line-height: 132%;
 color: #FFFFFF;
+}
+@media(max-width: 770px){
+    .mint-image2 {
+        position: absolute;
+        top: -32px;
+        left: 150px;
+    }
 }
 @media(max-width: 480px) {
     .mint-pic {
@@ -254,6 +261,12 @@ color: #FFFFFF;
         width: 100%;
 
     }
+    .mint-image2 {
+        position: absolute;
+        top: -32px;
+        left: 100px;
+
+    }
 }
 
 @media(max-width: 400px) {
@@ -285,6 +298,11 @@ color: #FFFFFF;
 
         width: 100%;
 
+    }
+    .mint-image2 {
+        position: absolute;
+        top: -15px;
+        left: 100px;
     }
 }
 .btn-yes{

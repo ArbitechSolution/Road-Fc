@@ -187,13 +187,15 @@ useEffect(() => {
                             centered
                         >
                             <Modal.Header closeButton className='model-image'>
-                                <Modal.Title id="contained-modal-title-vcenter" style={{ color: "white", fontSize: "30px" }}>
-                                    Mint
-                                </Modal.Title>
+                                {/* <Modal.Title id="contained-modal-title-vcenter" style={{ color: "white", fontSize: "30px" }}> */}
+                                <img src={Title} className="mint-image2" />
+                                {/* </Modal.Title> */}
                             </Modal.Header>
                             <Modal.Body className='model-image'>
-                                <div className='row d-flex justify-content-center' >
+                                <div className='row d-flex justify-content-center' >\
+
                                     <div className='col-md-12 d-flex justify-content-center'>
+                                {/* <img src={Title} className="mint-image2" width="40px"/> */}
                                         <img className='pt-3 congrat-image' src={Group609} />
                                     </div>
                                     {mintArray.length == 1 ? <div className=' d-flex justify-content-center mb-3 mt-3' >{
@@ -203,7 +205,7 @@ useEffect(() => {
                                                     <div key={index}>
                                                         <div>
 
-                                                            <img src={`/config/${item.imageUrl}`} className=" pt-4 pb-3" width="200px" />
+                                                            <img src={`/config/${item.imageUrl}`} className=" pt-4 pb-3" width="240px" />
                                                         </div>
                                                     </div>
 
@@ -285,25 +287,26 @@ useEffect(() => {
                                 </div>
                                 <div className='row d-flex justify-content-center'>
                                     <div className='col-lg-2 col-md-3 mt-3 mb-3'>
-                                        <div className="d-grid gap-2">
+                                        {/* <div className="d-grid gap-2"> */}
                                             <button className='btn btn-congrats' size="lg">
                                                 Breed
                                             </button>
-                                        </div>
+                                        {/* </div> */}
                                     </div>
-                                    <div className='col-lg-2 col-md-3 mt-3 mb-3'>
+                                    {/* <div className='col-lg-2 col-md-3 mt-3 mb-3'>
                                         <div className="d-grid gap-2">
                                             <button className='btn btn1-congrats' size="lg" onClick={() => setModalShowOne(true)}>
                                                 Sell
                                             </button>
                                         </div>
-                                    </div>
+                                    </div> */}
                                     <div className='col-lg-3 col-md-3 mt-3 mb-3'>
-                                        <div className="d-grid gap-2">
-                                            <button className='btn btn2-congrats' size="lg">
+                                        {/* <div className="d-grid gap-2"> */}
+                                            <button className='btn btn2-congrats' size="lg"
+                                            onClick={() => setModalShow(false)}>
                                                 Do it Later
                                             </button>
-                                        </div>
+                                        {/* </div> */}
                                     </div>
                                 </div>
                             </Modal.Body>
@@ -319,9 +322,9 @@ useEffect(() => {
                             style={{ backgroundColor: "#13151b" }}
                         >
                             <Modal.Header closeButton className='model-image'>
-                                <Modal.Title id="contained-modal-title-vcenter" style={{ color: "white", fontSize: "30px" }}>
-                                    Mint
-                                </Modal.Title>
+                                {/* <Modal.Title id="contained-modal-title-vcenter" style={{ color: "white", fontSize: "30px" }}> */}
+                                <img src={Title} className="mint-image2" />
+                                {/* </Modal.Title> */}
                             </Modal.Header>
                             <Modal.Body className='model-image'>
                                 <div className='row d-flex justify-content-center' >
@@ -443,7 +446,7 @@ useEffect(() => {
                                             <div className='col-lg-6 d-flex flex-column justify-content-center'>
                                                 <div className='col-11 mint-boxes d-flex justify-content-between mb-3 pt-3 pb-3'>
                                                     <span className='mint-span ps-2'>Your Energy:</span>
-                                                    <span className='mint-span1'>{(energyPoint).toLocaleString(undefined, { minimumFractionDigits: 1, maximumFractionDigits: 1 })}&nbsp;<img src={Vector} /></span>
+                                                    <span className='mint-span1'>{(energyPoint).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}&nbsp;<img src={Vector} /></span>
                                                     {/* <span className='mint-span1'>{parseFloat(energyPoint)toFixed(2)}<img src={Vector} /></span> */}
 
                                                 </div>
