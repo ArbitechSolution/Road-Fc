@@ -1,4 +1,4 @@
-export const stakingContractAddress = "0x2BeC2cDfad524546f6194Ed2bD73D884dCBaade5";
+export const stakingContractAddress = "0x2746F5889694a68fb8fb5cbf017861a1036747B6";
 export const stakingContractAbi = [{
     "inputs": [{
         "internalType": "contract IERC20",
@@ -42,35 +42,7 @@ export const stakingContractAbi = [{
         "name": "amount",
         "type": "uint256"
     }],
-    "name": "BNBToBP",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "addr",
-        "type": "address"
-    }],
-    "name": "BPcalculator",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "addr",
-        "type": "address"
-    }],
-    "name": "BPcalculatorforLP",
+    "name": "BNBToRP",
     "outputs": [{
         "internalType": "uint256",
         "name": "",
@@ -125,6 +97,44 @@ export const stakingContractAbi = [{
     "stateMutability": "view",
     "type": "function"
 }, {
+    "inputs": [],
+    "name": "ROAD_",
+    "outputs": [{
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+    }],
+    "stateMutability": "view",
+    "type": "function"
+}, {
+    "inputs": [{
+        "internalType": "address",
+        "name": "addr",
+        "type": "address"
+    }],
+    "name": "RPcalculator",
+    "outputs": [{
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+    }],
+    "stateMutability": "view",
+    "type": "function"
+}, {
+    "inputs": [{
+        "internalType": "address",
+        "name": "addr",
+        "type": "address"
+    }],
+    "name": "RPcalculatorforLP",
+    "outputs": [{
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+    }],
+    "stateMutability": "view",
+    "type": "function"
+}, {
     "inputs": [{
         "internalType": "uint256",
         "name": "_amount",
@@ -143,16 +153,6 @@ export const stakingContractAbi = [{
     "name": "StakeforLP",
     "outputs": [],
     "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "THBpercent",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
     "type": "function"
 }, {
     "inputs": [],
@@ -185,7 +185,7 @@ export const stakingContractAbi = [{
         "type": "uint256"
     }, {
         "internalType": "uint256",
-        "name": "redeemedBP",
+        "name": "redeemedRP",
         "type": "uint256"
     }],
     "stateMutability": "view",
@@ -211,7 +211,7 @@ export const stakingContractAbi = [{
         "type": "uint256"
     }, {
         "internalType": "uint256",
-        "name": "redeemedBP",
+        "name": "redeemedRP",
         "type": "uint256"
     }],
     "stateMutability": "view",
@@ -256,21 +256,7 @@ export const stakingContractAbi = [{
     "type": "function"
 }, {
     "inputs": [],
-    "name": "currentBP",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "_addr",
-        "type": "address"
-    }],
-    "name": "getstakeTime",
+    "name": "currentRP",
     "outputs": [{
         "internalType": "uint256",
         "name": "",
@@ -280,23 +266,13 @@ export const stakingContractAbi = [{
     "type": "function"
 }, {
     "inputs": [],
-    "name": "maxBPToken",
+    "name": "maxRPToken",
     "outputs": [{
         "internalType": "uint256",
         "name": "",
         "type": "uint256"
     }],
     "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_time",
-        "type": "uint256"
-    }],
-    "name": "mintlocktimee",
-    "outputs": [],
-    "stateMutability": "nonpayable",
     "type": "function"
 }, {
     "inputs": [],
@@ -340,7 +316,7 @@ export const stakingContractAbi = [{
         "name": "percentage",
         "type": "uint256"
     }],
-    "name": "setBNBtoBPPrice",
+    "name": "setBNBtoRP_Price",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -360,23 +336,9 @@ export const stakingContractAbi = [{
         "name": "_amount",
         "type": "uint256"
     }],
-    "name": "setmaxBPTOKEN",
+    "name": "setmaxRPToken",
     "outputs": [],
     "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "name": "staketime",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
     "type": "function"
 }, {
     "inputs": [],

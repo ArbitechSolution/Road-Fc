@@ -136,7 +136,7 @@ if (address=="No Wallet"){
   console.log("Wrong Network")
 }else{
     const web3 = window.web3
-    let userBrawlPoint = await stakingCOntractOf.methods.BPcalculator(address).call()
+    let userBrawlPoint = await stakingCOntractOf.methods.RPcalculator(address).call()
     userBrawlPoint =web3.utils.fromWei(userBrawlPoint)
     userBrawlPoint =parseInt(userBrawlPoint)
    
@@ -157,7 +157,7 @@ if (address=="No Wallet"){
     console.log("Wrong Network")
 }else{
     const web3 = window.web3
-    let userBrawlLpPoint = await stakingCOntractOf.methods.BPcalculatorforLP(address).call()
+    let userBrawlLpPoint = await stakingCOntractOf.methods.RPcalculatorforLP(address).call()
     userBrawlLpPoint = web3.utils.fromWei(userBrawlLpPoint)
     userBrawlLpPoint=parseInt(userBrawlLpPoint)
    

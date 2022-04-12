@@ -306,8 +306,10 @@ function Staking() {
                                     dispatch(getUserThbLpBalance())
                                     dispatch(getUserBrLp())
                                     dispatch(getUserBrl())
+                                    dispatch(getUserDepositTime())
                                 } else {
                                     toast.info(`Remaining Time: ${userDepositTime.days} Days ${userDepositTime.hours} hours ${userDepositTime.minutes} Minutes ${userDepositTime.seconds} seconds`)
+                                    dispatch(getUserDepositTime())
                                 }
 
 

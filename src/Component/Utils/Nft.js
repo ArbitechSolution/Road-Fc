@@ -1,4 +1,4 @@
-export const nftContratAddress = "0x7A2Be89E6a7c4Ef09FC9EAbF2c1dB246f9e9CB5B";
+export const nftContratAddress = "0x22c2AC802DfBE08843C1C7AD9277bB3A3DbC11Cb";
 export const nftContractAbi = [{
     "inputs": [{
         "internalType": "string",
@@ -123,20 +123,6 @@ export const nftContractAbi = [{
 }, {
     "inputs": [{
         "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "name": "addressMintedBalance",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
         "name": "to",
         "type": "address"
     }, {
@@ -237,16 +223,6 @@ export const nftContractAbi = [{
     "name": "mint",
     "outputs": [],
     "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "mintTIME",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
     "type": "function"
 }, {
     "inputs": [],
@@ -415,16 +391,6 @@ export const nftContractAbi = [{
         "type": "uint256"
     }],
     "name": "setMintingPrice",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_time",
-        "type": "uint256"
-    }],
-    "name": "setMintingTime",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"

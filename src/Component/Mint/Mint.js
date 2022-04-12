@@ -74,15 +74,15 @@ useEffect(() => {
             } else {
                 const web3 = window.web3;
                 const stakingContract = new web3.eth.Contract(stakingContractAbi, stakingContractAddress);
-                let stakingTime = await stakingContract.methods.getstakeTime(acc).call();
-                stakingTime = parseInt(stakingTime);
+                // let stakingTime = await stakingContract.methods.getstakeTime(acc).call();
+                // stakingTime = parseInt(stakingTime);
 
-                console.log("stakingTime", stakingTime);
-                let currentTime = Math.floor(new Date().getTime() / 1000.0);
-                currentTime = currentTime;
-                console.log("currentTime", currentTime);
-                console.log("compare", currentTime >= stakingTime);
-                if (currentTime >= stakingTime) {
+                // console.log("stakingTime", stakingTime);
+                // let currentTime = Math.floor(new Date().getTime() / 1000.0);
+                // currentTime = currentTime;
+                // console.log("currentTime", currentTime);
+                // console.log("compare", currentTime >= stakingTime);
+                // if (currentTime >= stakingTime) {
                     let count = minintPrice * value;
                     if (count <= energyPoint) {
 
@@ -102,9 +102,9 @@ useEffect(() => {
 
                         toast.info(`Requied energy:${count}`)
                     }
-                } else {
-                    toast.info("your time is remaning")
-                }
+                // } else {
+                //     toast.info("your time is remaning")
+                // }
             }
         } catch (e) {
             console.error("error while mint", e);
