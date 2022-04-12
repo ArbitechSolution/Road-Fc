@@ -27,17 +27,35 @@
 
 }
 
-/* .mint-pic1 {
-    width: 300px;
-    margin-left: 40px;
-} */
+.mint-pic1 {
+    width: 154px;
+    margin-left: 0px;
+    margin-top: -18px;
+}
 
 .mint-boxes {
     background: linear-gradient(90deg, #1A1C23 0%, rgba(26, 28, 35, 0) 100%);
     border-radius: 8px;
     /* border: 2px solid red; */
 }
+.uperimg {
+    background-image: url("../../Assets/Mask group.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 0px 0px 14px rgba(39, 214, 116, 0.7);
+    ;
+    width: 200px;
+    height: 200px;
+    /* display: flex;
+    flex-direction: row; */
 
+}
+.model-i {
+    width: 195px;
+    height: 195px;
+    margin-top: 0px;
+    /* box-shadow: 0px 0px 14px rgba(39, 214, 116, 0.7); */
+}
 .mint-span {
     font-weight: 500;
     font-size: 16px;
@@ -51,7 +69,13 @@
     line-height: 132%;
     color: #5E606E;
 }
-
+.box-Mint{
+    background: #26282F;
+box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.08);
+backdrop-filter: blur(16px);
+border-radius: 16px;
+width: 240px;
+}
 .boxess {
     Width: 120px;
     Height: 50px;
@@ -207,6 +231,29 @@ color: #FFFFFF;
     .congrat-image {
         width: 300px;
     }
+    .uperimg {
+        background-image: url("../../Assets/Mask group.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        box-shadow: 0px 0px 14px rgba(39, 214, 116, 0.7);
+        ;
+        width: 200px;
+        height: 200px;
+
+
+    }
+    .model-image {
+        background-image: url("../../Assets/Mask group 1.png");
+        background-repeat: no-repeat;
+        /* background-position: center; */
+        background-size: cover;
+        /* border: 2px solid red; */
+        background-color: rgba(26, 28, 35, 0.96);
+        box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.08);
+
+        width: 100%;
+
+    }
 }
 
 @media(max-width: 400px) {
@@ -216,6 +263,28 @@ color: #FFFFFF;
 
     .congrat-image {
         width: 270px;
+    }
+    .uperimg {
+        background-image: url("../../Assets/Mask group.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        box-shadow: 0px 0px 14px rgba(39, 214, 116, 0.7);
+        width: 200px;
+        height: 200px;
+
+
+    }
+    .model-image {
+        background-image: url("../../Assets/Mask group 1.png");
+        background-repeat: no-repeat;
+        /* background-position: center; */
+        background-size: cover;
+        /* border: 2px solid red; */
+        background-color: rgba(26, 28, 35, 0.96);
+        box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.08);
+
+        width: 100%;
+
     }
 }
 .btn-yes{
