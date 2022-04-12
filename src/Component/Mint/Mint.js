@@ -65,10 +65,10 @@ function Mint() {
                 let count = minintPrice * value;
                 if(count <=energyPoint){
                     
-                    const nftContract = new web3.eth.Contract(nftContractAbi, nftContratAddress);
-                    await nftContract.methods.mint(value).send({
-                        from:acc
-                    })
+                    // const nftContract = new web3.eth.Contract(nftContractAbi, nftContratAddress);
+                    // await nftContract.methods.mint(value).send({
+                    //     from:acc
+                    // })
                     dispatch(getTotalEnergy())
                     getCurrentNfts()
 
@@ -179,7 +179,7 @@ function Mint() {
                                         <img src={`/config/${item.imageUrl}`} className="mint-pic1 pt-4 pb-3" width="200px" />
                                                 </div>
                                         
-                                        <div className='text-white' >{item.imageName}</div>
+                                        <div className='text-white text-center mb-3' >{item.imageName}</div>
                                                 </div>
                                                 &nbsp;&nbsp;
                                                 </>
