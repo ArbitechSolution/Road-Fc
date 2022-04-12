@@ -53,7 +53,7 @@ function Presale() {
     const calucaltePercentage = () => {
         let total = parseInt(roadTotalSupply);
         let sold = parseInt(totalSoldTokens);
-        let myPercent = totalSoldTokens / 500000;
+        let myPercent = totalSoldTokens / 100000000;
         myPercent = myPercent * 100;
         myPercent = parseFloat(myPercent).toFixed(1)
         console.log("percentageValue", sold);

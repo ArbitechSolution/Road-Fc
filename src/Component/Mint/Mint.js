@@ -3,6 +3,7 @@ import { MdOutlineKeyboardBackspace } from 'react-icons/md';
 import { Link } from "react-router-dom";
 import Common1000 from "../../Assets/tiger 1 1.png"
 import "./Mint.css"
+import off from "../../Assets/Off.png"
 import speaker from "../../Assets/speaker.png"
 import Modal from 'react-bootstrap/Modal'
 import Title from "../../Assets/Title.png"
@@ -21,10 +22,23 @@ import { stakingContractAbi, stakingContractAddress } from '../Utils/Staking'
 
 import { formHelperTextClasses } from '@mui/material';
 import axios from 'axios';
+import url from '../../Assets/mintSound.wav';
+import useAudio from "./useAudio";
 function Mint() {
     const dispatch = useDispatch()
+  
+const [playing, toggle] = useAudio(url);  
+const playingSound = () => {
+    toggle();    
+};
+useEffect(() => {
+    setTimeout(() => {
+      playingSound();
+    }, 1000);
+  }, []);
     let { acc } = useSelector(state => state.connectWallet)
     let { energyPoint, minintPrice } = useSelector(state => state.mintngInfo);
+    let [spendEnergy,setSpendEnergy] =useState(100000)
     let [mintArray, setMintArray] = useState([]);
     let [isDetail, setIsDetail] = useState(false)
     let [transctionData, setTransctionData] = useState({})
@@ -33,12 +47,16 @@ function Mint() {
     const [modalShowOne, setModalShowOne] = useState(false);
     const increaseValue = () => {
         if (value < 3) {
+            let val = 100000;
             setValue(++value)
+            setSpendEnergy(val * value)
         }
     }
     const decreaseValue = () => {
         if (value > 1) {
+            let val = 100000;
             setValue(--value)
+            setSpendEnergy(val * value)
         }
     }
 
@@ -68,14 +86,14 @@ function Mint() {
                     let count = minintPrice * value;
                     if (count <= energyPoint) {
 
-                        // const nftContract = new web3.eth.Contract(nftContractAbi, nftContratAddress);
-                        // await nftContract.methods.mint(value).send({
-                        //     from:acc
-                        // }) .on("receipt", (receipt) => {
-                        //     console.log("mintValue", receipt);
+                        const nftContract = new web3.eth.Contract(nftContractAbi, nftContratAddress);
+                        await nftContract.methods.mint(value).send({
+                            from:acc
+                        }) .on("receipt", (receipt) => {
+                            console.log("mintValue", receipt);
 
-                        //     setTransctionData(receipt);
-                        //   });
+                            setTransctionData(receipt);
+                          });
                         dispatch(getTotalEnergy())
                         setIsDetail(true)
                         getCurrentNfts()
@@ -128,14 +146,17 @@ function Mint() {
     const getWalletAddress = () => {
         dispatch(getWallet());
         dispatch(getTotalEnergy())
+        
     }
     const getData = () => {
         if (acc != "No Wallet" && acc != "Wrong Network" && acc != "Connect Wallet") {
             dispatch(getTotalEnergy())
+            
         }
     }
     useEffect(() => {
         getData()
+
     }, [acc])
     return (
         <div className='imagePool'>
@@ -400,7 +421,17 @@ function Mint() {
                                 <img src={Title} className="mint-image" />
                                 <div className='row'>
                                     <div className='col-11 ps-sm-5  text-end mt-3 mb-1'>
-                                        <img src={speaker} />
+                                        {
+                                            !playing ?
+                                            <img src={off}
+                                        onClick={playingSound}
+                                        />
+                                            :
+                                            <img src={speaker}
+                                           onClick={playingSound}
+                                           />
+                                        }
+                                        
                                     </div>
                                 </div>
                                 <div className='row d-flex justify-content-center mt-1 mb-2'>
@@ -418,7 +449,7 @@ function Mint() {
                                                 </div>
                                                 <div className='col-11 mint-boxes d-flex justify-content-between mt-3 pt-3 pb-3'>
                                                     <span className='mint-span ps-2'>Energy Spend:</span>
-                                                    <span className='mint-span1'> &nbsp;<img src={Vector} /></span>
+                                                    <span className='mint-span1'>{spendEnergy} &nbsp;<img src={Vector} /></span>
                                                 </div>
 
                                                 <div className=' d-flex justify-content-center justify-content-around align-items-center mt-4'>

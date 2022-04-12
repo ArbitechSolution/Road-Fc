@@ -6,11 +6,13 @@ import store from "../src/Component/Redux/index"
 import { Provider } from 'react-redux'
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from "react-router-dom";
+import { RecoilRoot } from 'recoil';
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-
+<RecoilRoot>
         <App />
+</RecoilRoot>
      
 
     </Provider>

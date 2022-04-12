@@ -52,6 +52,9 @@ function MyNFTs() {
                 const nftContract = new web3.eth.Contract(nftContractAbi, nftContratAddress);
                 let totalIds = await nftContract.methods.walletOfOwner(acc).call();
                 setNftsArrayLength( totalIds.length)
+                let ttlPage = parseInt(totalIds.length) / 9;
+            ttlPage = Math.ceil(ttlPage);
+            setTotalPages(ttlPage)
                 let simplleArray = [];
                 for(let i=0; i< totalIds.length; i++){
                     let res = await axios.get(`/config/json/${totalIds[i]}.json`)
@@ -69,6 +72,50 @@ function MyNFTs() {
     const getData = () => {
         if (acc != "No Wallet" && acc != "Wrong Network" && acc != "Connect Wallet") {
             getNfts()
+        }
+    }
+    let [initialLimit, setInitialLimit] = useState(0);
+    let [finalLimit, setFinalLimit] = useState(9)
+    let [pageNumber, setPageNumber] = useState(1)
+    let [totalPages, setTotalPages] = useState(1)
+    const loadMore = () => {
+        window.scrollTo(0, 0)
+        let a = finalLimit + 9
+        if (a >= nftArrayLength) {
+            setInitialLimit(initialLimit + 9)
+            if (pageNumber < totalPages) {
+
+                setPageNumber(pageNumber + 1)
+            }
+            console.log("Loading More Up");
+            setFinalLimit(nftArrayLength)
+        } else {
+            console.log("Loading More");
+            if (pageNumber < totalPages) {
+
+                setPageNumber(pageNumber + 1)
+            }
+            setInitialLimit(initialLimit + 9);
+            setFinalLimit(finalLimit + 9)
+        }
+    }
+
+    const loadLess = () => {
+        window.scrollTo(0, 0)
+        let b = finalLimit - 9
+
+        if (b <= 9) {
+
+            setFinalLimit(9);
+            setInitialLimit(0);
+            if (pageNumber > 1) {
+                setPageNumber(pageNumber - 1)
+            }
+        } else {
+            setInitialLimit(initialLimit - 9);
+            setPageNumber(pageNumber - 1)
+            setFinalLimit(finalLimit - 9)
+
         }
     }
     useEffect(()=>{
@@ -105,7 +152,7 @@ function MyNFTs() {
                         </div>
                         <div className='row d-flex justify-content-center justify-content-between mb-3'>
                         {
-                            nftArray?.map((item, index)=>{
+                            nftArray?.slice(initialLimit, finalLimit).map((item, index)=>{
                                 return (
                                     <div className='col-md-2 nft-boxx p-2 mt-3 ' key={index}>
                                 <img src={`/config/${item.imageUrl}`} className="nfts-image " />
@@ -283,20 +330,24 @@ function MyNFTs() {
 
                         <div className='row d-flex flex-row justify-content-center justify-content-evenly mt-3 mb-4' >
 
-                            <div className='col-1 d-flex align-items-center justify-content-center' style={{ cursor: "pointer" }}>
+                            <div className='col-1 d-flex align-items-center justify-content-center' style={{ cursor: "pointer" }}
+                            onClick={loadLess}
+                            >
                                 <img src={Rectangle572} style={{ position: "absolute" }} />
                                 <img src={Vector22} style={{ position: " relative" }} />
                             </div>
                             <div className='col-lg-3 col-md-5 col d-flex flex-row align-items-center justify-content-evenly'>
                                 <span className='MyCollectionspan'>Current</span>
                                 <div className='bosCollection'>
-                                    <span className='mycollectionsP '>1</span>
+                                    <span className='mycollectionsP '>{acc == "No Wallet" || acc == "Wrong Network" || acc == "Connect Wallet" ? "" : pageNumber}</span>
                                 </div>
-                                <span className='MyCollectionspan'>/3</span>
+                                <span className='MyCollectionspan'>/{totalPages}</span>
                             </div>
 
                             {/* <button className='btn '> */}
-                            <div className='col-1 d-flex align-items-center justify-content-center ms-4' style={{ cursor: "pointer" }}>
+                            <div className='col-1 d-flex align-items-center justify-content-center ms-4' style={{ cursor: "pointer" }}
+                            onClick={loadMore}
+                            >
                                 <img src={Rectangle572} style={{ position: "absolute" }} />
                                 <img src={Vector33} style={{ position: " relative" }} />
                             </div>
