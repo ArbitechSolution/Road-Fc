@@ -26,10 +26,10 @@ import url from '../../Assets/mintSound.wav';
 import useAudio from "./useAudio";
 function Mint() {
     const dispatch = useDispatch()
-  
-const [playing, toggle] = useAudio(url);  
+
+const [playing, toggle] = useAudio(url);
 const playingSound = () => {
-    toggle();    
+    toggle();
 };
 useEffect(() => {
     setTimeout(() => {
@@ -146,12 +146,12 @@ useEffect(() => {
     const getWalletAddress = () => {
         dispatch(getWallet());
         dispatch(getTotalEnergy())
-        
+
     }
     const getData = () => {
         if (acc != "No Wallet" && acc != "Wrong Network" && acc != "Connect Wallet") {
             dispatch(getTotalEnergy())
-            
+
         }
     }
     useEffect(() => {
@@ -431,7 +431,7 @@ useEffect(() => {
                                            onClick={playingSound}
                                            />
                                         }
-                                        
+
                                     </div>
                                 </div>
                                 <div className='row d-flex justify-content-center mt-1 mb-2'>
@@ -449,7 +449,7 @@ useEffect(() => {
                                                 </div>
                                                 <div className='col-11 mint-boxes d-flex justify-content-between mt-3 pt-3 pb-3'>
                                                     <span className='mint-span ps-2'>Energy Spend:</span>
-                                                    <span className='mint-span1'>{spendEnergy} &nbsp;<img src={Vector} /></span>
+                                                    <span className='mint-span1'>{spendEnergy.toLocaleString()} &nbsp;<img src={Vector} /></span>
                                                 </div>
 
                                                 <div className=' d-flex justify-content-center justify-content-around align-items-center mt-4'>
