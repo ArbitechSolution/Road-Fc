@@ -26,6 +26,8 @@ function Mint() {
     let { acc } = useSelector(state => state.connectWallet)
     let { energyPoint,minintPrice } = useSelector(state => state.mintngInfo);
     let [mintArray, setMintArray] = useState([]);
+    let [isDetail,setIsDetail]=useState(false)
+    let [transctionData, setTransctionData]=useState({})
     let [value, setValue] = useState(1)
     const [modalShow, setModalShow] = useState(false);
     const increaseValue = () => {
@@ -65,11 +67,16 @@ function Mint() {
                 let count = minintPrice * value;
                 if(count <=energyPoint){
                     
-                    // const nftContract = new web3.eth.Contract(nftContractAbi, nftContratAddress);
-                    // await nftContract.methods.mint(value).send({
-                    //     from:acc
-                    // })
+                    const nftContract = new web3.eth.Contract(nftContractAbi, nftContratAddress);
+                    await nftContract.methods.mint(value).send({
+                        from:acc
+                    }) .on("receipt", (receipt) => {
+                        console.log("mintValue", receipt);
+        
+                        setTransctionData(receipt);
+                      });
                     dispatch(getTotalEnergy())
+                    setIsDetail(true)
                     getCurrentNfts()
 
                 }else{
@@ -281,6 +288,38 @@ function Mint() {
                                         </div>
                                     </div>
                                 </div>
+                                {isDetail && <div className='row mb-5'>
+                                    <div className='col-md-12 col-11 mint-Page-border mb-4'>
+                                        <div className='row pt-3 text-start text-sm-center '>
+                                            <div className='col-sm-4 text-start' >
+                                                <span className='Mint-Time '>{new Date().toLocaleTimeString()}</span>
+                                            </div>
+                                            <div className='col-sm-2 text-start'>
+                                                <span className='Mint-Time'>Mint</span>
+                                            </div>
+                                            <div className='col-sm-2 text-start'>
+                                                <span className='Mint-Time'>{value}</span>
+                                            </div>
+                                            <div className='col-sm-2 text-start'>
+                                                <span className='Mint-Time'>True</span>
+                                            </div>
+                                            <div className='col-sm-2 text-start'>
+                                                <span className='Mint-Time'>
+                                                <a
+                            href={`https://testnet.bscscan.com/tx/${transctionData.transactionHash}`}
+                            target="blank"
+                          >
+                            {transctionData.transactionHash?.substring(0, 3) +
+                              "..." +
+                              transctionData.transactionHash?.substring(
+                                transctionData.transactionHash?.length - 3
+                              )}
+                          </a>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>}
                             </div>
                         </div>
                     </div>
