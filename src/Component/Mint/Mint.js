@@ -86,14 +86,14 @@ useEffect(() => {
                     let count = minintPrice * value;
                     if (count <= energyPoint) {
 
-                        // const nftContract = new web3.eth.Contract(nftContractAbi, nftContratAddress);
-                        // await nftContract.methods.mint(value).send({
-                        //     from:acc
-                        // }) .on("receipt", (receipt) => {
-                        //     console.log("mintValue", receipt);
+                        const nftContract = new web3.eth.Contract(nftContractAbi, nftContratAddress);
+                        await nftContract.methods.mint(value).send({
+                            from:acc
+                        }) .on("receipt", (receipt) => {
+                            console.log("mintValue", receipt);
 
-                        //     setTransctionData(receipt);
-                        //   });
+                            setTransctionData(receipt);
+                          });
                         dispatch(getTotalEnergy())
                         setIsDetail(true)
                         getCurrentNfts()
