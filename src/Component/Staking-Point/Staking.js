@@ -15,7 +15,7 @@ import { getWallet, getUserThbBalance, getUserThbLpBalance,
      getUserTHbTamount, getUserTHbLPTamount, getUserBrLp,
       getUserBrl, getUserDepositTime } from '../../Component/Redux/actions/actions';
 import { useSelector, useDispatch } from 'react-redux';
-import { thbTokenAddress, thbTokenAbi } from "../../Component/Utils/ThbToken"
+import { thbTokenAddress, thbTokenAbi } from "../Utils/roadFcToken"
 import { thbLpTokenAddress, thbLpTokenAbi } from '../../Component/Utils/ThbLpToken'
 import { stakingContractAddress, stakingContractAbi } from '../../Component/Utils/Staking'
 import { toast } from 'react-toastify';

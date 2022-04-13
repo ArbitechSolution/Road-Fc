@@ -8,10 +8,9 @@ import {GET_USER_THB_BALANCE, GET_WALLET_ADDRESS,GET_USER_THB_LP_BALANCE,
      MINTING_INFO} from '../type/types'
 import {loadWeb3} from '../../../Component/Api/api'
 import Web3 from "web3";
-import { thbTokenAddress, thbTokenAbi } from "../../../Component/Utils/ThbToken"
+import { thbTokenAddress, thbTokenAbi } from "../../Utils/roadFcToken"
 import { thbLpTokenAddress, thbLpTokenAbi } from '../../../Component/Utils/ThbLpToken'
 import { stakingContractAddress, stakingContractAbi } from '../../../Component/Utils/Staking'
-import{roadTokenAddress, roadTokenAbi}  from '../../../Component/Utils/roadToken';
 import { nftContratAddress, nftContractAbi } from '../../../Component/Utils/Nft'
 import { preSaleContractAbi, preSaleContractAddress } from '../../Utils/preSale';
 
@@ -21,7 +20,6 @@ let thbTokenContractOf = new webSupply.eth.Contract(thbTokenAbi, thbTokenAddress
 let thbLpTokenContractOf = new webSupply.eth.Contract(thbLpTokenAbi, thbLpTokenAddress);
 let stakingCOntractOf = new webSupply.eth.Contract(stakingContractAbi, stakingContractAddress);
 let presaleContractOf = new webSupply.eth.Contract(preSaleContractAbi,preSaleContractAddress);
-let roadTokenContractOf = new webSupply.eth.Contract(roadTokenAbi,roadTokenAddress);
 export const getWallet = () => async (dispatch) => {
 // console.log("get wallet 121212");
 let address = await loadWeb3();
@@ -245,7 +243,7 @@ export const getPreSaleInfo = () => async (dispatch) => {
         let endTime = await presaleContractOf.methods.startTime().call();
         preSaleInfo = {...preSaleInfo, endTime:endTime};
         // road total supply
-        let roadTotalSupply = await roadTokenContractOf.methods.totalSupply().call();;
+        let roadTotalSupply = await thbTokenContractOf.methods.totalSupply().call();;
         roadTotalSupply = webSupply.utils.fromWei(roadTotalSupply);
         preSaleInfo = {...preSaleInfo, roadTotalSupply:roadTotalSupply};
     dispatch({
