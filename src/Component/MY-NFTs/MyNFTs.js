@@ -131,7 +131,7 @@ function MyNFTs() {
                     </div>
                     <div className='col-lg-2 col-md-3 col-5' >
                     <button onClick={() => getWalletAddress()} className='btn poolbtn'>
-                    {acc === "No Wallet" ? "Connect Wallet" : acc === "Connect Wallet" ? "Connect" : acc === "Wrong Network" ? acc : acc.substring(0, 4) + "..." + acc.substring(acc.length - 4)}</button>
+                    {acc === "No Wallet" ? "Connect" : acc === "Connect Wallet" ? "Connect" : acc === "Wrong Network" ? acc : acc.substring(0, 4) + "..." + acc.substring(acc.length - 4)}</button>
 
                     </div>
                 </div>

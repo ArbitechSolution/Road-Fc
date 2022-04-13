@@ -1,4 +1,4 @@
-export const nftContratAddress = "0x22c2AC802DfBE08843C1C7AD9277bB3A3DbC11Cb";
+export const nftContratAddress = "0xA632344e583A1aFeC10c1BDE56c464f651078331";
 export const nftContractAbi = [{
     "inputs": [{
         "internalType": "string",
@@ -112,7 +112,7 @@ export const nftContractAbi = [{
     "type": "function"
 }, {
     "inputs": [],
-    "name": "RD_STAKING",
+    "name": "Road_Staking",
     "outputs": [{
         "internalType": "contract IBEP20",
         "name": "",

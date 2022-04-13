@@ -110,16 +110,16 @@ function Staking() {
             else {
                 try {
                     let amount = parseFloat(stakeAmount.current.value).toString()
-                    console.log("amount", amount);
-                    if (amount > 0) {
+                    // console.log("amount", amount);
+                    // if (amount > 0) {
                         const web3 = window.web3
                         let stakingCOntractOf = new web3.eth.Contract(stakingContractAbi, stakingContractAddress);
                         if (tamount > 0) {
-                            if (amount <= tamount) {
-                                await stakingCOntractOf.methods.withdrawtoken(web3.utils.toWei(amount)).send({
+                            // if ( tamount >= 0) {
+                                await stakingCOntractOf.methods.withdrawtoken().send({
                                     from: acc
                                 })
-                                stakeAmount.current.value = ""
+                                // stakeAmount.current.value = ""
                                 toast.success("Transaction Confirmed")
                                 dispatch(getUserTHbTamount())
                                 dispatch(getUserTHbLPTamount())
@@ -127,16 +127,16 @@ function Staking() {
                                 dispatch(getUserThbLpBalance())
                                 dispatch(getUserBrLp())
                                 dispatch(getUserBrl())
-                            } else {
-                                toast.error("your amount is grater than you have staked")
-                            }
+                            // } else {
+                            //     toast.error("your amount is grater than you have staked")
+                            // }
                         } else {
                             toast.error("You have not staked yet")
                             console.log("You have not staked yet");
                         }
-                    } else {
-                        toast.info("Please enter amount")
-                    }
+                    // } else {
+                    //     toast.info("Please enter amount")
+                    // }
 
                 } catch (e) {
                     console.log("Error while staking amount", e);
@@ -282,10 +282,10 @@ function Staking() {
             } else {
                 try {
                     let amount = parseFloat(stakeAmountLp.current.value).toString()
-                    if (amount > 0) {
-                        if (tamountlp >= amount) {
+                    // if (amount > 0) {
+                        if (tamountlp >= 0) {
                             let timestamp = Math.floor(new Date().getTime() / 1000)
-                            // console.log("timestamp", timestamp);
+                            console.log("timesttamountlpamp", tamountlp);
                             const web3 = window.web3;
                             let stakingCOntractOf = new web3.eth.Contract(stakingContractAbi, stakingContractAddress);
                             let lpLockTime = await stakingCOntractOf.methods.LPlocktime().call()
@@ -295,10 +295,10 @@ function Staking() {
                             // console.log("AddTime", AddTime);
                             if (tamountlp > 0) {
                                 if (timestamp >= AddTime) {
-                                    await stakingCOntractOf.methods.withdrawLPtoken(web3.utils.toWei(amount)).send({
+                                    await stakingCOntractOf.methods.withdrawLPtoken().send({
                                         from: acc
                                     })
-                                    stakeAmountLp.current.value = ""
+                                    // stakeAmountLp.current.value = ""
                                     toast.success("Transaction Confirmed")
                                     dispatch(getUserTHbTamount())
                                     dispatch(getUserTHbLPTamount())
@@ -321,9 +321,9 @@ function Staking() {
                             toast.info("your point is low")
                         }
 
-                    } else {
-                        toast.info("Please enter amount")
-                    }
+                    // } else {
+                    //     toast.info("Please enter amount")
+                    // }
                 } catch (e) {
                     console.log("Error while staking amount", e);
                     toast.error("Transaction Failed")
@@ -427,7 +427,7 @@ function Staking() {
                         <span id="presale-back"><Link to="/"><MdOutlineKeyboardBackspace size={40} style={{ color: "white" }} /></Link> Back</span>
                     </div>
                     <div className='col-lg-3 col-md-4 col-5' >
-                        <button onClick={() => getWalletAddress()} className='btn poolbtn'>{acc === "No Wallet" ? "Connect Wallet" : acc === "Connect Wallet" ? "Connect" : acc === "Wrong Network" ? acc : acc.substring(0, 4) + "..." + acc.substring(acc.length - 4)}</button>
+                        <button onClick={() => getWalletAddress()} className='btn poolbtn'>{acc === "No Wallet" ? "Connect" : acc === "Connect Wallet" ? "Connect" : acc === "Wrong Network" ? acc : acc.substring(0, 4) + "..." + acc.substring(acc.length - 4)}</button>
 
                     </div>
                 </div>

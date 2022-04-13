@@ -1,4 +1,4 @@
-export const stakingContractAddress = "0x2746F5889694a68fb8fb5cbf017861a1036747B6";
+export const stakingContractAddress = "0x3e94f297109675f3F0977f2840b482dCB4733CF8";
 export const stakingContractAbi = [{
     "inputs": [{
         "internalType": "contract IERC20",
@@ -35,26 +35,6 @@ export const stakingContractAbi = [{
     "name": "AddNFTContractAddress",
     "outputs": [],
     "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "amount",
-        "type": "uint256"
-    }],
-    "name": "BNBToRP",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "BuywithBNb",
-    "outputs": [],
-    "stateMutability": "payable",
     "type": "function"
 }, {
     "inputs": [],
@@ -98,7 +78,7 @@ export const stakingContractAbi = [{
     "type": "function"
 }, {
     "inputs": [],
-    "name": "ROAD_",
+    "name": "ROAD_Perecent",
     "outputs": [{
         "internalType": "uint256",
         "name": "",
@@ -309,24 +289,20 @@ export const stakingContractAbi = [{
 }, {
     "inputs": [{
         "internalType": "uint256",
-        "name": "value",
-        "type": "uint256"
-    }, {
-        "internalType": "uint256",
-        "name": "percentage",
+        "name": "_LPlocktime",
         "type": "uint256"
     }],
-    "name": "setBNBtoRP_Price",
+    "name": "setLPlocktime",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
 }, {
     "inputs": [{
         "internalType": "uint256",
-        "name": "_LPlocktime",
+        "name": "_epoch",
         "type": "uint256"
     }],
-    "name": "setLPlocktime",
+    "name": "setTime",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -361,21 +337,13 @@ export const stakingContractAbi = [{
     "stateMutability": "nonpayable",
     "type": "function"
 }, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-    }],
+    "inputs": [],
     "name": "withdrawLPtoken",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
 }, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-    }],
+    "inputs": [],
     "name": "withdrawtoken",
     "outputs": [],
     "stateMutability": "nonpayable",
