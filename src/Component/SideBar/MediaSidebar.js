@@ -5,90 +5,82 @@ import Frame3 from "../../Assets/Frame 3.png"
 import Box from "../../Assets/Box.png"
 import nft1 from "../../Assets/nft 1.png"
 // import webroukCustomSelect from "https://cdn.skypack.dev/webrouk-custom-select@latest";
-
+// import webroukCustomSelect from "https://cdn.skypack.dev/webrouk-custom-select@latest";
+import Form from 'react-bootstrap/Form'
 import marketplace1 from "../../Assets/marketplace 1.png"
 import Group593 from "../../Assets/Group 593.png"
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate, useHistory } from "react-router-dom";
+import VectorDown from "../../Assets/VectorDown.png"
 import "./SideBar.css"
+import { IoIosArrowDown } from 'react-icons/io';
 function MediaSidebar() {
-    return (
-        <div>
-{/* <div class="select-wrapper ">
-    <select className='select form-control'>
+  const navigate = useNavigate();
 
-        <NavLink to="/Staking" style={{ textDecoration: "none", color: "white" }} className={({ isActive }) => (isActive ? 'col-10 staking-btn_active' : 'col-10 staking-btn')}>
-        <option value="0">
-        Staking & Point
-        </option>
-        </NavLink>
+  let newarry = [{
+    name: "Staking & Point",
+    img: Growth
+  },
+  {
+    name: "Mint",
+    img: Frame2
+  },
+  {
+    name: "Breed",
+    img: Frame3
+  },
+  {
+    name: "Mystery Box",
+    img: Frame3
+  },
+  {
+    name: "NFT Staking",
+    img: Frame3
+  }, {
+    name: "NFT Market",
+    img: marketplace1
+  },
+  {
+    name: "My NFT",
+    img: Group593
+  }
+  ]
 
-    </select>
-</div> */}
+  const changeNavigate = (event) => {
+    console.log("event", event.target.value);
+    navigate(event.target.value)
+  }
+  return (
+    <div className=' pt-5' style={{backgroundColor: "#111217"}}>
+
+   <div className='row d-flex justify-content-center'>
+      <div className='col-11 staking-coll'  style={{}}>
 
 
 
 
-<div class="br-select">
-  <div class="br-input">
-    <input id="select-simple" type="text" placeholder="Selecione o item"/>
-    <button class="br-button" type="button" aria-label="Exibir lista" tabindex="-1" data-trigger="data-trigger"><i class="fas fa-angle-down" aria-hidden="true"></i>
-    </button>
-  </div>
-  <div class="br-list" tabindex="0">
-    <div class="br-item" tabindex="-1">
-      <div class="br-radio">
-        <input id="rb0" type="radio" name="estados-simples" value="rb0"/>
-        <label for="rb0">Acre</label>
+      <div className='form-group ' >
+
+        <img src={VectorDown} className="VectorDown-image"/>
+        <select id="newlocale" className='form-select selector' aria-label="Default select example"
+          onChange={(event) => changeNavigate(event)}
+          required
+
+        >
+          <option value="/Staking"
+style={{width: "200px"}}
+          >Staking & Point</option>
+          <option value="/Mint" >Mint</option>
+          <option value="/breed">Breed</option>
+          <option value="/MysteryBox">Mystery Box</option>
+          <option value="/NFTstaking">NFT Staking</option>
+          <option value="/marketplace">NFT Market</option>
+          <option value="/MyNFTs">My NFT</option>
+        </select>
+
       </div>
-    </div>
-    <div class="br-item" tabindex="-1">
-      <div class="br-radio">
-        <input id="rb1" type="radio" name="estados-simples" value="rb1"  />
-        <label for="rb1">Alagoas</label>
-      </div>
-    </div>
-    <div class="br-item" tabindex="-1">
-      <div class="br-radio">
-        <input id="rb2" type="radio" name="estados-simples" value="rb2"/>
-        <label for="rb2">Amapá</label>
-      </div>
-    </div>
-    <div class="br-item" tabindex="-1">
-      <div class="br-radio">
-        <input id="rb3" type="radio" name="estados-simples" value="rb3"/>
-        <label for="rb3">Amazonas</label>
-      </div>
-    </div>
-    <div class="br-item" tabindex="-1">
-      <div class="br-radio">
-        <input id="rb4" type="radio" name="estados-simples" value="rb4"/>
-        <label for="rb4">Bahia</label>
-      </div>
-    </div>
-    <div class="br-item" tabindex="-1">
-      <div class="br-radio">
-        <input id="rb5" type="radio" name="estados-simples" value="rb5"/>
-        <label for="rb5">Ceará</label>
-      </div>
-    </div>
-    <div class="br-item" tabindex="-1">
-      <div class="br-radio">
-        <input id="rb6" type="radio" name="estados-simples" value="rb6"/>
-        <label for="rb6">Distrito Federal</label>
-      </div>
-    </div>
 
 
-
-
-  </div>
-</div>
-
-
-
-
-
-            {/* <div class="accordion " id="accordionFlushExample">
+      {/* <div class="accordion " id="accordionFlushExample">
                 <div class="accordion-item staking-boxResponsive">
                     <h2 class="accordion-header" id="headingTwo">
                         <button class="accordion-button collapsed" value="0" type="button" style={{ color: "white" }} data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
@@ -163,8 +155,10 @@ function MediaSidebar() {
                     </div>
                 </div>
             </div> */}
-        </div>
-    )
+             </div>
+             </div>
+    </div>
+  )
 }
 
 export default MediaSidebar

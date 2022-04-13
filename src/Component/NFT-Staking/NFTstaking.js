@@ -38,9 +38,9 @@ function NFTstaking() {
                     <div className='col-3 staking-box'>
                         <SideBar />
                     </div>
-                    <div className='col-11 mb-3 staking-coll'>
+                    {/* <div className='col-11 mb-3 staking-coll'>
                         <MediaSidebar />
-                    </div>
+                    </div> */}
 
                     <div className='col-lg-8 col-11 mb-md-1 pb-5 mb-4 mt-4'>
                         <div className='row d-flex justify-content-center mt-2 mb-1'>

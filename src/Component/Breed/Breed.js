@@ -42,9 +42,9 @@ function Breed() {
                     <SideBar />
                     </div>
 
-                    <div className='col-11 mb-3 staking-coll'>
+                    {/* <div className='col-11 mb-3 staking-coll'>
                     <MediaSidebar />
-                    </div>
+                    </div> */}
                     <div className='col-lg-8  col-11 mb-md-1 mb-4 mt-4 '>
                         {modalShow ? <Modal
                             show={modalShow}

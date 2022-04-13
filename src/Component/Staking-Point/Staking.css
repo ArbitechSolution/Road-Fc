@@ -493,6 +493,7 @@ li {
 
     .staking-coll {
         display: block;
+        /* background-color: #000000; */
     }
 
     .staking-boxResponsive {

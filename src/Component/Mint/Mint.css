@@ -42,18 +42,20 @@
     background-image: url("../../Assets/Mask group.png");
     background-repeat: no-repeat;
     background-size: cover;
-    box-shadow: 0px 0px 14px rgba(39, 214, 116, 0.7);
+    box-shadow: 0px 0px 4px rgba(39, 214, 116, 0.7);
     ;
     width: 200px;
     height: 200px;
+    border-radius: 10px;
     /* display: flex;
     flex-direction: row; */
 
 }
 .model-i {
-    width: 195px;
-    height: 195px;
-    margin-top: 0px;
+    width: 175px;
+    height: 175px;
+    box-shadow: 0px 0px 40px rgba(39, 214, 116, 0.7);
+    /* margin-top: -8px; */
     /* box-shadow: 0px 0px 14px rgba(39, 214, 116, 0.7); */
 }
 .mint-span {

@@ -86,14 +86,14 @@ useEffect(() => {
                     let count = minintPrice * value;
                     if (count <= energyPoint) {
 
-                        const nftContract = new web3.eth.Contract(nftContractAbi, nftContratAddress);
-                        await nftContract.methods.mint(value).send({
-                            from:acc
-                        }) .on("receipt", (receipt) => {
-                            console.log("mintValue", receipt);
+                        // const nftContract = new web3.eth.Contract(nftContractAbi, nftContratAddress);
+                        // await nftContract.methods.mint(value).send({
+                        //     from:acc
+                        // }) .on("receipt", (receipt) => {
+                        //     console.log("mintValue", receipt);
 
-                            setTransctionData(receipt);
-                          });
+                        //     setTransctionData(receipt);
+                        //   });
                         dispatch(getTotalEnergy())
                         setIsDetail(true)
                         getCurrentNfts()
@@ -175,9 +175,9 @@ useEffect(() => {
                     <div className='col-3 staking-box'>
                         <SideBar />
                     </div>
-                    <div className='col-11 mb-3 staking-coll'>
+                    {/* <div className='col-11 mb-3 staking-coll'>
                         <MediaSidebar />
-                    </div>
+                    </div> */}
                     <div className='col-lg-8 col-11 mb-md-1 mb-4 mt-4'>
                         {modalShow ? <Modal
                             show={modalShow}

@@ -3,238 +3,124 @@
 
 .form-select {
     background: linear-gradient(180deg, rgba(26, 28, 35, 0.96) 0%, rgba(15, 17, 21, 0.96) 100%);
-    box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.08);
-    backdrop-filter: blur(16px);
+    /* box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.08); */
+    /* backdrop-filter: blur(16px); */
     border-radius: 10px;
     border: 1px solid #FD5043;
+    padding: 20px 10px;
     color: white;
+    /* font-size: 20px; */
+    z-index: 0;
+    /* width: 26
+    0px; */
 }
-select option {
-    background: linear-gradient(180deg, rgba(26, 28, 35, 0.96) 0%, rgba(15, 17, 21, 0.96) 100%);
-    /* color: red !important; */
-  }
+
 select {
     color:#fff;
+    background: #FD5043;
+    width: 200px;
+    max-width: 100%;
+    text-overflow: ellipsis;
 }
 option:checked {
     background-color: #eee;
     color:#555;
+    width: 200px;
   }
   option:not(:checked) {
     background-color: white;
     color:white;
+    width: 200px;
   }
 
   .bootstrap-select.btn-group .dropdown-menu li:hover{
-    background-color: rgb(191, 82, 121);
+    /* background-color: rgb(191, 82, 121); */
     color: white;
+    width: 200px;
 }
 
 
+/* webrouk-custom-select {
 
-
-
-
-
-
-
-
-
-.br-select .br-list {
-
-  box-shadow: var(--select-shadow);
-  display: none;
-  margin-top: -6px;
-  max-height: 404px;
-  overflow: auto;
-
-  resize: none;
-  width: 100%;
-  z-index: 1;
-}
-.br-radio{
-  background: #FD5043;
-}
-.br-select .br-list::-webkit-scrollbar {
-  height: var(--spacing-scale-base);
-  width: var(--spacing-scale-base);
-}
-.br-select .br-list::-webkit-scrollbar-track {
-  background: #FD5043;
-}
-.br-select .br-list::-webkit-scrollbar-thumb {
-  background: #FD5043;
-}
-.br-select .br-list:focus,
-.br-select .br-list:active {
-  color: var(--color-secondary-09);
-  outline: none;
-}
-.br-select .br-list:hover::-webkit-scrollbar-thumb {
-  background: #FD5043;
-}
-.br-select .br-list[expanded] {
-  display: block;
-}
-.br-select .br-item {
-  --color: var(--color-light);
-  --color-rgb: var(--color-light-rgb);
-  --text-color: var(--color);
-  --interactive: var(--interactive-light);
-  --interactive-rgb: var(--interactive-light-rgb);
-  --visited: var(--visited-light);
-  --hover: var(--hover-light);
-  --pressed: var(--pressed-light);
-  --focus-color: var(--focus-color-light);
-  --focus: var(--focus-color);
-  --item-padding-y: var(--spacing-scale-2x);
-}
-.br-select .br-item .content {
-  padding: 0;
-}
-.br-select .br-item .br-checkbox,
-.br-select .br-item .br-radio {
-  --item-padding-x: var(--spacing-scale-2x);
-  --item-padding-y: var(--spacing-scale-2x);
-}
-.br-select .br-item .br-checkbox input:hover:not(:disabled) + label::before,
-.br-select .br-item .br-radio input:hover:not(:disabled) + label::before {
-  background-image: none;
-}
-.br-select .br-item .br-checkbox input + label,
-.br-select .br-item .br-radio input + label {
-  padding-left: calc(
-    var(--checkbox-padding) + var(--checkbox-size) + var(--item-padding-x)
-  );
-}
-.br-select .br-item .br-radio input + label {
-  color: var(--text-color);
-  display: block;
-  height: auto;
-  min-height: 0;
-  padding: var(--item-padding);
-}
-.br-select .br-item .br-radio input + label::before,
-.br-select .br-item .br-radio input + label::after {
-  content: none;
-}
-.br-select .br-item:not(:last-child) {
-  border-bottom: var(--select-divider);
-}
-.br-select .br-item:not([disabled]) {
-  --focus-offset: calc(var(--spacing-scale-half) * -1);
-}
-.br-select .br-item:not([disabled]):focus {
-  outline: none;
-}
-.br-select .br-item:not([disabled]).focus-visible,
-.br-select .br-item:not([disabled]):focus-visible {
-  outline-color: var(--focus);
-  outline-offset: var(--focus-offset);
-  outline-style: var(--focus-style);
-  outline-width: var(--focus-width);
-}
-.br-select .br-item:not([disabled]):not(:disabled):hover {
-  background-image: linear-gradient(
-    rgba(var(--color-rgb), var(--hover)),
-    rgba(var(--color-rgb), var(--hover))
-  );
-}
-/* .br-select .br-item.selected,
-.br-select .br-item[selected] {
-  --color: var(--color-dark);
-  --color-rgb: var(--color-dark-rgb);
-  --text-color: var(--color);
-  --interactive: var(--interactive-dark);
-  --interactive-rgb: var(--interactive-dark-rgb);
-  --visited: var(--visited-dark);
-  --hover: var(--hover-dark);
-  --pressed: var(--pressed-dark);
-  --focus-color: var(--focus-color-dark);
-  --focus: var(--focus-color);
+  --primary-color: hsl(218, 95%, 54%);
+  --bg-one: hsl(225, 6%, 13%);
+  --bg-two: hsl(225, 6%, 18%);
+  --inputs-bg: hsl(225, 6%, 15%);
+  --inputs-disabled-bg: hsl(225, 6%, 17%);
+  --text-color: hsl(225, 6%, 63%);
+  --border-color: hsl(225, 6%, 21%);
+  --success-color: hsl(135, 60%, 40%);
+  --danger-color: hsl(355, 70%, 55%);
+  --height-size: 48px;
+  --radius-size: 0.63rem;
 } */
-.br-select .br-item.selected:focus,
-.br-select .br-item[selected]:focus {
-  outline: none;
-}
-.br-select .br-item.selected.focus-visible,
-.br-select .br-item.selected:focus-visible,
-.br-select .br-item[selected].focus-visible,
-.br-select .br-item[selected]:focus-visible {
-  outline-color: var(--focus);
-  outline-offset: var(--focus-offset);
-  outline-style: var(--focus-style);
-  outline-width: var(--focus-width);
-}
-.br-select .br-item.selected:not(:disabled):hover,
-.br-select .br-item[selected]:not(:disabled):hover {
-  background-image: linear-gradient(
-    rgba(var(--color-rgb), var(--hover)),
-    rgba(var(--color-rgb), var(--hover))
-  );
-}
-.br-select .br-item.disabled {
-  line-height: calc(var(--font-line-height-high) * 2);
-  padding-left: calc(var(--item-padding) + var(--spacing-scale-base));
-}
-.br-select .br-item.highlighted:not(.selected):not([selected]),
-.br-select .br-item[highlighted]:not(.selected):not([selected]) {
-  background: rgba(var(--rgb-support-03), 0.16);
-}
-.br-select
-  .br-item.highlighted:not(.selected):not([selected])
-  .br-checkbox
-  label,
-.br-select .br-item.highlighted:not(.selected):not([selected]) .br-radio label,
-.br-select
-  .br-item[highlighted]:not(.selected):not([selected])
-  .br-checkbox
-  label,
-.br-select
-  .br-item[highlighted]:not(.selected):not([selected])
-  .br-radio
-  label {
-  color: var(--color-support-03);
-}
-.br-select
-  .br-item.highlighted:not(.selected):not([selected])
-  .br-checkbox:hover,
-.br-select .br-item.highlighted:not(.selected):not([selected]) .br-radio:hover,
-.br-select
-  .br-item[highlighted]:not(.selected):not([selected])
-  .br-checkbox:hover,
-.br-select
-  .br-item[highlighted]:not(.selected):not([selected])
-  .br-radio:hover {
-  background: linear-gradient(
-    rgba(var(--interactive-rgb), var(--hover)),
-    rgba(var(--interactive-rgb), var(--hover))
-  );
-}
-.br-select
-  .br-item.highlighted:not(.selected):not([selected])
-  .br-checkbox:hover
-  label,
-.br-select
-  .br-item.highlighted:not(.selected):not([selected])
-  .br-radio:hover
-  label,
-.br-select
-  .br-item[highlighted]:not(.selected):not([selected])
-  .br-checkbox:hover
-  label,
-.br-select
-  .br-item[highlighted]:not(.selected):not([selected])
-  .br-radio:hover
-  label {
-  color: var(--text-color);
-}
-.br-select.inverted .br-input,
-.br-select.inverted .br-input label,
-.br-select.dark-mode .br-input,
-.br-select.dark-mode .br-input label {
-  --color: var(--color-dark);
-  --focus-color: var(--focus-color-dark);
+
+
+
+
+option:not(:checked) {
+  background-color: rgba(15, 17, 21, 0.96);
+  width: 20%;
 }
 
-/*# sourceMappingURL=select.css.map*/
+select:focus > option:checked {
+  background:rgba(15, 17, 21, 0.96) !important;
+}
+
+select#newlocale {
+  /* background-color: red; */
+  background: rgba(15, 17, 21, 0.96);
+}
+
+/* select#newlocale option[value="/Staking"]   { background-color: red;   } */
+
+
+.selectdiv select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  /* Add some styling */
+
+  display: block;
+  /* width: 100%; */
+  /* max-width: 320px; */
+  /* height: 50px; */
+  float: right;
+  margin: 5px 0px;
+  padding: 0px 24px;
+  font-size: 16px;
+  line-height: 1.75;
+  color: #333;
+  background-color: #ffffff;
+  background-image: none;
+  border: 1px solid #0ebeff;
+  -ms-word-break: normal;
+  word-break: normal;
+}
+
+.VectorDown-image{
+  position: absolute;
+  top: 135px;
+  right: 50px;
+  z-index: 1000;
+  cursor: pointer;
+}
+
+select.selector option{
+  width: 200px;
+}
+
+#newlocale, #newlocale option{
+  text-overflow: ellipsis;
+  max-width: 100%;
+  text-overflow: ellipsis;
+}
+@media all and (max-width: 600px){
+  select {
+     width: 100%;
+     max-width: 100%;
+     text-overflow: ellipsis;
+     box-sizing: border-box;
+     display: inline-block;
+  }
+}
