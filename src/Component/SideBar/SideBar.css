@@ -29,3 +29,212 @@ option:checked {
     background-color: rgb(191, 82, 121);
     color: white;
 }
+
+
+
+
+
+
+
+
+
+
+
+.br-select .br-list {
+
+  box-shadow: var(--select-shadow);
+  display: none;
+  margin-top: -6px;
+  max-height: 404px;
+  overflow: auto;
+
+  resize: none;
+  width: 100%;
+  z-index: 1;
+}
+.br-radio{
+  background: #FD5043;
+}
+.br-select .br-list::-webkit-scrollbar {
+  height: var(--spacing-scale-base);
+  width: var(--spacing-scale-base);
+}
+.br-select .br-list::-webkit-scrollbar-track {
+  background: #FD5043;
+}
+.br-select .br-list::-webkit-scrollbar-thumb {
+  background: #FD5043;
+}
+.br-select .br-list:focus,
+.br-select .br-list:active {
+  color: var(--color-secondary-09);
+  outline: none;
+}
+.br-select .br-list:hover::-webkit-scrollbar-thumb {
+  background: #FD5043;
+}
+.br-select .br-list[expanded] {
+  display: block;
+}
+.br-select .br-item {
+  --color: var(--color-light);
+  --color-rgb: var(--color-light-rgb);
+  --text-color: var(--color);
+  --interactive: var(--interactive-light);
+  --interactive-rgb: var(--interactive-light-rgb);
+  --visited: var(--visited-light);
+  --hover: var(--hover-light);
+  --pressed: var(--pressed-light);
+  --focus-color: var(--focus-color-light);
+  --focus: var(--focus-color);
+  --item-padding-y: var(--spacing-scale-2x);
+}
+.br-select .br-item .content {
+  padding: 0;
+}
+.br-select .br-item .br-checkbox,
+.br-select .br-item .br-radio {
+  --item-padding-x: var(--spacing-scale-2x);
+  --item-padding-y: var(--spacing-scale-2x);
+}
+.br-select .br-item .br-checkbox input:hover:not(:disabled) + label::before,
+.br-select .br-item .br-radio input:hover:not(:disabled) + label::before {
+  background-image: none;
+}
+.br-select .br-item .br-checkbox input + label,
+.br-select .br-item .br-radio input + label {
+  padding-left: calc(
+    var(--checkbox-padding) + var(--checkbox-size) + var(--item-padding-x)
+  );
+}
+.br-select .br-item .br-radio input + label {
+  color: var(--text-color);
+  display: block;
+  height: auto;
+  min-height: 0;
+  padding: var(--item-padding);
+}
+.br-select .br-item .br-radio input + label::before,
+.br-select .br-item .br-radio input + label::after {
+  content: none;
+}
+.br-select .br-item:not(:last-child) {
+  border-bottom: var(--select-divider);
+}
+.br-select .br-item:not([disabled]) {
+  --focus-offset: calc(var(--spacing-scale-half) * -1);
+}
+.br-select .br-item:not([disabled]):focus {
+  outline: none;
+}
+.br-select .br-item:not([disabled]).focus-visible,
+.br-select .br-item:not([disabled]):focus-visible {
+  outline-color: var(--focus);
+  outline-offset: var(--focus-offset);
+  outline-style: var(--focus-style);
+  outline-width: var(--focus-width);
+}
+.br-select .br-item:not([disabled]):not(:disabled):hover {
+  background-image: linear-gradient(
+    rgba(var(--color-rgb), var(--hover)),
+    rgba(var(--color-rgb), var(--hover))
+  );
+}
+/* .br-select .br-item.selected,
+.br-select .br-item[selected] {
+  --color: var(--color-dark);
+  --color-rgb: var(--color-dark-rgb);
+  --text-color: var(--color);
+  --interactive: var(--interactive-dark);
+  --interactive-rgb: var(--interactive-dark-rgb);
+  --visited: var(--visited-dark);
+  --hover: var(--hover-dark);
+  --pressed: var(--pressed-dark);
+  --focus-color: var(--focus-color-dark);
+  --focus: var(--focus-color);
+} */
+.br-select .br-item.selected:focus,
+.br-select .br-item[selected]:focus {
+  outline: none;
+}
+.br-select .br-item.selected.focus-visible,
+.br-select .br-item.selected:focus-visible,
+.br-select .br-item[selected].focus-visible,
+.br-select .br-item[selected]:focus-visible {
+  outline-color: var(--focus);
+  outline-offset: var(--focus-offset);
+  outline-style: var(--focus-style);
+  outline-width: var(--focus-width);
+}
+.br-select .br-item.selected:not(:disabled):hover,
+.br-select .br-item[selected]:not(:disabled):hover {
+  background-image: linear-gradient(
+    rgba(var(--color-rgb), var(--hover)),
+    rgba(var(--color-rgb), var(--hover))
+  );
+}
+.br-select .br-item.disabled {
+  line-height: calc(var(--font-line-height-high) * 2);
+  padding-left: calc(var(--item-padding) + var(--spacing-scale-base));
+}
+.br-select .br-item.highlighted:not(.selected):not([selected]),
+.br-select .br-item[highlighted]:not(.selected):not([selected]) {
+  background: rgba(var(--rgb-support-03), 0.16);
+}
+.br-select
+  .br-item.highlighted:not(.selected):not([selected])
+  .br-checkbox
+  label,
+.br-select .br-item.highlighted:not(.selected):not([selected]) .br-radio label,
+.br-select
+  .br-item[highlighted]:not(.selected):not([selected])
+  .br-checkbox
+  label,
+.br-select
+  .br-item[highlighted]:not(.selected):not([selected])
+  .br-radio
+  label {
+  color: var(--color-support-03);
+}
+.br-select
+  .br-item.highlighted:not(.selected):not([selected])
+  .br-checkbox:hover,
+.br-select .br-item.highlighted:not(.selected):not([selected]) .br-radio:hover,
+.br-select
+  .br-item[highlighted]:not(.selected):not([selected])
+  .br-checkbox:hover,
+.br-select
+  .br-item[highlighted]:not(.selected):not([selected])
+  .br-radio:hover {
+  background: linear-gradient(
+    rgba(var(--interactive-rgb), var(--hover)),
+    rgba(var(--interactive-rgb), var(--hover))
+  );
+}
+.br-select
+  .br-item.highlighted:not(.selected):not([selected])
+  .br-checkbox:hover
+  label,
+.br-select
+  .br-item.highlighted:not(.selected):not([selected])
+  .br-radio:hover
+  label,
+.br-select
+  .br-item[highlighted]:not(.selected):not([selected])
+  .br-checkbox:hover
+  label,
+.br-select
+  .br-item[highlighted]:not(.selected):not([selected])
+  .br-radio:hover
+  label {
+  color: var(--text-color);
+}
+.br-select.inverted .br-input,
+.br-select.inverted .br-input label,
+.br-select.dark-mode .br-input,
+.br-select.dark-mode .br-input label {
+  --color: var(--color-dark);
+  --focus-color: var(--focus-color-dark);
+}
+
+/*# sourceMappingURL=select.css.map*/
