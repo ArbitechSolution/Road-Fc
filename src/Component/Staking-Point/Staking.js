@@ -424,10 +424,10 @@ function Staking() {
             <div className='container'>
                 <div className='row d-flex justify-content-between align-items-center pt-5 pb-3'>
                     <div className='col-lg-2 col-md-3 col-4 d-flex justify-content-start' >
-                        <span id="presale-back"><Link to="/"><MdOutlineKeyboardBackspace size={40} style={{ color: "white" }} /></Link> Back</span>
+                        <span id="presale-back"><Link to="/"><MdOutlineKeyboardBackspace className='MdOutlineKeyboardBackspace' style={{ color: "white" }} /></Link> Back</span>
                     </div>
-                    <div className='col-lg-3 col-md-4 col-5' >
-                        <button onClick={() => getWalletAddress()} className='btn poolbtn'>{acc === "No Wallet" ? "Connect" : acc === "Connect Wallet" ? "Connect" : acc === "Wrong Network" ? acc : acc.substring(0, 4) + "..." + acc.substring(acc.length - 4)}</button>
+                    <div className='col-lg-3 col-md-4 col-6' >
+                        <button onClick={() => getWalletAddress()} className='btn poolbtn'>{acc === "No Wallet" ? "Connect" : acc === "Connect Wallet" ? "Connect" : acc === "Wrong Network" ? acc : acc.substring(0, 3) + "..." + acc.substring(acc.length - 3)}</button>
 
                     </div>
                 </div>
@@ -442,14 +442,14 @@ function Staking() {
                         <div className='row'>
                             <div className='col-lg-12 col-12 staking-box1111'>
                                 <div className='row'>
-                                    <div className='col-md-7 col-8 pt-4 pb-4 ps-md-4'>
+                                    <div className='col-md-7 col-7 pt-4 pb-4 ps-md-4'>
 
-                                        <h4 className='staking-h4 pt-4 pb-3 text-start'>NFT Fighter Card Want?</h4>
-                                        <p className='staking-pp pt-2'>Need energy point to mint NFTs </p>
-                                        <p className='staking-pp pt-2'>Stake ROAD token to earn energy points now!</p>
+                                        <h4 className='staking-h4 pt-sm-4 pb-sm-3 text-start'>NFT Fighter Card Want?</h4>
+                                        <p className='staking-pp pt-2 text-start' style={{textAlign: "left"}}>Need energy point to mint NFTs </p>
+                                        <p className='staking-pp12 pt-sm-2'>Stake ROAD token to earn energy points now!</p>
 
                                     </div>
-                                    <div className='col-md-5 col-4 pt-3 pb-3 staking-colllll'>
+                                    <div className='col-md-5 col-5 pt-3 pb-3 staking-colllll'>
                                         <img src={image2} className="Staking-image" />
                                     </div>
                                 </div>
@@ -464,7 +464,7 @@ function Staking() {
                                             <div className='col-12 staking-col12-Box pb-2 pt-2'>
 
                                                 <div className='row'>
-                                                    <div className='col-10'>
+                                                    <div className='col-10 col-sixe'>
                                                         $ROAD STAKING
                                                     </div>
                                                     <div className='col-2'>
@@ -484,7 +484,7 @@ function Staking() {
                                         </div>
                                         <div className="row d-flex justify-content-center">
                                             <div className='col-11 mt-4 d-flex justify-content-center align-items-center'>
-                                                <img src={rare2} width="230px" />
+                                                <img src={rare2} className="staking-pic-img"  />
                                             </div>
                                         </div>
                                         <div className='col-11 Staking-boxese d-flex justify-content-between mt-5 mb-3 pt-3 pb-3'>
@@ -501,7 +501,7 @@ function Staking() {
                                         </div>
                                         <div className='col-11 Staking-boxese d-flex justify-content-between align-item-center mt-2 mb-3 pt-2 pb-2'>
                                             <div className='col-6 pt-3'>
-                                                <p className='staking-span988 ' style={{ fontSize: "17px",textAlign: "left" }}>Enter $ROAD:</p>
+                                                <p className='staking-span988 ' >Enter $ROAD:</p>
                                             </div>
                                             {/* <span className='staking-span988 pt-3' style={{fontSize: "17px"}}>Enter $ROAD:</span> */}
                                             <div className='col-6'>
@@ -670,7 +670,7 @@ function Staking() {
                                         <div className='row'>
                                             <div className='col-12 staking-col12-Box pb-2 pt-2'>
                                                 <div className='row'>
-                                                    <div className='col-10'>
+                                                    <div className='col-10 col-sixe'>
                                                         $ROAD/$BNB STAKING
                                                     </div>
                                                     <div className='col-2'>
@@ -691,7 +691,7 @@ function Staking() {
                                         </div>
                                         <div className="row d-flex justify-content-center">
                                             <div className='col-11 mt-4 d-flex justify-content-center align-items-center'>
-                                                <img src={epic2} width="230px" />
+                                                <img src={epic2} className="staking-pic-img" />
                                             </div>
                                         </div>
                                         <div className='col-11 Staking-boxese d-flex justify-content-between mt-5 mb-3 pt-3 pb-3'>
@@ -709,7 +709,7 @@ function Staking() {
 
                                         <div className='col-11 Staking-boxese d-flex justify-content-between align-item-center mt-2 mb-3 pt-2 pb-2'>
                                             <div className='col-6 pt-3'>
-                                                <p className='staking-span988 ' style={{ fontSize: "16px",textAlign: "left" }}>Enter $ROAD LP:</p>
+                                                <p className='staking-span988 '>Enter $ROAD LP:</p>
                                             </div>
                                             <div className='col-6'>
 

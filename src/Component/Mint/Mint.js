@@ -7,7 +7,7 @@ import off from "../../Assets/Off.png"
 import speaker from "../../Assets/speaker.png"
 import Modal from 'react-bootstrap/Modal'
 import Title from "../../Assets/Title.png"
-import tiger from "../../Assets/1-Common-1000x1000.gif"
+import tiger from "../../Assets/6 gif animated.gif"
 import Vector from "../../Assets/Vector.png"
 import Mins from "../../Assets/Mins.png"
 import plus from "../../Assets/plus.png"
@@ -86,14 +86,13 @@ useEffect(() => {
                     let count = minintPrice * value;
                     if (count <= energyPoint) {
 
-                        const nftContract = new web3.eth.Contract(nftContractAbi, nftContratAddress);
-                        await nftContract.methods.mint(value).send({
-                            from:acc
-                        }) .on("receipt", (receipt) => {
-                            console.log("mintValue", receipt);
-
-                            setTransctionData(receipt);
-                          });
+                        // const nftContract = new web3.eth.Contract(nftContractAbi, nftContratAddress);
+                        // await nftContract.methods.mint(value).send({
+                        //     from:acc
+                        // }) .on("receipt", (receipt) => {
+                        //     console.log("mintValue", receipt);
+                        //     setTransctionData(receipt);
+                        //   });
                         dispatch(getTotalEnergy())
                         setIsDetail(true)
                         getCurrentNfts()
@@ -187,14 +186,13 @@ useEffect(() => {
     return (
         <div className='imagePool'>
             <div className='container'>
-                <div className='row d-flex justify-content-between align-items-center pt-5 pb-3'>
+            <div className='row d-flex justify-content-between align-items-center pt-5 pb-3'>
                     <div className='col-lg-2 col-md-3 col-4 d-flex justify-content-start' >
-                        <span id="presale-back"><Link to="/"><MdOutlineKeyboardBackspace size={40} style={{ color: "white" }} /></Link> Back</span>
+                        <span id="presale-back"><Link to="/"><MdOutlineKeyboardBackspace className='MdOutlineKeyboardBackspace' style={{ color: "white" }} /></Link> Back</span>
                     </div>
-                    <div className='col-lg-2 col-md-3 col-5' >
-                        <button className='btn poolbtn'
-                            onClick={getWalletAddress}
-                        >{acc === "No Wallet" ? "Connect" : acc === "Connect Wallet" ? "Connect" : acc === "Wrong Network" ? acc : acc.substring(0, 4) + "..." + acc.substring(acc.length - 4)}</button>
+                    <div className='col-lg-3 col-md-4 col-6' >
+                        <button onClick={() => getWalletAddress()} className='btn poolbtn'>{acc === "No Wallet" ? "Connect" : acc === "Connect Wallet" ? "Connect" : acc === "Wrong Network" ? acc : acc.substring(0, 3) + "..." + acc.substring(acc.length - 3)}</button>
+
                     </div>
                 </div>
                 <div className='row d-flex justify-content-center justify-content-around'>
@@ -211,18 +209,19 @@ useEffect(() => {
                             size="lg"
                             aria-labelledby="contained-modal-title-vcenter"
                             centered
-                        >
-                            <Modal.Header closeButton className='model-image'>
-                                {/* <Modal.Title id="contained-modal-title-vcenter" style={{ color: "white", fontSize: "30px" }}> */}
-                                <img src={Title} className="mint-image2" />
-                                {/* </Modal.Title> */}
-                            </Modal.Header>
-                            <Modal.Body className='model-image'>
-                                <div className='row d-flex justify-content-center' >\
 
+                        >
+                            {/* <Modal.Header closeButton className='model-image'>
+
+                                <img src={Title} className="mint-image2" />
+
+                            </Modal.Header> */}
+                            <Modal.Body className='model-image' style={{border: "2px solid #FF5043"}}>
+                                <img src={Title} className="mint-image2" />
+                                <div className='row d-flex justify-content-center mt-3' >
                                     <div className='col-md-12 d-flex justify-content-center'>
                                 {/* <img src={Title} className="mint-image2" width="40px"/> */}
-                                        <img className='pt-3 congrat-image' src={Group609} />
+                                        <img className='pt-1 congrat-image' src={Group609} />
                                     </div>
                                     {mintArray.length == 1 ? <div className=' d-flex justify-content-center mb-3 mt-3' >{
                                         mintArray?.map((item, index) => {
@@ -252,41 +251,9 @@ useEffect(() => {
                                             );
                                         })}
                                     </div>}
-                                    {/* <div className="row d-flex flex-row justify-content-center justify-content-evenly mt-4 mb-3">
-                                        {mintArray.map((item, index) => {
-                                            return (
-                                                <div className="col-lg-3 uperimg col-md-5 d-flex justify-content-center align-items-center mt-2">
-                                                    <img
-                                                        alt="greetings"
-                                                        src={`/config/${item.imageUrl}`}
-                                                        className="model-i"
-                                                    />
-
-                                                </div>
-
-                                            );
-                                        })}
-                                    </div> */}
-
-                                    {/* <div className='row d-flex flex-md-row justify-content-center justify-content-md-evenly mb-3 mt-3' style={{border: "2px solid red"}}>
-                                        {
-                                            mintArray?.map((item, index) => {
-                                                return (
-                                                    <>
-                                                        <div key={index}>
-                                                            <div className='col-lg-3 uperimg d-flex justify-content-center align-items-center mt-2 ' style={{border: "2px solid red"}}>
-
-                                                                <img src={`/config/${item.imageUrl}`} className="mint-pic1 model-i pt-4 pb-3" width="200px" />
-                                                            </div>
 
 
-                                                        </div>
 
-                                                    </>
-                                                )
-                                            })
-                                        } */}
-                                    {/* </div> */}
                                     {/* <div className='row d-flex flex-row justify-content-center'>
                                     {
                                         mintArray?.map((item, index)=>{
@@ -307,18 +274,22 @@ useEffect(() => {
                                     }
                                     </div> */}
                                     <div className='col-md-12 d-flex justify-content-center'>
+<<<<<<< Updated upstream
                                         <span className='congrat-span'>Do you want to Breed card?</span>
+=======
+                                        <p className='congrat-span'>Do you want to Breed card</p>
+>>>>>>> Stashed changes
                                     </div>
 
                                 </div>
-                                <div className='row d-flex justify-content-center'>
-                                    <div className='col-lg-2 col-md-3 mt-3 mb-3'>
-                                        {/* <div className="d-grid gap-2"> */}
-                                            <button className='btn btn-congrats' size="lg">
+                                <div className=' d-flex justify-content-center '>
+
+
+                                            <button className='btn btn-congrats m-sm-4 m-2' size="lg">
                                                 Breed
                                             </button>
-                                        {/* </div> */}
-                                    </div>
+
+
                                     {/* <div className='col-lg-2 col-md-3 mt-3 mb-3'>
                                         <div className="d-grid gap-2">
                                             <button className='btn btn1-congrats' size="lg" onClick={() => setModalShowOne(true)}>
@@ -326,14 +297,12 @@ useEffect(() => {
                                             </button>
                                         </div>
                                     </div> */}
-                                    <div className='col-lg-3 col-md-3 mt-3 mb-3'>
-                                        {/* <div className="d-grid gap-2"> */}
-                                            <button className='btn btn2-congrats' size="lg"
+
+                                            <button className='btn btn2-congrats m-sm-4 m-2' size="lg"
                                             onClick={() => setModalShow(false)}>
                                                 Do it Later
                                             </button>
-                                        {/* </div> */}
-                                    </div>
+
                                 </div>
                             </Modal.Body>
                         </Modal> : <></>}
@@ -470,13 +439,13 @@ useEffect(() => {
                                                 <img src={tiger} id="mint-pic" />
                                             </div>
                                             <div className='col-lg-6 d-flex flex-column justify-content-center'>
-                                                <div className='col-11 mint-boxes d-flex justify-content-between mb-3 pt-3 pb-3'>
+                                                <div className='col-md-10 col-12 mint-boxes d-flex justify-content-between mb-3 pt-2 pb-2'>
                                                     <span className='mint-span ps-2'>Your Energy:</span>
                                                     <span className='mint-span1'>{(energyPoint).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}&nbsp;<img src={Vector} /></span>
                                                     {/* <span className='mint-span1'>{parseFloat(energyPoint)toFixed(2)}<img src={Vector} /></span> */}
 
                                                 </div>
-                                                <div className='col-11 mint-boxes d-flex justify-content-between mt-3 pt-3 pb-3'>
+                                                <div className=' col-md-10 col-12 mint-boxes d-flex justify-content-between mt-3 pt-2 pb-2'>
                                                     <span className='mint-span ps-2'>Energy Spend:</span>
                                                     <span className='mint-span1'>{spendEnergy.toLocaleString()} &nbsp;<img src={Vector} /></span>
                                                 </div>
@@ -528,57 +497,10 @@ useEffect(() => {
                                             </tbody>)}
 
                                         </table>
-                                        {/* <div className='row pt-3 text-start text-sm-center '>
-                                            <div className='col-sm-4 text-start' >
-                                                <span className='Mint-Time '>Time</span>
-                                            </div>
-                                            <div className='col-sm-2 text-start'>
-                                                <span className='Mint-Time'>Type</span>
-                                            </div>
-                                            <div className='col-sm-2 text-start'>
-                                                <span className='Mint-Time'>Amount</span>
-                                            </div>
-                                            <div className='col-sm-2 text-start'>
-                                                <span className='Mint-Time'>Status</span>
-                                            </div>
-                                            <div className='col-sm-2 text-start'>
-                                                <span className='Mint-Time'>TX</span>
-                                            </div>
-                                        </div> */}
+
                                     </div>
                                 </div>
-                                {/* {isDetail && <div className='row mb-5'>
-                                    <div className='col-md-12 col-11 mint-Page-border mb-4'>
-                                        <div className='row pt-3 text-start text-sm-center '>
-                                            <div className='col-sm-4 text-start' >
-                                                <span className='Mint-Time '>{new Date().toLocaleTimeString()}</span>
-                                            </div>
-                                            <div className='col-sm-2 text-start'>
-                                                <span className='Mint-Time'>Mint</span>
-                                            </div>
-                                            <div className='col-sm-2 text-start'>
-                                                <span className='Mint-Time'>{value}</span>
-                                            </div>
-                                            <div className='col-sm-2 text-start'>
-                                                <span className='Mint-Time'>True</span>
-                                            </div>
-                                            <div className='col-sm-2 text-start'>
-                                                <span className='Mint-Time'>
-                                                    <a
-                                                        href={`https://testnet.bscscan.com/tx/${transctionData.transactionHash}`}
-                                                        target="blank"
-                                                    >
-                                                        {transctionData.transactionHash?.substring(0, 3) +
-                                                            "..." +
-                                                            transctionData.transactionHash?.substring(
-                                                                transctionData.transactionHash?.length - 3
-                                                            )}
-                                                    </a>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>} */}
+
                             </div>
                         </div>
                     </div>

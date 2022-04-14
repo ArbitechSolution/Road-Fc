@@ -119,6 +119,9 @@ color: #FFFFFF;
     line-height: 7px;
     color: #3C2226;
 }
+.MdOutlineKeyboardBackspace{
+    font-size: 40px;
+}
 @media(max-width: 600px){
     .NFTstaking-boxes{
         background: #26282F;

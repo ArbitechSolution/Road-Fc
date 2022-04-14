@@ -23,7 +23,7 @@
 
 #mint-pic {
     width: 280px;
-    border: 2px solid #700000;
+    /* border: 2px solid #700000; */
 
 }
 
@@ -137,6 +137,7 @@ padding-bottom: -200px;
     font-size: 20px;
     line-height: 144%;
     color: #FFFFFF;
+    text-align: center;
 }
 
 .btn-congrats,.btn-no {
@@ -206,8 +207,8 @@ color: #FFFFFF;
     }
 }
 @media(max-width: 480px) {
-    .mint-pic {
-        width: 280px;
+    #mint-pic {
+        width: 220px;
     }
 
     .mint-image {
@@ -269,15 +270,22 @@ color: #FFFFFF;
         left: 100px;
 
     }
+    .congrat-span {
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 144%;
+        color: #FFFFFF;
+        text-align: center;
+    }
 }
 
-@media(max-width: 400px) {
-    .mint-pic {
-        width: 240px;
+@media(min-width: 279px) and (max-width: 400px) {
+    #mint-pic {
+        width: 180px;
     }
 
     .congrat-image {
-        width: 270px;
+        width: 230px;
     }
     .uperimg {
         background-image: url("../../Assets/Mask group.png");
@@ -292,8 +300,8 @@ color: #FFFFFF;
     .model-image {
         background-image: url("../../Assets/Mask group 1.png");
         background-repeat: no-repeat;
-        /* background-position: center; */
-        background-size: cover;
+        background-position: center;
+        /* background-size: cover; */
         /* border: 2px solid red; */
         background-color: rgba(26, 28, 35, 0.96);
         box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.08);
@@ -303,8 +311,60 @@ color: #FFFFFF;
     }
     .mint-image2 {
         position: absolute;
-        top: -15px;
-        left: 100px;
+        width: 140px;
+        top: -22px;
+        left: 80px;
+    }
+    .mint-span {
+        font-weight: 300;
+        font-size: 12px;
+        line-height: 102%;
+        color: #FFFFFF;
+    }
+
+    .mint-span1 {
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 102%;
+        color: #5E606E;
+    }
+    .mintbtn {
+        background: linear-gradient(180deg, #FF5043 0%, #F92D1E 100%);
+        border-radius: 50px;
+        font-style: normal;
+        /* font-weight: bold; */
+        font-size: 20px;
+        line-height: 21px;
+        padding: 5px 47px;
+        color: #FFFFFF;
+    }
+    .congrat-span {
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 104%;
+        color: #FFFFFF;
+        text-align: center;
+    }
+    .btn1-congrats {
+        background: linear-gradient(90deg, #565866 1.7%, #5E606E 100%);
+        border-radius: 50px;
+        font-weight: 300;
+        font-size: 12px;
+        line-height: 132%;
+        padding: 8px 24px;
+        color: #FFFFFF;
+
+    }
+
+    .btn2-congrats {
+        border: 1px solid #7E808D;
+        box-sizing: border-box;
+        border-radius: 50px;
+        font-weight: 300;
+        font-size: 12px;
+        padding: 10px 24px;
+        line-height: 132%;
+        color: #7E808D;
     }
 }
 .btn-yes{

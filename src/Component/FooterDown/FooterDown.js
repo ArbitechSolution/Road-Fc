@@ -17,14 +17,14 @@ function FooterDown() {
                     <img src={roadfc}/>
                 </div>
                 <div className='col-12 mt-sm-4 mt-3'>
-                    <span className='footerDown_span me-sm-4 me-2'>HOME</span>
-                    <span className='footerDown_span me-sm-4 me-2'>TOKENOMICS</span>
-                    <span className='footerDown_span me-sm-4 me-2'>ECOSYSTEM</span>
-                    <span className='footerDown_span me-sm-4 me-2'>NFTs CARD</span>
-                    <span className='footerDown_span me-sm-4 me-2'>GAME</span>
-                    <span className='footerDown_span me-sm-4 me-2'>ROAD POOL</span>
-                    <span className='footerDown_span me-sm-4 me-2'>ROADMAP</span>
-                    <span className='footerDown_span me-sm-4 me-2'>AUDIT</span>
+                    <span className='footerDown_span me-sm-4 me-sm-2 me-1'>HOME</span>
+                    <span className='footerDown_span me-sm-4 me-sm-2 me-1'>TOKENOMICS</span>
+                    <span className='footerDown_span me-sm-4 me-sm-2 me-1'>ECOSYSTEM</span>
+                    <span className='footerDown_span me-sm-4 me-sm-2 me-1'>NFTs CARD</span>
+                    <span className='footerDown_span me-sm-4 me-sm-2 me-1'>GAME</span>
+                    <span className='footerDown_span me-sm-4 me-sm-2 me-1'>ROAD POOL</span>
+                    <span className='footerDown_span me-sm-4 me-sm-2 me-1'>ROADMAP</span>
+                    <span className='footerDown_span me-sm-4 me-sm-2 me-1'>AUDIT</span>
                 </div>
 
                 <div className='col-12 mt-3 mb-4'>

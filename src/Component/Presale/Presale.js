@@ -39,7 +39,7 @@ function Presale() {
         startTime,
         endTime
     } = useSelector(state => state.preSaleInfo)
-    
+
 
     startTime = parseInt(startTime)
     var myDate = new Date(startTime * 1000);
@@ -132,9 +132,9 @@ function Presale() {
     const getdata = () => {
         if (acc != "No Wallet" && acc != "Wrong Network" && acc != "Connect Wallet"){
             dispatch(getUserBalance())
-            
+
         }
-      
+
     }
 
     useEffect(() => {
@@ -150,34 +150,32 @@ function Presale() {
     return (
         <div className='imagePool'>
             <div className='container'>
-                <div className='row d-flex justify-content-between align-items-center pt-5 pb-3'>
-                    <div className='col-lg-2 d-flex justify-content-start' >
-                        <span id="presale-back"><Link to="/"><MdOutlineKeyboardBackspace size={40} style={{ color: "white" }} /></Link> Back</span>
-
+            <div className='row d-flex justify-content-between align-items-center pt-5 pb-3'>
+                    <div className='col-lg-2 col-md-3 col-4 d-flex justify-content-start' >
+                        <span id="presale-back"><Link to="/"><MdOutlineKeyboardBackspace className='MdOutlineKeyboardBackspace' style={{ color: "white" }} /></Link> Back</span>
                     </div>
-                    <div className='col-lg-2 col-md-3'>
-                        <button onClick={() => getWalletAddress()} className='btn poolbtn'>{acc === "No Wallet" ? "Connect" : acc === "Connect Wallet" ? "Connect" : acc === "Wrong Network" ? acc : acc.substring(0, 4) + "..." + acc.substring(acc.length - 4)}</button>
+                    <div className='col-lg-3 col-md-4 col-6' >
+                        <button onClick={() => getWalletAddress()} className='btn poolbtn'>{acc === "No Wallet" ? "Connect" : acc === "Connect Wallet" ? "Connect" : acc === "Wrong Network" ? acc : acc.substring(0, 3) + "..." + acc.substring(acc.length - 3)}</button>
 
                     </div>
                 </div>
                 <div className='row d-flex justify-content-center'>
                     <div className='col-md-12 col-11  presale-box pb-4 mb-2'>
                         <div className='row'>
-                            <div className='col-md-6 col-8'>
+                            <div className='col-md-6 col-7'>
                                 <p className='Presale-p pt-3 pt-2 ps-md-3 pb-md-3'>Pre-Sale is Live</p>
                                 <p className='presale-p1 ps-md-3 pb-md-3'>Available Now</p>
-                                <div className='d-flex justify-content-start align-items-center ps-md-3 '>
-                                    <button className='btn presalebtn'>ROAD Token</button>&nbsp;
-
+                                <div className='d-flex justify-content-start align-items-md-center align-items-start  ps-md-3  prsale-cloumn'>
+                                    <button className='btn presalebtn'>ROAD Token</button>
                                     <span id="presale-span1">Price:{roadPrice ? `$ ${roadPrice}` :
                                     <span className='dot-stretching'></span>
                                     //  <span> <Skeleton animation="wave" width={50}/></span>
                                      }
-                                    
+
                                     </span>
                                 </div>
                             </div>
-                            <div className='col-md-6 col-4 d-flex justify-content-end align-items-end'>
+                            <div className='col-md-6 col-5 d-flex justify-content-end align-items-sm-end lign-items-center '>
                                 <img src={p305} className="presale-image" />
                             </div>
                         </div>

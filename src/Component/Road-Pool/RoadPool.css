@@ -72,3 +72,16 @@ color: white;
         height: 100%;
     }
 } */
+
+
+@media(min-width: 278px) and (max-width: 600px){
+    .poolbtn{
+        background: linear-gradient(90deg, #F92D1E 1.7%, #FF5043 100%);
+    border-radius: 80px;
+    /* font-weight: bold; */
+    font-size: 18px;
+    line-height: 12px;
+    color: white;
+    padding: 10px 10px;
+    }
+}

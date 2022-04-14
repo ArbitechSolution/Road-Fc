@@ -151,13 +151,12 @@ function MyNFTs() {
     return (
         <div className='imagePool'>
             <div className='container'>
-                <div className='row d-flex justify-content-between align-items-center pt-5 pb-3'>
+            <div className='row d-flex justify-content-between align-items-center pt-5 pb-3'>
                     <div className='col-lg-2 col-md-3 col-4 d-flex justify-content-start' >
-                        <span id="presale-back"><Link to="/"><MdOutlineKeyboardBackspace size={40} style={{ color: "white" }} /></Link> Back</span>
+                        <span id="presale-back"><Link to="/"><MdOutlineKeyboardBackspace className='MdOutlineKeyboardBackspace' style={{ color: "white" }} /></Link> Back</span>
                     </div>
-                    <div className='col-lg-2 col-md-3 col-5' >
-                    <button onClick={() => getWalletAddress()} className='btn poolbtn'>
-                    {acc === "No Wallet" ? "Connect" : acc === "Connect Wallet" ? "Connect" : acc === "Wrong Network" ? acc : acc.substring(0, 4) + "..." + acc.substring(acc.length - 4)}</button>
+                    <div className='col-lg-3 col-md-4 col-6' >
+                        <button onClick={() => getWalletAddress()} className='btn poolbtn'>{acc === "No Wallet" ? "Connect" : acc === "Connect Wallet" ? "Connect" : acc === "Wrong Network" ? acc : acc.substring(0, 3) + "..." + acc.substring(acc.length - 3)}</button>
 
                     </div>
                 </div>
@@ -176,7 +175,7 @@ function MyNFTs() {
                                 <p className='nft-p'>Total <span className='nft-span'>({nftArrayLength})</span></p>
                             </div>
                         </div>
-                        <div className='row d-flex justify-content-center justify-content-between mb-3'>
+                        <div className='row d-flex justify-content-center justify-content-sm-between justify-content-evenly mb-3'>
                         {
                             nftArray?.slice(initialLimit, finalLimit).map((item, index)=>{
                                 return (
@@ -185,10 +184,10 @@ function MyNFTs() {
                                 <p className='nfts-h6 mt-3'>{item.imageName}</p>
                                 {/* <p className='nfts-pp text-start'>Common</p> */}
                                 <div className="d-flex justify-content-between mt-2 mb-2">
-                                    <button className='btn btnStakePage32' size="lg">
+                                    <button className='btn btnStakePage32' size="sm">
                                         Sell
                                     </button>
-                                    <button className='btn btnStakePage' size="lg">
+                                    <button className='btn btnStakePage' size="sm">
                                         Transfer
                                     </button>
                                 </div>
@@ -196,165 +195,10 @@ function MyNFTs() {
                                 )
                             })
                         }
-                            {/* <div className='col-md-2 nft-boxx p-2 mt-3 '>
-                                <img src={image2} className="nfts-image " />
-                                <p className='nfts-h6 mt-3'>#20211 Trainer</p>
-                                <p className='nfts-pp text-start'>Common</p>
-                                <div className="d-flex justify-content-between mt-2 mb-2">
-                                    <button className='btn btnStakePage32' size="lg">
-                                        Sell
-                                    </button>
-                                    <button className='btn btnStakePage' size="lg">
-                                        Transfer
-                                    </button>
-                                </div>
-                            </div>
-                            <div className='col-md-2 nft-boxx p-2 mt-3'>
-                                <img src={tiger10} className="nfts-image " />
-                                <p className='nfts-h6 mt-3'>#20211 Trainer</p>
-                                <p className='nfts-pp text-start'>Common</p>
-                                <div className="d-flex justify-content-between mt-2 mb-2">
-                                    <button className='btn btnStakePage32' size="lg">
-                                        Sell
-                                    </button>
-                                    <button className='btn btnStakePage' size="lg">
-                                        Transfer
-                                    </button>
-                                </div>
-                            </div>
-                            <div className='col-md-2 nft-boxx p-2  mt-3'>
-                                <img src={tiger11} className="nfts-image " />
-                                <p className='nfts-h6 mt-3'>#20211 Trainer</p>
-                                <p className='nfts-pp text-start'>Common</p>
-                                <div className="d-flex justify-content-between mt-2 mb-2">
-                                    <button className='btn btnStakePage32' size="lg">
-                                        Sell
-                                    </button>
-                                    <button className='btn btnStakePage' size="lg">
-                                        Transfer
-                                    </button>
-                                </div>
-                            </div>
-                            <div className='col-md-2 nft-boxx p-2 mt-3'>
-                                <img src={tiger12} className="nfts-image " />
-                                <p className='nfts-h6 mt-3'>#20211 Trainer</p>
-                                <p className='nfts-pp text-start'>Common</p>
-                                <div className="d-flex justify-content-between mt-2 mb-2">
-                                    <button className='btn btnStakePage32' size="lg">
-                                        Sell
-                                    </button>
-                                    <button className='btn btnStakePage' size="lg">
-                                        Transfer
-                                    </button>
-                                </div>
-                            </div>
-                            <div className='col-md-2 nft-boxx p-2 mt-3'>
-                                <img src={image2} className="nfts-image " />
-                                <p className='nfts-h6 mt-3'>#20211 Trainer</p>
-                                <p className='nfts-pp text-start'>Common</p>
-                                <div className="d-flex justify-content-between mt-2 mb-2">
-                                    <button className='btn btnStakePage32' size="lg">
-                                        Sell
-                                    </button>
-                                    <button className='btn btnStakePage' size="lg">
-                                        Transfer
-                                    </button>
-                                </div>
-                            </div>
-                            <div className='col-md-2 nft-boxx p-2 mt-3'>
-                                <img src={tiger10} className="nfts-image " />
-                                <p className='nfts-h6 mt-3'>#20211 Trainer</p>
-                                <p className='nfts-pp text-start'>Common</p>
-                                <div className="d-flex justify-content-between mt-2 mb-2">
-                                    <button className='btn btnStakePage32' size="lg">
-                                        Sell
-                                    </button>
-                                    <button className='btn btnStakePage' size="lg">
-                                        Transfer
-                                    </button>
-                                </div>
-                            </div>
-                            <div className='col-md-2 nft-boxx p-2 mt-3'>
-                                <img src={tiger11} className="nfts-image " />
-                                <p className='nfts-h6 mt-3'>#20211 Trainer</p>
-                                <p className='nfts-pp text-start'>Common</p>
-                                <div className="d-flex justify-content-between mt-2 mb-2">
-                                    <button className='btn btnStakePage32' size="lg">
-                                        Sell
-                                    </button>
-                                    <button className='btn btnStakePage' size="lg">
-                                        Transfer
-                                    </button>
-                                </div>
-                            </div>
-                            <div className='col-md-2 nft-boxx p-2 mt-3'>
-                                <img src={tiger12} className="nfts-image " />
-                                <p className='nfts-h6 mt-3'>#20211 Trainer</p>
-                                <p className='nfts-pp text-start'>Common</p>
-                                <div className="d-flex justify-content-between mt-2 mb-2">
-                                    <button className='btn btnStakePage32' size="lg">
-                                        Sell
-                                    </button>
-                                    <button className='btn btnStakePage' size="lg">
-                                        Transfer
-                                    </button>
-                                </div>
-                            </div>
-                            <div className='col-md-2 nft-boxx p-2 mt-3'>
-                                <img src={image2} className="nfts-image " />
-                                <p className='nfts-h6 mt-3'>#20211 Trainer</p>
-                                <p className='nfts-pp text-start'>Common</p>
-                                <div className="d-flex justify-content-between mt-2 mb-2">
-                                    <button className='btn btnStakePage32' size="lg">
-                                        Sell
-                                    </button>
-                                    <button className='btn btnStakePage' size="lg">
-                                        Transfer
-                                    </button>
-                                </div>
-                            </div>
-                            <div className='col-md-2 nft-boxx p-2 mt-3'>
-                                <img src={tiger10} className="nfts-image " />
-                                <p className='nfts-h6 mt-3'>#20211 Trainer</p>
-                                <p className='nfts-pp text-start'>Common</p>
-                                <div className="d-flex justify-content-between mt-2 mb-2">
-                                    <button className='btn btnStakePage32' size="lg">
-                                        Sell
-                                    </button>
-                                    <button className='btn btnStakePage' size="lg">
-                                        Transfer
-                                    </button>
-                                </div>
-                            </div>
-                            <div className='col-md-2 nft-boxx p-2 mt-3'>
-                                <img src={tiger11} className="nfts-image " />
-                                <p className='nfts-h6 mt-3'>#20211 Trainer</p>
-                                <p className='nfts-pp text-start'>Common</p>
-                                <div className="d-flex justify-content-between mt-2 mb-2">
-                                    <button className='btn btnStakePage32' size="lg">
-                                        Sell
-                                    </button>
-                                    <button className='btn btnStakePage' size="lg">
-                                        Transfer
-                                    </button>
-                                </div>
-                            </div>
-                            <div className='col-md-2 nft-boxx p-2 mt-3'>
-                                <img src={tiger12} className="nfts-image " />
-                                <p className='nfts-h6 mt-3'>#20211 Trainer</p>
-                                <p className='nfts-pp text-start'>Common</p>
-                                <div className="d-flex justify-content-between mt-2 mb-2">
-                                    <button className='btn btnStakePage32' size="lg">
-                                        Sell
-                                    </button>
-                                    <button className='btn btnStakePage' size="lg">
-                                        Transfer
-                                    </button>
-                                </div>
-                            </div> */}
+
                         </div>
 
-                        <div className='row d-flex flex-row justify-content-center justify-content-evenly mt-3 mb-4' >
+                        <div className='row d-flex flex-row justify-content-center justify-content-sm-evenly mt-3 mb-4' >
 
                             <div className='col-1 d-flex align-items-center justify-content-center' style={{ cursor: "pointer" }}
                             onClick={loadLess}

@@ -4,3 +4,12 @@ font-size: 16px;
 line-height: 100%;
 color: #FFFFFF;
 }
+
+@media(min-width: 278px) and (max-width: 400px){
+    .footerDown_span{
+        font-weight: 400;
+    font-size: 14px;
+    line-height: 100%;
+    color: #FFFFFF;
+    }
+}
