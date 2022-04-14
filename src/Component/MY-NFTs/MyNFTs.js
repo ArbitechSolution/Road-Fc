@@ -198,7 +198,7 @@ function MyNFTs() {
                                             <img src={image2} className="nfts-image " />
                                             <p className='nfts-h6 mt-3'>Common #4670</p>
                                         </div>
-                                        <button className='btn btn-mynftsss mb-3' onClick={()=>setModalShowone(true) }>Transfer</button>
+                                        <button className='btn btn-mynftsss mb-3' onClick={() => setModalShowone(true)}>Transfer</button>
                                     </div>
                                 </div>
                             </Modal.Body>
@@ -211,7 +211,7 @@ function MyNFTs() {
                             size="lg"
                             aria-labelledby="contained-modal-title-vcenter"
                             centered
-                            style={{backgroundColor: "#292C38"}}
+                            style={{ backgroundColor: "#292C38" }}
                         >
 
                             <Modal.Body className='Breed-model-image' style={{ border: "2px solid #FF5043" }}>
@@ -219,7 +219,7 @@ function MyNFTs() {
                                 <div className='row d-flex justify-content-center' >
                                     <div className='col-12 d-flex- justify-content-end'>
                                         <IoMdClose
-                                            onClick={() => setModalShow(false)}
+                                            onClick={() => setModalShowone(false)}
                                             size={28}
                                             style={{ color: "white", cursor: "pointer" }}
                                         />
@@ -242,8 +242,8 @@ function MyNFTs() {
                                             <img src={image2} className="nfts-image " />
                                             <p className='nfts-h6 mt-3'>Common #4670</p>
                                         </div>
-                                       <img src={check17}/>
-                                       <p className='second-modal-p mt-2'>Card Successfully Transfered</p>
+                                        <img src={check17} />
+                                        <p className='second-modal-p mt-2'>Card Successfully Transfered</p>
                                     </div>
                                 </div>
 
