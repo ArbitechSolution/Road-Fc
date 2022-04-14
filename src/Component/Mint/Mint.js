@@ -274,11 +274,8 @@ useEffect(() => {
                                     }
                                     </div> */}
                                     <div className='col-md-12 d-flex justify-content-center'>
-<<<<<<< Updated upstream
-                                        <span className='congrat-span'>Do you want to Breed card?</span>
-=======
+                                        {/* <span className='congrat-span'>Do you want to Breed card?</span> */}
                                         <p className='congrat-span'>Do you want to Breed card</p>
->>>>>>> Stashed changes
                                     </div>
 
                                 </div>
