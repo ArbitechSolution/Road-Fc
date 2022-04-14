@@ -130,11 +130,37 @@ useEffect(() => {
                 totalIds = totalIds.slice(-value)
                 let simplleArray = [];
                 totalIds.forEach(async (ids) => {
-                    let res = await axios.get(`/config/json/${ids}.json`)
-                    let imageUrl = res.data.image;
-                    let imageName = res.data.name;
-                    simplleArray = [...simplleArray, { imageUrl, imageName }];
-                    setMintArray(simplleArray);
+                    if(ids<=3560){
+                        let imageUrl = `/images/common.png`;
+                        let imageName = `Common #${ids}`;
+                        simplleArray = [...simplleArray, { imageUrl, imageName }];
+                        setMintArray(simplleArray);
+                    }else if(ids > 3560 && ids<=6230){
+                        let imageUrl = `/images/uncommon.png`;
+                        let imageName = `Uncommon #${ids}`;
+                        simplleArray = [...simplleArray, { imageUrl, imageName }];
+                        setMintArray(simplleArray);
+                    }else if(ids> 6230 && ids <=8140){
+                        let imageUrl = `/images/rare.png`;
+                        let imageName = `Rare #${ids}`;
+                        simplleArray = [...simplleArray, { imageUrl, imageName }];
+                        setMintArray(simplleArray);
+                    }else if(ids>8140 && ids<= 9250){
+                        let imageUrl = `/images/epic.png`;
+                        let imageName = `Epic #${ids}`;
+                        simplleArray = [...simplleArray, { imageUrl, imageName }];
+                        setMintArray(simplleArray);
+                    }else if(ids>9250 && ids<= 9870){
+                        let imageUrl = `/images/legendary.png`;
+                        let imageName = `Legendary #${ids}`;
+                        simplleArray = [...simplleArray, { imageUrl, imageName }];
+                        setMintArray(simplleArray);
+                    }else if(ids>9870 && ids<= 10000){
+                        let imageUrl = `/images/mythic.png`;
+                        let imageName = `Mythic #${ids}`;
+                        simplleArray = [...simplleArray, { imageUrl, imageName }];
+                        setMintArray(simplleArray);
+                    }
                 })
                 setModalShow(true)
             }
@@ -281,7 +307,7 @@ useEffect(() => {
                                     }
                                     </div> */}
                                     <div className='col-md-12 d-flex justify-content-center'>
-                                        <span className='congrat-span'>Do you want to Breed card or sell in the market?</span>
+                                        <span className='congrat-span'>Do you want to Breed card?</span>
                                     </div>
 
                                 </div>
