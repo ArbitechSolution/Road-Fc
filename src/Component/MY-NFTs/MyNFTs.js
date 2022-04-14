@@ -59,32 +59,32 @@ function MyNFTs() {
                 for(let i=0; i< totalIds.length; i++){
                     if(totalIds[i]<=3560){
                         let imageUrl = `/images/common.png`;
-                        let imageName = `Common #${totalIds[i]}`;
+                        let imageName = `#${totalIds[i]} Common`;
                         simplleArray = [...simplleArray, {imageUrl,imageName}];
                     setNftsArray(simplleArray);
                     }else if(totalIds[i] > 3560 && totalIds[i]<=6230){
                         let imageUrl = `/images/uncommon.png`;
-                        let imageName = `Uncommon #${totalIds[i]}`;
+                        let imageName = `#${totalIds[i]} Uncommon`;
                         simplleArray = [...simplleArray, {imageUrl,imageName}];
                     setNftsArray(simplleArray);
                     }else if(totalIds[i]> 6230 && totalIds[i] <=8140){
                         let imageUrl = `/images/rare.png`;
-                        let imageName = `Rare #${totalIds[i]}`;
+                        let imageName = `#${totalIds[i]} Rare`;
                         simplleArray = [...simplleArray, {imageUrl,imageName}];
                     setNftsArray(simplleArray);
                     }else if(totalIds[i]>8140 && totalIds[i]<= 9250){
                         let imageUrl = `/images/epic.png`;
-                        let imageName = `Epic #${totalIds[i]}`;
+                        let imageName = `#${totalIds[i]} Epic`;
                         simplleArray = [...simplleArray, {imageUrl,imageName}];
                     setNftsArray(simplleArray);
                     }else if(totalIds[i]>9250 && totalIds[i]<= 9870){
                         let imageUrl = `/images/legendary.png`;
-                        let imageName = `Legendary #${totalIds[i]}`;
+                        let imageName = `#${totalIds[i]} Legendary`;
                         simplleArray = [...simplleArray, {imageUrl,imageName}];
                     setNftsArray(simplleArray);
                     }else if(totalIds[i]>9870 && totalIds[i]<= 10000){
                         let imageUrl = `/images/mythic.png`;
-                        let imageName = `Mythic #${totalIds[i]}`;
+                        let imageName = `#${totalIds[i]} Mythic`;
                         simplleArray = [...simplleArray, {imageUrl,imageName}];
                     setNftsArray(simplleArray);
                     }
