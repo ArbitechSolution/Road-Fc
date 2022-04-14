@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import Growth from "../../Assets/Growth.png"
 import Frame2 from "../../Assets/Frame 2.png"
 import Frame3 from "../../Assets/Frame 3.png"
@@ -44,9 +44,22 @@ function MediaSidebar() {
     img: Group593
   }
   ]
-
+  const changeAutoNavgate = () => {
+    let path = window.location.pathname
+    path = path.split('/')
+    console.log("path", path[1]);
+    if(path[1]==''){
+      let element =   document.getElementById("newlocale");
+      element.value = "/";
+    }else{
+       let element = document.getElementById("newlocale");
+       element.value =  `/${path[1]}`;
+    }
+  }
+  useEffect(()=>{
+    changeAutoNavgate()
+  },[])
   const changeNavigate = (event) => {
-    console.log("event", event.target.value);
     navigate(event.target.value)
   }
   return (
@@ -66,10 +79,11 @@ function MediaSidebar() {
           required
 
         >
+            <option value="/">ROAD POOL</option>
           <option value="/Staking"
 style={{width: "200px"}}
           >Staking & Point</option>
-          <option value="/Mint" >Mint</option>
+          <option value="/Mint">Mint</option>
           <option value="/breed">Breed</option>
           <option value="/MysteryBox">Mystery Box</option>
           <option value="/NFTstaking">NFT Staking</option>
