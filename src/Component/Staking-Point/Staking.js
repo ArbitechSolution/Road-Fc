@@ -501,7 +501,7 @@ function Staking() {
                                         </div>
                                         <div className='col-11 Staking-boxese d-flex justify-content-between align-item-center mt-2 mb-3 pt-2 pb-2'>
                                             <div className='col-6 pt-3'>
-                                                <p className='staking-span988 ' >Enter $ROAD:</p>
+                                                <p className='staking-span988 text-start' >Enter $ROAD:</p>
                                             </div>
                                             {/* <span className='staking-span988 pt-3' style={{fontSize: "17px"}}>Enter $ROAD:</span> */}
                                             <div className='col-6'>
@@ -709,7 +709,7 @@ function Staking() {
 
                                         <div className='col-11 Staking-boxese d-flex justify-content-between align-item-center mt-2 mb-3 pt-2 pb-2'>
                                             <div className='col-6 pt-3'>
-                                                <p className='staking-span988 '>Enter $ROAD LP:</p>
+                                                <p className='staking-span988 text-start'>Enter $ROAD LP:</p>
                                             </div>
                                             <div className='col-6'>
 

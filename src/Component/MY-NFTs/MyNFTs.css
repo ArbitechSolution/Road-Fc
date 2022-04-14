@@ -90,7 +90,47 @@ font-size: 17px;
 line-height: 17px;
 color: #5E606E;
 }
-
+.myNft-image2{
+    position: absolute;
+    width: 220px;
+    top: -26px;
+    left: 290px;
+}
+.model-mynfts{
+    font-weight: 400;
+font-size: 15px;
+line-height: 19px;
+color: #B1B1B1;
+text-align: center;
+}
+.model-boxs{
+    background: #1A1C23;
+border: 3px solid #292C38;
+box-sizing: border-box;
+border-radius: 8px;
+}
+.btn-mynftsss{
+    background: linear-gradient(180deg, #FF5043 0%, #F92D1E 100%);
+border-radius: 50px;
+font-weight: 600;
+font-size: 15px;
+line-height: 132%;
+color: #FFFFFF;
+padding: 7px 30px;
+}
+.second-modal-p{
+    font-weight: 400;
+font-size: 19px;
+color: #FFFFFF;
+}
+@media(max-width: 830px){
+    .myNft-image2{
+        position: absolute;
+        width: 180px;
+        top: -26px;
+        left: 180px;
+    }
+}
 @media(max-width: 770px){
     .nft-boxx {
         width: 306px;
@@ -98,6 +138,12 @@ color: #5E606E;
         background: #3C2226;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         border-radius: 5px;
+    }
+    .myNft-image2{
+        position: absolute;
+        width: 200px;
+        top: -26px;
+        left: 160px;
     }
 }
 @media(max-width: 480px){
@@ -110,7 +156,14 @@ color: #5E606E;
     }
     .nfts-image {
         width: 150px;
-    }}
+    }
+    .myNft-image2{
+        position: absolute;
+        width: 170px;
+        top: -26px;
+        left: 120px;
+    }
+}
 
 @media(min-width: 278px) and (max-width: 376px){
     .nft-boxx {
@@ -161,6 +214,12 @@ color: #5E606E;
         line-height: 100%;
         color: #FFFFFF;
         text-align: left;
+    }
+    .myNft-image2{
+        position: absolute;
+        width: 150px;
+        top: -26px;
+        left: 70px;
     }
 }
 

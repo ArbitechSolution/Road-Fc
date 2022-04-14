@@ -211,11 +211,7 @@ useEffect(() => {
                             centered
 
                         >
-                            {/* <Modal.Header closeButton className='model-image'>
-
-                                <img src={Title} className="mint-image2" />
-
-                            </Modal.Header> */}
+                           
                             <Modal.Body className='model-image' style={{border: "2px solid #FF5043"}}>
                                 <img src={Title} className="mint-image2" />
                                 <div className='row d-flex justify-content-center mt-3' >
