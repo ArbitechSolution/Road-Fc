@@ -34,7 +34,7 @@ function RoadPool() {
                     </div>
                 </div>
                 <div className='row d-flex justify-content-center flex-wrap pt-4 pb-4 justify-content-around'>
-                    <div className='col-lg-3 col-md-5 col-10 poolbox pt-4 m-1' data-aos="fade-up">
+                    <div className='col-lg-3 col-md-5 col-10 poolbox pt-4 m-1'>
                         <img src={Growth} />
                         <h5 className='poolgh5 pt-4'>Staking & Point</h5>
                         <p className='pool-p pt-2
