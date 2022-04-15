@@ -126,7 +126,59 @@ select.selector option{
   }
 }
 
+@media(max-width: 420px){
 
+  .btn-select ul{
+    list-style: none;
+    float: left;
+    background-color: #532421;
+    opacity: 0.90;
+    padding-bottom: 0px;
+    width: 280px !important;
+    height: 45px;
+    display: flex;
+    padding-left: 10px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-items: center;
+    margin-top: 5px;
+    border-radius: 7px;
+  }
+  .VectorDown-image{
+    position: relative;
+    top: 45px;
+    width: 15px;
+    left: 150px;
+    z-index: 1000;
+    cursor: pointer;
+  }
+}
+@media(min-width: 278px) and (max-width: 400px){
+  .VectorDown-image{
+    position: relative;
+    top: 45px;
+    width: 15px;
+    left: 130px;
+    z-index: 1000;
+    cursor: pointer;
+  }
+  .btn-select ul{
+    list-style: none;
+    float: left;
+    background-color: #532421;
+    opacity: 0.90;
+    padding-bottom: 0px;
+    width: 240px !important;
+    height: 45px;
+    display: flex;
+    padding-left: 10px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-items: center;
+    margin-top: 5px;
+    border-radius: 7px;
+  }
+}
 
 .vodiapicker{
   display: none;
@@ -213,7 +265,7 @@ font-weight: bold;
   background-color: #532421;
 opacity: 0.90;
   padding-bottom: 0px;
-  width: 220px;
+  width: 235px;
   height: 45px;
   display: flex;
   padding-left: 10px;
