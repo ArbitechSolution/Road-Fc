@@ -81,7 +81,7 @@ function MarketPlaceListed() {
                   ? acc
                   : acc === "Connect to Rinkebey"
                     ? acc
-                    : acc.substring(0, 5) + "..." + acc.substring(acc.length - 5)}
+                    : acc.substring(0, 3) + "..." + acc.substring(acc.length - 3)}
             </button>
           </div>
         </div>

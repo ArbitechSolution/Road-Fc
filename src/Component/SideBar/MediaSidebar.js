@@ -133,28 +133,13 @@ function MediaSidebar() {
       <div className='row d-flex justify-content-center'>
         <div className='col-11 staking-coll' style={{}}>
 
-          {/* <img src={VectorDown} className="VectorDown-image" /> */}
-          {/* <select className="vodiapicker" id="newlocale" onChange={(event) => changeNavigate(event)}>
-            <option value="/" className="test" data-thumbnail=""
-
-            >ROAD POOL</option>
-            <option value="/Staking" data-thumbnail="https://i.ibb.co/9pYHPw7/Growth.png"
-
-            >Staking & Point</option>
-            <option value="/Mint" data-thumbnail="https://i.ibb.co/x35Vvzx/Frame-2.png">Mint</option>
-            <option value="/breed" data-thumbnail="https://i.ibb.co/KjRcJGP/Frame-3.png">Breed</option>
-            <option value="/MysteryBox" data-thumbnail="https://i.ibb.co/W6RCYTf/Box.png">Mystery Box</option>
-            <option value="/NFTstaking" data-thumbnail="https://i.ibb.co/47Cdy4c/nft-1.png">NFT Staking</option>
-            <option value="/marketplace" data-thumbnail="https://i.ibb.co/W0LyT7X/marketplace-1.png">NFT Market</option>
-            <option value="/MyNFTs" data-thumbnail="https://i.ibb.co/QcKJYxG/Group-593.png">My NFT</option>
-          </select> */}
           <div className="lang-select" id="newlocale"
             onClick={() => setDropDown(!dropdown)}
           >
             <img src={VectorDown} className="VectorDown-image" />
             <button className="btn-select"
 
-            ><ul><li><img src={updateDropDown.img} /> <span className='ms-3 mt-4'>{updateDropDown.name}</span></li></ul> </button>
+            ><ul><li><img src={updateDropDown.img} /> <span className='ms-sm-3 mt-4'>{updateDropDown.name}</span></li></ul> </button>
             <div className={dropdown ? "b" : "b1"}
 
             >

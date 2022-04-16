@@ -199,6 +199,21 @@ font-size: 14px;
 line-height: 132%;
 color: #FFFFFF;
 }
+.btn-yes{
+    background: #1A1C23;
+border-radius: 5px;
+border-radius: 50px;
+font-weight: 600;
+font-size: 15px;
+line-height: 132%;
+padding: 8px 24px;
+color: #7E808D;
+}
+.btn-yes:hover{
+    background: linear-gradient(180deg, #FF5043 0%, #F92D1E 100%);
+
+color: #fff;
+}
 @media(max-width: 770px){
     .mint-image2 {
         position: absolute;
@@ -279,7 +294,7 @@ color: #FFFFFF;
     }
 }
 
-@media(min-width: 279px) and (max-width: 400px) {
+@media(min-width: 300px) and (max-width: 400px) {
     #mint-pic {
         width: 180px;
     }
@@ -367,18 +382,54 @@ color: #FFFFFF;
         color: #7E808D;
     }
 }
-.btn-yes{
-    background: #1A1C23;
-border-radius: 5px;
-border-radius: 50px;
-font-weight: 600;
-font-size: 15px;
-line-height: 132%;
-padding: 8px 24px;
-color: #7E808D;
-}
-.btn-yes:hover{
-    background: linear-gradient(180deg, #FF5043 0%, #F92D1E 100%);
+@media(min-width: 240px) and (max-width: 299px){
+    #mint-pic {
+        width: 160px;
+    }
 
-color: #fff;
+    .congrat-image {
+        width: 200px;
+    }
+    .mint-span {
+        font-weight: 300;
+        font-size: 10px;
+        line-height: 102%;
+        color: #FFFFFF;
+        text-align: left;
+    }
+
+    .mint-span1 {
+        font-weight: 500;
+        font-size: 10px;
+        line-height: 102%;
+        color: #5E606E;
+    }
+    .boxess {
+        Width: 90px;
+        Height: 30px;
+        background: #1C1F26;
+        border: 2px solid #292C38;
+        box-sizing: border-box;
+        border-radius: 8px;
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 132%;
+        color: #FFFFFF;
+    }
+    .mintbtn {
+        background: linear-gradient(180deg, #FF5043 0%, #F92D1E 100%);
+        border-radius: 50px;
+        font-style: normal;
+        /* font-weight: bold; */
+        font-size: 20px;
+        line-height: 21px;
+        padding: 5px 47px;
+        color: #FFFFFF;
+    }
+    .mintspan23 {
+        font-weight: 500;
+        font-size: 11px;
+        line-height: 19px;
+        color: #B1B1B1;
+    }
 }

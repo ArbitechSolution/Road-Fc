@@ -31,9 +31,9 @@ function Breed() {
             <div className='container'>
                 <div className='row d-flex justify-content-between align-items-center pt-5 pb-3'>
                     <div className='col-lg-2 col-md-3 col-4 d-flex justify-content-start' >
-                        <span id="presale-back"><Link to="/"><MdOutlineKeyboardBackspace size={40} style={{ color: "white" }} /></Link> Back</span>
+                        <span id="presale-back"><Link to="/"><MdOutlineKeyboardBackspace className='icon-rea' style={{ color: "white" }} /></Link> Back</span>
                     </div>
-                    <div className='col-lg-2 col-md-3 col-5' >
+                    <div className='col-lg-2 col-md-3 col-5 d-flex justify-content-end' >
                         <button className='btn poolbtn'>CONNECT</button>
                     </div>
                 </div>
@@ -167,9 +167,9 @@ function Breed() {
                                             <div className="col-6  mb-lg-1 mb-5">
                                                 <p className='breedtext1 mt-3'>TRAINER</p>
                                                 <div className=' BreedBoxs'>
-                                                    <img src={Group195} className='pt-sm-5 pt-4 pb-sm-5 pb-4' width="35px" />
-                                                    <div className='  BreedminiBox p-2'>
-                                                        Trainer 1
+                                                    <img src={Group195} className='plus-breed pt-sm-5 pt-4 pb-sm-5 pb-4' />
+                                                    <div className='BreedminiBox p-2'>
+                                                        <span id="breed-span2112">Trainer 1</span>
                                                     </div>
                                                     <p className='Breedtext pt-sm-4 pt-3 pb-sm-4 pb-3'></p>
                                                 </div>
@@ -177,9 +177,9 @@ function Breed() {
                                             <div className="col-6 mb-lg-1 mb-5">
                                                 <p className='breedtext1 mt-3'>TRAINER</p>
                                                 <div className=' BreedBoxs'>
-                                                    <img src={Group195} className='pt-sm-5 pt-4 pb-sm-5 pb-4' width="35px" />
-                                                    <div className='  BreedminiBox  p-2'>
-                                                        Trainer 2
+                                                    <img src={Group195} className='plus-breed pt-sm-5 pt-4 pb-sm-5 pb-4' />
+                                                    <div className='BreedminiBox  p-2'>
+                                                    <span id="breed-span2112">Trainer 2</span>
                                                     </div>
                                                     <p className='Breedtext pt-sm-4 pt-3 pb-sm-4 pb-3'></p>
                                                 </div>

@@ -7,12 +7,12 @@
     color: #B1B1B1;
 }
 
-.breedtext1 {
+/* .breedtext1 {
     font-weight: 600;
     font-size: 17px;
     line-height: 144%;
     color: #5E606E;
-}
+} */
 
 .BreedBoxs {
     background: #000000;
@@ -35,7 +35,7 @@
     border-radius: 16px;
 }
 
-breedtext1 {
+.breedtext1 {
     font-weight: 600;
     font-size: 17px;
     line-height: 144%;
@@ -118,12 +118,15 @@ font-size: 16px;
 line-height: 144%;
 color: #7E808D;
 }
+.plus-breed{
+    width: 35px;
+}
 @media(max-width: 1100px){
     .breedImages {
         width: 80px;
     }
 }
-@media(max-width: 480px) {
+@media (min-width: 401px) and (max-width: 480px) {
     .breedImages {
         width: 100px;
     }
@@ -139,7 +142,7 @@ color: #7E808D;
         background: #000000;
         border-radius: 16px;
         box-shadow: 0px 0px 15px rgba(254, 75, 62, 0.25);
-        width: 145px;
+        width: 120px;
     }
     .breedboxs123 {
 
@@ -149,15 +152,83 @@ color: #7E808D;
         overflow-y: scroll;
         -webkit-appearance: none;
     }
+    .breedtext1 {
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 144%;
+        color: #5E606E;
+    }
+    .plus-breed{
+        width: 25px;
+    }
+
+.BreedminiBox {
+    background: linear-gradient(90deg, rgba(243, 68, 30, 0.5) 0%, rgba(243, 119, 30, 0.5) 48.96%, rgba(243, 68, 30, 0.5) 100%);
+    font-weight: 500;
+    font-size:14px;
+    line-height: 100%;
+    color: #FFFFFF;
 }
-@media(max-width: 400px){
+#breed-span2112{
+    font-weight: 500;
+    font-size:14px;
+    line-height: 100%;
+    color: #FFFFFF;
+}
+}
+@media(min-width: 322px) and(max-width: 400px){
     .BreedBoxs {
         background: #000000;
         border-radius: 16px;
         box-shadow: 0px 0px 15px rgba(254, 75, 62, 0.25);
-        width: 125px;
+        width: 120px;
     }
     .breedImages {
         width: 70px;
+    }
+    .Breed-box {
+        background: #26282F;
+        border-radius: 13px;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 17px;
+        color: #B1B1B1;
+    }
+    .breedtext1 {
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 144%;
+        color: #5E606E;
+    }
+    .plus-breed{
+        width: 25px;
+    }
+    .BreedminiBox {
+        background: linear-gradient(90deg, rgba(243, 68, 30, 0.5) 0%, rgba(243, 119, 30, 0.5) 48.96%, rgba(243, 68, 30, 0.5) 100%);
+        font-weight: 500;
+        font-size: 13px;
+        line-height: 100%;
+        color: #FFFFFF;
+    }
+    #breed-span2112{
+        font-weight: 500;
+        font-size:14px;
+        line-height: 100%;
+        color: #FFFFFF;
+    }
+}
+@media(min-width: 240px) and (max-width: 321px){
+    #breed-span2112{
+        font-weight: 500;
+        font-size:17px;
+        line-height: 100%;
+        color: #FFFFFF;
+
+    }
+    .plus-breed{
+        width: 25px;
+    }
+    .breedImages {
+        width: 55px;
     }
 }

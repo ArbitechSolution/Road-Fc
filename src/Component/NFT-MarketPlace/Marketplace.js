@@ -287,7 +287,7 @@ const  Marketplace=()=> {
                             <div className='col-1 boxmarket d-flex justify-content-left align-items-center' >
                                 <HiShoppingCart size={30} style={{ color: "white" }} />
                             </div>
-                            <div className='col-lg-2 col-md-3 col-5 d-flex justify-content-end' >
+                            <div className='col-lg-3 col-md-3 col-5 d-flex justify-content-end' >
                                 <button className='btn poolbtn'>CONNECT</button>
                             </div>
                         </div>
@@ -533,7 +533,7 @@ const  Marketplace=()=> {
               </div>
             </div>
           </div>
-          
+
         </div>
     //   </div>
     // </div>

@@ -5,7 +5,7 @@ import ProgressBar from 'react-bootstrap/ProgressBar'
 import Skeleton from '@mui/material/Skeleton';
 import p305 from "../../Assets/305 1.png"
 import {
-    getWallet,getPreSaleInfo,getUserBalance
+    getWallet, getPreSaleInfo, getUserBalance
 } from '../Redux/actions/actions'
 import { useSelector, useDispatch } from 'react-redux';
 import { stakingContractAddress, stakingContractAbi } from '../Utils/stakingContract'
@@ -26,7 +26,7 @@ function Presale() {
     let enteredBnb = useRef(0)
     let dispatch = useDispatch();
     let { acc } = useSelector(state => state.connectWallet);
-    let {userBalance} = useSelector(state => state.userBalance)
+    let { userBalance } = useSelector(state => state.userBalance)
 
     let {
         roadPrice,
@@ -55,7 +55,7 @@ function Presale() {
         let sold = parseInt(totalSoldTokens);
         let myPercent = totalSoldTokens / 200000000;
         myPercent = myPercent * 100;
-        myPercent = parseFloat(myPercent).toFixed(1)
+        myPercent = parseFloat(myPercent)
         console.log("percentageValue", sold);
         console.log("percentageValue", myPercent);
 
@@ -130,7 +130,7 @@ function Presale() {
         // allImagesNfts()
     }
     const getdata = () => {
-        if (acc != "No Wallet" && acc != "Wrong Network" && acc != "Connect Wallet"){
+        if (acc != "No Wallet" && acc != "Wrong Network" && acc != "Connect Wallet") {
             dispatch(getUserBalance())
 
         }
@@ -150,11 +150,11 @@ function Presale() {
     return (
         <div className='imagePool'>
             <div className='container'>
-            <div className='row d-flex justify-content-between align-items-center pt-5 pb-3'>
+                <div className='row d-flex justify-content-between align-items-center pt-5 pb-3'>
                     <div className='col-lg-2 col-md-3 col-4 d-flex justify-content-start' >
-                        <span id="presale-back"><Link to="/"><MdOutlineKeyboardBackspace className='MdOutlineKeyboardBackspace' style={{ color: "white" }} /></Link> Back</span>
+                        <span id="presale-back"><Link to="/"><MdOutlineKeyboardBackspace className='icon-rea' style={{ color: "white" }} /></Link> Back</span>
                     </div>
-                    <div className='col-lg-3 col-md-4 col-6' >
+                    <div className='col-lg-3 col-md-4 col-6 d-flex justify-content-end' >
                         <button onClick={() => getWalletAddress()} className='btn poolbtn'>{acc === "No Wallet" ? "Connect" : acc === "Connect Wallet" ? "Connect" : acc === "Wrong Network" ? acc : acc.substring(0, 3) + "..." + acc.substring(acc.length - 3)}</button>
 
                     </div>
@@ -162,15 +162,16 @@ function Presale() {
                 <div className='row d-flex justify-content-center'>
                     <div className='col-md-12 col-11  presale-box pb-4 mb-2'>
                         <div className='row'>
-                            <div className='col-md-6 col-7'>
-                                <p className='Presale-p pt-3 pt-2 ps-md-3 pb-md-3'>Pre-Sale is Live</p>
+                            <div className='col-md-6 col-7 pt-2'>
+                                <p className='Presale-p pt-md-5 pt-3 ps-md-3 pb-md-3'>Pre-Sale is Live</p>
                                 <p className='presale-p1 ps-md-3 pb-md-3'>Available Now</p>
-                                <div className='d-flex justify-content-start align-items-md-center align-items-start  ps-md-3  prsale-cloumn'>
+                                <div className='d-flex justify-content-start align-items-md-center align-items-start  ps-md-3 pb-sm-3  prsale-cloumn'>
                                     <button className='btn presalebtn'>ROAD Token</button>
-                                    <span id="presale-span1">Price:{roadPrice ? `$ ${roadPrice}` :
-                                    <span className='dot-stretching'></span>
-                                    //  <span> <Skeleton animation="wave" width={50}/></span>
-                                     }
+                                    <span>  </span>
+                                    <span id="presale-span1" className='ps-sm-3 ps-2'>Price:{roadPrice ? `$ ${roadPrice}` :
+                                        <span className='dot-stretching'></span>
+                                        //  <span> <Skeleton animation="wave" width={50}/></span>
+                                    }
 
                                     </span>
                                 </div>
@@ -189,12 +190,12 @@ function Presale() {
 
                         <div className='row d-flex justify-content-center justify-content-evenly mt-3'>
                             <div className='col-lg-5 col-md-7 col-11 pool-box3 mb-4 mt-4'>
-                                <h5 className='bool-h55 pt-5 fw-bold'>PRE-SALE</h5>
+                                <h5 className='bool-h55 pt-sm-5 pt-3 fw-bold'>PRE-SALE</h5>
                                 <div className='row d-flex justify-content-center pt-4 pb-2'>
                                     <div className='col-11 text-start'
                                     >
                                         <form>
-                                            <label className="form-label  fw-bold" style={{ color: "#5E606E" }}>$Road</label>
+                                            <label className="form-label  fw-sm-bold" style={{ color: "#5E606E" }}>$Road</label>
                                             <input onChange={() => calculatedRoadPrice()} ref={enteredBnb} type='number' class="form-control" placeholder='0.00' min={1} />
                                         </form>
                                     </div>
@@ -203,14 +204,14 @@ function Presale() {
                                     <div className='col-11 text-start'
                                     >
                                         <form>
-                                            <label className="form-label fw-bold" style={{ color: "#5E606E" }}>$BNB</label>
+                                            <label className="form-label fw-sm-bold" style={{ color: "#5E606E" }}>$BNB</label>
                                             <input type='number' class="form-control" placeholder={reqBNB} />
                                         </form>
                                     </div>
                                 </div>
                                 <div className='row'>
                                     <div className='col-11 text-end'>
-                                        <span id="preale-Available">Available: {userBalance ? ` ${userBalance} BNB`:<>&nbsp;&nbsp;<br/> <span className='dot-collision-bal'></span></> } </span>
+                                        <span id="preale-Available">Available: {userBalance ? ` ${userBalance} BNB` : <>&nbsp;&nbsp;<br /> <span className='dot-collision-bal'></span></>} </span>
                                     </div>
                                 </div>
                                 <div className='row d-flex justify-content-center pt-4 pb-2'>
@@ -237,7 +238,7 @@ function Presale() {
                                 </div>
                             </div>
                             <div className='col-lg-5 col-md-7 col-11 pool-box3 mt-4 mb-4'>
-                                <h5 className='bool-h55 pt-5 fw-bold'>PRE-SALE POOL</h5>
+                                <h5 className='bool-h55 pt-sm-5 pt-3 fw-bold'>PRE-SALE POOL</h5>
 
                                 <div className='row d-flex justify-content-center mt-4'>
                                     <div className='col-11 d-flex justify-content-between align-items-center mt-2'>
@@ -263,9 +264,9 @@ function Presale() {
                                     <div className='col-11 d-flex justify-content-between align-items-center mt-1'>
                                         <span className='presale-span21'>Price</span>
                                         <span className='presale-span22'>{roadPrice ? `$ ${roadPrice}` :
-                                    <span className='dot-collision'></span>
-                                    //  <span> <Skeleton animation="wave" width={50}/></span>
-                                     }</span>
+                                            <span className='dot-collision'></span>
+                                            //  <span> <Skeleton animation="wave" width={50}/></span>
+                                        }</span>
                                     </div>
                                     <div className='col-11 mt-2' >
                                         <p style={{ border: "1px solid #292C38" }}></p>
@@ -274,7 +275,7 @@ function Presale() {
                                 <div className='row d-flex justify-content-center '>
                                     <div className='col-11 d-flex justify-content-between align-items-center mt-1'>
                                         <span className='presale-span21'>Minimum Purchase</span>
-                                        <span className='presale-span22'>{minPurchase ? `${minPurchase}BNB` :<span className='dot-collision'></span> } </span>
+                                        <span className='presale-span22'>{minPurchase ? `${minPurchase}BNB` : <span className='dot-collision'></span>} </span>
                                     </div>
                                     <div className='col-11 mt-2' >
                                         <p style={{ border: "1px solid #292C38" }}></p>
@@ -283,7 +284,7 @@ function Presale() {
                                 <div className='row d-flex justify-content-center '>
                                     <div className='col-11 d-flex justify-content-between align-items-center mt-1'>
                                         <span className='presale-span21'>Max Purchase</span>
-                                        <span className='presale-span22'>{maxPurchase ? `${maxPurchase}BNB` :<span className='dot-collision'></span> }</span>
+                                        <span className='presale-span22'>{maxPurchase ? `${maxPurchase}BNB` : <span className='dot-collision'></span>}</span>
                                     </div>
                                     <div className='col-11 mt-2' >
                                         <p style={{ border: "1px solid #292C38" }}></p>

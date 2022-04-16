@@ -30,7 +30,7 @@ function RoadPool() {
             <div className='container'>
                 <div className='row d-flex justify-content-end pt-5'>
                     <div className='col-lg-2 col-md-3 d-flex justify-content-end '>
-                        <button onClick={() => getWalletAddress()} className='btn poolbtn'>{acc === "Wrong Network" ? "Wrong Networkk" : acc === "Connect Wallet" ? "Connect" : acc === "No Wallet" ? "Connect" : acc.substring(0, 5) + "..." + acc.substring(acc.length - 5)}</button>
+                        <button onClick={() => getWalletAddress()} className='btn poolbtn'>{acc === "Wrong Network" ? "Wrong Networkk" : acc === "Connect " ? "Connect" : acc === "No Wallet" ? "Connect" : acc.substring(0, 3) + "..." + acc.substring(acc.length - 3)}</button>
                     </div>
                 </div>
                 <div className='row d-flex justify-content-center flex-wrap pt-4 pb-4 justify-content-around'>

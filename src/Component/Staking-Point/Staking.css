@@ -673,7 +673,7 @@ font-size: 40px;
             border-radius: 10px;
         }
 }
-@media(min-width: 280px) and (max-width: 400px){
+@media(min-width: 300px) and (max-width: 400px){
     .staking-h4 {
         /* font-weight: bold; */
         font-size: 14px;
@@ -753,5 +753,80 @@ font-size: 40px;
     .Staking-image {
         width: 100px;
         border-radius: 10px;
+    }
+}
+@media(min-width: 240px) and (max-width: 299px){
+    .staking-h4 {
+        /* font-weight: bold; */
+        font-size: 14px;
+        /* line-height: 120%; */
+        color: #FFFFFF;
+        text-align: left;
+    }
+    .staking-pp {
+        font-weight: normal;
+        font-size: 10px;
+        /* line-height: 140%; */
+        color: #FFFFFF;
+        text-align: left;
+    }
+    .staking-pp12 {
+        font-weight: normal;
+        font-size: 10px;
+        /* line-height: 140%; */
+        color: #FFFFFF;
+        text-align: left;
+        margin-top: -10px;
+    }
+    .Staking-image {
+        width: 100px;
+        border-radius: 10px;
+    }
+    .col-sixe{
+        font-size: 15px;
+    }
+    .staking-pic-img{
+        width: 160px;
+    }
+    .staking-span98{
+        font-weight: 400;
+    font-size: 14px;
+    line-height: 144%;
+    color: #7E808D;
+    }
+    .staking-span97{
+        font-weight: 400;
+    font-size: 15px;
+    line-height: 132%;
+    color: #B1B1B1;
+    }
+    .staking-span988{
+        font-weight: 400;
+    font-size: 11px;
+    line-height: 110%;
+    color: #7E808D;
+    text-align: left;
+    }
+    .btn-staking-button{
+        background: #5C5E6C;
+    border-radius: 80px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 12px;
+    color: #FFFFFF;
+    padding: 7px 5px
+    }
+    .btn-staking-button:hover{
+        color: #5C5E6C;
+        background:#FFFFFF;
+    }
+    .btn-staking-redeem{
+        background: linear-gradient(90deg, #F92D1E 1.7%, #FF5043 100%);
+    border-radius: 80px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 12px;
+    color: #FFFFFF;
+    padding: 7px 5px
     }
 }

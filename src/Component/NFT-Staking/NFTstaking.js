@@ -30,7 +30,7 @@ function NFTstaking() {
                     <div className='col-lg-2 col-md-4 col-4 d-flex justify-content-start' >
                         <span id="presale-back"><Link to="/"><MdOutlineKeyboardBackspace className='MdOutlineKeyboardBackspace' style={{ color: "white" }} /></Link> Back</span>
                     </div>
-                    <div className='col-lg-2 col-md-3 col-5' >
+                    <div className='col-lg-2 col-md-3 col-5 d-flex justify-content-end' >
                         <button className='btn poolbtn'>CONNECT</button>
                     </div>
                 </div>

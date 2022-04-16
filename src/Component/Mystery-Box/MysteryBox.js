@@ -32,9 +32,9 @@ function MysteryBox() {
             <div className='container'>
                 <div className='row d-flex justify-content-between align-items-center pt-5 pb-3'>
                     <div className='col-lg-2 col-md-3 col-4 d-flex justify-content-start' >
-                        <span id="presale-back"><Link to="/"><MdOutlineKeyboardBackspace size={40} style={{ color: "white" }} /></Link> Back</span>
+                        <span id="presale-back"><Link to="/"><MdOutlineKeyboardBackspace className='icon-rea' style={{ color: "white" }} /></Link> Back</span>
                     </div>
-                    <div className='col-lg-2 col-md-3 col-5' >
+                    <div className='col-lg-2 col-md-3 col-5 d-flex justify-content-end' >
                         <button className='btn poolbtn'>CONNECT</button>
                     </div>
                 </div>
@@ -141,42 +141,6 @@ function MysteryBox() {
                                         </div> */}
 
 
-
-                                        {/* <div className='col-md-3 box-mystry'>
-                                            <div className='col-md-12 d-flex justify-content-center mystrey-imagess mb-3'>
-                                                <img src={card1} className="mystrey-pic pt-4 pb-3" />
-                                            </div>
-                                            <div className='text-center'>
-                                                <span className='congrat-span'>#20211 Alien Fighter</span>
-                                            </div>
-                                            <div className='row d-flex justify-content-center mt-3'>
-                                                <div className='col-11 d-flex justify-content-between align-items-center mt-1'>
-                                                    <span className='mystrey-span21'>Rarity:</span>
-                                                    <span className='mystrey-span22'>Mythic</span>
-                                                </div>
-                                                <div className='col-11 mt-2' >
-                                                    <p style={{ border: "1px solid rgba(119, 119, 119, 0.25)" }}></p>
-                                                </div>
-                                            </div>
-                                            <div className='row d-flex justify-content-center mt-2'>
-                                                <div className='col-11 d-flex justify-content-between align-items-center mt-1'>
-                                                    <span className='mystrey-span21'>Level:</span>
-                                                    <span className='mystrey-span22'>+3</span>
-                                                </div>
-                                                <div className='col-11 mt-2' >
-                                                    <p style={{ border: "1px solid rgba(119, 119, 119, 0.25)" }}></p>
-                                                </div>
-                                            </div>
-                                            <div className='row d-flex justify-content-center mt-2'>
-                                                <div className='col-11 d-flex justify-content-between align-items-center mt-1'>
-                                                    <span className='mystrey-span21'>Has Power:</span>
-                                                    <span className='mystrey-span22'>15</span>
-                                                </div>
-                                                <div className='col-11 mt-2' >
-                                                    <p style={{ border: "1px solid rgba(119, 119, 119, 0.25)" }}></p>
-                                                </div>
-                                            </div>
-                                        </div> */}
                                     </div>
                                     {/* <div className='col-md-12 d-flex justify-content-center breed-imagess mt-3 mb-3'>
                                         <img src={card1} className="mint-pic pt-4 pb-3" />
@@ -420,7 +384,7 @@ function MysteryBox() {
                                     </div>
                                 </div>
                                 <div className='row mb-5'>
-                                    <div className='col-md-12 col-11 mint-Page-border mb-4'>
+                                    <div className='col-md-12 col-11 mint-Page-border mb-4 scroll-tab'>
                                     <table class="table table-borderless">
                                     <thead>
                                         <tr>
