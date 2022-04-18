@@ -242,10 +242,10 @@ function Presale() {
 
                                 <div className='row d-flex justify-content-center mt-4'>
                                     <div className='col-11 d-flex justify-content-between align-items-center mt-2'>
-                                        <span className='presale-span21'>Total Supply</span>
-                                        <span className='presale-span22'>10,000,000,000 &nbsp;
+                                        <div className='presale-span21'>Total Supply</div>
+                                        <div className='presale-span22'>10,000,000,000 &nbsp;
                                             {/* {myroadTotalSupply.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} &nbsp; */}
-                                            <span className='presale-span1'>ROAD</span></span>
+                                            <span className='presale-span1'>ROAD</span></div>
                                     </div>
                                     <div className='col-11 mt-3' >
                                         <p style={{ border: "1px solid #292C38" }}></p>
@@ -253,8 +253,8 @@ function Presale() {
                                 </div>
                                 <div className='row d-flex justify-content-center '>
                                     <div className='col-11 d-flex justify-content-between align-items-center mt-1'>
-                                        <span className='presale-span21'>Token for Presales</span>
-                                        <span className='presale-span22'>200,000,000 &nbsp;<span className='presale-span1'>ROAD</span></span>
+                                        <div className='presale-span21'>Token for Presales</div>
+                                        <div className='presale-span22'>200,000,000 &nbsp;<span className='presale-span1'>ROAD</span></div>
                                     </div>
                                     <div className='col-11 mt-2' >
                                         <p style={{ border: "1px solid #292C38" }}></p>
@@ -262,11 +262,11 @@ function Presale() {
                                 </div>
                                 <div className='row d-flex justify-content-center '>
                                     <div className='col-11 d-flex justify-content-between align-items-center mt-1'>
-                                        <span className='presale-span21'>Price</span>
-                                        <span className='presale-span22'>{roadPrice ? `$ ${roadPrice}` :
+                                        <div className='presale-span21'>Price</div>
+                                        <div className='presale-span22'>{roadPrice ? `$ ${roadPrice}` :
                                             <span className='dot-collision'></span>
                                             //  <span> <Skeleton animation="wave" width={50}/></span>
-                                        }</span>
+                                        }</div>
                                     </div>
                                     <div className='col-11 mt-2' >
                                         <p style={{ border: "1px solid #292C38" }}></p>
@@ -274,8 +274,8 @@ function Presale() {
                                 </div>
                                 <div className='row d-flex justify-content-center '>
                                     <div className='col-11 d-flex justify-content-between align-items-center mt-1'>
-                                        <span className='presale-span21'>Minimum Purchase</span>
-                                        <span className='presale-span22'>{minPurchase ? `${minPurchase}BNB` : <span className='dot-collision'></span>} </span>
+                                        <div className='presale-span21'>Minimum Purchase</div>
+                                        <div className='presale-span22'>{minPurchase ? `${minPurchase}BNB` : <span className='dot-collision'></span>} </div>
                                     </div>
                                     <div className='col-11 mt-2' >
                                         <p style={{ border: "1px solid #292C38" }}></p>
@@ -283,8 +283,8 @@ function Presale() {
                                 </div>
                                 <div className='row d-flex justify-content-center '>
                                     <div className='col-11 d-flex justify-content-between align-items-center mt-1'>
-                                        <span className='presale-span21'>Max Purchase</span>
-                                        <span className='presale-span22'>{maxPurchase ? `${maxPurchase}BNB` : <span className='dot-collision'></span>}</span>
+                                        <div className='presale-span21'>Max Purchase</div>
+                                        <div className='presale-span22'>{maxPurchase ? `${maxPurchase}BNB` : <span className='dot-collision'></span>}</div>
                                     </div>
                                     <div className='col-11 mt-2' >
                                         <p style={{ border: "1px solid #292C38" }}></p>
@@ -292,11 +292,11 @@ function Presale() {
                                 </div>
                                 <div className='row d-flex justify-content-center '>
                                     <div className='col-11 d-flex justify-content-between align-items-center mt-1'>
-                                        <span className='presale-span21'>Start time</span>
-                                        <span className='presale-span22'>
+                                        <div className='presale-span21'>Start time</div>
+                                        <div className='presale-span22'>
                                             15 Apr, 2022 UTC 21:00
                                             {/* {myDate.toLocaleString()} */}
-                                        </span>
+                                        </div>
                                     </div>
                                     <div className='col-11 mt-2' >
                                         <p style={{ border: "1px solid #292C38" }}></p>
@@ -304,8 +304,8 @@ function Presale() {
                                 </div>
                                 <div className='row d-flex justify-content-center '>
                                     <div className='col-11 d-flex justify-content-between align-items-center mt-1'>
-                                        <span className='presale-span21'>End time</span>
-                                        <span className='presale-span22'>15 Apr, 2022 UTC 21:00</span>
+                                        <div className='presale-span21'>End time</div>
+                                        <div className='presale-span22'>15 Apr, 2022 UTC 21:00</div>
                                     </div>
                                     <div className='col-11 mt-2' >
                                         <p style={{ border: "1px solid #292C38" }}></p>
@@ -313,10 +313,10 @@ function Presale() {
                                 </div>
                                 <div className='row d-flex justify-content-center '>
                                     <div className='col-11 d-flex justify-content-between align-items-center mt-1'>
-                                        <span className='presale-span21'>Soft Cap</span>
-                                        <span className='presale-span22'>2,000&nbsp;
+                                        <div className='presale-span21'>Soft Cap</div>
+                                        <div className='presale-span22'>2,000&nbsp;
                                             {/* {mysoftCap.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} */}
-                                            BNB</span>
+                                            BNB</div>
                                     </div>
                                     <div className='col-11 mt-2' >
                                         <p style={{ border: "1px solid #292C38" }}></p>
@@ -324,10 +324,10 @@ function Presale() {
                                 </div>
                                 <div className='row d-flex justify-content-center '>
                                     <div className='col-11 d-flex justify-content-between align-items-center mt-1'>
-                                        <span className='presale-span21'>Hard Cap</span>
-                                        <span className='presale-span22'>4,000&nbsp;
+                                        <div className='presale-span21'>Hard Cap</div>
+                                        <div className='presale-span22'>4,000&nbsp;
                                             {/* {myHardCap.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} */}
-                                            BNB</span>
+                                            BNB</div>
                                     </div>
                                     <div className='col-11 mt-2' >
                                         <p style={{ border: "1px solid #292C38" }}></p>
