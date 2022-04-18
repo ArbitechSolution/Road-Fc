@@ -93,9 +93,28 @@ color: #5E606E;
 }
 .myNft-image2{
     position: absolute;
-    width: 220px;
-    top: -26px;
-    left: 290px;
+    width: 280px;
+    top: -34px;
+    bottom: 0;
+    /* border-top: 1px solid #FF5043; */
+    /* border-image: linear-gradient(to top, #FF5043 50%, transparent 50%) 100% 1; */
+    left: 260px;
+    border-radius: 16px 16px 0px 0px;
+    z-index: -2;
+}
+#nft-text-span{
+    font-weight: 600;
+font-size: 26px;
+line-height: 144%;
+top: -34px;
+color: #FFFFFF;
+/* position: absolute; */
+}
+.mynfts-model-image{
+    background: rgba(26, 28, 35);
+    box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.08);
+    backdrop-filter: blur(16px);
+    z-index: 20000;
 }
 .model-mynfts{
     font-weight: 400;

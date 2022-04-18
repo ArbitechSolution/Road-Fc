@@ -1,4 +1,4 @@
-import React, { useState, useEffect,useRef,useLayoutEffect } from 'react'
+import React, { useState, useEffect, useRef, useLayoutEffect } from 'react'
 import { MdOutlineKeyboardBackspace } from 'react-icons/md';
 import { Link } from "react-router-dom";
 import "./MyNFTs.css"
@@ -13,6 +13,7 @@ import SideBar from "../SideBar/SideBar"
 import { toast } from 'react-toastify';
 import { nftContractAbi, nftContratAddress } from '../Utils/Nft'
 import Group843 from "../../Assets/Group 843.png"
+import Rectangle450 from "../../Assets/Rectangle 450.png"
 import axios from 'axios';
 import image2 from "../../Assets/image 2.png"
 import check17 from "../../Assets/check (17) 1.png"
@@ -23,10 +24,10 @@ function MyNFTs() {
     let [nftArrayLength, setNftsArrayLength] = useState(0)
     const [modalShow, setModalShow] = useState(false);
     const [modalShowone, setModalShowone] = useState(false);
-    let [transferNft, setTransferNft]=useState({
-        path:"",
-        imageName:"",
-        Nftid:""
+    let [transferNft, setTransferNft] = useState({
+        path: "",
+        imageName: "",
+        Nftid: ""
 
     })
     let transferAddress = useRef()
@@ -73,19 +74,19 @@ function MyNFTs() {
                     } else if (totalIds[i] > 6230 && totalIds[i] <= 8140) {
                         let imageUrl = `/images/rare.png`;
                         let imageName = `Rare #${totalIds[i]}`;
-                         let tokenId = totalIds[i];
+                        let tokenId = totalIds[i];
                         simplleArray = [...simplleArray, { imageUrl, imageName, tokenId }];
                         setNftsArray(simplleArray);
                     } else if (totalIds[i] > 8140 && totalIds[i] <= 9250) {
                         let imageUrl = `/images/epic.png`;
                         let imageName = `Epic #${totalIds[i]}`;
-                         let tokenId = totalIds[i];
+                        let tokenId = totalIds[i];
                         simplleArray = [...simplleArray, { imageUrl, imageName, tokenId }];
                         setNftsArray(simplleArray);
                     } else if (totalIds[i] > 9250 && totalIds[i] <= 9870) {
                         let imageUrl = `/images/legendary.png`;
                         let imageName = `Legendary #${totalIds[i]}`;
-                         let tokenId = totalIds[i];
+                        let tokenId = totalIds[i];
                         simplleArray = [...simplleArray, { imageUrl, imageName, tokenId }];
                         setNftsArray(simplleArray);
                     } else if (totalIds[i] > 9870 && totalIds[i] <= 10000) {
@@ -103,39 +104,39 @@ function MyNFTs() {
         }
     }
 
-    const showTransferNfts =  (imageUrl,imageName,tokenId) => {
-        try{
+    const showTransferNfts = (imageUrl, imageName, tokenId) => {
+        try {
             setTransferNft({
-                path:imageUrl,
-                imageName:imageName,
-                Nftid:tokenId
+                path: imageUrl,
+                imageName: imageName,
+                Nftid: tokenId
             })
             // transferAddress.current.focus()
             setModalShow(true)
 
-        }catch(e){
-        console.error("error while show transfer nft",e);
+        } catch (e) {
+            console.error("error while show transfer nft", e);
         }
     }
     const transfetNfts = async () => {
-        try{
+        try {
             let transAdd = transferAddress.current.value;
 
-            if(parseInt(transAdd.length) > 0){
+            if (parseInt(transAdd.length) > 0) {
                 const web3 = window.web3;
                 const nftContract = new web3.eth.Contract(nftContractAbi, nftContratAddress);
-                await nftContract.methods.transferFrom(acc,transAdd,transferNft.Nftid).send({
-                    from:acc
+                await nftContract.methods.transferFrom(acc, transAdd, transferNft.Nftid).send({
+                    from: acc
                 })
                 // 0x12E8613F1d980FD0543ECEBB2dab9533C589250F
                 setConfirmAddress(transAdd);
                 setModalShow(false)
                 setModalShowone(true)
                 getNfts()
-            }else{
+            } else {
                 toast.info("Please put transfer address")
             }
-        }catch(e){
+        } catch (e) {
             console.error("error while transfer nfts", e);
         }
     }
@@ -221,8 +222,11 @@ function MyNFTs() {
                             centered
                         >
 
-                            <Modal.Body className='Breed-model-image' style={{ border: "2px solid #FF5043" }}>
-                                <img src={Group843} className="myNft-image2" />
+                            <Modal.Body className='mynfts-model-image' style={{ border: "2px solid #FF5043", }}>
+                                {/* <div className=' d-flex align-items-start justify-content-center'>
+                                    <p id='nft-text-span' style={{ position: " relative" }} >NFT Card Transfer</p>
+                                </div> */}
+                                    <img src={Group843} className="myNft-image2" />
                                 <div className='row d-flex justify-content-center' >
                                     <div className='col-12 d-flex- justify-content-end'>
                                         <IoMdClose
@@ -235,7 +239,7 @@ function MyNFTs() {
                                 <div className='row d-flex justify-content-center'>
                                     <div className='col-md-5 d-flex justify-content-center align-items-center mt-4'>
                                         <label style={{ color: "white" }}>To</label>&nbsp;&nbsp;
-                                        <input  ref={transferAddress} className="form-control" style={{ backgroundColor: "black", color:"#fff" }} />
+                                        <input ref={transferAddress} className="form-control" style={{ backgroundColor: "black", color: "#fff" }} />
                                     </div>
                                 </div>
                                 <div className='row d-flex justify-content-center mt-2'>
@@ -265,7 +269,7 @@ function MyNFTs() {
                             style={{ backgroundColor: "#292C38" }}
                         >
 
-                            <Modal.Body className='Breed-model-image' style={{ border: "2px solid #FF5043" }}>
+                            <Modal.Body className='mynfts-model-image' style={{ border: "2px solid #FF5043" }}>
                                 <img src={Group843} className="myNft-image2" />
                                 <div className='row d-flex justify-content-center' >
                                     <div className='col-12 d-flex- justify-content-end'>
@@ -279,7 +283,7 @@ function MyNFTs() {
                                 <div className='row d-flex justify-content-center'>
                                     <div className='col-md-5 d-flex justify-content-center align-items-center mt-4'>
                                         <label style={{ color: "white" }}>To</label>&nbsp;&nbsp;
-                                        <input value={confirmAddress}  className="form-control" disabled style={{ backgroundColor: "black", color:"#fff" }} />
+                                        <input value={confirmAddress} className="form-control" disabled style={{ backgroundColor: "#292B34", color: "#fff" }} />
 
                                     </div>
                                 </div>
@@ -321,7 +325,7 @@ function MyNFTs() {
                                                 <button className='btn btnStakePage32' size="sm">
                                                     Sell
                                                 </button>
-                                                <button className='btn btnStakePage' size="sm" onClick={() => showTransferNfts(item.imageUrl,item.imageName,item.tokenId)}>
+                                                <button className='btn btnStakePage' size="sm" onClick={() => showTransferNfts(item.imageUrl, item.imageName, item.tokenId)}>
                                                     Transfer
                                                 </button>
                                             </div>
