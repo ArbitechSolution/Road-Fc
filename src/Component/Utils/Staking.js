@@ -1,4 +1,4 @@
-export const stakingContractAddress = "0x3e94f297109675f3F0977f2840b482dCB4733CF8";
+export const stakingContractAddress = "0xe5608cfC4939c8B8Af46a723bCE8A20A48fB0975";
 export const stakingContractAbi = [{
     "inputs": [{
         "internalType": "contract IERC20",
@@ -246,16 +246,6 @@ export const stakingContractAbi = [{
     "type": "function"
 }, {
     "inputs": [],
-    "name": "maxRPToken",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
     "name": "owner",
     "outputs": [{
         "internalType": "address",
@@ -303,16 +293,6 @@ export const stakingContractAbi = [{
         "type": "uint256"
     }],
     "name": "setTime",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-    }],
-    "name": "setmaxRPToken",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"

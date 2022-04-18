@@ -53,7 +53,7 @@ function MyNFTs() {
                 const nftContract = new web3.eth.Contract(nftContractAbi, nftContratAddress);
                 let totalIds = await nftContract.methods.walletOfOwner(acc).call();
                 setNftsArrayLength(totalIds.length)
-                let ttlPage = parseInt(totalIds.length) / 9;
+                let ttlPage = parseInt(totalIds.length) / 12;
                 ttlPage = Math.ceil(ttlPage);
                 setTotalPages(ttlPage)
                 let simplleArray = [];
@@ -145,7 +145,7 @@ function MyNFTs() {
         }
     }
     let [initialLimit, setInitialLimit] = useState(0);
-    let [finalLimit, setFinalLimit] = useState(9)
+    let [finalLimit, setFinalLimit] = useState(12)
     let [pageNumber, setPageNumber] = useState(1)
     let [totalPages, setTotalPages] = useState(1)
     const loadMore = () => {

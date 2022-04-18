@@ -14,7 +14,6 @@ import VectorDown from "../../Assets/VectorDown.png"
 import "./SideBar.css"
 import { IoIosArrowDown } from 'react-icons/io';
 import Group480 from "../../Assets/Group 480.png"
-import $ from 'jquery';
 function MediaSidebar() {
   const navigate = useNavigate();
   let [dropdown, setDropDown] = useState(false)
