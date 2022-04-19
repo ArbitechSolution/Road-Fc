@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import "./navbars.css"
 import roadfc from "../../Assets/roadfc-logo 1.png"
 function Navbars() {
-  
+
 
   return (
     <div className='navbariamge'>
@@ -25,7 +25,7 @@ function Navbars() {
                             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                             <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
                                 <Nav >
-                                    <Nav.Link className='fw-bold text1'  href="#" onClick={() => { window.scrollTo(0, 0);}}>HOME</Nav.Link>
+                                    <Nav.Link className='fw-bold text1 '  href="#" onClick={() => { window.scrollTo(0, 0);}}>HOME</Nav.Link>
                                     <Nav.Link className='fw-bold text1'  href="#about" >TOKENOMICS</Nav.Link>
                                     <Nav.Link className='fw-bold text1'  href="#token" >ECOSYSTEM</Nav.Link>
                                    <Link to="/MyNFTs" style={{textDecoration: "none"}}> <Nav.Link  className='fw-bold text1' href="#features">NFTs CARD</Nav.Link></Link>

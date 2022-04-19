@@ -2,20 +2,13 @@ import React, { useState } from 'react'
 import { MdOutlineKeyboardBackspace } from 'react-icons/md';
 import { Link } from "react-router-dom";
 import "./Breed.css"
-// import Growth from "../../Assets/Growth.png"
-// import Frame2 from "../../Assets/Frame 2.png"
-// import Frame3 from "../../Assets/Frame 3.png"
-// import Box from "../../Assets/Box.png"
-// import nft1 from "../../Assets/nft 1.png"
-// import marketplace1 from "../../Assets/marketplace 1.png"
-// import Group593 from "../../Assets/Group 593.png"
+import { IoMdClose } from "react-icons/io";
 import Breedimag from "../../Assets/Breed.png"
 import Group195 from "../../Assets/Group 195.png"
 import On from "../../Assets/On.png"
 import tiger from "../../Assets/tiger 1 1.png"
 import Group609 from "../../Assets/Group 609.png"
 import Rectangle456 from "../../Assets/Rectangle 456.png"
-// import Rectangle456 from "../../Assets/Rectangle 456.png"
 import Rectangle457 from "../../Assets/Rectangle 457.png"
 import Rectangle458 from "../../Assets/Rectangle 458.png"
 import Rectangle463 from "../../Assets/Rectangle 463.png"
@@ -52,13 +45,24 @@ function Breed() {
                             size="lg"
                             aria-labelledby="contained-modal-title-vcenter"
                             centered
+
                         >
-                            <Modal.Header closeButton className='Breed-model-image'>
+                            {/* <Modal.Header closeButton className='Breed-model-image'>
                                 <Modal.Title id="contained-modal-title-vcenter" style={{ color: "white", fontSize: "30px" }}>
                                     Breed
                                 </Modal.Title>
-                            </Modal.Header>
-                            <Modal.Body className='Breed-model-image'>
+                            </Modal.Header> */}
+                            <Modal.Body className='mynfts-model-image mt=3' style={{ border: "2px solid #FF5043", }}>
+                            <img src={Breedimag} className="breed-image2" />
+                                <div className='row d-flex justify-content-center' >
+                                    <div className='col-12 d-flex- justify-content-end'>
+                                        <IoMdClose
+                                            onClick={() => setModalShow(false)}
+                                            size={28}
+                                            style={{ color: "white", cursor: "pointer" }}
+                                        />
+                                    </div>
+                                </div>
                                 <div className='row d-flex justify-content-center' >
                                     <div className='col-md-12 d-flex justify-content-center'>
                                         <img className='pt-3 congrat-image' src={Group609} />
@@ -74,28 +78,20 @@ function Breed() {
                                     </div>
 
                                 </div>
-                                <div className='row d-flex justify-content-center justify-content-evenly'>
-                                    <div className='col-3  mt-3 mb-3'>
-                                        <div className="d-grid gap-2">
-                                            <button className='btn btn-congrats' size="lg">
+                                <div className='d-flex justify-content-center'>
+
+                                            <button className='btn btn-congrats m-sm-3 m-2' size="lg">
                                                 Breed
                                             </button>
-                                        </div>
-                                    </div>
-                                    <div className='col-3 mt-3 mb-3'>
-                                        <div className="d-grid gap-2">
-                                            <button className='btn btn1-congrats' size="lg" onClick={() => setModalShowone(true)}>
+
+                                            <button className='btn btn1-congrats m-sm-3 m-2' size="lg" onClick={() => setModalShowone(true)}>
                                                 Sell
                                             </button>
-                                        </div>
-                                    </div>
-                                    <div className=' col-5 mt-3 mb-3'>
-                                        <div className="d-grid gap-2">
-                                            <button className='btn btn2-congrats' size="lg">
+
+                                            <button className='btn btn2-congrats m-sm-3 m-2'  size="lg">
                                                 Do it Later
                                             </button>
-                                        </div>
-                                    </div>
+
                                 </div>
                             </Modal.Body>
                         </Modal> : <></>}
@@ -106,13 +102,19 @@ function Breed() {
                             size="lg"
                             aria-labelledby="contained-modal-title-vcenter"
                             centered
+                            style={{ backgroundColor: "#292C38" }}
                         >
-                            <Modal.Header closeButton className='Breed-model-image'>
-                                <Modal.Title id="contained-modal-title-vcenter" style={{ color: "white", fontSize: "30px" }}>
-                                    Breed
-                                </Modal.Title>
-                            </Modal.Header>
-                            <Modal.Body className='Breed-model-image'>
+                            <Modal.Body className='mynfts-model-image' style={{ border: "2px solid #FF5043", }}>
+                            <img src={Breedimag} className="breed-image2" />
+                                <div className='row d-flex justify-content-center' >
+                                    <div className='col-12 d-flex- justify-content-end'>
+                                        <IoMdClose
+                                            onClick={() => setModalShowone(false)}
+                                            size={28}
+                                            style={{ color: "white", cursor: "pointer" }}
+                                        />
+                                    </div>
+                                </div>
                                 <div className='row d-flex justify-content-center' >
                                     <div className='col-md-12 d-flex justify-content-center'>
                                         <img className='pt-3 congrat-image' src={Group609} />
@@ -169,7 +171,7 @@ function Breed() {
                                                 <div className=' BreedBoxs'>
                                                     <img src={Group195} className='plus-breed pt-sm-5 pt-4 pb-sm-5 pb-4' />
                                                     <div className='BreedminiBox p-2'>
-                                                        <span id="breed-span2112">Trainer 1</span>
+                                                        Trainer 1
                                                     </div>
                                                     <p className='Breedtext pt-sm-4 pt-3 pb-sm-4 pb-3'></p>
                                                 </div>
@@ -179,7 +181,7 @@ function Breed() {
                                                 <div className=' BreedBoxs'>
                                                     <img src={Group195} className='plus-breed pt-sm-5 pt-4 pb-sm-5 pb-4' />
                                                     <div className='BreedminiBox  p-2'>
-                                                    <span id="breed-span2112">Trainer 2</span>
+                                                  Trainer 2
                                                     </div>
                                                     <p className='Breedtext pt-sm-4 pt-3 pb-sm-4 pb-3'></p>
                                                 </div>

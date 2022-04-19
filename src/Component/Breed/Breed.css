@@ -68,7 +68,17 @@
     line-height: 132%;
     color: #FFFFFF;
 }
-
+.breed-image2{
+    position: absolute;
+    /* width: 280px; */
+    top: -34px;
+    /* bottom: 0; */
+    /* border-top: 1px solid #FF5043; */
+    /* border-image: linear-gradient(to top, #FF5043 50%, transparent 50%) 100% 1; */
+    left: 320px;
+    /* border-radius: 16px 16px 0px 0px; */
+    /* z-index: -2; */
+}
 .breed-psans {
     font-weight: 500;
     font-size: 14px;
@@ -126,6 +136,14 @@ color: #7E808D;
         width: 80px;
     }
 }
+@media(max-width: 770px){
+    .breed-image2{
+        position: absolute;
+        /* width: 200px; */
+        top: -26px;
+        left: 180px;
+    }
+}
 @media (min-width: 401px) and (max-width: 480px) {
     .breedImages {
         width: 100px;
@@ -169,14 +187,26 @@ color: #7E808D;
     line-height: 100%;
     color: #FFFFFF;
 }
-#breed-span2112{
+.breed-image2{
+    position: absolute;
+    /* width: 170px; */
+    top: -26px;
+    left: 120px;
+}
+/* #breed-span2112{
     font-weight: 500;
     font-size:14px;
     line-height: 100%;
     color: #FFFFFF;
+} */
 }
-}
-@media(min-width: 322px) and(max-width: 400px){
+@media(min-width: 322px) and (max-width: 400px){
+    .breed-image2{
+        position: absolute;
+        width: 110px;
+        top: -26px;
+        left: 120px;
+    }
     .BreedBoxs {
         background: #000000;
         border-radius: 16px;
@@ -195,8 +225,8 @@ color: #7E808D;
         color: #B1B1B1;
     }
     .breedtext1 {
-        font-weight: 600;
-        font-size: 14px;
+        font-weight: 400;
+        font-size: 12px;
         line-height: 144%;
         color: #5E606E;
     }
@@ -206,25 +236,25 @@ color: #7E808D;
     .BreedminiBox {
         background: linear-gradient(90deg, rgba(243, 68, 30, 0.5) 0%, rgba(243, 119, 30, 0.5) 48.96%, rgba(243, 68, 30, 0.5) 100%);
         font-weight: 500;
-        font-size: 13px;
+        font-size: 11px;
         line-height: 100%;
         color: #FFFFFF;
     }
-    #breed-span2112{
-        font-weight: 500;
-        font-size:14px;
+    /* #breed-span2112{
+        font-weight: 300;
+        font-size:12px;
         line-height: 100%;
         color: #FFFFFF;
-    }
+    } */
 }
 @media(min-width: 240px) and (max-width: 321px){
-    #breed-span2112{
+    /* #breed-span2112{
         font-weight: 500;
         font-size:17px;
         line-height: 100%;
         color: #FFFFFF;
 
-    }
+    } */
     .plus-breed{
         width: 25px;
     }
