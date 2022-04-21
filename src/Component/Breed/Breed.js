@@ -187,12 +187,20 @@ function Breed() {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className='row d-flex justify-content-center justify-conten-around  mt-sm-3 '>
-                                            <div className='col-10 d-flex justify-content-evenly'>
-                                                <span className='bredd-span'>Available</span>
-                                                <span className='bredd-span'><span className='breed-psans'>10,000</span> $ROAD</span>
+                                        <div className='row d-flex justify-content-center justify-conten-around mt-sm-3 '>
+                                            <div className='col-md-7 col-11 d-flex justify-content-between boxes-breed pt-3 pb-3  '>
+                                                <span className='breed-psans'>Available:</span>
+                                                <span className='bredd-span'>0,000 BNB</span>
                                             </div>
-                                            <div className='col-lg-5 col-md-7 col-10 mt-sm-5 mt-3 mb-3'>
+                                            <div className='col-md-7 col-11 d-flex justify-content-between boxes-breed pt-3 pb-3  mt-3'>
+                                                <span className='breed-psans'>Breed Cost:</span>
+                                                <span className='bredd-span'>200 USD</span>
+                                            </div>
+
+                                        </div>
+                                        <div className='row d-flex justify-content-center'>
+
+                                        <div className='col-lg-5 col-md-7 col-10 mt-sm-3 mt-3 mb-5'>
                                                 <div className="d-grid gap-2">
                                                     <button className='btn breed-btn mt-3' size="lg" onClick={() => setModalShow(true)}>
                                                         Breed

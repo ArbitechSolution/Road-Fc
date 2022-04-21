@@ -12,9 +12,9 @@ function Navbars() {
 
   return (
     <div className='navbariamge'>
-            <div className='container'>
-                <div className='row'>
-                    <div className='col-12'>
+            <div className='container' >
+                <div className='row' >
+                    <div className='col-12' >
 
 
                         <Navbar collapseOnSelect expand="lg" variant="dark">

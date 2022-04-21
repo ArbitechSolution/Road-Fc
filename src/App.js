@@ -35,7 +35,7 @@ function App() {
 
       <BrowserRouter>
         <Navbars />
-        <MediaSidebar/>
+        <MediaSidebar />
         <Routes>
           <Route exact path="/" element={<RoadPool />} />
           <Route exact path="/presale" element={<Presale />} />
@@ -52,7 +52,7 @@ function App() {
             path="/marketplaceList"
             element={<MarketPlaceList />}
           />
-          <Route exact path="/transactionlog" element={<TransactionLog/>}/>
+          <Route exact path="/transactionlog" element={<TransactionLog />} />
         </Routes>
         <FooterDown />
         <Footer />
