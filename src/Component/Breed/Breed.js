@@ -1,11 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { MdOutlineKeyboardBackspace } from 'react-icons/md';
 import { Link } from "react-router-dom";
 import "./Breed.css"
 import { IoMdClose } from "react-icons/io";
 import Breedimag from "../../Assets/Breed.png"
 import Group195 from "../../Assets/Group 195.png"
-import On from "../../Assets/On.png"
+import On from "../../Assets/On.png";
+import off from "../../Assets/Off.png";
 import tiger from "../../Assets/tiger 1 1.png"
 import Group609 from "../../Assets/Group 609.png"
 import Rectangle456 from "../../Assets/Rectangle 456.png"
@@ -16,9 +17,20 @@ import Modal from 'react-bootstrap/Modal';
 import card1 from "../../Assets/card 1.png"
 import SideBar from "../SideBar/SideBar"
 import MediaSidebar from '../SideBar/MediaSidebar';
+import useAudio from '../Mint/useAudio';
+import url from '../../Assets/MMA Breed music.wav';
 function Breed() {
     const [modalShow, setModalShow] = useState(false);
     const [modalShowone, setModalShowone] = useState(false);
+    const [playing, toggle] = useAudio(url);
+    const playingSound = () => {
+        toggle();
+    };
+    useEffect(() => {
+        setTimeout(() => {
+          playingSound();
+        }, 1000);
+      }, []);
     return (
         <div className='imagePool'>
             <div className='container'>
@@ -220,7 +232,16 @@ function Breed() {
                                                 <div className='row'>
                                                     <div className='col-12 d-flex flex-row'>
                                                         <div>
-                                                            <img src={On} />
+                                                        {
+                                            !playing ?
+                                            <img src={off}
+                                        onClick={playingSound}
+                                        />
+                                            :
+                                            <img src={On}
+                                           onClick={playingSound}
+                                           />
+                                        }
                                                         </div>
 
                                                         <div className='text-center offset-lg-2'>

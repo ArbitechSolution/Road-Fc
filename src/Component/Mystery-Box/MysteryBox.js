@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { MdOutlineKeyboardBackspace } from 'react-icons/md';
 import { RiCheckboxBlankCircleFill } from 'react-icons/ri'
 import { Link } from "react-router-dom";
 import "./MysteryBox.css"
 import speaker from "../../Assets/speaker.png"
+import off from "../../Assets/Off.png"
 // import { IoMdClose } from "react-icons/io";
 
 import Modal from 'react-bootstrap/Modal';
@@ -17,9 +18,20 @@ import plus from "../../Assets/plus.png"
 import RollIMG from "../../Assets/RollIMG.png"
 import SideBar from "../SideBar/SideBar"
 import MediaSidebar from '../SideBar/MediaSidebar';
+import useAudio from '../Mint/useAudio';
+import url from '../../Assets/Mistery Box.wav';
 function MysteryBox() {
     const [modalShow, setModalShow] = useState(false);
     const [modalShowSecond, setModalShowSecond] = useState(false);
+    const [playing, toggle] = useAudio(url);
+    const playingSound = () => {
+        toggle();
+    };
+    useEffect(() => {
+        setTimeout(() => {
+          playingSound();
+        }, 1000);
+      }, []);
     let [valueone, setValueone] = useState(1)
     const increaseValuebox = () => {
         setValueone(++valueone)
@@ -281,7 +293,8 @@ function MysteryBox() {
                                 <img src={mystery} className="mint-image" />
                                 <div className='row'>
                                     <div className='col-12 pe-4  text-end mb-3'>
-                                        {/* {
+                                       
+                                       {
                                             !playing ?
                                             <img src={off}
                                         onClick={playingSound}
@@ -290,10 +303,7 @@ function MysteryBox() {
                                             <img src={speaker}
                                            onClick={playingSound}
                                            />
-                                        } */}
-                                        <img src={speaker}
-                                        //    onClick={playingSound}
-                                        />
+                                        }
 
                                     </div>
                                 </div>
