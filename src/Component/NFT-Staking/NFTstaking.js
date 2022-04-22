@@ -51,7 +51,7 @@ function NFTstaking() {
                                         <span className='staking-span'>With NFTs card Stake and get your reward with $ROAD token!</span>
                                     </div>
                                 </div>
-                                <div className='row d-flex justify-content-center mt-3 mb-3 ms-lg-1'>
+                                <div className='row d-flex justify-content-center mt-md-3 mt-4 mb-4 ms-lg-1'>
                                     <div className='col-lg-4 col-11 NFTstaking-boxes'>
                                         <div className='row d-flex justify-content-center'>
                                             <div className='col-12 NFTstaking-boxes1'>
@@ -97,22 +97,16 @@ function NFTstaking() {
                                         </div>
                                     </div>
                                     <div className='col-lg-8'>
-                                        <div className='row d-flex justify-content-center justify-content-around'>
+                                        <div className='row d-flex justify-content-center justify-content-around mt-md-0 mt-3'>
                                             <div className='col-md-4 nft-staking-b0xxs p-2 mt-2 mb-1'>
                                                 <div>
                                                     <img src={pool1} className="nftstaking-img mt-2" />
                                                     <p className='text-center mt-2' style={{ color: "white", }}>Pepe</p>
                                                 </div>
-                                                <div className=' d-flex flex-row justify-content-center justify-content-evenly'>
-                                                    <div className=''>
-                                                        <button className='btn nft-staking-btn'>Stake</button>
-                                                    </div>
-                                                    <div className=''>
-                                                        <button className='btn nft-staking-btn1'>Unstake</button>
-                                                    </div>
-                                                    <div>
-                                                        <button className='btn nft-staking-btn3'>Claim</button>
-                                                    </div>
+                                                <div className=' d-flex justify-content-center'>
+                                                    <button className='btn nft-staking-btn m-1'>Stake</button>
+                                                    <button className='btn nft-staking-btn1 m-1'>Unstake</button>
+                                                    <button className='btn nft-staking-btn3 m-1'>Claim</button>
                                                 </div>
 
                                             </div>
@@ -121,18 +115,10 @@ function NFTstaking() {
                                                     <img src={pool2} className="nftstaking-img mt-2" />
                                                     <p className='text-center mt-2' style={{ color: "white", }}>Frankenstein</p>
                                                 </div>
-                                                <div className='row d-flex justify-content-center justify-content-md-around'>
-                                                    <div className=' d-flex flex-row justify-content-center justify-content-evenly'>
-                                                        <div className=''>
-                                                            <button className='btn nft-staking-btn'>Stake</button>
-                                                        </div>
-                                                        <div className=''>
-                                                            <button className='btn nft-staking-btn1'>Unstake</button>
-                                                        </div>
-                                                        <div>
-                                                            <button className='btn nft-staking-btn3'>Claim</button>
-                                                        </div>
-                                                    </div>
+                                                <div className=' d-flex justify-content-center'>
+                                                    <button className='btn nft-staking-btn m-1'>Stake</button>
+                                                    <button className='btn nft-staking-btn1 m-1'>Unstake</button>
+                                                    <button className='btn nft-staking-btn3 m-1'>Claim</button>
                                                 </div>
 
                                             </div>
@@ -142,15 +128,9 @@ function NFTstaking() {
                                                     <p className='text-center mt-2' style={{ color: "white", }}>Vampire</p>
                                                 </div>
                                                 <div className=' d-flex justify-content-center'>
-                                                    <div className=''>
-                                                        <button className='btn nft-staking-btn'>Stake</button>
-                                                    </div>
-                                                    <div className=''>
-                                                        <button className='btn nft-staking-btn1'>Unstake</button>
-                                                    </div>
-                                                    <div>
-                                                        <button className='btn nft-staking-btn3'>Claim</button>
-                                                    </div>
+                                                    <button className='btn nft-staking-btn m-1'>Stake</button>
+                                                    <button className='btn nft-staking-btn1 m-1'>Unstake</button>
+                                                    <button className='btn nft-staking-btn3 m-1'>Claim</button>
                                                 </div>
 
                                             </div>
@@ -159,16 +139,10 @@ function NFTstaking() {
                                                     <img src={pool4} className="nftstaking-img mt-2" />
                                                     <p className='text-center mt-2' style={{ color: "white", }}>Alien</p>
                                                 </div>
-                                                <div className=' d-flex justify-content-center '>
-                                                    <div className=''>
-                                                        <button className='btn nft-staking-btn'>Stake</button>
-                                                    </div>
-                                                    <div className=''>
-                                                        <button className='btn nft-staking-btn1'>Unstake</button>
-                                                    </div>
-                                                    <div>
-                                                        <button className='btn nft-staking-btn3'>Claim</button>
-                                                    </div>
+                                                <div className=' d-flex justify-content-center'>
+                                                    <button className='btn nft-staking-btn m-1'>Stake</button>
+                                                    <button className='btn nft-staking-btn1 m-1'>Unstake</button>
+                                                    <button className='btn nft-staking-btn3 m-1'>Claim</button>
                                                 </div>
                                             </div>
                                             <div className='col-md-4 nft-staking-b0xxs p-2 mt-2'>
@@ -177,15 +151,9 @@ function NFTstaking() {
                                                     <p className='text-center mt-2' style={{ color: "white", }}>Ape</p>
                                                 </div>
                                                 <div className=' d-flex justify-content-center'>
-                                                    <div className=''>
-                                                        <button className='btn nft-staking-btn'>Stake</button>
-                                                    </div>
-                                                    <div className=''>
-                                                        <button className='btn nft-staking-btn1'>Unstake</button>
-                                                    </div>
-                                                    <div>
-                                                        <button className='btn nft-staking-btn3'>Claim</button>
-                                                    </div>
+                                                    <button className='btn nft-staking-btn m-1'>Stake</button>
+                                                    <button className='btn nft-staking-btn1 m-1'>Unstake</button>
+                                                    <button className='btn nft-staking-btn3 m-1'>Claim</button>
                                                 </div>
 
                                             </div>
@@ -195,15 +163,9 @@ function NFTstaking() {
                                                     <p className='text-center mt-2' style={{ color: "white", }}>Wolf</p>
                                                 </div>
                                                 <div className=' d-flex justify-content-center'>
-                                                <div className=''>
-                                                            <button className='btn nft-staking-btn'>Stake</button>
-                                                        </div>
-                                                        <div className=''>
-                                                            <button className='btn nft-staking-btn1'>Unstake</button>
-                                                        </div>
-                                                        <div>
-                                                            <button className='btn nft-staking-btn3'>Claim</button>
-                                                        </div>
+                                                    <button className='btn nft-staking-btn m-1'>Stake</button>
+                                                    <button className='btn nft-staking-btn1 m-1'>Unstake</button>
+                                                    <button className='btn nft-staking-btn3 m-1'>Claim</button>
                                                 </div>
                                             </div>
                                         </div>

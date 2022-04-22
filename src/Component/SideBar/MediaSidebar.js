@@ -129,8 +129,8 @@ function MediaSidebar() {
   return (
     <div className=' pt-5' style={{ backgroundColor: "#111217" }}>
 
-      <div className='row d-flex justify-content-center'>
-        <div className='col-11 staking-coll' style={{}}>
+      <div className=' d-flex justify-content-center'>
+        <div className='col-11 staking-coll' style={{}} >
 
           <div className="lang-select" id="newlocale"
             onClick={() => setDropDown(!dropdown)}

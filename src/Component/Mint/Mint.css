@@ -365,12 +365,21 @@ color: #fff;
         border-radius: 50px;
         font-weight: 300;
         font-size: 12px;
-        line-height: 132%;
-        padding: 8px 24px;
+        line-height: 102%;
+        padding: 8px 20px;
         color: #FFFFFF;
 
     }
+    .btn-congrats {
+        background: linear-gradient(180deg, #FF5043 0%, #F92D1E 100%);;
+        border-radius: 50px;
+        font-weight: 300;
+        font-size: 12px;
+        line-height: 102%;
+        padding: 8px 20px;
+        color: #FFFFFF;
 
+    }
     .btn2-congrats {
         border: 1px solid #7E808D;
         box-sizing: border-box;

@@ -78,7 +78,12 @@ function Breed() {
                                     </div>
 
                                 </div>
-                                <div className='d-flex justify-content-center'>
+                                <div className=' d-flex justify-content-center mt-3 mb-3'>
+                                    <button className='btn btn-congrats m-2' >Breed</button>
+                                    <button className='btn btn1-congrats m-2' size="lg" onClick={() => setModalShowone(true)}>Sell</button>
+                                    <button className='btn btn2-congrats m-2' size="lg">Do it Later</button>
+                                </div>
+                                {/* <div className='d-flex justify-content-center'>
 
                                             <button className='btn btn-congrats m-sm-3 m-2' size="lg">
                                                 Breed
@@ -92,7 +97,7 @@ function Breed() {
                                                 Do it Later
                                             </button>
 
-                                </div>
+                                </div> */}
                             </Modal.Body>
                         </Modal> : <></>}
 
@@ -239,7 +244,6 @@ function Breed() {
                                                 </div>
                                             </div>
                                         </div>
-
                                     </div>
                                 </div>
                             </div>

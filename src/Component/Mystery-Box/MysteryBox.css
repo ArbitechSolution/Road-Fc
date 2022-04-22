@@ -50,10 +50,14 @@
     font-size: 15px;
     line-height: 132%;
     color: #FFFFFF;
-    padding: 7px 12px;
+    padding: 10px 17px;
 
 }
-
+.mystery-image2{
+    position: absolute;
+    top: -34px;
+    left: 290px;
+}
 .mystrey-imagess {
     background-image: url("../../Assets/Group 480.png");
     background-repeat: no-repeat;
@@ -115,11 +119,38 @@ color: #7E808D;
     .mybox-image {
         width: 300px;
     }
+    .mystery-image2{
+        position: absolute;
+        top: -34px;
+        left: 150px;
+    }
 }
 
 @media(max-width: 600px) {
     .mybox-image {
         width: 240px;
+    }
+    .mystery-image2{
+        position: absolute;
+        top: -34px;
+        width: 200px;
+        left: 100px;
+    }
+    .stery-span {
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 12%;
+        color: #B1B1B1;
+        text-align: left;
+    }
+
+    .stery-span1 {
+        font-weight: 400;
+        font-size: 10px;
+        line-height: 14%;
+        color: #7E808D;
+        text-align: left;
+
     }
 }
 
@@ -127,4 +158,27 @@ color: #7E808D;
     .mybox-image {
         width: 170px;
     }
+    .mystery-image2{
+        position: absolute;
+        top: -30px;
+        width: 150px;
+        left: 100px;
+    }
+    .stery-span {
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 12%;
+        color: #B1B1B1;
+        text-align: left;
+    }
+
+    .stery-span1 {
+        font-weight: 400;
+        font-size: 10px;
+        line-height: 14%;
+        color: #7E808D;
+        text-align: left;
+
+    }
+
 }
