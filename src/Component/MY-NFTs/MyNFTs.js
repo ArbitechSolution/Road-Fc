@@ -321,14 +321,19 @@ function MyNFTs() {
                                             <img src={`/config/${item.imageUrl}`} className="nfts-image " />
                                             <p className='nfts-h6 mt-3'>{item.imageName}</p>
                                             {/* <p className='nfts-pp text-start'>Common</p> */}
-                                            <div className="d-flex justify-content-between mt-2 mb-2">
+                                            <div className=' d-flex justify-content-center'>
+                                                    <button className='btn nft-staking-btn m-1'>Sell</button>
+                                                    <button className='btn nft-staking-btn1 m-1'>Stake</button>
+                                                    <button className='btn nft-staking-btn3 m-1' onClick={() => showTransferNfts(item.imageUrl, item.imageName, item.tokenId)}>Transfer</button>
+                                                </div>
+                                            {/* <div className="d-flex justify-content-between mt-2 mb-2">
                                                 <button className='btn btnStakePage32' size="sm">
                                                     Sell
                                                 </button>
                                                 <button className='btn btnStakePage' size="sm" onClick={() => showTransferNfts(item.imageUrl, item.imageName, item.tokenId)}>
                                                     Transfer
                                                 </button>
-                                            </div>
+                                            </div> */}
                                         </div>
                                     )
                                 })
