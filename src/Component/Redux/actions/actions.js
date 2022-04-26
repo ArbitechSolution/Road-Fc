@@ -5,7 +5,7 @@ import {GET_USER_THB_BALANCE, GET_WALLET_ADDRESS,GET_USER_THB_LP_BALANCE,
      GET_PRE_SALE_INFO,
      GET_WALLET_BALANCE,
      USER_DEPOSIT_TIME,
-     MINTING_INFO} from '../type/types'
+     MINTING_INFO, REWARD_OF_USER} from '../type/types'
 import {loadWeb3} from '../../../Component/Api/api'
 import Web3 from "web3";
 import { thbTokenAddress, thbTokenAbi } from "../../Utils/roadFcToken"
@@ -13,7 +13,7 @@ import { thbLpTokenAddress, thbLpTokenAbi } from '../../../Component/Utils/ThbLp
 import { stakingContractAddress, stakingContractAbi } from '../../../Component/Utils/Staking'
 import { nftContratAddress, nftContractAbi } from '../../../Component/Utils/Nft'
 import { preSaleContractAbi, preSaleContractAddress } from '../../Utils/preSale';
-
+import {nftStakingAbi, nftStakingAddress} from '../../Utils/NFTStakingContract'
 const webSupply = new Web3("https://data-seed-prebsc-1-s1.binance.org:8545/");
 
 let thbTokenContractOf = new webSupply.eth.Contract(thbTokenAbi, thbTokenAddress);
@@ -381,6 +381,29 @@ export const getTotalEnergy = () => async (dispatch) => {
    }
     }catch(e){
         console.error("error while get total energy", e)
+    }
+}
+
+export const getRewardOfUser = () => async (dispatch) => {
+    try{
+        let address = await loadWeb3();
+        if (address == "No Wallet") {
+            console.log("Not Connected")
+        } else if (address == "Wrong Network") {
+            console.log("Wrong Network")
+        } else {
+            const web3 = window.web3;
+            const nftStakingContract = new web3.eth.Contract(nftStakingAbi, nftStakingAddress);
+            let userReward = await nftStakingContract.methods.rewardOfUser(address).call();
+            userReward = web3.utils.fromWei(userReward);
+
+            dispatch({
+                type:REWARD_OF_USER,
+                payload:parseFloat(userReward)
+            })
+        }
+    }catch(e){
+        console.error("error while get reward of user", e);
     }
 }
 

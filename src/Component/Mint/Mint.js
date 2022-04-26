@@ -16,8 +16,8 @@ import SideBar from "../SideBar/SideBar"
 import MediaSidebar from '../SideBar/MediaSidebar';
 import { toast } from 'react-toastify';
 import { useSelector, useDispatch } from 'react-redux'
-import { getWallet, getTotalEnergy } from '../Redux/actions/actions'
-import { nftContractAbi, nftContratAddress } from '../Utils/Nft'
+import { getWallet, getTotalEnergy } from '../Redux/actions/actions';
+import { nftContractAbi, nftContratAddress } from '../Utils/Nft';
 import { stakingContractAbi, stakingContractAddress } from '../Utils/Staking'
 
 import { formHelperTextClasses } from '@mui/material';
@@ -36,7 +36,7 @@ useEffect(() => {
       playingSound();
     }, 1000);
   }, []);
-    let { acc } = useSelector(state => state.connectWallet)
+    let { acc } = useSelector(state => state.connectWallet);
     let { energyPoint, minintPrice } = useSelector(state => state.mintngInfo);
     let [spendEnergy,setSpendEnergy] =useState(100000)
     let [mintArray, setMintArray] = useState([]);

@@ -96,9 +96,10 @@ padding: 7px 12px;
     background: linear-gradient(90deg, #565866 1.7%, #5E606E 100%);
 border-radius: 100px;
 font-weight: 500;
-font-size: 10px;
+font-size: 13px;
 line-height: 7px;
 color: #FFFFFF;
+padding: 7px 12px;
 }
 .nft-staking-btn3{
     background: #3C2226;
@@ -114,14 +115,15 @@ padding: 7px 12px;
 }
 
 .nft-staking-btn3:hover{
-    background: #ffffff;
+    background: #3C2226;
     border: 1px solid #7E808D;
     box-sizing: border-box;
     border-radius: 50px;
     font-weight: 500;
-    font-size: 12px;
-    line-height: 7px;
-    color: #3C2226;
+    font-size: 13px;
+line-height: 7px;
+color: #FFFFFF;
+padding: 7px 12px;
 }
 .btn-unstake{
     background: linear-gradient(90deg, #565866 1.7%, #5E606E 100%);
@@ -140,6 +142,15 @@ font-size: 20px;
 line-height: 7px;
 color: #565866;
 padding: 12px 12px;
+}
+.btn-unstake21{
+    background: linear-gradient(90deg, #F92D1E 1%, #FF5043 100%);
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 7px;
+    color: #FFFFFF;
+    padding: 15px 42px;
 }
 .MdOutlineKeyboardBackspace{
     font-size: 40px;

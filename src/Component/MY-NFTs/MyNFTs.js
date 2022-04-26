@@ -11,7 +11,8 @@ import Vector22 from "../../Assets/Vector22.png"
 import Vector33 from "../../Assets/Vector33.png"
 import SideBar from "../SideBar/SideBar"
 import { toast } from 'react-toastify';
-import { nftContractAbi, nftContratAddress } from '../Utils/Nft'
+import { nftContractAbi, nftContratAddress } from '../Utils/Nft';
+import {nftStakingAbi, nftStakingAddress} from '../Utils/NFTStakingContract';
 import Group843 from "../../Assets/Group 843.png"
 import Rectangle450 from "../../Assets/Rectangle 450.png"
 import axios from 'axios';
@@ -189,6 +190,35 @@ function MyNFTs() {
 
         }
     }
+
+    const stakeNFT = async (nftId) => {
+        try{
+            if (acc == "No Wallet") {
+                //   setBtTxt("Connect Wallet")
+                console.log("Not Connected")
+            }
+            else if (acc == "Wrong Network") {
+                //   setBtTxt("Wrong Network")
+                console.log("Not Connected")
+            } else if (acc == "Connect Wallet") {
+                console.log("Not Connected")
+            } else {
+                const web3 = window.web3;
+                const nftContract = new web3.eth.Contract(nftContractAbi, nftContratAddress);
+                const nftStakingContract = new web3.eth.Contract(nftStakingAbi, nftStakingAddress);
+                await nftContract.methods.approve(nftStakingAddress,nftId).send({
+                    from:acc
+                });
+                await nftStakingContract.methods.Stake([nftId]).send({
+                    from:acc
+                });
+                toast.success("Confirmed staked NFT")
+                getNfts();
+            }
+        }catch(e){
+            console.error("error while stake NFT",e);
+        }
+    }
     useLayoutEffect(() => {
         getNfts()
         getData()
@@ -313,17 +343,21 @@ function MyNFTs() {
                                 <p className='nft-p'>Total <span className='nft-span'>({nftArrayLength})</span></p>
                             </div>
                         </div>
-                        <div className='row d-flex justify-content-center justify-content-sm-between justify-content-evenly mb-3'>
+                        <div className='row d-flex justify-content-center flex-wrap mb-3'>
                             {
                                 nftArray?.slice(initialLimit, finalLimit).map((item, index) => {
                                     return (
-                                        <div className='col-md-2 nft-boxx p-2 mt-3 ' key={index}>
+                                        <div className='col-md-2 nft-boxx p-2 mt-3  m-1' key={index}>
                                             <img src={`/config/${item.imageUrl}`} className="nfts-image " />
                                             <p className='nfts-h6 mt-3'>{item.imageName}</p>
                                             {/* <p className='nfts-pp text-start'>Common</p> */}
                                             <div className=' d-flex justify-content-center'>
                                                     <button className='btn nft-staking-btn m-1'>Sell</button>
-                                                    <button className='btn nft-staking-btn1 m-1'>Stake</button>
+                                                    <button className='btn nft-staking-btn1 m-1'
+                                                    onClick={()=>{
+                                                        stakeNFT(item.tokenId)
+                                                    }}
+                                                    >Stake</button>
                                                     <button className='btn nft-staking-btn3 m-1' onClick={() => showTransferNfts(item.imageUrl, item.imageName, item.tokenId)}>Transfer</button>
                                                 </div>
                                             {/* <div className="d-flex justify-content-between mt-2 mb-2">
