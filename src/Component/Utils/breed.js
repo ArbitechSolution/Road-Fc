@@ -1,13 +1,25 @@
-export const nftContratAddress = "0xE0daB057Aaf0894880AEb93bA87D0C38F791Ed82";
-export const nftContractAbi = [{
+export const breedContractAddress = "0x2ea97Dd0aB9Cdf7989e56a72E95dD707ef50cdcC";
+export const breedContractAbi = [{
     "inputs": [{
-        "internalType": "string",
-        "name": "_name",
-        "type": "string"
+        "internalType": "contract IERC721",
+        "name": "_NFT",
+        "type": "address"
     }, {
-        "internalType": "string",
-        "name": "_symbol",
-        "type": "string"
+        "internalType": "contract IERC20",
+        "name": "_LiveBNB",
+        "type": "address"
+    }, {
+        "internalType": "contract IERC20",
+        "name": "_TOKEN",
+        "type": "address"
+    }, {
+        "internalType": "contract IPancakeRouter01",
+        "name": "_Router",
+        "type": "address"
+    }, {
+        "internalType": "address payable",
+        "name": "_Owner",
+        "type": "address"
     }],
     "stateMutability": "nonpayable",
     "type": "constructor"
@@ -87,8 +99,11 @@ export const nftContractAbi = [{
     "name": "Transfer",
     "type": "event"
 }, {
+    "stateMutability": "payable",
+    "type": "fallback"
+}, {
     "inputs": [],
-    "name": "MaxLimitPerTransaction",
+    "name": "BNB",
     "outputs": [{
         "internalType": "uint256",
         "name": "",
@@ -97,20 +112,76 @@ export const nftContractAbi = [{
     "stateMutability": "view",
     "type": "function"
 }, {
-    "inputs": [],
-    "name": "MinitngPrice",
-    "outputs": [{
+    "inputs": [{
         "internalType": "uint256",
-        "name": "",
+        "name": "_id1",
         "type": "uint256"
+    }, {
+        "internalType": "uint256",
+        "name": "_id2",
+        "type": "uint256"
+    }, {
+        "internalType": "uint256",
+        "name": "tokenID",
+        "type": "uint256"
+    }, {
+        "internalType": "string",
+        "name": "URI",
+        "type": "string"
+    }, {
+        "internalType": "uint256",
+        "name": "_type",
+        "type": "uint256"
+    }],
+    "name": "Breed",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function"
+}, {
+    "inputs": [],
+    "name": "LIVEBNB",
+    "outputs": [{
+        "internalType": "contract IERC20",
+        "name": "",
+        "type": "address"
     }],
     "stateMutability": "view",
     "type": "function"
 }, {
     "inputs": [],
-    "name": "Road_Staking",
+    "name": "MINT",
     "outputs": [{
-        "internalType": "contract IBEP20",
+        "internalType": "contract IERC721",
+        "name": "",
+        "type": "address"
+    }],
+    "stateMutability": "view",
+    "type": "function"
+}, {
+    "inputs": [],
+    "name": "Router",
+    "outputs": [{
+        "internalType": "contract IPancakeRouter01",
+        "name": "",
+        "type": "address"
+    }],
+    "stateMutability": "view",
+    "type": "function"
+}, {
+    "inputs": [],
+    "name": "Token",
+    "outputs": [{
+        "internalType": "contract IERC20",
+        "name": "",
+        "type": "address"
+    }],
+    "stateMutability": "view",
+    "type": "function"
+}, {
+    "inputs": [],
+    "name": "WETH",
+    "outputs": [{
+        "internalType": "address",
         "name": "",
         "type": "address"
     }],
@@ -119,16 +190,16 @@ export const nftContractAbi = [{
 }, {
     "inputs": [{
         "internalType": "uint256",
-        "name": "tokenId",
+        "name": "_amount",
         "type": "uint256"
-    }],
-    "name": "abc",
-    "outputs": [{
+    }, {
         "internalType": "uint256",
-        "name": "",
+        "name": "half",
         "type": "uint256"
     }],
-    "stateMutability": "view",
+    "name": "addLiquidity",
+    "outputs": [],
+    "stateMutability": "payable",
     "type": "function"
 }, {
     "inputs": [{
@@ -170,20 +241,6 @@ export const nftContractAbi = [{
     "type": "function"
 }, {
     "inputs": [{
-        "internalType": "address",
-        "name": "add",
-        "type": "address"
-    }],
-    "name": "checkBPEnergy",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
         "internalType": "uint256",
         "name": "tokenId",
         "type": "uint256"
@@ -217,30 +274,6 @@ export const nftContractAbi = [{
 }, {
     "inputs": [],
     "name": "maxsupply",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_count",
-        "type": "uint256"
-    }],
-    "name": "mint",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "name": "mintLevel",
     "outputs": [{
         "internalType": "uint256",
         "name": "",
@@ -380,6 +413,16 @@ export const nftContractAbi = [{
     "type": "function"
 }, {
     "inputs": [{
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
+    }],
+    "name": "setBUSDmount",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [{
         "internalType": "string",
         "name": "_newBaseURI",
         "type": "string"
@@ -394,37 +437,7 @@ export const nftContractAbi = [{
         "name": "_amount",
         "type": "uint256"
     }],
-    "name": "setMaxLimitPerTransaction",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-    }],
     "name": "setMaxSupply",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "a",
-        "type": "uint256"
-    }],
-    "name": "setMintingLevel",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-    }],
-    "name": "setMintingPrice",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -481,6 +494,20 @@ export const nftContractAbi = [{
         "type": "bool"
     }],
     "stateMutability": "view",
+    "type": "function"
+}, {
+    "inputs": [{
+        "internalType": "uint256",
+        "name": "value",
+        "type": "uint256"
+    }, {
+        "internalType": "address",
+        "name": "token",
+        "type": "address"
+    }],
+    "name": "swapExactETHForTokens",
+    "outputs": [],
+    "stateMutability": "payable",
     "type": "function"
 }, {
     "inputs": [],
@@ -575,6 +602,16 @@ export const nftContractAbi = [{
     "name": "transferOwnership",
     "outputs": [],
     "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [],
+    "name": "usdRequired",
+    "outputs": [{
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+    }],
+    "stateMutability": "view",
     "type": "function"
 }, {
     "inputs": [{
