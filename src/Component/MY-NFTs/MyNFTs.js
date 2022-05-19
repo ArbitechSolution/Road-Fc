@@ -13,6 +13,7 @@ import SideBar from "../SideBar/SideBar"
 import { toast } from 'react-toastify';
 import { nftContractAbi, nftContratAddress } from '../Utils/Nft';
 import {nftStakingAbi, nftStakingAddress} from '../Utils/NFTStakingContract';
+import {breedContractAbi, breedContractAddress} from '../Utils/breed';
 import Group843 from "../../Assets/Group 843.png"
 import Rectangle450 from "../../Assets/Rectangle 450.png"
 import axios from 'axios';
@@ -54,11 +55,56 @@ function MyNFTs() {
                 const web3 = window.web3;
                 const nftContract = new web3.eth.Contract(nftContractAbi, nftContratAddress);
                 let totalIds = await nftContract.methods.walletOfOwner(acc).call();
-                setNftsArrayLength(totalIds.length)
-                let ttlPage = parseInt(totalIds.length) / 12;
+                const breedContract = new web3.eth.Contract(breedContractAbi, breedContractAddress);
+                const breedIds = await breedContract.methods.walletOfOwner(acc).call()
+                setNftsArrayLength(totalIds.length + breedIds.length)
+                let ttlPage = parseInt(totalIds.length + breedIds.length) / 12;
                 ttlPage = Math.ceil(ttlPage);
                 setTotalPages(ttlPage)
+
                 let simplleArray = [];
+                breedIds.forEach(async(ids)=>{
+                    let uris = await breedContract.methods.tokenURI(ids).call();
+                    uris = uris.split("/");
+                    console.log("uris", uris);
+                    if(uris[5] == "common"){
+                        let imageUrl = `/fighter nft/common/${uris[6]}`;
+                        let imageName = `Common #${ids}`;
+                        let tokenId = ids;
+                        simplleArray = [...simplleArray, { imageUrl, imageName, tokenId }];
+                        setNftsArray(simplleArray);
+                    }else if(uris[5] == "uncommon"){
+                        let imageUrl = `/fighter nft/uncommon/${uris[6]}`;
+                        let imageName = `Unommon #${ids}`;
+                        let tokenId = ids;
+                        simplleArray = [...simplleArray, { imageUrl, imageName, tokenId }];
+                        setNftsArray(simplleArray);
+                    }else if(uris[5] == "rare"){
+                        let imageUrl = `/fighter nft/rare/${uris[6]}`;
+                        let imageName = `Rare #${ids}`;
+                        let tokenId = ids;
+                        simplleArray = [...simplleArray, { imageUrl, imageName, tokenId }];
+                        setNftsArray(simplleArray);
+                    }else if(uris[5] == "epic"){
+                        let imageUrl = `/fighter nft/epic/${uris[6]}`;
+                        let imageName = `Epic #${ids}`;
+                        let tokenId = ids;
+                        simplleArray = [...simplleArray, { imageUrl, imageName, tokenId }];
+                        setNftsArray(simplleArray);
+                    }else if(uris[5] == "legendary"){
+                        let imageUrl = `/fighter nft/legendary/${uris[6]}`;
+                        let imageName = `Legendary #${ids}`;
+                        let tokenId = ids;
+                        simplleArray = [...simplleArray, { imageUrl, imageName, tokenId }];
+                        setNftsArray(simplleArray);
+                    }else if(uris[5] == "mythic"){
+                        let imageUrl = `/fighter nft/mythic/${uris[6]}`;
+                        let imageName = `Mythic #${ids}`;
+                        let tokenId = ids;
+                        simplleArray = [...simplleArray, { imageUrl, imageName, tokenId }];
+                        setNftsArray(simplleArray);
+                    }
+                })
                 for (let i = 0; i < totalIds.length; i++) {
                     if (totalIds[i] <= 3560) {
                         let imageUrl = `/images/common.png`;
@@ -348,7 +394,7 @@ function MyNFTs() {
                                 nftArray?.slice(initialLimit, finalLimit).map((item, index) => {
                                     return (
                                         <div className='col-md-2 nft-boxx p-2 mt-3  m-1' key={index}>
-                                            <img src={`/config/${item.imageUrl}`} className="nfts-image " />
+                                            <img src={`/config/${item.imageUrl}`} className="nfts-image" />
                                             <p className='nfts-h6 mt-3'>{item.imageName}</p>
                                             {/* <p className='nfts-pp text-start'>Common</p> */}
                                             <div className=' d-flex justify-content-center'>

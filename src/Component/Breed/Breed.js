@@ -36,6 +36,7 @@ function Breed() {
     let [nftArray, setNftsArray] = useState([])
     const [modalShow, setModalShow] = useState(false);
     const [modalShowone, setModalShowone] = useState(false);
+    let [breedNft, setBreedNft]= useState("")
     const [playing, toggle] = useAudio(url);
     const playingSound = () => {
         toggle();
@@ -109,22 +110,16 @@ function Breed() {
             console.error("error while get nfts", e);
         }
     }
-    const getData = () => {
-        if (acc != "No Wallet" && acc != "Wrong Network" && acc != "Connect Wallet") {
-            console.log("test");
-            getNfts()
-            dispatch(getUserBalance())
-        }
-    }
+    
     let [checkCounter, setCheckCounter] = useState(0)
     let [trainerOne, setTrainerOne] = useState({
-        width:50,
+        width:40,
         status:false,
         imgUrl:Group195,
         tokenId:0,
     });
     let [trainerTwo, setTrainerTwo] = useState({
-        width:50,
+        width:40,
         status:false,
         imgUrl:Group195,
         tokenId:0,
@@ -159,7 +154,7 @@ function Breed() {
     const cancleBreedImageOne = () => {
         setTrainerOne(
             {
-              width:50,
+              width:70,
                 status:false,
                   imgUrl:Group195,
                   tokenId:0
@@ -169,7 +164,7 @@ function Breed() {
     const cancleBreedImageTwo = () => {
         setTrainerTwo(
             {
-              width:50,
+              width:70,
                 status:false,
                   imgUrl:Group195,
                   tokenId:0,
@@ -224,12 +219,11 @@ function Breed() {
                 let bnb_value = web3.utils.fromWei(bnb)
                 bnb_value = parseFloat(bnb_value).toFixed(3)
                 if(userBalance >= bnb_value){
-                let breedData = await axios.get(`http://localhost:5000/api/users/getRandomIds?type1=${breedType1}&type2=${breedType2}`)
-                console.log("tokenid",typeof breedData.data.id, breedData.data.uri, breedData.data.type);
+                let breedData = await axios.get(`https://road-nft.herokuapp.com/api/users/getRandomIds?type1=${breedType1}&type2=${breedType2}`)
                 if(breedData.data.id !=null){
-                    // await nftContract.methods.setApprovalForAll(breedContractAddress, true).send({
-                    //     from : acc
-                    // })
+                    await nftContract.methods.setApprovalForAll(breedContractAddress, true).send({
+                        from : acc
+                    })
                     await breedContract.methods.Breed(
                          trainerOne.tokenId, trainerTwo.tokenId,
                         breedData.data.id, breedData.data.uri, breedData.data.type
@@ -239,11 +233,12 @@ function Breed() {
                     }
                     ).on("receipt", async(receipt)=>{
                         console.log("receipt", receipt);
-                        await axios.get(`http://localhost:5000/api/users/saveTokenId?type1=${breedType1}&type2=${breedType2}&tokenId=${breedData.data.id}`)
+                        await axios.get(`https://road-nft.herokuapp.com/api/users/saveTokenId?type1=${breedType1}&type2=${breedType2}&tokenId=${breedData.data.id}`)
                     })
+                    showBreedNft()
                     cancleBreedImageOne()
                     cancleBreedImageTwo()
-                    getNfts()
+                    getData()
                     toast.success("Breeding successed")
                 }else{
                     toast.info("ids full")
@@ -259,10 +254,48 @@ function Breed() {
             console.error("error while breed nft", e);
         }
     }
+
+    const showBreedNft = async () =>{
+        try{
+            const web3 = window.web3;
+            const breedContract = new web3.eth.Contract(breedContractAbi, breedContractAddress);
+            let walletIds = await breedContract.methods.walletOfOwner(acc).call()
+            walletIds = walletIds.slice(-1);
+            let walletUris =await breedContract.methods.tokenURI(walletIds[0]).call();
+            walletUris = walletUris.split("/")
+                if(walletUris[5] == "common"){
+                    setBreedNft(`/config/fighter nft/common/${walletUris[6]}`)
+                    setModalShow(true)
+                }else if(walletUris[5] == "uncommon"){
+                    setBreedNft(`/config/fighter nft/uncommon/${walletUris[6]}`);
+                    setModalShow(true)
+                }else if(walletUris[5] == "rare"){
+                    setBreedNft(`/config/fighter nft/rare/${walletUris[6]}`);
+                    setModalShow(true)
+                }else if(walletUris[5] == "epic"){
+                    setBreedNft(`/config/fighter nft/epic/${walletUris[6]}`);
+                    setModalShow(true)
+                }else if(walletUris[5] == "legendary"){
+                    setBreedNft(`/config/fighter nft/legendary/${walletUris[6]}`);
+                    setModalShow(true)
+                }else if(walletUris[5] == "mythic"){
+                    setBreedNft(`/config/fighter nft/mythic/${walletUris[6]}`);
+                    setModalShow(true)
+                }
+        }catch(e){
+            console.error("error while show breed", e);
+        }
+    }
     const getPrice = async () => {
         let price =await axios.get("https://min-api.cryptocompare.com/data/price?fsym=USDT&tsyms=BNB");
         price = price.data.BNB * 3;
         console.log("price", parseFloat(price).toFixed(2))
+    }
+    const getData = () => {
+        if (acc != "No Wallet" && acc != "Wrong Network" && acc != "Connect Wallet") {
+            getNfts()
+            dispatch(getUserBalance())
+        }
     }
     useEffect(() => {
         getData()
@@ -324,7 +357,7 @@ function Breed() {
                                         <p className='breed-p'>You got a fighter now!</p>
                                     </div>
                                     <div className='col-md-12 d-flex justify-content-center breed-imagess mt-3 mb-3'>
-                                        <img src={card1} className="mint-pic pt-4 pb-3" />
+                                        <img src={breedNft} className="mint-pic pt-4 pb-3" />
                                     </div>
                                     <div className='col-md-12 d-flex justify-content-center'>
                                         <span className='congrat-span'>Do you want to Breed card or sell in the market?</span>
@@ -430,7 +463,7 @@ function Breed() {
                                                 onClick={cancleBreedImageOne}
                                                 >
                                                     <div className='d-flex flex-column justify-content-center align-items-center pt-sm-5 pt-4 pb-sm-5 pb-4' >
-                                                {trainerOne.status &&<span className='text-danger fs-3 d-flex justify-content-start'
+                                                {trainerOne.status &&<span style={{paddingLeft: "105px"}} className='text-danger fs-5  d-flex justify-content-start'
                                                 onClick={cancleBreedImageOne} 
                                                 // style={{border: "2px solid red"}}
                                                 ><MdOutlineCancel/></span >}
@@ -448,7 +481,7 @@ function Breed() {
                                                 
                                                 >
                                                     <div className='d-flex flex-column justify-content-center align-items-center pt-sm-5 pt-4 pb-sm-5 pb-4' >
-                                                    {trainerTwo.status &&<span className='text-danger fs-3 d-flex justify-content-start'
+                                                    {trainerTwo.status &&<span style={{paddingLeft: "105px"}} className='text-danger fs-5 d-flex justify-content-start'
                                                     onClick={cancleBreedImageTwo}
                                                     > <MdOutlineCancel/></span >}
                                                     <img src={trainerTwo.imgUrl} width={`${trainerTwo.width}px`} className='' />
