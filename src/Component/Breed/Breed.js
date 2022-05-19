@@ -302,7 +302,7 @@ function Breed() {
         getNfts()
         // getPrice()
         setTimeout(() => {
-        //   playingSound();
+          playingSound();
         }, 1000);
       }, [acc]);
     return (
