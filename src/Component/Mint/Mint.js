@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { MdOutlineKeyboardBackspace } from 'react-icons/md';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Common1000 from "../../Assets/tiger 1 1.png"
 import "./Mint.css"
 import off from "../../Assets/Off.png"
@@ -25,6 +25,7 @@ import axios from 'axios';
 import url from '../../Assets/mintSound.wav';
 import useAudio from "./useAudio";
 function Mint() {
+    const navigate = useNavigate()
     const dispatch = useDispatch()
 
 const [playing, toggle] = useAudio(url);
@@ -256,7 +257,9 @@ useEffect(() => {
                                 <div className=' d-flex justify-content-center '>
 
 
-                                            <button className='btn btn-congrats m-sm-4 m-2' size="lg">
+                                            <button className='btn btn-congrats m-sm-4 m-2' size="lg"
+                                            onClick={()=>{navigate("/breed")}}
+                                            >
                                                 Breed
                                             </button>
 
