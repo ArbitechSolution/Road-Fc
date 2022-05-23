@@ -538,11 +538,22 @@ function Breed() {
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div className=' breedboxs123 mt-2 my-custom-scrollbar d-flex flex-row flex-wrap justify-content-between p-2'>
-                                                    {
+                                                <div className=' breedboxs123 mt-2 d-flex flex-row flex-wrap justify-content-between p-2'>
+                                                    <img src={Rectangle456} className="breedImages mt-2"/>
+                                                    <img src={Rectangle456} className="breedImages mt-2"/>
+                                                    <img src={Rectangle456} className="breedImages mt-2"/>
+                                                    <img src={Rectangle456} className="breedImages mt-2"/>
+                                                    <img src={Rectangle456} className="breedImages mt-2"/>
+                                                    <img src={Rectangle456} className="breedImages mt-2"/>
+                                                    {/* <img src={Rectangle456} className="breedImages mt-2"/>
+                                                    <img src={Rectangle456} className="breedImages mt-2"/>
+                                                    <img src={Rectangle456} className="breedImages mt-2"/>
+                                                    <img src={Rectangle456} className="breedImages mt-2"/>
+                                                    <img src={Rectangle456} className="breedImages mt-2"/> */}
+                                                    {/* {
                                                         nftArray.map((item)=>{
                                                             return (
-                                                                <div style={{border: "2px solid red"}}>
+                                                                <div className='' style={{border: "2px solid red", height: "180px"}}>
                                                                 <img src={`/config/${item.imageUrl}`} className='breedImages mt-2' style={{border: "2px solid red"}}
                                                                 onClick={()=>{
                                                                     getBreedImage(item.imageUrl, item.tokenId)
@@ -551,7 +562,7 @@ function Breed() {
                                                                 </div>
                                                             )
                                                         })
-                                                    }
+                                                    } */}
                                                 </div>
                                             </div>
                                         </div>
