@@ -47,9 +47,9 @@
 } */
 .breedImages {
     width: 120px;
-    height: 140px;
+    height: 120px;
     /* position: absolute; */
-    top: 200px;
+    /* top: 200px; */
 
 
 
@@ -58,14 +58,30 @@
 .breedboxs123 {
 
     /* box-sizing: border-box; */
-    display: block;
-    height: 580px;
+   
+
+    height: 520px;
     /* position: relative; */
-    /* width: 220px; */
+    width: 280px;
     /* overflow-x: hidden; */
+    
+    /* scroll-behavior: smooth;     */
+    /* overflow-x: hidden;
+    -webkit-appearance:inherit; */
     overflow-y: scroll;
-    overflow-x: hidden;
-    -webkit-appearance:inherit;
+
+}
+.breedboxs124{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+
+}
+.dummy-data{
+width: 100px;
+height: 100px;
+border: #F92D1E 2px solid;
 }
 
 ::-webkit-scrollbar {
