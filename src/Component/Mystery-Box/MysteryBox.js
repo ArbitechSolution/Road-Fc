@@ -28,9 +28,9 @@ function MysteryBox() {
         toggle();
     };
     useEffect(() => {
-        setTimeout(() => {
-          playingSound();
-        }, 1000);
+        // setTimeout(() => {
+        //   playingSound();
+        // }, 1000);
       }, []);
     let [valueone, setValueone] = useState(1)
     const increaseValuebox = () => {

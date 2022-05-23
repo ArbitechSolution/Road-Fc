@@ -33,9 +33,9 @@ const playingSound = () => {
     toggle();
 };
 useEffect(() => {
-    setTimeout(() => {
-      playingSound();
-    }, 1000);
+    // setTimeout(() => {
+    //   playingSound();
+    // }, 1000);
   }, []);
     let { acc } = useSelector(state => state.connectWallet);
     let { energyPoint, minintPrice } = useSelector(state => state.mintngInfo);

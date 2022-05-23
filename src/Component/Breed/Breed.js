@@ -301,9 +301,9 @@ function Breed() {
         getData()
         getNfts()
         // getPrice()
-        setTimeout(() => {
-          playingSound();
-        }, 1000);
+        // setTimeout(() => {
+        //   playingSound();
+        // }, 1000);
       }, [acc]);
     return (
         <div className='imagePool'>
@@ -539,12 +539,19 @@ function Breed() {
                                                     </div>
                                                 </div>
                                                 <div className=' breedboxs123 mt-2 d-flex flex-row flex-wrap justify-content-between p-2'>
+                                                    {
+                                                        nftArray.map((item)=>{
+                                                            return (
+                                                                <img src={`/config/${item.imageUrl}`} className="breedImages mt-2"/>
+                                                            )
+                                                        })
+                                                    }
+                                                    {/* <img src={Rectangle456} className="breedImages mt-2"/>
                                                     <img src={Rectangle456} className="breedImages mt-2"/>
                                                     <img src={Rectangle456} className="breedImages mt-2"/>
                                                     <img src={Rectangle456} className="breedImages mt-2"/>
-                                                    <img src={Rectangle456} className="breedImages mt-2"/>
-                                                    <img src={Rectangle456} className="breedImages mt-2"/>
-                                                    <img src={Rectangle456} className="breedImages mt-2"/>
+                                                    <img src={Rectangle456} className="breedImages mt-2"/> */}
+                                                    {/* <img src={Rectangle456} className="breedImages mt-2"/> */}
                                                     {/* <img src={Rectangle456} className="breedImages mt-2"/>
                                                     <img src={Rectangle456} className="breedImages mt-2"/>
                                                     <img src={Rectangle456} className="breedImages mt-2"/>
