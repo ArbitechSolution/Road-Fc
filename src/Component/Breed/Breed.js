@@ -43,7 +43,7 @@ function Breed() {
     };
     const getWalletAddress = () => {
         dispatch(getWallet());
-        
+
     }
     const getNfts = async () => {
         try {
@@ -63,7 +63,7 @@ function Breed() {
                 setNftsArrayLength(totalIds.length)
                 let ttlPage = parseInt(totalIds.length) / 12;
                 ttlPage = Math.ceil(ttlPage);
-                
+
                 let simplleArray = [];
                 for (let i = 0; i < totalIds.length; i++) {
                     if (totalIds[i] <= 3560) {
@@ -110,16 +110,16 @@ function Breed() {
             console.error("error while get nfts", e);
         }
     }
-    
+
     let [checkCounter, setCheckCounter] = useState(0)
     let [trainerOne, setTrainerOne] = useState({
-        width:40,
+        width:50,
         status:false,
         imgUrl:Group195,
         tokenId:0,
     });
     let [trainerTwo, setTrainerTwo] = useState({
-        width:40,
+        width:50,
         status:false,
         imgUrl:Group195,
         tokenId:0,
@@ -130,7 +130,7 @@ function Breed() {
             if(trainerOne.status == false ){
                 setTrainerOne(
                   {
-                    width:100,
+                    width:180,
                       status:true,
                         imgUrl:`/config/${imgUri}`,
                         tokenId:id
@@ -140,7 +140,7 @@ function Breed() {
             }else if(trainerTwo.status == false){
                 setTrainerTwo(
                   {
-                    width:100,
+                    width:180,
                       status:true,
                         imgUrl:`/config/${imgUri}`,
                         tokenId:id
@@ -356,8 +356,8 @@ function Breed() {
                                     <div className='col-md-12 d-flex justify-content-center mt-4'>
                                         <p className='breed-p'>You got a fighter now!</p>
                                     </div>
-                                    <div className='col-md-12 d-flex justify-content-center breed-imagess mt-3 mb-3'>
-                                        <img src={breedNft} className="mint-pic pt-4 pb-3" />
+                                    <div className='col-md-12 d-flex justify-content-center breed-imagess mt-3 mb-3' >
+                                        <img src={breedNft} className="mint-pic pt-1 pb-3"/>
                                     </div>
                                     <div className='col-md-12 d-flex justify-content-center'>
                                         <span className='congrat-span'>Do you want to Breed card or sell in the market?</span>
@@ -365,8 +365,8 @@ function Breed() {
 
                                 </div>
                                 <div className=' d-flex justify-content-center mt-3 mb-3'>
-                                    <button className='btn btn-congrats m-2' onClick={() => setModalShow(false)}>Breed</button>
-                                    <button className='btn btn1-congrats m-2' size="lg" onClick={() => setModalShowone(true)}>Sell</button>
+                                    <button className='btn btn-congrats m-2' onClick={() => setModalShow(false)}>Stake</button>
+                                    {/* <button className='btn btn1-congrats m-2' size="lg" onClick={() => setModalShowone(true)}>Sell</button> */}
                                     <button className='btn btn2-congrats m-2' size="lg" onClick={() => setModalShow(false)}>Do it Later</button>
                                 </div>
                                 {/* <div className='d-flex justify-content-center'>
@@ -463,8 +463,8 @@ function Breed() {
                                                 onClick={cancleBreedImageOne}
                                                 >
                                                     <div className='d-flex flex-column justify-content-center align-items-center pt-sm-5 pt-4 pb-sm-5 pb-4' >
-                                                {trainerOne.status &&<span style={{paddingLeft: "105px"}} className='text-danger fs-5  d-flex justify-content-start'
-                                                onClick={cancleBreedImageOne} 
+                                                {trainerOne.status &&<span style={{paddingLeft: "155px"}} className='text-danger fs-3  d-flex justify-content-start'
+                                                onClick={cancleBreedImageOne}
                                                 // style={{border: "2px solid red"}}
                                                 ><MdOutlineCancel/></span >}
                                                     <img src={trainerOne.imgUrl} width={`${trainerOne.width}px`} className=' ' />
@@ -478,10 +478,10 @@ function Breed() {
                                             <div className="col-6 mb-lg-1 mb-5">
                                                 <p className='breedtext1 mt-3'>TRAINER</p>
                                                 <div className=' BreedBoxs'
-                                                
+
                                                 >
                                                     <div className='d-flex flex-column justify-content-center align-items-center pt-sm-5 pt-4 pb-sm-5 pb-4' >
-                                                    {trainerTwo.status &&<span style={{paddingLeft: "105px"}} className='text-danger fs-5 d-flex justify-content-start'
+                                                    {trainerTwo.status &&<span style={{paddingLeft: "155px"}} className='text-danger fs-3 d-flex justify-content-start'
                                                     onClick={cancleBreedImageTwo}
                                                     > <MdOutlineCancel/></span >}
                                                     <img src={trainerTwo.imgUrl} width={`${trainerTwo.width}px`} className='' />
@@ -542,28 +542,16 @@ function Breed() {
                                                     {
                                                         nftArray.map((item)=>{
                                                             return (
-                                                                <>
-                                                                <img src={`/config/${item.imageUrl}`} className='breedImages mt-2' 
+                                                                <div style={{border: "2px solid red"}}>
+                                                                <img src={`/config/${item.imageUrl}`} className='breedImages mt-2' style={{border: "2px solid red"}}
                                                                 onClick={()=>{
                                                                     getBreedImage(item.imageUrl, item.tokenId)
                                                                 }}
                                                                 />
-                                                                </>
+                                                                </div>
                                                             )
                                                         })
                                                     }
-                                                    {/* <img src={Rectangle456} className='breedImages  mt-2' />
-                                                    <img src={Rectangle457} className='breedImages mt-2' />
-                                                    <img src={Rectangle458} className='breedImages mt-2' />
-                                                    <img src={Rectangle463} className='breedImages mt-2' />
-                                                    <img src={Rectangle456} className=' breedImages mt-2' />
-                                                    <img src={Rectangle457} className='breedImages mt-2' />
-                                                    <img src={Rectangle458} className='breedImages mt-2' />
-                                                    <img src={Rectangle463} className='breedImages mt-2' />
-                                                    <img src={Rectangle456} className='breedImages mt-2' />
-                                                    <img src={Rectangle457} className=' breedImages mt-2' />
-                                                    <img src={Rectangle458} className='breedImages mt-2' />
-                                                    <img src={Rectangle463} className='breedImages mt-2' /> */}
                                                 </div>
                                             </div>
                                         </div>

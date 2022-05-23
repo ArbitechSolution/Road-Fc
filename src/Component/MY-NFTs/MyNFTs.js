@@ -398,8 +398,8 @@ function MyNFTs() {
                                             <p className='nfts-h6 mt-3'>{item.imageName}</p>
                                             {/* <p className='nfts-pp text-start'>Common</p> */}
                                             <div className=' d-flex justify-content-center'>
-                                                    <button className='btn nft-staking-btn m-1'>Sell</button>
-                                                    <button className='btn nft-staking-btn1 m-1'
+                                                    {/* <button className='btn nft-staking-btn m-1'>Sell</button> */}
+                                                    <button className='btn nft-staking-btn m-1'
                                                     onClick={()=>{
                                                         stakeNFT(item.tokenId)
                                                     }}
