@@ -538,7 +538,7 @@ function Breed() {
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div className='breedboxs123 mt-2  p-3'>
+                                                <div className=' breedboxs123 mt-2 p-2'>
                                                     <div className='breedboxs124'>
 
                                                     {
@@ -550,20 +550,16 @@ function Breed() {
                                                                     getBreedImage(item.imageUrl, item.tokenId)
                                                                 }}
                                                                 />
-                                                               
+
                                                                 </div>
                                                             )
                                                         })
-                                                    } 
-                                                    
-
-                                                    </div>
-
-                                                    
-                                        </div>
-                                        </div>
-                                        </div>
-                                    </div>
+                                                    }
+                                            </div>
+                                         </div>
+                                       </div>
+                                     </div>
+                                   </div>
                                 </div>
                             </div>
                         </div>
