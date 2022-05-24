@@ -541,7 +541,7 @@ function Breed() {
                                                 <div className=' breedboxs123 mt-2 p-2'>
                                                     <div className='breedboxs124'>
 
-                                                    {
+                                                    {/* {
                                                         nftArray.map((item)=>{
                                                             return (
                                                                 <div className=' d-flex flex-wrap ' >
