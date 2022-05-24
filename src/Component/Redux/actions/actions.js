@@ -20,6 +20,7 @@ let thbTokenContractOf = new webSupply.eth.Contract(thbTokenAbi, thbTokenAddress
 let thbLpTokenContractOf = new webSupply.eth.Contract(thbLpTokenAbi, thbLpTokenAddress);
 let stakingCOntractOf = new webSupply.eth.Contract(stakingContractAbi, stakingContractAddress);
 let presaleContractOf = new webSupply.eth.Contract(preSaleContractAbi,preSaleContractAddress);
+
 export const getWallet = () => async (dispatch) => {
 // console.log("get wallet 121212");
 let address = await loadWeb3();
@@ -28,8 +29,6 @@ dispatch({
     payload:address
 })
 }
-
-
 export const getUserThbBalance =()=> async(dispatch)=>{
 
 // console.log("get Action")
