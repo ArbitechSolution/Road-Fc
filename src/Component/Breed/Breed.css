@@ -58,20 +58,18 @@
 .breedboxs123 {
 
     /* box-sizing: border-box; */
-   
+
 
     height: 520px;
     /* position: relative; */
     width: 280px;
     /* overflow-x: hidden; */
-<<<<<<< Updated upstream
-    
+
+
     /* scroll-behavior: smooth;     */
     /* overflow-x: hidden;
     -webkit-appearance:inherit; */
-=======
     scroll-behavior: auto;
->>>>>>> Stashed changes
     overflow-y: scroll;
 
 }
