@@ -538,6 +538,7 @@ function Breed() {
                                                         </div>
                                                     </div>
                                                 </div>
+<<<<<<< Updated upstream
                                                 <div className=' breedboxs123 mt-2 d-flex flex-row flex-wrap justify-content-between p-2'>
                                                     {/* <img src={Rectangle456} className="breedImages mt-2"/>
                                                     <img src={Rectangle456} className="breedImages mt-2"/>
@@ -545,16 +546,70 @@ function Breed() {
                                                     <img src={Rectangle456} className="breedImages mt-2"/> */}
                                                     {/* <img src={Rectangle456} className="breedImages mt-2"/>
                                                     <img src={Rectangle456} className="breedImages mt-2"/> */}
+=======
+                                                <div className='breedboxs123 mt-2  p-3'>
+                                                    <div className='breedboxs124'>
+
+                                                    {
+                                                        nftArray.map((item)=>{
+                                                            return (
+                                                                <div className=' d-flex flex-wrap ' >
+                                                                <img src={`/config/${item.imageUrl}`} className='breedImages mt-2' 
+                                                                onClick={()=>{
+                                                                    getBreedImage(item.imageUrl, item.tokenId)
+                                                                }}
+                                                                />
+                                                               
+                                                                </div>
+                                                            )
+                                                        })
+                                                    } 
+                                                    {/* <div className='dummy-data'></div>
+                                                    <div className='dummy-data'></div>
+                                                    <div className='dummy-data'></div>
+                                                    <div className='dummy-data'></div>
+                                                    <div className='dummy-data'></div>
+                                                    <div className='dummy-data'></div>
+                                                    <div className='dummy-data'></div>
+                                                    <div className='dummy-data'></div>
+                                                    <div className='dummy-data'></div>
+                                                    <div className='dummy-data'></div>
+                                                    <div className='dummy-data'></div>
+                                                    <div className='dummy-data'></div>
+                                                    <div className='dummy-data'></div>
+                                                    <div className='dummy-data'></div> */}
+
+                                                    </div>
+
+                                                    {/* {
+                                                        nftArray.map((item)=>{
+                                                            return (
+                                                                <img src={`/config/${item.imageUrl}`} className="breedImages mt-2"/>
+                                                            )
+                                                        })
+                                                    } */}
+>>>>>>> Stashed changes
                                                     {/* <img src={Rectangle456} className="breedImages mt-2"/>
                                                     <img src={Rectangle456} className="breedImages mt-2"/>
                                                     <img src={Rectangle456} className="breedImages mt-2"/>
                                                     <img src={Rectangle456} className="breedImages mt-2"/>
                                                     <img src={Rectangle456} className="breedImages mt-2"/> */}
+<<<<<<< Updated upstream
                                                     {
                                                         nftArray.map((item)=>{
                                                             return (
                                                                 <div className='' >
                                                                 <img src={`/config/${item.imageUrl}`} className='breedImages mt-2'
+=======
+                                                    {/* <img src={Rectangle456} className="breedImages mt-2"/> */}
+                                                {/* <div className=' breedboxs123 mt-2 d-flex flex-row flex-wrap justify-content-between p-2'>
+                                                    
+                                                    {
+                                                        nftArray.map((item)=>{
+                                                            return (
+                                                                <div className=' d-flex flex-wrap ' style={{border: "2px solid red"}}>
+                                                                <img src={`/config/${item.imageUrl}`} className='breedImages mt-2' 
+>>>>>>> Stashed changes
                                                                 onClick={()=>{
                                                                     getBreedImage(item.imageUrl, item.tokenId)
                                                                 }}
@@ -564,8 +619,10 @@ function Breed() {
                                                             )
                                                         })
                                                     }
-                                                </div>
-                                            </div>
+                                                </div> */}
+                                            {/* </div> */}
+                                        </div>
+                                        </div>
                                         </div>
                                     </div>
                                 </div>
