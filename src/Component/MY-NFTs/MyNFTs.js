@@ -72,42 +72,48 @@ function MyNFTs() {
                         let imageName = `Common #${ids}`;
                         let tokenId = ids;
                         let type = "Fighter";
-                        simplleArray = [...simplleArray, { imageUrl, imageName, tokenId, type }];
+                        let IsStake = true;
+                        simplleArray = [...simplleArray, { imageUrl, imageName, tokenId, type, IsStake }];
                         setNftsArray(simplleArray);
                     }else if(uris[5] == "uncommon"){
                         let imageUrl = `/fighter nft/uncommon/${uris[6]}`;
                         let imageName = `Unommon #${ids}`;
                         let tokenId = ids;
                         let type = "Fighter";
-                        simplleArray = [...simplleArray, { imageUrl, imageName, tokenId, type }];
+                        let IsStake = true;
+                        simplleArray = [...simplleArray, { imageUrl, imageName, tokenId, type, IsStake }];
                         setNftsArray(simplleArray);
                     }else if(uris[5] == "rare"){
                         let imageUrl = `/fighter nft/rare/${uris[6]}`;
                         let imageName = `Rare #${ids}`;
                         let tokenId = ids;
                         let type = "Fighter";
-                        simplleArray = [...simplleArray, { imageUrl, imageName, tokenId, type }];
+                        let IsStake = true;
+                        simplleArray = [...simplleArray, { imageUrl, imageName, tokenId, type, IsStake }];
                         setNftsArray(simplleArray);
                     }else if(uris[5] == "epic"){
                         let imageUrl = `/fighter nft/epic/${uris[6]}`;
                         let imageName = `Epic #${ids}`;
                         let tokenId = ids;
                         let type = "Fighter";
-                        simplleArray = [...simplleArray, { imageUrl, imageName, tokenId, type }];
+                        let IsStake = true;
+                        simplleArray = [...simplleArray, { imageUrl, imageName, tokenId, type, IsStake }];
                         setNftsArray(simplleArray);
                     }else if(uris[5] == "legendary"){
                         let imageUrl = `/fighter nft/legendary/${uris[6]}`;
                         let imageName = `Legendary #${ids}`;
                         let tokenId = ids;
                         let type = "Fighter";
-                        simplleArray = [...simplleArray, { imageUrl, imageName, tokenId, type }];
+                        let IsStake = true;
+                        simplleArray = [...simplleArray, { imageUrl, imageName, tokenId, type, IsStake }];
                         setNftsArray(simplleArray);
                     }else if(uris[5] == "mythic"){
                         let imageUrl = `/fighter nft/mythic/${uris[6]}`;
                         let imageName = `Mythic #${ids}`;
                         let tokenId = ids;
                         let type = "Fighter";
-                        simplleArray = [...simplleArray, { imageUrl, imageName, tokenId, type }];
+                        let IsStake = true;
+                        simplleArray = [...simplleArray, { imageUrl, imageName, tokenId, type, IsStake }];
                         setNftsArray(simplleArray);
                     }
                 })
@@ -117,42 +123,48 @@ function MyNFTs() {
                         let imageName = `Common #${totalIds[i]}`;
                         let tokenId = totalIds[i];
                         let type = "Robotic";
-                        simplleArray = [...simplleArray, { imageUrl, imageName, tokenId, type }];
+                        let IsStake = false;
+                        simplleArray = [...simplleArray, { imageUrl, imageName, tokenId, type, IsStake }];
                         setNftsArray(simplleArray);
                     } else if (totalIds[i] > 3560 && totalIds[i] <= 6230) {
                         let imageUrl = `/images/uncommon.png`;
                         let imageName = `Uncommon #${totalIds[i]}`;
                         let tokenId = totalIds[i];
                         let type = "Robotic";
-                        simplleArray = [...simplleArray, { imageUrl, imageName, tokenId, type }];
+                        let IsStake = false;
+                        simplleArray = [...simplleArray, { imageUrl, imageName, tokenId, type, IsStake }];
                         setNftsArray(simplleArray);
                     } else if (totalIds[i] > 6230 && totalIds[i] <= 8140) {
                         let imageUrl = `/images/rare.png`;
                         let imageName = `Rare #${totalIds[i]}`;
                         let tokenId = totalIds[i];
                         let type = "Robotic";
-                        simplleArray = [...simplleArray, { imageUrl, imageName, tokenId, type }];
+                        let IsStake = false;
+                        simplleArray = [...simplleArray, { imageUrl, imageName, tokenId, type, IsStake }];
                         setNftsArray(simplleArray);
                     } else if (totalIds[i] > 8140 && totalIds[i] <= 9250) {
                         let imageUrl = `/images/epic.png`;
                         let imageName = `Epic #${totalIds[i]}`;
                         let tokenId = totalIds[i];
                         let type = "Robotic";
-                        simplleArray = [...simplleArray, { imageUrl, imageName, tokenId, type }];
+                        let IsStake = false;
+                        simplleArray = [...simplleArray, { imageUrl, imageName, tokenId, type, IsStake }];
                         setNftsArray(simplleArray);
                     } else if (totalIds[i] > 9250 && totalIds[i] <= 9870) {
                         let imageUrl = `/images/legendary.png`;
                         let imageName = `Legendary #${totalIds[i]}`;
                         let tokenId = totalIds[i];
                         let type = "Robotic";
-                        simplleArray = [...simplleArray, { imageUrl, imageName, tokenId, type }];
+                        let IsStake = false;
+                        simplleArray = [...simplleArray, { imageUrl, imageName, tokenId, type, IsStake }];
                         setNftsArray(simplleArray);
                     } else if (totalIds[i] > 9870 && totalIds[i] <= 10000) {
                         let imageUrl = `/images/mythic.png`;
                         let imageName = `Mythic #${totalIds[i]}`;
                         let tokenId = totalIds[i];
                         let type = "Robotic";
-                        simplleArray = [...simplleArray, { imageUrl, imageName, tokenId, type }];
+                        let IsStake = false;
+                        simplleArray = [...simplleArray, { imageUrl, imageName, tokenId, type, IsStake }];
                         setNftsArray(simplleArray);
                     }
                 }
@@ -412,12 +424,18 @@ function MyNFTs() {
                                             {/* <p className='nfts-pp text-start'>Common</p> */}
                                             <div className=' d-flex justify-content-center'>
                                                     {/* <button className='btn nft-staking-btn m-1'>Sell</button> */}
+                                                    {
+                                                        item.IsStake &&
+                                                    
+
                                                     <button className='btn nft-staking-btn m-1'
                                                     onClick={()=>{
                                                         stakeNFT(item.tokenId)
                                                     }}
                                                     >Stake</button>
+                                                    }
                                                     <button className='btn nft-staking-btn3 m-1' onClick={() => showTransferNfts(item.imageUrl, item.imageName, item.tokenId)}>Transfer</button>
+                                                
                                                 </div>
                                             {/* <div className="d-flex justify-content-between mt-2 mb-2">
                                                 <button className='btn btnStakePage32' size="sm">
