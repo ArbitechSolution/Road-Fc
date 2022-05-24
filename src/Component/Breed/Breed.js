@@ -113,13 +113,13 @@ function Breed() {
 
     let [checkCounter, setCheckCounter] = useState(0)
     let [trainerOne, setTrainerOne] = useState({
-        width:50,
+        width:40,
         status:false,
         imgUrl:Group195,
         tokenId:0,
     });
     let [trainerTwo, setTrainerTwo] = useState({
-        width:50,
+        width:40,
         status:false,
         imgUrl:Group195,
         tokenId:0,
