@@ -15,6 +15,10 @@ import { nftContractAbi, nftContratAddress } from "../Utils/Nft";
 import { nftStakingAbi, nftStakingAddress } from "../Utils/NFTStakingContract";
 import { breedContractAbi, breedContractAddress } from "../Utils/breed";
 import Group843 from "../../Assets/Group 843.png";
+import {
+  road_Nft_Staking_Address,
+  road_Nft_Staking_Abi,
+} from "../Utils/Road_Nft_Staking";
 import Rectangle450 from "../../Assets/Rectangle 450.png";
 import axios from "axios";
 import image2 from "../../Assets/image 2.png";
@@ -54,6 +58,7 @@ function MyNFTs() {
           nftContractAbi,
           nftContratAddress
         );
+
         let totalIds = await nftContract.methods.walletOfOwner(acc).call();
         const breedContract = new web3.eth.Contract(
           breedContractAbi,
@@ -213,12 +218,13 @@ function MyNFTs() {
     }
   };
 
-  const showTransferNfts = (imageUrl, imageName, tokenId) => {
+  const showTransferNfts = (imageUrl, imageName, tokenId, type) => {
     try {
       setTransferNft({
         path: imageUrl,
         imageName: imageName,
         Nftid: tokenId,
+        type: type,
       });
       // transferAddress.current.focus()
       setModalShow(true);
@@ -236,11 +242,28 @@ function MyNFTs() {
           nftContractAbi,
           nftContratAddress
         );
-        await nftContract.methods
-          .transferFrom(acc, transAdd, transferNft.Nftid)
-          .send({
-            from: acc,
-          });
+        let breedContract = new web3.eth.Contract(
+          breedContractAbi,
+          breedContractAddress
+        );
+        if (transferNft.type == "Robotic") {
+          console.log("rorooror");
+          await nftContract.methods
+            .transferFrom(acc, transAdd, transferNft.Nftid)
+            .send({
+              from: acc,
+            });
+          toast.success("Trasaction Successfull");
+        } else if (transferNft.type == "Fighter") {
+          console.log("fdighe");
+          await breedContract.methods
+            .transferFrom(acc, transAdd, transferNft.Nftid)
+            .send({
+              from: acc,
+            });
+          toast.success("Trasaction Successfull");
+        }
+
         // 0x12E8613F1d980FD0543ECEBB2dab9533C589250F
         setConfirmAddress(transAdd);
         setModalShow(false);
@@ -304,6 +327,7 @@ function MyNFTs() {
   };
 
   const stakeNFT = async (nftId) => {
+    console.log("nftId", nftId);
     try {
       if (acc == "No Wallet") {
         //   setBtTxt("Connect Wallet")
@@ -315,22 +339,32 @@ function MyNFTs() {
         console.log("Not Connected");
       } else {
         const web3 = window.web3;
-        const nftContract = new web3.eth.Contract(
-          nftContractAbi,
-          nftContratAddress
+        const breedContract = new web3.eth.Contract(
+          breedContractAbi,
+          breedContractAddress
         );
-        const nftStakingContract = new web3.eth.Contract(
-          nftStakingAbi,
-          nftStakingAddress
+        const roadNftStakingContractOf = new web3.eth.Contract(
+          road_Nft_Staking_Abi,
+          road_Nft_Staking_Address
         );
-        await nftContract.methods.approve(nftStakingAddress, nftId).send({
+        let checkApprove = await breedContract.methods
+          .isApprovedForAll(acc, road_Nft_Staking_Address)
+          .call();
+        console.log("checkApprove", checkApprove);
+        if (!checkApprove) {
+          console.log("checkApprove Inside", checkApprove);
+
+          await breedContract.methods
+            .setApprovalForAll(road_Nft_Staking_Address, true)
+            .send({
+              from: acc,
+            });
+          toast.success("Transaction Sucessfull");
+        }
+        await roadNftStakingContractOf.methods.Stake([nftId]).send({
           from: acc,
         });
-        await nftStakingContract.methods.Stake([nftId]).send({
-          from: acc,
-        });
-        toast.success("Transaction Successfull");
-        getNfts();
+        toast.success("Transaction Sucessfull");
       }
     } catch (e) {
       console.error("error while stake NFT", e);
@@ -341,6 +375,7 @@ function MyNFTs() {
     getNfts();
     getData();
   }, [acc]);
+
   return (
     <div className="imagePool">
       <div className="container">
@@ -538,7 +573,8 @@ function MyNFTs() {
                           showTransferNfts(
                             item.imageUrl,
                             item.imageName,
-                            item.tokenId
+                            item.tokenId,
+                            item.type
                           )
                         }
                       >
