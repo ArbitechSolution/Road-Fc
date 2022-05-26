@@ -1,6 +1,7 @@
 {
     "id": 3,
     "name": "Epic",
+    "power":500,
     "description": "With uncertainity, comes excitement,You never know what you are going to get.Try your luck!",
     "image": "https://gateway.pinata.cloud/ipfs/QmdFEd9XQD3xU3Nbgaof6mV8B19VrA93eVgNS31SXAbmNH/epic/3.png",
     "date": 1649328865535

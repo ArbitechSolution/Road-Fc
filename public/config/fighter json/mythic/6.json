@@ -1,7 +1,8 @@
 {
     "id": 6,
     "name": "Mythic",
+    "power":5000,
     "description": "With uncertainity, comes excitement,You never know what you are going to get.Try your luck!",
-    "image": "https://gateway.pinata.cloud/ipfs/QmSxzhmd5J3D83VqisJjRwUcqxgUmUE92jA6iiHbGABMnN/mythic/6.png",
+    "image": "https://gateway.pinata.cloud/ipfs/QmdSGcN2tKaGyKgreqnQbSGrPxqsoz78izeGB79prJoCt8/mythic/6.png",
     "date": 1649328865535
 }

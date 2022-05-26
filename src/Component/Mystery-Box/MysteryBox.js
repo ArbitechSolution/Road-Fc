@@ -29,6 +29,8 @@ import url from "../../Assets/Mistery Box.wav";
 function MysteryBox() {
   const [modalShow, setModalShow] = useState(false);
   let { acc } = useSelector((state) => state.connectWallet);
+  let { userBalance } = useSelector((state) => state.userBalance);
+
   let dispatch = useDispatch();
 
   const [modalShowSecond, setModalShowSecond] = useState(false);
@@ -36,17 +38,25 @@ function MysteryBox() {
   const playingSound = () => {
     toggle();
   };
-  useEffect(() => {
-    // setTimeout(() => {
-    //   playingSound();
-    // }, 1000);
-  }, []);
+
+  const getData = () => {
+    if (
+      acc != "No Wallet" &&
+      acc != "Wrong Network" &&
+      acc != "Connect Wallet"
+    ) {
+      dispatch(getUserBalance());
+    }
+  };
+
   let [valueone, setValueone] = useState(1);
   const getWalletAddress = () => {
     dispatch(getWallet());
   };
   const increaseValuebox = () => {
-    setValueone(++valueone);
+    if (valueone < 3) {
+      setValueone(++valueone);
+    }
   };
   const decreaseValuebox = () => {
     if (valueone > 1) {
@@ -76,6 +86,9 @@ function MysteryBox() {
     }
   };
 
+  useEffect(() => {
+    getData();
+  }, [acc]);
   return (
     <div className="imagePool">
       <div className="container">
@@ -488,7 +501,7 @@ function MysteryBox() {
                               Your Balance:
                             </span>
                             <span className="presale-span1">
-                              0.000&nbsp;
+                              {userBalance}&nbsp;
                               <span
                                 className="presale-span1"
                                 style={{ color: "white" }}
