@@ -1,5 +1,5 @@
 export const breedContractAddress =
-  "0xabAe1C2481cb86479A15081125615d9a7b675d9a";
+  "0x626ecCe2f0B84a1f76C5DC7d0328AcC74715B71A";
 export const breedContractAbi = [
   {
     inputs: [
@@ -104,6 +104,13 @@ export const breedContractAbi = [
     type: "function",
   },
   {
+    inputs: [],
+    name: "BNBP",
+    outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
     inputs: [
       { internalType: "uint256", name: "_id1", type: "uint256" },
       { internalType: "uint256", name: "_id2", type: "uint256" },
@@ -128,6 +135,17 @@ export const breedContractAbi = [
     name: "MINT",
     outputs: [{ internalType: "contract IERC721", name: "", type: "address" }],
     stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      { internalType: "uint256[]", name: "tokenID", type: "uint256[]" },
+      { internalType: "string[]", name: "URI", type: "string[]" },
+      { internalType: "uint256[]", name: "_type", type: "uint256[]" },
+    ],
+    name: "Mystery_Box",
+    outputs: [],
+    stateMutability: "payable",
     type: "function",
   },
   {
@@ -433,13 +451,6 @@ export const breedContractAbi = [
     name: "transferOwnership",
     outputs: [],
     stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [],
-    name: "usdRequired",
-    outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
-    stateMutability: "view",
     type: "function",
   },
   {

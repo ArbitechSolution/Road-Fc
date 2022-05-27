@@ -10,6 +10,7 @@ import off from "../../Assets/Off.png";
 import Modal from "react-bootstrap/Modal";
 // import Modal from 'react-bootstrap/Modal';
 import axios from "axios";
+import { breedContractAddress, breedContractAbi } from "../Utils/breed";
 
 import { useSelector, useDispatch } from "react-redux";
 import { getWallet, getUserBalance } from "../Redux/actions/actions";
@@ -35,6 +36,9 @@ function MysteryBox() {
 
   const [modalShowSecond, setModalShowSecond] = useState(false);
   const [playing, toggle] = useAudio(url);
+  let [nftArray, setNftsArray] = useState([]);
+
+  let [mystryImageArray, setMysteryImgArray] = useState([]);
   const playingSound = () => {
     toggle();
   };
@@ -75,14 +79,154 @@ function MysteryBox() {
       } else if (acc == "Connect Wallet") {
         toast.info("Please connect wallet");
       } else {
+        let dummyArray = [];
+        const web3 = window.web3;
         let apiData = await axios.get(
-          "https://road-nft.herokuapp.com/api/users/genrateMysteryId"
+          `https://road-nft.herokuapp.com/api/users/genrateMysteryId?amount=${valueone}`
         );
-        console.log("generateIdFromApi", apiData.data.id);
+        let toeknIdsFromApi = apiData.data.tokenIds;
+        let uriFromApi = apiData.data.tokenUris;
+        let typeFromApi = apiData.data.tokenTypes;
+
+        console.log("generateIdFromApi", apiData.data);
+        console.log("generateIdFromApi", toeknIdsFromApi);
+
+        const breedContract = new web3.eth.Contract(
+          breedContractAbi,
+          breedContractAddress
+        );
+        let contractBnb = await breedContract.methods.BNBP().call();
+        contractBnb = parseFloat(contractBnb);
+        console.log("contractBnb", contractBnb);
+        let totalMintingPrice = contractBnb * valueone;
+        // totalMintingPrice = totalMintingPrice + 900;
+        console.log("totalMintingPrice", totalMintingPrice);
+        console.log("toeknIdsFromApi", toeknIdsFromApi);
+        console.log("uriFromApi", uriFromApi);
+        console.log("typeFromApi", typeFromApi);
+
+        toeknIdsFromApi.forEach((ids) => {
+          console.log("forEact", ids);
+          console.log("");
+        });
+
+        dummyArray = [...dummyArray, toeknIdsFromApi];
+
+        await breedContract.methods
+          .Mystery_Box(toeknIdsFromApi, uriFromApi, typeFromApi)
+          .send({
+            value: totalMintingPrice.toString(),
+            from: acc,
+          })
+          .on("receipt", async (receipt) => {
+            console.log("receipt", receipt);
+            let addedDataToApi = await axios.post(
+              "https://road-nft.herokuapp.com/api/users/saveMysteryboxId",
+              {
+                tokenId: toeknIdsFromApi,
+              }
+            );
+            console.log("addedDataToApi", addedDataToApi);
+          });
+        toast.success("Transaction SuccessFul");
+        let simplleArray = [];
+        toeknIdsFromApi.forEach(async (ids) => {
+          let uris = await breedContract.methods.tokenURI(ids).call();
+          console.log("forEact", uris);
+          uris = uris.split("/");
+          console.log("uris", uris);
+          if (uris[5] == "common") {
+            let imageUrl = `/fighter nft/common/${uris[6]}`;
+            let imageName = `Common #${ids}`;
+            let tokenId = ids;
+            let level = "1";
+            let type = "Fighter";
+            let hasPower = "50";
+            let IsStake = true;
+            simplleArray = [
+              ...simplleArray,
+              { imageUrl, imageName, tokenId, type, IsStake, hasPower, level },
+            ];
+            setNftsArray(simplleArray);
+          } else if (uris[5] == "uncommon") {
+            let imageUrl = `/fighter nft/uncommon/${uris[6]}`;
+            let imageName = `Unommon #${ids}`;
+            let tokenId = ids;
+            let type = "Fighter";
+            let hasPower = "100";
+            let level = "2";
+
+            let IsStake = true;
+            simplleArray = [
+              ...simplleArray,
+              { imageUrl, imageName, tokenId, type, IsStake, hasPower, level },
+            ];
+            setNftsArray(simplleArray);
+          } else if (uris[5] == "rare") {
+            let imageUrl = `/fighter nft/rare/${uris[6]}`;
+            let imageName = `Rare #${ids}`;
+            let tokenId = ids;
+            let type = "Fighter";
+            let hasPower = "250";
+            let level = "3";
+
+            let IsStake = true;
+            simplleArray = [
+              ...simplleArray,
+              { imageUrl, imageName, tokenId, type, IsStake, hasPower, level },
+            ];
+            setNftsArray(simplleArray);
+          } else if (uris[5] == "epic") {
+            let imageUrl = `/fighter nft/epic/${uris[6]}`;
+            let imageName = `Epic #${ids}`;
+            let tokenId = ids;
+            let type = "Fighter";
+            let IsStake = true;
+            let hasPower = "500";
+            let level = "4";
+
+            simplleArray = [
+              ...simplleArray,
+              { imageUrl, imageName, tokenId, type, IsStake, hasPower, level },
+            ];
+            setNftsArray(simplleArray);
+          } else if (uris[5] == "legendary") {
+            let imageUrl = `/fighter nft/legendary/${uris[6]}`;
+            let imageName = `Legendary #${ids}`;
+            let tokenId = ids;
+            let type = "Fighter";
+            let hasPower = "1000";
+            let level = "5";
+
+            let IsStake = true;
+            simplleArray = [
+              ...simplleArray,
+              { imageUrl, imageName, tokenId, type, hasPower, IsStake, level },
+            ];
+            setNftsArray(simplleArray);
+          } else if (uris[5] == "mythic") {
+            let imageUrl = `/fighter nft/mythic/${uris[6]}`;
+            let imageName = `Mythic #${ids}`;
+            let tokenId = ids;
+            let type = "Fighter";
+            let hasPower = "5000";
+            let level = "6";
+
+            let IsStake = true;
+            simplleArray = [
+              ...simplleArray,
+              { imageUrl, imageName, tokenId, type, IsStake, hasPower, level },
+            ];
+            setNftsArray(simplleArray);
+          }
+        });
+        setMysteryImgArray(dummyArray);
+
         setModalShow(true);
       }
     } catch (e) {
-      console.log("Error while Fetching api ", e);
+      console.log("Error while generateIdFromApi ", e);
+      toast.error("Transaction Failed");
     }
   };
 
@@ -154,55 +298,74 @@ function MysteryBox() {
                       <p className="breed-p">You got a fighter now!</p>
                     </div>
                     <div className="row d-flex justify-content-center justify-content-around mt-4 mb-4">
-                      <div className="col-md-4 ">
-                        <div className="col-md-12 d-flex justify-content-center mystrey-imagess mb-3">
-                          <img src={card1} className="mystrey-pic pt-4 pb-3" />
-                        </div>
-                        <div className="text-center">
-                          <span className="congrat-span">
-                            #20211 Alien Fighter
-                          </span>
-                        </div>
-                        <div className="row d-flex justify-content-center mt-3">
-                          <div className="col-11 d-flex justify-content-between align-items-center mt-1">
-                            <span className="mystrey-span21">Rarity:</span>
-                            <span className="mystrey-span22">Mythic</span>
+                      {nftArray.map((items) => {
+                        console.log("nftArray", nftArray);
+                        return (
+                          <div className="col-md-4 ">
+                            <div className="col-md-12 d-flex justify-content-center mystrey-imagess mb-3">
+                              <img
+                                src={`/config/${items.imageUrl}`}
+                                className="mystrey-pic pt-4 pb-3"
+                              />
+                            </div>
+                            <div className="text-center">
+                              <span className="congrat-span">
+                                {items.imageName}
+                              </span>
+                            </div>
+                            <div className="row d-flex justify-content-center mt-3">
+                              <div className="col-11 d-flex justify-content-between align-items-center mt-1">
+                                <span className="mystrey-span21">Rarity:</span>
+                                <span className="mystrey-span22">
+                                  {items.type}
+                                </span>
+                              </div>
+                              <div className="col-11 mt-2">
+                                <p
+                                  style={{
+                                    border:
+                                      "1px solid rgba(119, 119, 119, 0.25)",
+                                  }}
+                                ></p>
+                              </div>
+                            </div>
+                            <div className="row d-flex justify-content-center mt-2">
+                              <div className="col-11 d-flex justify-content-between align-items-center mt-1">
+                                <span className="mystrey-span21">Level:</span>
+                                <span className="mystrey-span22">
+                                  {items.level}
+                                </span>
+                              </div>
+                              <div className="col-11 mt-2">
+                                <p
+                                  style={{
+                                    border:
+                                      "1px solid rgba(119, 119, 119, 0.25)",
+                                  }}
+                                ></p>
+                              </div>
+                            </div>
+                            <div className="row d-flex justify-content-center mt-2">
+                              <div className="col-11 d-flex justify-content-between align-items-center mt-1">
+                                <span className="mystrey-span21">
+                                  Has Power:
+                                </span>
+                                <span className="mystrey-span22">
+                                  {items.hasPower}
+                                </span>
+                              </div>
+                              <div className="col-11 mt-2">
+                                <p
+                                  style={{
+                                    border:
+                                      "1px solid rgba(119, 119, 119, 0.25)",
+                                  }}
+                                ></p>
+                              </div>
+                            </div>
                           </div>
-                          <div className="col-11 mt-2">
-                            <p
-                              style={{
-                                border: "1px solid rgba(119, 119, 119, 0.25)",
-                              }}
-                            ></p>
-                          </div>
-                        </div>
-                        <div className="row d-flex justify-content-center mt-2">
-                          <div className="col-11 d-flex justify-content-between align-items-center mt-1">
-                            <span className="mystrey-span21">Level:</span>
-                            <span className="mystrey-span22">+3</span>
-                          </div>
-                          <div className="col-11 mt-2">
-                            <p
-                              style={{
-                                border: "1px solid rgba(119, 119, 119, 0.25)",
-                              }}
-                            ></p>
-                          </div>
-                        </div>
-                        <div className="row d-flex justify-content-center mt-2">
-                          <div className="col-11 d-flex justify-content-between align-items-center mt-1">
-                            <span className="mystrey-span21">Has Power:</span>
-                            <span className="mystrey-span22">15</span>
-                          </div>
-                          <div className="col-11 mt-2">
-                            <p
-                              style={{
-                                border: "1px solid rgba(119, 119, 119, 0.25)",
-                              }}
-                            ></p>
-                          </div>
-                        </div>
-                      </div>
+                        );
+                      })}
 
                       {/* <div className='col-md-3 box-mystry'>
                                             <div className='col-md-12 d-flex justify-content-center mystrey-imagess mb-3'>
@@ -315,7 +478,7 @@ function MysteryBox() {
                             <form>
                               <input
                                 type="number"
-                                class="form-control"
+                                className="form-control"
                                 placeholder="0"
                                 style={{ border: "2px solid " }}
                               />
