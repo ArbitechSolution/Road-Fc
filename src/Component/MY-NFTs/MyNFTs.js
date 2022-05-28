@@ -289,7 +289,7 @@ function MyNFTs() {
   let [pageNumber, setPageNumber] = useState(1);
   let [totalPages, setTotalPages] = useState(1);
   const loadMore = () => {
-    window.scrollTo(0, 0);
+    window.scrollTo(0, 0);  
     let a = finalLimit + 12;
     if (a >= nftArrayLength) {
       setInitialLimit(initialLimit + 12);
