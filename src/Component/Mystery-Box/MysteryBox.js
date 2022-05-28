@@ -37,7 +37,7 @@ function MysteryBox() {
   const [modalShowSecond, setModalShowSecond] = useState(false);
   const [playing, toggle] = useAudio(url);
   let [nftArray, setNftsArray] = useState([]);
-
+  let [totalCost, setTotalCost] = useState(350);
   let [mystryImageArray, setMysteryImgArray] = useState([]);
   const playingSound = () => {
     toggle();
@@ -59,12 +59,21 @@ function MysteryBox() {
   };
   const increaseValuebox = () => {
     if (valueone < 3) {
+      let p = 350
       setValueone(++valueone);
+      let price = valueone * p
+      setTotalCost(price)
     }
   };
   const decreaseValuebox = () => {
     if (valueone > 1) {
+      let p = 350
+
+
       setValueone(--valueone);
+
+      let price = valueone * p
+      setTotalCost(price)
     }
   };
 
@@ -253,10 +262,10 @@ function MysteryBox() {
               {acc === "No Wallet"
                 ? "Connect"
                 : acc === "Connect Wallet"
-                ? "Connect"
-                : acc === "Wrong Network"
-                ? acc
-                : acc.substring(0, 3) + "..." + acc.substring(acc.length - 3)}
+                  ? "Connect"
+                  : acc === "Wrong Network"
+                    ? acc
+                    : acc.substring(0, 3) + "..." + acc.substring(acc.length - 3)}
             </button>
           </div>
         </div>
@@ -301,128 +310,134 @@ function MysteryBox() {
                       {nftArray.map((items) => {
                         console.log("nftArray", nftArray);
                         return (
-                          <div className="col-md-4 ">
-                            <div className="col-md-12 d-flex justify-content-center mystrey-imagess mb-3">
-                              <img
-                                src={`/config/${items.imageUrl}`}
-                                className="mystrey-pic pt-4 pb-3"
-                              />
-                            </div>
-                            <div className="text-center">
-                              <span className="congrat-span">
-                                {items.imageName}
-                              </span>
-                            </div>
-                            <div className="row d-flex justify-content-center mt-3">
-                              <div className="col-11 d-flex justify-content-between align-items-center mt-1">
-                                <span className="mystrey-span21">Rarity:</span>
-                                <span className="mystrey-span22">
-                                  {items.type}
-                                </span>
-                              </div>
-                              <div className="col-11 mt-2">
-                                <p
-                                  style={{
-                                    border:
-                                      "1px solid rgba(119, 119, 119, 0.25)",
-                                  }}
-                                ></p>
+                          <div className='col-md-5 box-mystry mt-3'>
+                            <div className=' d-flex justify-content-center    mb-3' >
+                              <div className="d-flex justify-content-center mystrey-imagess pt-4 pb-4" style={{ width: "300px" }}>
+
+                                <img src={`/config/${items.imageUrl}`} className="mystrey-pic pt-4 pb-3" />
                               </div>
                             </div>
-                            <div className="row d-flex justify-content-center mt-2">
-                              <div className="col-11 d-flex justify-content-between align-items-center mt-1">
-                                <span className="mystrey-span21">Level:</span>
-                                <span className="mystrey-span22">
-                                  {items.level}
-                                </span>
+                            <div className='text-center'>
+                              <span className='congrat-span'>{items.imageName}</span>
+                            </div>
+                            <div className='row d-flex justify-content-center mt-3'>
+                              <div className='col-11 d-flex justify-content-between align-items-center mt-1'>
+                                <span className='mystrey-span21'>Rarity:</span>
+                                <span className='mystrey-span22'>{items.type}</span>
                               </div>
-                              <div className="col-11 mt-2">
-                                <p
-                                  style={{
-                                    border:
-                                      "1px solid rgba(119, 119, 119, 0.25)",
-                                  }}
-                                ></p>
+                              <div className='col-11 mt-2' >
+                                <p style={{ border: "1px solid rgba(119, 119, 119, 0.25)" }}></p>
                               </div>
                             </div>
-                            <div className="row d-flex justify-content-center mt-2">
-                              <div className="col-11 d-flex justify-content-between align-items-center mt-1">
-                                <span className="mystrey-span21">
-                                  Has Power:
-                                </span>
-                                <span className="mystrey-span22">
-                                  {items.hasPower}
-                                </span>
+                            <div className='row d-flex justify-content-center mt-2'>
+                              <div className='col-11 d-flex justify-content-between align-items-center mt-1'>
+                                <span className='mystrey-span21'>Level:</span>
+                                <span className='mystrey-span22'>{items.level}</span>
                               </div>
-                              <div className="col-11 mt-2">
-                                <p
-                                  style={{
-                                    border:
-                                      "1px solid rgba(119, 119, 119, 0.25)",
-                                  }}
-                                ></p>
+                              <div className='col-11 mt-2' >
+                                <p style={{ border: "1px solid rgba(119, 119, 119, 0.25)" }}></p>
+                              </div>
+                            </div>
+                            <div className='row d-flex justify-content-center mt-2'>
+                              <div className='col-11 d-flex justify-content-between align-items-center mt-1'>
+                                <span className='mystrey-span21'>Has Power:</span>
+                                <span className='mystrey-span22'>{items.hasPower}</span>
+                              </div>
+                              <div className='col-11 mt-2' >
+                                <p style={{ border: "1px solid rgba(119, 119, 119, 0.25)" }}></p>
                               </div>
                             </div>
                           </div>
+                          // <div className="col-md-4 ">
+                          //   <div className="col-md-12 d-flex justify-content-center mystrey-imagess mb-3">
+                          //     <img
+                          //       src={`/config/${items.imageUrl}`}
+                          //       className="mystrey-pic pt-4 pb-3"
+                          //     />
+                          //   </div>
+                          //   <div className="text-center">
+                          //     <span className="congrat-span">
+                          //       {items.imageName}
+                          //     </span>
+                          //   </div>
+                          //   <div className="row d-flex justify-content-center mt-3">
+                          //     <div className="col-11 d-flex justify-content-between align-items-center mt-1">
+                          //       <span className="mystrey-span21">Rarity:</span>
+                          //       <span className="mystrey-span22">
+                          //         {items.type}
+                          //       </span>
+                          //     </div>
+                          //     <div className="col-11 mt-2">
+                          //       <p
+                          //         style={{
+                          //           border:
+                          //             "1px solid rgba(119, 119, 119, 0.25)",
+                          //         }}
+                          //       ></p>
+                          //     </div>
+                          //   </div>
+                          //   <div className="row d-flex justify-content-center mt-2">
+                          //     <div className="col-11 d-flex justify-content-between align-items-center mt-1">
+                          //       <span className="mystrey-span21">Level:</span>
+                          //       <span className="mystrey-span22">
+                          //         {items.level}
+                          //       </span>
+                          //     </div>
+                          //     <div className="col-11 mt-2">
+                          //       <p
+                          //         style={{
+                          //           border:
+                          //             "1px solid rgba(119, 119, 119, 0.25)",
+                          //         }}
+                          //       ></p>
+                          //     </div>
+                          //   </div>
+                          //   <div className="row d-flex justify-content-center mt-2">
+                          //     <div className="col-11 d-flex justify-content-between align-items-center mt-1">
+                          //       <span className="mystrey-span21">
+                          //         Has Power:
+                          //       </span>
+                          //       <span className="mystrey-span22">
+                          //         {items.hasPower}
+                          //       </span>
+                          //     </div>
+                          //     <div className="col-11 mt-2">
+                          //       <p
+                          //         style={{
+                          //           border:
+                          //             "1px solid rgba(119, 119, 119, 0.25)",
+                          //         }}
+                          //       ></p>
+                          //     </div>
+                          //   </div>
+                          // </div>
                         );
                       })}
 
-                      {/* <div className='col-md-3 box-mystry'>
-                                            <div className='col-md-12 d-flex justify-content-center mystrey-imagess mb-3'>
-                                                <img src={card1} className="mystrey-pic pt-4 pb-3" />
-                                            </div>
-                                            <div className='text-center'>
-                                                <span className='congrat-span'>#20211 Alien Fighter</span>
-                                            </div>
-                                            <div className='row d-flex justify-content-center mt-3'>
-                                                <div className='col-11 d-flex justify-content-between align-items-center mt-1'>
-                                                    <span className='mystrey-span21'>Rarity:</span>
-                                                    <span className='mystrey-span22'>Mythic</span>
-                                                </div>
-                                                <div className='col-11 mt-2' >
-                                                    <p style={{ border: "1px solid rgba(119, 119, 119, 0.25)" }}></p>
-                                                </div>
-                                            </div>
-                                            <div className='row d-flex justify-content-center mt-2'>
-                                                <div className='col-11 d-flex justify-content-between align-items-center mt-1'>
-                                                    <span className='mystrey-span21'>Level:</span>
-                                                    <span className='mystrey-span22'>+3</span>
-                                                </div>
-                                                <div className='col-11 mt-2' >
-                                                    <p style={{ border: "1px solid rgba(119, 119, 119, 0.25)" }}></p>
-                                                </div>
-                                            </div>
-                                            <div className='row d-flex justify-content-center mt-2'>
-                                                <div className='col-11 d-flex justify-content-between align-items-center mt-1'>
-                                                    <span className='mystrey-span21'>Has Power:</span>
-                                                    <span className='mystrey-span22'>15</span>
-                                                </div>
-                                                <div className='col-11 mt-2' >
-                                                    <p style={{ border: "1px solid rgba(119, 119, 119, 0.25)" }}></p>
-                                                </div>
-                                            </div>
-                                        </div> */}
+
+
+
                     </div>
                     {/* <div className='col-md-12 d-flex justify-content-center breed-imagess mt-3 mb-3'>
                                         <img src={card1} className="mint-pic pt-4 pb-3" />
                                     </div> */}
-                    <div className="col-md-11 col-11 d-flex justify-content-center">
+                    {/* <div className="col-md-11 col-11 d-flex justify-content-center">
                       <span className="congrat-span text-center">
                         Do you want to Breed card or sell in the market?
                       </span>
-                    </div>
+                    </div> */}
                   </div>
                   <div className=" d-flex justify-content-center mt-3 mb-3">
                     <button className="btn btn-congrats m-2" size="lg">
-                      Breed
+                      Stake
                     </button>
-                    <button
+                    {/* <button
                       className="btn btn1-congrats m-2"
                       size="lg"
                       onClick={() => setModalShowSecond(true)}
                     >
                       Sell
-                    </button>
+                    </button> */}
                     <button className="btn btn2-congrats m-2" size="lg">
                       Do it Later
                     </button>
@@ -698,7 +713,7 @@ function MysteryBox() {
                       </div>
                       <div className="col-11 mint-boxes d-flex justify-content-between mt-4 mb-3 pt-3 pb-3">
                         <span className="mint-span ps-2">Total Cost:</span>
-                        <span className="mint-span1">350 USD</span>
+                        <span className="mint-span1">{totalCost} USD</span>
                       </div>
                       <span className="mystrybox-span1">
                         MAXIMUM OF 3 NFTs Box PER tx
@@ -707,7 +722,12 @@ function MysteryBox() {
                         <div className="d-grid gap-2">
                           <button
                             className="btn mystrybtn"
-                            onClick={() => generateIdFromApi()}
+                            onClick={() => {
+
+                              generateIdFromApi()
+                              // setModalShow(true);
+
+                            }}
                           >
                             Open Box
                           </button>
@@ -717,8 +737,8 @@ function MysteryBox() {
                   </div>
                 </div>
                 <div className="row mb-5">
-                  <div className="col-md-12 col-11 mint-Page-border mb-4 scroll-tab">
-                    <table class="table table-borderless">
+                  <div className="col-md-12 col-11 mint-Page-border  mb-4 scroll-tab">
+                    <table className="table table-borderless">
                       <thead>
                         <tr>
                           <th scope="col" className="Mint-Time text-start">
