@@ -1,5 +1,5 @@
 export const breedContractAddress =
-  "0x626ecCe2f0B84a1f76C5DC7d0328AcC74715B71A";
+  "0x2C183814DDdE690F03fbacf17c6D2A1CB9abbEa5";
 export const breedContractAbi = [
   {
     inputs: [

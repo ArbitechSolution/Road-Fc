@@ -1,5 +1,5 @@
 export const stakingContractAddress =
-  "0x41E66E3F0315D6dC7a64a0D8473A5668f9A8c900";
+  "0x5a51c1c569ddAFb8bcCf2D317588A47be51A6Ef3";
 export const stakingContractAbi = [
   {
     inputs: [

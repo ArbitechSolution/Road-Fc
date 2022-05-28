@@ -59,21 +59,20 @@ function MysteryBox() {
   };
   const increaseValuebox = () => {
     if (valueone < 3) {
-      let p = 350
+      let p = 350;
       setValueone(++valueone);
-      let price = valueone * p
-      setTotalCost(price)
+      let price = valueone * p;
+      setTotalCost(price);
     }
   };
   const decreaseValuebox = () => {
     if (valueone > 1) {
-      let p = 350
-
+      let p = 350;
 
       setValueone(--valueone);
 
-      let price = valueone * p
-      setTotalCost(price)
+      let price = valueone * p;
+      setTotalCost(price);
     }
   };
 
@@ -120,118 +119,172 @@ function MysteryBox() {
         });
 
         dummyArray = [...dummyArray, toeknIdsFromApi];
+        let fromcontractBnb = web3.utils.fromWei(totalMintingPrice.toString());
 
-        await breedContract.methods
-          .Mystery_Box(toeknIdsFromApi, uriFromApi, typeFromApi)
-          .send({
-            value: totalMintingPrice.toString(),
-            from: acc,
-          })
-          .on("receipt", async (receipt) => {
-            console.log("receipt", receipt);
-            let addedDataToApi = await axios.post(
-              "https://road-nft.herokuapp.com/api/users/saveMysteryboxId",
-              {
-                tokenId: toeknIdsFromApi,
-              }
-            );
-            console.log("addedDataToApi", addedDataToApi);
-          });
-        toast.success("Transaction SuccessFul");
-        let simplleArray = [];
-        toeknIdsFromApi.forEach(async (ids) => {
-          let uris = await breedContract.methods.tokenURI(ids).call();
-          console.log("forEact", uris);
-          uris = uris.split("/");
-          console.log("uris", uris);
-          if (uris[5] == "common") {
-            let imageUrl = `/fighter nft/common/${uris[6]}`;
-            let imageName = `Common #${ids}`;
-            let tokenId = ids;
-            let level = "1";
-            let type = "Fighter";
-            let hasPower = "50";
-            let IsStake = true;
-            simplleArray = [
-              ...simplleArray,
-              { imageUrl, imageName, tokenId, type, IsStake, hasPower, level },
-            ];
-            setNftsArray(simplleArray);
-          } else if (uris[5] == "uncommon") {
-            let imageUrl = `/fighter nft/uncommon/${uris[6]}`;
-            let imageName = `Unommon #${ids}`;
-            let tokenId = ids;
-            let type = "Fighter";
-            let hasPower = "100";
-            let level = "2";
+        if (parseFloat(userBalance) > parseFloat(fromcontractBnb)) {
+          await breedContract.methods
+            .Mystery_Box(toeknIdsFromApi, uriFromApi, typeFromApi)
+            .send({
+              value: totalMintingPrice.toString(),
+              from: acc,
+            })
+            .on("receipt", async (receipt) => {
+              console.log("receipt", receipt);
+              let addedDataToApi = await axios.post(
+                "https://road-nft.herokuapp.com/api/users/saveMysteryboxId",
+                {
+                  tokenId: toeknIdsFromApi,
+                }
+              );
+              console.log("addedDataToApi", addedDataToApi);
+              toast.success("Transaction SuccessFul");
 
-            let IsStake = true;
-            simplleArray = [
-              ...simplleArray,
-              { imageUrl, imageName, tokenId, type, IsStake, hasPower, level },
-            ];
-            setNftsArray(simplleArray);
-          } else if (uris[5] == "rare") {
-            let imageUrl = `/fighter nft/rare/${uris[6]}`;
-            let imageName = `Rare #${ids}`;
-            let tokenId = ids;
-            let type = "Fighter";
-            let hasPower = "250";
-            let level = "3";
+              let simplleArray = [];
+              toeknIdsFromApi.forEach(async (ids) => {
+                let uris = await breedContract.methods.tokenURI(ids).call();
+                console.log("forEact", uris);
+                uris = uris.split("/");
+                console.log("uris", uris);
+                if (uris[5] == "common") {
+                  let imageUrl = `/fighter nft/common/${uris[6]}`;
+                  let imageName = `Common`;
+                  let tokenId = ids;
+                  let level = "1";
+                  let type = "Fighter";
+                  let hasPower = "50";
+                  let IsStake = true;
+                  simplleArray = [
+                    ...simplleArray,
+                    {
+                      imageUrl,
+                      imageName,
+                      tokenId,
+                      type,
+                      IsStake,
+                      hasPower,
+                      level,
+                    },
+                  ];
+                  setNftsArray(simplleArray);
+                } else if (uris[5] == "uncommon") {
+                  let imageUrl = `/fighter nft/uncommon/${uris[6]}`;
+                  let imageName = `Unommon`;
+                  let tokenId = ids;
+                  let type = "Fighter";
+                  let hasPower = "100";
+                  let level = "2";
 
-            let IsStake = true;
-            simplleArray = [
-              ...simplleArray,
-              { imageUrl, imageName, tokenId, type, IsStake, hasPower, level },
-            ];
-            setNftsArray(simplleArray);
-          } else if (uris[5] == "epic") {
-            let imageUrl = `/fighter nft/epic/${uris[6]}`;
-            let imageName = `Epic #${ids}`;
-            let tokenId = ids;
-            let type = "Fighter";
-            let IsStake = true;
-            let hasPower = "500";
-            let level = "4";
+                  let IsStake = true;
+                  simplleArray = [
+                    ...simplleArray,
+                    {
+                      imageUrl,
+                      imageName,
+                      tokenId,
+                      type,
+                      IsStake,
+                      hasPower,
+                      level,
+                    },
+                  ];
+                  setNftsArray(simplleArray);
+                } else if (uris[5] == "rare") {
+                  let imageUrl = `/fighter nft/rare/${uris[6]}`;
+                  let imageName = `Rare`;
+                  let tokenId = ids;
+                  let type = "Fighter";
+                  let hasPower = "250";
+                  let level = "3";
 
-            simplleArray = [
-              ...simplleArray,
-              { imageUrl, imageName, tokenId, type, IsStake, hasPower, level },
-            ];
-            setNftsArray(simplleArray);
-          } else if (uris[5] == "legendary") {
-            let imageUrl = `/fighter nft/legendary/${uris[6]}`;
-            let imageName = `Legendary #${ids}`;
-            let tokenId = ids;
-            let type = "Fighter";
-            let hasPower = "1000";
-            let level = "5";
+                  let IsStake = true;
+                  simplleArray = [
+                    ...simplleArray,
+                    {
+                      imageUrl,
+                      imageName,
+                      tokenId,
+                      type,
+                      IsStake,
+                      hasPower,
+                      level,
+                    },
+                  ];
+                  setNftsArray(simplleArray);
+                } else if (uris[5] == "epic") {
+                  let imageUrl = `/fighter nft/epic/${uris[6]}`;
+                  let imageName = `Epic`;
+                  let tokenId = ids;
+                  let type = "Fighter";
+                  let IsStake = true;
+                  let hasPower = "500";
+                  let level = "4";
 
-            let IsStake = true;
-            simplleArray = [
-              ...simplleArray,
-              { imageUrl, imageName, tokenId, type, hasPower, IsStake, level },
-            ];
-            setNftsArray(simplleArray);
-          } else if (uris[5] == "mythic") {
-            let imageUrl = `/fighter nft/mythic/${uris[6]}`;
-            let imageName = `Mythic #${ids}`;
-            let tokenId = ids;
-            let type = "Fighter";
-            let hasPower = "5000";
-            let level = "6";
+                  simplleArray = [
+                    ...simplleArray,
+                    {
+                      imageUrl,
+                      imageName,
+                      tokenId,
+                      type,
+                      IsStake,
+                      hasPower,
+                      level,
+                    },
+                  ];
+                  setNftsArray(simplleArray);
+                } else if (uris[5] == "legendary") {
+                  let imageUrl = `/fighter nft/legendary/${uris[6]}`;
+                  let imageName = `Legendary`;
+                  let tokenId = ids;
+                  let type = "Fighter";
+                  let hasPower = "1000";
+                  let level = "5";
 
-            let IsStake = true;
-            simplleArray = [
-              ...simplleArray,
-              { imageUrl, imageName, tokenId, type, IsStake, hasPower, level },
-            ];
-            setNftsArray(simplleArray);
-          }
-        });
-        setMysteryImgArray(dummyArray);
+                  let IsStake = true;
+                  simplleArray = [
+                    ...simplleArray,
+                    {
+                      imageUrl,
+                      imageName,
+                      tokenId,
+                      type,
+                      hasPower,
+                      IsStake,
+                      level,
+                    },
+                  ];
+                  setNftsArray(simplleArray);
+                } else if (uris[5] == "mythic") {
+                  let imageUrl = `/fighter nft/mythic/${uris[6]}`;
+                  let imageName = `Mythic`;
+                  let tokenId = ids;
+                  let type = "Fighter";
+                  let hasPower = "5000";
+                  let level = "6";
 
-        setModalShow(true);
+                  let IsStake = true;
+                  simplleArray = [
+                    ...simplleArray,
+                    {
+                      imageUrl,
+                      imageName,
+                      tokenId,
+                      type,
+                      IsStake,
+                      hasPower,
+                      level,
+                    },
+                  ];
+                  setNftsArray(simplleArray);
+                }
+              });
+              setMysteryImgArray(dummyArray);
+
+              setModalShow(true);
+            });
+        } else {
+          toast.info("Insufficient Balance! Please Recharge");
+        }
       }
     } catch (e) {
       console.log("Error while generateIdFromApi ", e);
@@ -262,10 +315,10 @@ function MysteryBox() {
               {acc === "No Wallet"
                 ? "Connect"
                 : acc === "Connect Wallet"
-                  ? "Connect"
-                  : acc === "Wrong Network"
-                    ? acc
-                    : acc.substring(0, 3) + "..." + acc.substring(acc.length - 3)}
+                ? "Connect"
+                : acc === "Wrong Network"
+                ? acc
+                : acc.substring(0, 3) + "..." + acc.substring(acc.length - 3)}
             </button>
           </div>
         </div>
@@ -310,41 +363,71 @@ function MysteryBox() {
                       {nftArray.map((items) => {
                         console.log("nftArray", nftArray);
                         return (
-                          <div className='col-md-5 box-mystry mt-3'>
-                            <div className=' d-flex justify-content-center    mb-3' >
-                              <div className="d-flex justify-content-center mystrey-imagess pt-4 pb-4" style={{ width: "300px" }}>
-
-                                <img src={`/config/${items.imageUrl}`} className="mystrey-pic pt-4 pb-3" />
+                          <div className="col-md-5 box-mystry mt-3">
+                            <div className=" d-flex justify-content-center  mb-3">
+                              <div
+                                className="d-flex justify-content-center mystrey-imagess pt-4 pb-4"
+                                style={{ width: "300px" }}
+                              >
+                                <img
+                                  src={`/config/${items.imageUrl}`}
+                                  className="mystrey-pic pt-4 pb-3"
+                                />
                               </div>
                             </div>
-                            <div className='text-center'>
-                              <span className='congrat-span'>{items.imageName}</span>
+                            <div className="text-center">
+                              {/* <span className="congrat-span">
+                                {items.imageName}
+                              </span> */}
                             </div>
-                            <div className='row d-flex justify-content-center mt-3'>
-                              <div className='col-11 d-flex justify-content-between align-items-center mt-1'>
-                                <span className='mystrey-span21'>Rarity:</span>
-                                <span className='mystrey-span22'>{items.type}</span>
+                            <div className="row d-flex justify-content-center mt-3">
+                              <div className="col-11 d-flex justify-content-between align-items-center mt-1">
+                                <span className="mystrey-span21">Rarity:</span>
+                                <span className="mystrey-span22">
+                                  {items.imageName}
+                                </span>
                               </div>
-                              <div className='col-11 mt-2' >
-                                <p style={{ border: "1px solid rgba(119, 119, 119, 0.25)" }}></p>
-                              </div>
-                            </div>
-                            <div className='row d-flex justify-content-center mt-2'>
-                              <div className='col-11 d-flex justify-content-between align-items-center mt-1'>
-                                <span className='mystrey-span21'>Level:</span>
-                                <span className='mystrey-span22'>{items.level}</span>
-                              </div>
-                              <div className='col-11 mt-2' >
-                                <p style={{ border: "1px solid rgba(119, 119, 119, 0.25)" }}></p>
+                              <div className="col-11 mt-2">
+                                <p
+                                  style={{
+                                    border:
+                                      "1px solid rgba(119, 119, 119, 0.25)",
+                                  }}
+                                ></p>
                               </div>
                             </div>
-                            <div className='row d-flex justify-content-center mt-2'>
-                              <div className='col-11 d-flex justify-content-between align-items-center mt-1'>
-                                <span className='mystrey-span21'>Has Power:</span>
-                                <span className='mystrey-span22'>{items.hasPower}</span>
+                            <div className="row d-flex justify-content-center mt-2">
+                              <div className="col-11 d-flex justify-content-between align-items-center mt-1">
+                                <span className="mystrey-span21">Level:</span>
+                                <span className="mystrey-span22">
+                                  {items.level}
+                                </span>
                               </div>
-                              <div className='col-11 mt-2' >
-                                <p style={{ border: "1px solid rgba(119, 119, 119, 0.25)" }}></p>
+                              <div className="col-11 mt-2">
+                                <p
+                                  style={{
+                                    border:
+                                      "1px solid rgba(119, 119, 119, 0.25)",
+                                  }}
+                                ></p>
+                              </div>
+                            </div>
+                            <div className="row d-flex justify-content-center mt-2">
+                              <div className="col-11 d-flex justify-content-between align-items-center mt-1">
+                                <span className="mystrey-span21">
+                                  Has Power:
+                                </span>
+                                <span className="mystrey-span22">
+                                  {items.hasPower}
+                                </span>
+                              </div>
+                              <div className="col-11 mt-2">
+                                <p
+                                  style={{
+                                    border:
+                                      "1px solid rgba(119, 119, 119, 0.25)",
+                                  }}
+                                ></p>
                               </div>
                             </div>
                           </div>
@@ -413,10 +496,6 @@ function MysteryBox() {
                           // </div>
                         );
                       })}
-
-
-
-
                     </div>
                     {/* <div className='col-md-12 d-flex justify-content-center breed-imagess mt-3 mb-3'>
                                         <img src={card1} className="mint-pic pt-4 pb-3" />
@@ -723,10 +802,8 @@ function MysteryBox() {
                           <button
                             className="btn mystrybtn"
                             onClick={() => {
-
-                              generateIdFromApi()
+                              generateIdFromApi();
                               // setModalShow(true);
-
                             }}
                           >
                             Open Box

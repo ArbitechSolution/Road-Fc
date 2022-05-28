@@ -23,7 +23,6 @@ import Title22 from "../../Assets/Title22.png";
 import SideBar from "../SideBar/SideBar";
 import MediaSidebar from "../SideBar/MediaSidebar";
 import { nftContractAbi, nftContratAddress } from "../Utils/Nft";
-import { nftStakingAbi, nftStakingAddress } from "../Utils/NFTStakingContract";
 import { useDispatch, useSelector } from "react-redux";
 import { getWallet, getRewardOfUser } from "../Redux/actions/actions";
 import { toast } from "react-toastify";

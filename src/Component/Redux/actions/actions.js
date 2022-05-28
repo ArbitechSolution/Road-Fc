@@ -35,10 +35,6 @@ import {
   preSaleContractAddress,
 } from "../../Utils/preSale";
 import {
-  nftStakingAbi,
-  nftStakingAddress,
-} from "../../Utils/NFTStakingContract";
-import {
   road_Nft_Staking_Address,
   road_Nft_Staking_Abi,
 } from "../../Utils/Road_Nft_Staking";

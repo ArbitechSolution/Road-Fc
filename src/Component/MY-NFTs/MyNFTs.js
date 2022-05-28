@@ -12,7 +12,6 @@ import Vector33 from "../../Assets/Vector33.png";
 import SideBar from "../SideBar/SideBar";
 import { toast } from "react-toastify";
 import { nftContractAbi, nftContratAddress } from "../Utils/Nft";
-import { nftStakingAbi, nftStakingAddress } from "../Utils/NFTStakingContract";
 import { breedContractAbi, breedContractAddress } from "../Utils/breed";
 import Group843 from "../../Assets/Group 843.png";
 import {
@@ -366,6 +365,7 @@ function MyNFTs() {
         });
         toast.success("Transaction Sucessfull");
       }
+      getNfts();
     } catch (e) {
       console.error("error while stake NFT", e);
       toast.error("Transaction Failed");
