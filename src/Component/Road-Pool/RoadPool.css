@@ -1,8 +1,9 @@
 .imagePool{
     background-image: url("../../Assets/BG.png"),url("../../Assets/BG1.png");
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    /* background-attachment: fixed; */
     background-size: cover;
+background-position: center;
     min-height: 100%
 }
 .poolbtn{
@@ -15,16 +16,39 @@ color: white;
 padding: 10px 15px;
 }
 .poolbox{
-    background: linear-gradient(180deg, rgba(35, 38, 47, 0.64) 0%, rgba(21, 24, 30, 0.64) 100%);
+    /* background: linear-gradient(180deg, rgba(35, 38, 47, 0.64) 0%, rgba(21, 24, 30, 0.64) 100%); */
 box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.08);
 backdrop-filter: blur(16px);
-border-top: 2px solid #FF5043;
-/* border-left: 2px solid #FF5043;
-border-right: 2px solid #FF5043; */
+
+
+
+border: 4px solid transparent;
+  border-radius: 20px;
+  background:
+    linear-gradient(to right,#1C1E26, #1C1E26),
+    linear-gradient(to bottom, #FF5043 , rgba(0, 0, 0, 0));
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
+
+
+
+
+/* border-top: 2px solid #FF5043;
+border: 5px solid transparent; */
+  /* border-image:
+    linear-gradient(
+      to bottom,
+      #FF5043,
+      rgba(0, 0, 0, 0)
+    ) 1 8%; */
+    /* border-image: linear-gradient(to right, darkblue, darkorchid) 1;
+  border-radius: 50em; */
+    /* border-image-slice: 20; */
+/* border-right: 2px solid #FF5043; */
 -webkit-box-shadow: 0 10px 8px -4px black;
 	   -moz-box-shadow: 0 10px 8px -4px black;
 	        box-shadow: 0 10px 8px -4px black;
-border-radius: 16px;
+/* border-radius: 86px; */
 }
 .poolgh5{
     font-weight: 500;

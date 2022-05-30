@@ -37,8 +37,12 @@ function RoadPool() {
                     <div className='col-lg-3 col-md-5 col-10 poolbox pt-4 m-1'>
                         <img src={Growth} />
                         <h5 className='poolgh5 pt-4'>Staking & Point</h5>
-                        <p className='pool-p pt-2
-                        '>Welcome to the Road pool. Here you are able to benefit from staking tokens and receiving</p>
+                        <div className='d-flex justify-content-center'>
+                            <div className='col-10 text-center '>
+                                <p className='pool-p pt-2'>Welcome to the Road pool. Here you are able to benefit from staking tokens and receiving</p>
+
+                            </div>
+                        </div>
                         <div className='row d-flex justify-content-center pb-3 pt-2'>
                             <div className='col-10 '>
                                 <Link to="/Staking" style={{ textDecoration: "none", color: "white" }}>
@@ -56,7 +60,12 @@ function RoadPool() {
                         <img src={Frame2} />
                         <h5 className='poolgh5 pt-4'
                         >Mint</h5>
-                        <p className='pool-p pt-2'>With uncertainity, comes excitement,You never know what you are going to get.Try your luck!</p>
+                        <div className='d-flex justify-content-center'>
+                            <div className='col-10 text-center '>
+                                <p className='pool-p pt-2'>With uncertainity, comes excitement, You never know what you are going to get. Try your luck!</p>
+                            </div>
+                        </div>
+
                         <div className='row d-flex justify-content-center pb-3 pt-2'>
                             <div className='col-10 '>
                                 <Link to="/Mint" style={{ textDecoration: "none", color: "white" }}>
@@ -73,7 +82,11 @@ function RoadPool() {
                     <div className='col-lg-3 col-md-5 col-10 poolbox pt-4 m-1'>
                         <img src={Frame3} />
                         <h5 className='poolgh5 pt-4'>Breed</h5>
-                        <p className='pool-p pt-2'>Select two fighters who will perform the breed to get higher level card in exchange.</p>
+                        <div className='d-flex justify-content-center'>
+                            <div className='col-10 text-center '>
+                                <p className='pool-p pt-2'>Select two fighters who will perform the breed to get higher level card in exchange.</p>
+                            </div>
+                        </div>
                         <div className='row d-flex justify-content-center pb-3 pt-2'>
                             <div className='col-10 '>
                                 <Link to="/breed" style={{ textDecoration: "none", color: "white" }}>
@@ -90,7 +103,12 @@ function RoadPool() {
                     <div className='col-lg-3 col-md-5 col-10 poolbox pt-4 m-1 mt-3'>
                         <img src={Box} />
                         <h5 className='poolgh5 pt-4'>Mystery Box</h5>
-                        <p className='pool-p pt-2'>Costs 1,000 Energy PointsWhat fighter will you get?</p>
+                        <div className='d-flex justify-content-center'>
+                            <div className='col-10 text-center '>
+
+                        <p className='pool-p pt-2'>Limited Mystery boxes waiting to be unboxed ! What fighter will you get?</p>
+                        </div>
+                        </div>
                         <div className='row d-flex justify-content-center pb-3 pt-2'>
                             <div className='col-10 '>
                                 <Link to="/MysteryBox" style={{ textDecoration: "none", color: "white" }}>
@@ -136,8 +154,8 @@ function RoadPool() {
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
+                </div >
+            </div >
         </div >
     )
 }
