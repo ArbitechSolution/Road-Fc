@@ -43,10 +43,12 @@ function MediaSidebar() {
   {
     name: "NFT Staking",
     img: nft1
-  }, {
-    name: "NFT Market",
-    img: marketplace1
   },
+  // {
+  //   name: "NFT Market",
+  //   img: marketplace1
+  // }
+  ,
   {
     name: "My NFT",
     img: Group593
@@ -87,12 +89,14 @@ function MediaSidebar() {
         name: "NFT Staking",
         img: nft1
       })
-    } else if (path[1] == "marketplace") {
-      setUpdateDropDown({
-        name: "NFT Market",
-        img: marketplace1
-      })
-    } else if (path[1] == "MyNFTs") {
+    }
+    // else if (path[1] == "marketplace") {
+    //   setUpdateDropDown({
+    //     name: "NFT Market",
+    //     img: marketplace1
+    //   })
+    // }
+    else if (path[1] == "MyNFTs") {
       setUpdateDropDown({
         name: "My NFT",
         img: Group593
@@ -117,9 +121,11 @@ function MediaSidebar() {
       navigate('/MysteryBox')
     } else if (name == "NFT Staking") {
       navigate('/NFTstaking')
-    } else if (name == "NFT Market") {
-      navigate('/marketplace')
-    } else if (name == "My NFT") {
+    }
+    // else if (name == "NFT Market") {
+    //   navigate('/marketplace')
+    // }
+    else if (name == "My NFT") {
       navigate('/MyNFTs')
     } else if (name == "ROAD POOL") {
       navigate('/')

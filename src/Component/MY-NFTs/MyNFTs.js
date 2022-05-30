@@ -289,7 +289,7 @@ function MyNFTs() {
   let [pageNumber, setPageNumber] = useState(1);
   let [totalPages, setTotalPages] = useState(1);
   const loadMore = () => {
-    window.scrollTo(0, 0);  
+    window.scrollTo(0, 0);
     let a = finalLimit + 12;
     if (a >= nftArrayLength) {
       setInitialLimit(initialLimit + 12);
@@ -547,7 +547,7 @@ function MyNFTs() {
             <div className="row d-flex justify-content-center flex-wrap mb-3">
               {nftArray?.slice(initialLimit, finalLimit).map((item, index) => {
                 return (
-                  <div className="col-md-2 nft-boxx p-2 mt-3  m-1" key={index}>
+                  <div className="col-md-2  nft-boxx p-2 mt-3  m-1" key={index}>
                     <img
                       src={`/config/${item.imageUrl}`}
                       className="nfts-image"

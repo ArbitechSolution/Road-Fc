@@ -40,14 +40,15 @@
     font-size: 17px;
     line-height: 144%;
     color: #5E606E;
+    /* cursor: pointer; */
 }
 
 /* .breed-box11{
-    width: 260px;
+    width: 430px;
 } */
 .breedImages {
-    width: 120px;
-    height: 120px;
+    width: 155px;
+    height: 155px;
     /* position: absolute; */
     /* top: 200px; */
 
@@ -60,7 +61,7 @@
     /* box-sizing: border-box; */
 
 
-    height: 520px;
+    height: 550px;
     /* position: relative; */
     /* width: 280px; */
     /* overflow-x: hidden; */
@@ -69,10 +70,33 @@
     /* scroll-behavior: smooth;     */
     /* overflow-x: hidden;
     -webkit-appearance:inherit; */
-    scroll-behavior: auto;
+    /* scroll-behavior: auto; */
     overflow-y: scroll;
 
 }
+
+#style-1::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #23252D;
+}
+
+#style-1::-webkit-scrollbar
+{
+	width: 8px;
+	background-color: #23252D;
+}
+
+#style-1::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #5E606E;;
+}
+
+
+
 .breedboxs124{
     display: flex;
     justify-content: space-between;
@@ -86,9 +110,9 @@ height: 100px;
 border: #F92D1E 2px solid;
 }
 
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
     display: none;
-}
+} */
 
 .bredd-span {
     font-weight: 500;

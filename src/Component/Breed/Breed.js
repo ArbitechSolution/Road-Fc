@@ -405,7 +405,7 @@ function Breed() {
           {/* <div className='col-11 mb-3 staking-coll'>
                     <MediaSidebar />
                     </div> */}
-          <div className="col-lg-8  col-11 mb-md-1 mb-4 mt-4 ">
+          <div className="col-lg-9  col-11 mb-md-1 mb-4 mt-4 ">
             {modalShow ? (
               <Modal
                 show={modalShow}
@@ -576,7 +576,7 @@ function Breed() {
                           <div className="d-flex flex-column justify-content-center align-items-center pt-sm-5 pt-4 pb-sm-5 pb-4">
                             {trainerOne.status && (
                               <span
-                                style={{ paddingLeft: "155px" }}
+                                style={{ paddingLeft: "155px", cursor: "pointer" }}
                                 className="text-danger fs-3  d-flex justify-content-start"
                                 onClick={cancleBreedImageOne}
                                 // style={{border: "2px solid red"}}
@@ -600,7 +600,7 @@ function Breed() {
                           <div className="d-flex flex-column justify-content-center align-items-center pt-sm-5 pt-4 pb-sm-5 pb-4">
                             {trainerTwo.status && (
                               <span
-                                style={{ paddingLeft: "155px" }}
+                                style={{ paddingLeft: "155px", cursor: "pointer" }}
                                 className="text-danger fs-3 d-flex justify-content-start"
                                 onClick={cancleBreedImageTwo}
                               >
@@ -645,7 +645,7 @@ function Breed() {
                   </div>
                   <div className="col-lg-5 col-10 breed-box11 mb-3">
                     <div className="row d-flex justify-content-center">
-                      <div className="col-lg-10 col-11 breedboxs12">
+                      <div className="col-lg-11 col-11 breedboxs12">
                         <div className="row">
                           <div className="col-12 d-flex flex-row">
                             <div>
@@ -661,7 +661,7 @@ function Breed() {
                             </div>
                           </div>
                         </div>
-                        <div className=" breedboxs123 mt-2 p-2">
+                        <div className=" breedboxs123 mt-2 p-2" id="style-1">
                           <div className=" breedboxs124">
                             {nftArray.map((item) => {
                               return (
@@ -679,6 +679,58 @@ function Breed() {
                                 </div>
                               );
                             })}
+                            {/* <img src={Rectangle457} className="breedImages mt-2"/>
+                            <img src={Rectangle457} className="breedImages mt-2"/>
+                            <img src={Rectangle457} className="breedImages mt-2"/>
+                            <img src={Rectangle457} className="breedImages mt-2"/>
+                            <img src={Rectangle457} className="breedImages mt-2"/>
+                            <img src={Rectangle457} className="breedImages mt-2"/> */}
+                            {/* <img src={Rectangle457} className="breedImages mt-2"/>
+                            <img src={Rectangle457} className="breedImages mt-2"/>
+                            <img src={Rectangle457} className="breedImages mt-2"/>
+                            <img src={Rectangle457} className="breedImages mt-2"/> */}
+                            {/* <img src={Rectangle457} className="breedImages mt-2"/>
+                            <img src={Rectangle457} className="breedImages mt-2"/>
+                            <img src={Rectangle457} className="breedImages mt-2"/>
+                            <img src={Rectangle457} className="breedImages mt-2"/>
+                            <img src={Rectangle457} className="breedImages mt-2"/>
+                            <img src={Rectangle457} className="breedImages mt-2"/>
+                            <img src={Rectangle457} className="breedImages mt-2"/>
+                            <img src={Rectangle457} className="breedImages mt-2"/>
+                            <img src={Rectangle457} className="breedImages mt-2"/>
+                            <img src={Rectangle457} className="breedImages mt-2"/>
+                            <img src={Rectangle457} className="breedImages mt-2"/>
+                            <img src={Rectangle457} className="breedImages mt-2"/>
+                            <img src={Rectangle457} className="breedImages mt-2"/>
+                            <img src={Rectangle457} className="breedImages mt-2"/>
+                            <img src={Rectangle457} className="breedImages mt-2"/>
+                             <img src={Rectangle457} className="breedImages mt-2"/>
+                              <img src={Rectangle457} className="breedImages mt-2"/>
+                               <img src={Rectangle457} className="breedImages mt-2"/>
+                                <img src={Rectangle457} className="breedImages mt-2"/>
+                                 <img src={Rectangle457} className="breedImages mt-2"/>
+                                  <img src={Rectangle457} className="breedImages mt-2"/>
+                                   <img src={Rectangle457} className="breedImages mt-2"/>
+                                   <img src={Rectangle457} className="breedImages mt-2"/>
+                                   <img src={Rectangle457} className="breedImages mt-2"/>
+                                   <img src={Rectangle457} className="breedImages mt-2"/>
+                                   <img src={Rectangle457} className="breedImages mt-2"/>
+                                   <img src={Rectangle457} className="breedImages mt-2"/>
+                                   <img src={Rectangle457} className="breedImages mt-2"/>
+                                   <img src={Rectangle457} className="breedImages mt-2"/>
+                                   <img src={Rectangle457} className="breedImages mt-2"/>
+                                   <img src={Rectangle457} className="breedImages mt-2"/>
+                                   <img src={Rectangle457} className="breedImages mt-2"/>
+                                   <img src={Rectangle457} className="breedImages mt-2"/>
+                                   <img src={Rectangle457} className="breedImages mt-2"/>
+                                   <img src={Rectangle457} className="breedImages mt-2"/>
+                                   <img src={Rectangle457} className="breedImages mt-2"/>
+                                   <img src={Rectangle457} className="breedImages mt-2"/>
+                                   <img src={Rectangle457} className="breedImages mt-2"/>
+                                   <img src={Rectangle457} className="breedImages mt-2"/>
+                                   <img src={Rectangle457} className="breedImages mt-2"/>
+                                   <img src={Rectangle457} className="breedImages mt-2"/>
+                                   <img src={Rectangle457} className="breedImages mt-2"/> */}
                           </div>
                         </div>
                       </div>

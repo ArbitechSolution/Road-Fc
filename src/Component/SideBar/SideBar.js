@@ -75,7 +75,7 @@ function SideBar() {
           </div>
         </NavLink>
       </div>
-      <div className='row d-flex justify-content-center mt-3 mb-3'>
+      {/* <div className='row d-flex justify-content-center mt-3 mb-3'>
         <NavLink to="/marketplace" style={{ textDecoration: "none", color: "white" }} className={({ isActive }) => (isActive ? 'col-10 staking-btn_active' : 'col-10 staking-btn')}>
           <div className=''>
             <div className="d-grid gap-2">
@@ -85,7 +85,7 @@ function SideBar() {
             </div>
           </div>
         </NavLink>
-      </div>
+      </div> */}
       <div className='row d-flex justify-content-center mt-3 mb-3' >
         <NavLink to="/MyNFTs" style={{ textDecoration: "none", color: "white" }} className={({ isActive }) => (isActive ? 'col-10 staking-btn_active' : 'col-10 staking-btn')}>
           <div className=''>

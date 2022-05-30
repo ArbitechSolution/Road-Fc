@@ -34,12 +34,12 @@ function RoadPool() {
               {acc === "No Wallet"
                 ? "Connect"
                 : acc === "Connect Wallet"
-                ? "Connect"
-                : acc === "Wrong Network"
-                ? acc
-                : acc.substring(0, 3) +
-                  "..." +
-                  acc.substring(acc.length - 3)}{" "}
+                  ? "Connect"
+                  : acc === "Wrong Network"
+                    ? acc
+                    : acc.substring(0, 3) +
+                    "..." +
+                    acc.substring(acc.length - 3)}{" "}
             </button>{" "}
           </div>{" "}
         </div>{" "}
@@ -152,7 +152,7 @@ function RoadPool() {
           <div className="col-lg-3 col-md-5 col-10 poolbox pt-4 m-1 mt-3">
             <img src={Box} /> <h5 className="poolgh5 pt-4"> Mystery Box </h5>{" "}
             <div className="d-flex justify-content-center">
-              <div className="col-10 text-center ">
+              <div className="col-11 text-center ">
                 <p className="pool-p pt-2">
                   {" "}
                   Limited Mystery boxes waiting to be unboxed!What fighter will
@@ -187,7 +187,7 @@ function RoadPool() {
           <div className="col-lg-3 col-md-5 col-10 poolbox pt-4 m-1 mt-3">
             <img src={nft1} /> <h5 className="poolgh5 pt-4"> NFT Staking </h5>{" "}
             <div className="d-flex justify-content-center">
-              <div className="col-5 text-center ">
+              <div className="col-7 text-center ">
                 <p className="pool-p pt-2">
                   Browse your personal Staking of NFTs{" "}
                 </p>
@@ -220,7 +220,11 @@ function RoadPool() {
           <div className="col-lg-3 col-md-5 col-10 poolbox pt-4 m-1 mt-3">
             <img src={marketplace1} />{" "}
             <h5 className="poolgh5 pt-4"> NFT Market </h5>
-            <p className="pool-p pt-2">Buy and Sell large collection of NFTs</p>
+            <div className="d-flex justify-content-center">
+              <div className="col-6 text-center ">
+                <p className="pool-p pt-2">Buy and Sell large collection of NFTs</p>
+              </div>{" "}
+            </div>{" "}
             <div className="row d-flex justify-content-center pb-3 pt-2">
               <div className="col-10 ">
                 <Link
