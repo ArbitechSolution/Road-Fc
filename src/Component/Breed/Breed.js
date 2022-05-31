@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { MdOutlineKeyboardBackspace } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Breed.css";
 import { IoMdClose } from "react-icons/io";
 import Breedimag from "../../Assets/Breed.png";
@@ -30,7 +30,7 @@ import { MdOutlineCancel } from "react-icons/md";
 function Breed() {
   let { acc } = useSelector((state) => state.connectWallet);
   let { userBalance } = useSelector((state) => state.userBalance);
-
+  const navigate = useNavigate()
   let dispatch = useDispatch();
   let [nftArrayLength, setNftsArrayLength] = useState(0);
   let [nftArray, setNftsArray] = useState([]);
@@ -113,13 +113,13 @@ function Breed() {
 
   let [checkCounter, setCheckCounter] = useState(0);
   let [trainerOne, setTrainerOne] = useState({
-    width: 40,
+    width: 70,
     status: false,
     imgUrl: Group195,
     tokenId: 0,
   });
   let [trainerTwo, setTrainerTwo] = useState({
-    width: 40,
+    width: 70,
     status: false,
     imgUrl: Group195,
     tokenId: 0,
@@ -213,50 +213,7 @@ function Breed() {
           nftContratAddress
         );
 
-        // let nftIsapprovedforAll = await nftContract.methods
-        //   .isApprovedForAll(acc, breedContractAddress)
-        //   .call();
-        // console.log("nftIsapprovedforAll", nftIsapprovedforAll);
-        // if (nftIsapprovedforAll == true) {
-        //   let bnb = await breedContract.methods.BNB().call();
-        //   let bnb_value = web3.utils.fromWei(bnb);
-        //   bnb_value = parseFloat(bnb_value).toFixed(3);
-        //   if (userBalance >= bnb_value) {
-        //     let breedData = await axios.get(
-        //       `https://road-nft.herokuapp.com/api/users/getRandomIds?type1=${breedType1}&type2=${breedType2}`
-        //     );
-        //     if (breedData.data.id != null) {
-        //       await breedContract.methods
-        //         .Breed(
-        //           trainerOne.tokenId,
-        //           trainerTwo.tokenId,
-        //           breedData.data.id,
-        //           breedData.data.uri,
-        //           breedData.data.type
-        //         )
-        //         .send({
-        //           from: acc,
-        //           value: bnb,
-        //         })
-        //         .on("receipt", async (receipt) => {
-        //           console.log("receipt", receipt);
-        //           await axios.get(
-        //             `https://road-nft.herokuapp.com/api/users/saveTokenId?type1=${breedType1}&type2=${breedType2}&tokenId=${breedData.data.id}`
-        //           );
-        //         });
-        //       showBreedNft();
-        //       cancleBreedImageOne();
-        //       cancleBreedImageTwo();
-        //       getData();
-        //       toast.success("Breeding successful");
-        //     } else {
-        //       toast.info("ids full");
-        //     }
-        //   } else {
-        //     toast.info("Insufficient Balance");
-        //   }
-        // } else {
-        console.log("ytytyyytytyty");
+       
         let bnb = await breedContract.methods.BNB().call();
         let bnb_value = web3.utils.fromWei(bnb);
         bnb_value = parseFloat(bnb_value).toFixed(3);
@@ -452,7 +409,7 @@ function Breed() {
                   <div className=" d-flex justify-content-center mt-3 mb-3">
                     <button
                       className="btn btn-congrats m-2"
-                      onClick={() => setModalShow(false)}
+                      onClick={() => navigate("/MyNFTs")}
                     >
                       Stake
                     </button>
@@ -465,21 +422,7 @@ function Breed() {
                       Do it Later
                     </button>
                   </div>
-                  {/* <div className='d-flex justify-content-center'>
-
-                                            <button className='btn btn-congrats m-sm-3 m-2' size="lg">
-                                                Breed
-                                            </button>
-
-                                            <button className='btn btn1-congrats m-sm-3 m-2' size="lg" onClick={() => setModalShowone(true)}>
-                                                Sell
-                                            </button>
-
-                                            <button className='btn btn2-congrats m-sm-3 m-2'  size="lg">
-                                                Do it Later
-                                            </button>
-
-                                </div> */}
+                  
                 </Modal.Body>
               </Modal>
             ) : (
@@ -679,58 +622,7 @@ function Breed() {
                                 </div>
                               );
                             })}
-                            {/* <img src={Rectangle457} className="breedImages mt-2"/>
-                            <img src={Rectangle457} className="breedImages mt-2"/>
-                            <img src={Rectangle457} className="breedImages mt-2"/>
-                            <img src={Rectangle457} className="breedImages mt-2"/>
-                            <img src={Rectangle457} className="breedImages mt-2"/>
-                            <img src={Rectangle457} className="breedImages mt-2"/> */}
-                            {/* <img src={Rectangle457} className="breedImages mt-2"/>
-                            <img src={Rectangle457} className="breedImages mt-2"/>
-                            <img src={Rectangle457} className="breedImages mt-2"/>
-                            <img src={Rectangle457} className="breedImages mt-2"/> */}
-                            {/* <img src={Rectangle457} className="breedImages mt-2"/>
-                            <img src={Rectangle457} className="breedImages mt-2"/>
-                            <img src={Rectangle457} className="breedImages mt-2"/>
-                            <img src={Rectangle457} className="breedImages mt-2"/>
-                            <img src={Rectangle457} className="breedImages mt-2"/>
-                            <img src={Rectangle457} className="breedImages mt-2"/>
-                            <img src={Rectangle457} className="breedImages mt-2"/>
-                            <img src={Rectangle457} className="breedImages mt-2"/>
-                            <img src={Rectangle457} className="breedImages mt-2"/>
-                            <img src={Rectangle457} className="breedImages mt-2"/>
-                            <img src={Rectangle457} className="breedImages mt-2"/>
-                            <img src={Rectangle457} className="breedImages mt-2"/>
-                            <img src={Rectangle457} className="breedImages mt-2"/>
-                            <img src={Rectangle457} className="breedImages mt-2"/>
-                            <img src={Rectangle457} className="breedImages mt-2"/>
-                             <img src={Rectangle457} className="breedImages mt-2"/>
-                              <img src={Rectangle457} className="breedImages mt-2"/>
-                               <img src={Rectangle457} className="breedImages mt-2"/>
-                                <img src={Rectangle457} className="breedImages mt-2"/>
-                                 <img src={Rectangle457} className="breedImages mt-2"/>
-                                  <img src={Rectangle457} className="breedImages mt-2"/>
-                                   <img src={Rectangle457} className="breedImages mt-2"/>
-                                   <img src={Rectangle457} className="breedImages mt-2"/>
-                                   <img src={Rectangle457} className="breedImages mt-2"/>
-                                   <img src={Rectangle457} className="breedImages mt-2"/>
-                                   <img src={Rectangle457} className="breedImages mt-2"/>
-                                   <img src={Rectangle457} className="breedImages mt-2"/>
-                                   <img src={Rectangle457} className="breedImages mt-2"/>
-                                   <img src={Rectangle457} className="breedImages mt-2"/>
-                                   <img src={Rectangle457} className="breedImages mt-2"/>
-                                   <img src={Rectangle457} className="breedImages mt-2"/>
-                                   <img src={Rectangle457} className="breedImages mt-2"/>
-                                   <img src={Rectangle457} className="breedImages mt-2"/>
-                                   <img src={Rectangle457} className="breedImages mt-2"/>
-                                   <img src={Rectangle457} className="breedImages mt-2"/>
-                                   <img src={Rectangle457} className="breedImages mt-2"/>
-                                   <img src={Rectangle457} className="breedImages mt-2"/>
-                                   <img src={Rectangle457} className="breedImages mt-2"/>
-                                   <img src={Rectangle457} className="breedImages mt-2"/>
-                                   <img src={Rectangle457} className="breedImages mt-2"/>
-                                   <img src={Rectangle457} className="breedImages mt-2"/>
-                                   <img src={Rectangle457} className="breedImages mt-2"/> */}
+                          
                           </div>
                         </div>
                       </div>
