@@ -507,9 +507,23 @@ function MysteryBox() {
                     </div> */}
                   </div>
                   <div className=" d-flex justify-content-center mt-3 mb-3">
-                    <button className="btn btn-congrats m-2" size="lg">
-                      Stake
-                    </button>
+                    <Link
+                      to="/MyNFTs"
+                      style={{
+                        textDecoration: "none",
+                        color: "white",
+                      }}
+                    >
+                      <button
+                        onClick={() => {
+                          window.scrollTo(0, 0);
+                        }}
+                        className="btn btn-congrats m-2"
+                        size="lg"
+                      >
+                        Stake
+                      </button>
+                    </Link>
                     {/* <button
                       className="btn btn1-congrats m-2"
                       size="lg"
@@ -517,7 +531,11 @@ function MysteryBox() {
                     >
                       Sell
                     </button> */}
-                    <button className="btn btn2-congrats m-2" size="lg">
+                    <button
+                      onClick={() => setModalShow(false)}
+                      className="btn btn2-congrats m-2"
+                      size="lg"
+                    >
                       Do it Later
                     </button>
                   </div>
@@ -678,7 +696,7 @@ function MysteryBox() {
                               />
                             </div>
                             <div className="">
-                              <p className="stery-span ps-2">35%</p>
+                              <p className="stery-span ps-2">25.0%</p>
                               <p className="stery-span1 ps-2 ">Common</p>
                             </div>
                           </div>
@@ -690,7 +708,7 @@ function MysteryBox() {
                               />
                             </div>
                             <div className="">
-                              <p className="stery-span ps-2">26%</p>
+                              <p className="stery-span ps-2">25.0%</p>
                               <p className="stery-span1 ps-2 ">Uncommon</p>
                             </div>
                           </div>
@@ -702,7 +720,7 @@ function MysteryBox() {
                               />
                             </div>
                             <div className="">
-                              <p className="stery-span ps-2">19%</p>
+                              <p className="stery-span ps-2">27.0%</p>
                               <p className="stery-span1 ps-2 ">Rare</p>
                             </div>
                           </div>
@@ -714,7 +732,7 @@ function MysteryBox() {
                               />
                             </div>
                             <div className="">
-                              <p className="stery-span ps-2">11%</p>
+                              <p className="stery-span ps-2">13.8%</p>
                               <p className="stery-span1 ps-2 ">Epic</p>
                             </div>
                           </div>
@@ -726,7 +744,7 @@ function MysteryBox() {
                               />
                             </div>
                             <div className="">
-                              <p className="stery-span ps-2">6.2%</p>
+                              <p className="stery-span ps-2">7.4%</p>
                               <p className="stery-span1 ps-2 ">Legendary</p>
                             </div>
                           </div>
@@ -738,7 +756,7 @@ function MysteryBox() {
                               />
                             </div>
                             <div className="">
-                              <p className="stery-span ps-2">1.3%</p>
+                              <p className="stery-span ps-2">1.8%</p>
                               <p className="stery-span1 ps-2 ">Mythic</p>
                             </div>
                           </div>

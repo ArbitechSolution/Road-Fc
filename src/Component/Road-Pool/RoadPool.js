@@ -34,12 +34,12 @@ function RoadPool() {
               {acc === "No Wallet"
                 ? "Connect"
                 : acc === "Connect Wallet"
-                  ? "Connect"
-                  : acc === "Wrong Network"
-                    ? acc
-                    : acc.substring(0, 3) +
-                    "..." +
-                    acc.substring(acc.length - 3)}{" "}
+                ? "Connect"
+                : acc === "Wrong Network"
+                ? acc
+                : acc.substring(0, 3) +
+                  "..." +
+                  acc.substring(acc.length - 3)}{" "}
             </button>{" "}
           </div>{" "}
         </div>{" "}
@@ -86,7 +86,8 @@ function RoadPool() {
               <div className="col-10 text-center ">
                 <p className="pool-p pt-2">
                   {" "}
-                  With uncertainity, comes excitement, You never know what you are going to get.Try your luck!{" "}
+                  With uncertainity, comes excitement, You never know what you
+                  are going to get.Try your luck!{" "}
                 </p>{" "}
               </div>{" "}
             </div>
@@ -134,7 +135,7 @@ function RoadPool() {
                     color: "white",
                   }}
                 >
-                  <div className="d-grid gap-2">
+                  <div className="d-grid gap-2 mt-4">
                     <button
                       className="btn poolbtn1"
                       size="lg"
@@ -222,30 +223,32 @@ function RoadPool() {
             <h5 className="poolgh5 pt-4"> NFT Market </h5>
             <div className="d-flex justify-content-center">
               <div className="col-6 text-center ">
-                <p className="pool-p pt-2">Buy and Sell large collection of NFTs</p>
+                <p className="pool-p pt-2">
+                  Buy and Sell large collection of NFTs
+                </p>
               </div>{" "}
             </div>{" "}
             <div className="row d-flex justify-content-center pb-3 pt-2">
               <div className="col-10 ">
-                <Link
+                {/* <Link
                   to="/marketplace"
                   style={{
                     textDecoration: "none",
                     color: "white",
                   }}
-                >
-                  <div className="d-grid gap-2">
-                    <button
-                      className="btn poolbtn1"
-                      size="lg"
-                      onClick={() => {
-                        window.scrollTo(0, 0);
-                      }}
-                    >
-                      Show Market{" "}
-                    </button>{" "}
-                  </div>{" "}
-                </Link>{" "}
+                > */}
+                <div className="d-grid gap-2">
+                  <button
+                    className="btn poolbtn1 mt-4 "
+                    size="lg"
+                    // onClick={() => {
+                    //   window.scrollTo(0, 0);
+                    // }}
+                  >
+                    Show Market{" "}
+                  </button>{" "}
+                </div>{" "}
+                {/* </Link>{" "} */}
               </div>{" "}
             </div>{" "}
           </div>{" "}
