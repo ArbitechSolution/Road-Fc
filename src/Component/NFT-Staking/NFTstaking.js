@@ -303,7 +303,7 @@ function NFTstaking() {
     }
   };
   useLayoutEffect(() => {
-    getNfts();  
+    getNfts();
     getData();
   }, [acc]);
   return (
