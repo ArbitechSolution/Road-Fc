@@ -78,13 +78,23 @@ font-size: 20px;
 line-height: 132%;
 color: white;
 }
+.coming-soon-image{
+    width: 70px;
+    position: relative;
+    left: 80px;
+}
+.marketplace-image{
+    position: relative;
+    left: 35px;
+}
+
 @media(min-width: 2400px) and (max-width: 6000px ){
     .imagePool{
         background-image: url("../../Assets/BG.png"),url("../../Assets/BG1.png");
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-size: cover;
-        height: 100vh;
+        height: auto;
     }
 }
 /* @media(min-width: 1400px) and (max-width: 1599px){
@@ -97,7 +107,20 @@ color: white;
     }
 } */
 
-
+@media(min-width: 1050px) and (max-width: 1400px){
+    .coming-soon-image{
+        width: 60px;
+        position: relative;
+        left: 60px;
+    }
+}
+@media(max-width: 1024px){
+    .coming-soon-image{
+        width: 50px;
+        position: relative;
+        left: 50px;
+    }
+}
 @media(min-width: 278px) and (max-width: 600px){
     .poolbtn{
         background: linear-gradient(90deg, #F92D1E 1.7%, #FF5043 100%);

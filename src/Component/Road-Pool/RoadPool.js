@@ -8,6 +8,7 @@ import { getWallet } from "../Redux/actions/actions";
 import { useSelector, useDispatch } from "react-redux";
 import nft1 from "../../Assets/nft 1.png";
 import marketplace1 from "../../Assets/marketplace 1.png";
+import comingsoon from "../../Assets/coming-soon (2) 1.png"
 import { Link } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -219,7 +220,8 @@ function RoadPool() {
             </div>{" "}
           </div>{" "}
           <div className="col-lg-3 col-md-5 col-10 poolbox pt-4 m-1 mt-3">
-            <img src={marketplace1} />{" "}
+            <img src={marketplace1}  className="marketplace-image"/>{" "}
+            <img src={comingsoon} className="coming-soon-image"/>
             <h5 className="poolgh5 pt-4"> NFT Market </h5>
             <div className="d-flex justify-content-center">
               <div className="col-6 text-center ">

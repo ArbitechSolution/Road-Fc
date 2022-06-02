@@ -384,10 +384,10 @@ function NFTstaking() {
               {acc === "No Wallet"
                 ? "Connect"
                 : acc === "Connect Wallet"
-                ? "Connect"
-                : acc === "Wrong Network"
-                ? acc
-                : acc.substring(0, 3) + "..." + acc.substring(acc.length - 3)}
+                  ? "Connect"
+                  : acc === "Wrong Network"
+                    ? acc
+                    : acc.substring(0, 3) + "..." + acc.substring(acc.length - 3)}
             </button>
           </div>
         </div>
@@ -449,10 +449,8 @@ function NFTstaking() {
                           Total Staked Amount
                         </span>
                       </div>
-                      <div className="col-5 boxs-staking d-flex flex-column mt-3">
-                        <span className="nft-staking-p pb-2">
-                          {myStakedAmount}
-                        </span>
+                      <div className="col-5 boxs-staking d-flex flex-column mt-3 text-center">
+                        <span className="nft-staking-p pb-2">{myStakedAmount}</span>
                         <span className="nft-staking-p1">My Staked Amount</span>
                       </div>
                     </div>
@@ -473,7 +471,8 @@ function NFTstaking() {
                       </div>
                     </div>
 
-                    <div className=" d-flex justify-content-center">
+                    <div className=" d-flex justify-content-center justify-content-between mt-4">
+                    <div className="col-md-5">
                       <div className="d-grid gap-2">
                         <button
                           className="btn btn-unstake21"
@@ -483,10 +482,35 @@ function NFTstaking() {
                           Claim
                         </button>
                       </div>
+                      </div>
+                      <div className="col-md-5">
+                      <div className="d-grid gap-2">
+                        <button
+                          className="btn btn-unstake22"
+                          size="lg"
+
+                        >
+                          UnStake All
+                        </button>
+                      </div>
+                      </div>
                     </div>
+                    {/* <div className=" d-flex justify-content-center justify-content-between mt-3 mb-3">
+                      <div className="col-md-5">
+                      <div className="d-grid gap-2">
+                        <button
+                          className="btn btn-unstake22"
+                          size="lg"
+
+                        >
+                          UnStake All
+                        </button>
+                      </div>
+                      </div>
+                    </div> */}
                   </div>
                   <div className="col-lg-8">
-                    <div className="row d-flex justify-content-center flex-wrap  mt-md-0 mt-3">
+                    <div className="row d-flex justify-content-md-start justify-content-center flex-wrap  mt-md-0 mt-3">
                       {nftArray?.slice(initialLimit, finalLimit).map((nft) => {
                         return (
                           <div className="col-md-4 nft-staking-b0xxs m-1 p-2 mt-2">
@@ -539,8 +563,8 @@ function NFTstaking() {
                       <div className="bosCollection">
                         <span className="mycollectionsP ">
                           {acc == "No Wallet" ||
-                          acc == "Wrong Network" ||
-                          acc == "Connect Wallet"
+                            acc == "Wrong Network" ||
+                            acc == "Connect Wallet"
                             ? ""
                             : pageNumber}
                         </span>

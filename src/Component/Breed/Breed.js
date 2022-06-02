@@ -129,7 +129,7 @@ function Breed() {
     try {
       if (trainerOne.status == false) {
         setTrainerOne({
-          width: 180,
+          width: 230,
           status: true,
           imgUrl: `/config/${imgUri}`,
           tokenId: id,
@@ -137,7 +137,7 @@ function Breed() {
         // setCheckCounter(++checkCounter)
       } else if (trainerTwo.status == false) {
         setTrainerTwo({
-          width: 180,
+          width: 230,
           status: true,
           imgUrl: `/config/${imgUri}`,
           tokenId: id,
@@ -213,7 +213,7 @@ function Breed() {
           nftContratAddress
         );
 
-       
+
         let bnb = await breedContract.methods.BNB().call();
         let bnb_value = web3.utils.fromWei(bnb);
         bnb_value = parseFloat(bnb_value).toFixed(3);
@@ -400,11 +400,11 @@ function Breed() {
                     <div className="col-md-12 d-flex justify-content-center breed-imagess mt-3 mb-3">
                       <img src={breedNft} className="mint-pic pt-1 pb-3" />
                     </div>
-                    <div className="col-md-12 d-flex justify-content-center">
+                    {/* <div className="col-md-12 d-flex justify-content-center">
                       <span className="congrat-span">
                         Do you want to Breed card or sell in the market?
                       </span>
-                    </div>
+                    </div> */}
                   </div>
                   <div className=" d-flex justify-content-center mt-3 mb-3">
                     <button
@@ -422,7 +422,7 @@ function Breed() {
                       Do it Later
                     </button>
                   </div>
-                  
+
                 </Modal.Body>
               </Modal>
             ) : (
@@ -519,7 +519,7 @@ function Breed() {
                           <div className="d-flex flex-column justify-content-center align-items-center pt-sm-5 pt-4 pb-sm-5 pb-4">
                             {trainerOne.status && (
                               <span
-                                style={{ paddingLeft: "155px", cursor: "pointer" }}
+                                style={{ paddingLeft: "205px", cursor: "pointer" }}
                                 className="text-danger fs-3  d-flex justify-content-start"
                                 onClick={cancleBreedImageOne}
                                 // style={{border: "2px solid red"}}
@@ -543,7 +543,7 @@ function Breed() {
                           <div className="d-flex flex-column justify-content-center align-items-center pt-sm-5 pt-4 pb-sm-5 pb-4">
                             {trainerTwo.status && (
                               <span
-                                style={{ paddingLeft: "155px", cursor: "pointer" }}
+                                style={{ paddingLeft: "205px", cursor: "pointer" }}
                                 className="text-danger fs-3 d-flex justify-content-start"
                                 onClick={cancleBreedImageTwo}
                               >
@@ -622,7 +622,7 @@ function Breed() {
                                 </div>
                               );
                             })}
-                          
+
                           </div>
                         </div>
                       </div>

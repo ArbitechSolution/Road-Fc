@@ -9,7 +9,7 @@
 box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.08);
 backdrop-filter: blur(16px);
 border-radius: 16px;
-height: 454px;
+height: 504px;
 }
 .NFTstaking-boxes1{
     background: #3C2226;
@@ -53,7 +53,7 @@ color: #B1B1B1;
 font-size: 16px;
 line-height: 122%;
 color: #B1B1B1;
-text-align: left;
+text-align: center;
 /* border: 2px solid red; */
 }
 .nft-staking-p1{
@@ -61,7 +61,7 @@ text-align: left;
 font-size: 10px;
 line-height: 54%;
 color: #7E808D;
-text-align: left;
+text-align: center;
 /* border: 2px solid red; */
 }
 .nft-staking-b0xxs{
@@ -73,6 +73,7 @@ text-align: left;
 }
 .nftstaking-img{
     width: 160px;
+    height: 180px;
 }
 .nft-staking-btn{
     background: linear-gradient(90deg, #F92D1E 1%, #FF5043 100%);
@@ -149,8 +150,21 @@ padding: 12px 12px;
     font-weight: 600;
     font-size: 20px;
     line-height: 7px;
+    padding-top: 15px;
+    padding-bottom: 15px;
     color: #FFFFFF;
-    padding: 15px 42px;
+    /* padding: 15px 42px; */
+}
+.btn-unstake22{
+    background: linear-gradient(90deg, #565866 1.7%, #5E606E 100%);
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 7px;
+    color: #FFFFFF;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    /* padding: 15px 40px; */
 }
 .MdOutlineKeyboardBackspace{
     font-size: 40px;
