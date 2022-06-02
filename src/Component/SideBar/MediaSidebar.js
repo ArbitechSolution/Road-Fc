@@ -44,11 +44,11 @@ function MediaSidebar() {
     name: "NFT Staking",
     img: nft1
   },
-  // {
-  //   name: "NFT Market",
-  //   img: marketplace1
-  // }
-  ,
+    // {
+    //   name: "NFT Market",
+    //   img: marketplace1
+    // }
+    ,
   {
     name: "My NFT",
     img: Group593
@@ -139,14 +139,10 @@ function MediaSidebar() {
         <div className='col-11 staking-coll' style={{}} >
 
           <div className="lang-select" id="newlocale"
-            onClick={() => setDropDown(!dropdown)}
-          >
+            onClick={() => setDropDown(!dropdown)}>
             <img src={VectorDown} className="VectorDown-image" />
-            <button className="btn-select"
-
-            ><ul><li><img src={updateDropDown.img} /> <span className='ms-sm-3 mt-4'>{updateDropDown.name}</span></li></ul> </button>
+            <button className="btn-select"><ul><li><img src={updateDropDown.img} /> <span className='ms-sm-3 mt-4'>{updateDropDown.name}</span></li></ul> </button>
             <div className={dropdown ? "b" : "b1"}
-
             >
               <ul id="a">
                 {newarry.map((item, index) => {
