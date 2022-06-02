@@ -1,5 +1,5 @@
 export const road_Nft_Staking_Address =
-  "0x25541B68E86202BE6a46aB4F566419cBD4f68f4B";
+  "0x9d0D9336c117719e74573A2ecDa121Cb87C766a8";
 export const road_Nft_Staking_Abi = [
   {
     inputs: [
@@ -29,31 +29,10 @@ export const road_Nft_Staking_Abi = [
     type: "event",
   },
   {
-    inputs: [],
-    name: "Breed",
-    outputs: [{ internalType: "contract IERC721", name: "", type: "address" }],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [],
-    name: "PUBLICpower",
-    outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [{ internalType: "uint256", name: "tokenId", type: "uint256" }],
+    inputs: [{ internalType: "uint256[]", name: "tokenId", type: "uint256[]" }],
     name: "Stake",
     outputs: [],
     stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [],
-    name: "Token",
-    outputs: [{ internalType: "contract IERC20", name: "", type: "address" }],
-    stateMutability: "view",
     type: "function",
   },
   {
@@ -67,21 +46,14 @@ export const road_Nft_Staking_Abi = [
     type: "function",
   },
   {
-    inputs: [{ internalType: "uint256", name: "_Tid", type: "uint256" }],
-    name: "UnStake",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
     inputs: [{ internalType: "address", name: "", type: "address" }],
     name: "User",
     outputs: [
       { internalType: "uint256", name: "totlaWithdrawn", type: "uint256" },
       { internalType: "uint256", name: "withdrawable", type: "uint256" },
       { internalType: "uint256", name: "myNFT", type: "uint256" },
+      { internalType: "uint256", name: "myMining", type: "uint256" },
       { internalType: "uint256", name: "availableToWithdraw", type: "uint256" },
-      { internalType: "uint256", name: "hashpower", type: "uint256" },
     ],
     stateMutability: "view",
     type: "function",
@@ -108,6 +80,13 @@ export const road_Nft_Staking_Abi = [
     type: "function",
   },
   {
+    inputs: [{ internalType: "address", name: "addrs", type: "address" }],
+    name: "allReward",
+    outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
     inputs: [{ internalType: "uint256", name: "", type: "uint256" }],
     name: "alreadyAwarded",
     outputs: [{ internalType: "bool", name: "", type: "bool" }],
@@ -125,6 +104,13 @@ export const road_Nft_Staking_Abi = [
     type: "function",
   },
   {
+    inputs: [{ internalType: "uint256", name: "tokeniddd", type: "uint256" }],
+    name: "getlist",
+    outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
     inputs: [
       { internalType: "address", name: "_stakeHolder", type: "address" },
     ],
@@ -137,6 +123,13 @@ export const road_Nft_Staking_Abi = [
     inputs: [],
     name: "owner",
     outputs: [{ internalType: "address", name: "", type: "address" }],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "publicMining",
+    outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
     stateMutability: "view",
     type: "function",
   },
@@ -177,6 +170,15 @@ export const road_Nft_Staking_Abi = [
   {
     inputs: [{ internalType: "address", name: "newOwner", type: "address" }],
     name: "transferOwnership",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      { internalType: "uint256[]", name: "_tokenId", type: "uint256[]" },
+    ],
+    name: "unstake",
     outputs: [],
     stateMutability: "nonpayable",
     type: "function",

@@ -326,7 +326,7 @@ function MyNFTs() {
   };
 
   const stakeNFT = async (nftId) => {
-    console.log("nftId", nftId);
+    console.log("nftId",  nftId);
     try {
       if (acc == "No Wallet") {
         //   setBtTxt("Connect Wallet")
