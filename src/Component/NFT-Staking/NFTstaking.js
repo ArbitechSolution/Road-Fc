@@ -24,7 +24,12 @@ import SideBar from "../SideBar/SideBar";
 import MediaSidebar from "../SideBar/MediaSidebar";
 import { nftContractAbi, nftContratAddress } from "../Utils/Nft";
 import { useDispatch, useSelector } from "react-redux";
-import { getWallet, getRewardOfUser } from "../Redux/actions/actions";
+import {
+  getWallet,
+  getRewardOfUser,
+  getAllNfTStakingData,
+} from "../Redux/actions/actions";
+
 import { toast } from "react-toastify";
 import {
   road_Nft_Staking_Address,
@@ -35,7 +40,10 @@ import { breedContractAbi, breedContractAddress } from "../Utils/breed";
 function NFTstaking() {
   let { acc } = useSelector((state) => state.connectWallet);
   let { userReward } = useSelector((state) => state.userReward);
-
+  let { myNftStakingVariables } = useSelector(
+    (state) => state.myNftStakingVariables
+  );
+  console.log("myNftStakingVariables", myNftStakingVariables);
   const dispatch = useDispatch();
 
   const getWalletAddress = () => {

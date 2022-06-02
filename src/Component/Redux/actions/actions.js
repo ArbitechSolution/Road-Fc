@@ -431,3 +431,27 @@ export const getRewardOfUser = () => async (dispatch) => {
     console.error("error while get reward of user", e);
   }
 };
+
+const getAllNfTStakingData = async (dispatch) => {
+  let myNftStakingVariables = {};
+  let address = await loadWeb3();
+  if (address == "No Wallet") {
+    console.log("Not Connected");
+  } else if (address == "Wrong Network") {
+    console.log("Wrong Network");
+  } else {
+    try {
+      const web3 = window.web3;
+      const roadNftStakingContract = new web3.eth.Contract(
+        road_Nft_Staking_Abi,
+        road_Nft_Staking_Address
+      );
+      let a = 6;
+      let b = 7;
+      myNftStakingVariables = { ...myNftStakingVariables, aa: a };
+      myNftStakingVariables = { ...myNftStakingVariables, be: b };
+    } catch (e) {
+      console.log("Error while getAllNfTStakingData in Action", e);
+    }
+  }
+};

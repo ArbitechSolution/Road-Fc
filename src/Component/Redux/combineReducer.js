@@ -14,6 +14,7 @@ import { setUserBalance } from "./reducers/setUserBalance";
 import { setUserDepositTime } from "./reducers/setUserDepositTime";
 import { setMintingInfo } from "./reducers/setMintingInfo";
 import { setUserReward } from "./reducers/setUserReward";
+import { setAllNftStakingData } from "./reducers/setAllNfTStakingData";
 const allReducer = combineReducers({
   connectWallet: connectWallet,
   getThbbalance: getThbbalance,
@@ -30,6 +31,7 @@ const allReducer = combineReducers({
   userDepositTime: setUserDepositTime,
   mintngInfo: setMintingInfo,
   userReward: setUserReward,
+  setAllNftStakingData: setAllNftStakingData,
 });
 
 export default allReducer;

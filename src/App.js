@@ -23,7 +23,7 @@ import Marketplace from "./Component/NFT-MarketPlace/Marketplace";
 import MarketPlaceSell from "./Component/NFT-MarketPlace/MarketplaceSell";
 import MarketPlaceList from "./Component/NFT-MarketPlace/MarketplaceList";
 // import Staking from "./Component/Staking-Point/Staking"
-import FooterDown from './Component/FooterDown/FooterDown';
+import FooterDown from "./Component/FooterDown/FooterDown";
 import TransactionLog from "./Component/NFT-MarketPlace/TransactionLog";
 import MediaSidebar from "./Component/SideBar/MediaSidebar";
 // import SideBar from "././Component/SideBar/SideBar"
@@ -47,11 +47,7 @@ function App() {
           <Route exact path="/MysteryBox" element={<MysteryBox />} />
           <Route exact path="/marketplace" element={<Marketplace />} />
           <Route exact path="/marketplacesell" element={<MarketPlaceSell />} />
-          <Route
-            exact
-            path="/marketplaceList"
-            element={<MarketPlaceList />}
-          />
+          <Route exact path="/marketplaceList" element={<MarketPlaceList />} />
           <Route exact path="/transactionlog" element={<TransactionLog />} />
         </Routes>
         <FooterDown />
