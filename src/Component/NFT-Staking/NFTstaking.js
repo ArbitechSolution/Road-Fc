@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect } from "react";
+import React, { useState, useLayoutEffect, useEffect } from "react";
 import { MdOutlineKeyboardBackspace } from "react-icons/md";
 import { Link } from "react-router-dom";
 import "./NFTstaking.css";
@@ -40,19 +40,62 @@ import { breedContractAbi, breedContractAddress } from "../Utils/breed";
 function NFTstaking() {
   let { acc } = useSelector((state) => state.connectWallet);
   let { userReward } = useSelector((state) => state.userReward);
-  let { myNftStakingVariables } = useSelector(
-    (state) => state.myNftStakingVariables
-  );
-  console.log("myNftStakingVariables", myNftStakingVariables);
+  // let { myNftStakingVariables } = useSelector(
+  //   (state) => state.myNftStakingVariables
+  // );
+  // console.log("myNftStakingVariables", myNftStakingVariables);
   const dispatch = useDispatch();
 
   const getWalletAddress = () => {
     dispatch(getWallet());
     dispatch(getRewardOfUser());
+    // dispatch(getAllNfTStakingData());
   };
   let [nftArrayLength, setNftsArrayLength] = useState(0);
   let [totalPages, setTotalPages] = useState(1);
   let [nftArray, setNftsArray] = useState([]);
+  let [totalMiningPower, setTotalMiningPower] = useState(0);
+  let [myMiningPower, setMyMiningPower] = useState(0);
+  let [totalStakedAmount, setTotalStakedAmount] = useState(0);
+  let [myStakedAmount, setMyStakedAmount] = useState(0);
+
+  const getAllNfTStakingData = async () => {
+    console.log("Acc", acc);
+    if (acc == "No Wallet") {
+      console.log("Not Connected");
+    } else if (acc == "Wrong Network") {
+      console.log("Wrong Network");
+    } else if (acc == "Connect Wallet") {
+      console.log("Connect Wallet");
+    } else {
+      try {
+        console.log("Acc", acc);
+
+        const web3 = window.web3;
+        const roadNftStakingContract = new web3.eth.Contract(
+          road_Nft_Staking_Abi,
+          road_Nft_Staking_Address
+        );
+        let ttlMiningpwer = await roadNftStakingContract.methods
+          .PUBLICpower()
+          .call();
+        setTotalMiningPower(ttlMiningpwer);
+        let allArray = await roadNftStakingContract.methods.User(acc).call();
+
+        let myMiningPwer = allArray.hashpower;
+        setMyMiningPower(myMiningPwer);
+        let myStkedAm = allArray.myNFT;
+        setMyStakedAmount(myStkedAm);
+
+        let ttlStkedAm = await roadNftStakingContract.methods
+          .publicNFTs()
+          .call();
+        setTotalStakedAmount(ttlStkedAm);
+      } catch (e) {
+        console.log("Error while getAllNfTStakingData Line 72 ", e);
+      }
+    }
+  };
 
   const getNfts = async () => {
     try {
@@ -310,6 +353,12 @@ function NFTstaking() {
       console.error("error while claim Reward");
     }
   };
+  useEffect(() => {
+    setInterval(() => {
+      getAllNfTStakingData();
+    }, 10000);
+    getAllNfTStakingData();
+  }, []);
   useLayoutEffect(() => {
     getNfts();
     getData();
@@ -377,25 +426,33 @@ function NFTstaking() {
                     </div>
                     <div className="row d-flex justify-content-center justify-content-around">
                       <div className="col-5  boxs-staking d-flex flex-column mt-3 text-start">
-                        <span className="nft-staking-p pb-2">0.00</span>
+                        <span className="nft-staking-p pb-2">
+                          {totalMiningPower}
+                        </span>
                         <span className="nft-staking-p1">
                           Total Mining Power
                         </span>
                       </div>
                       <div className="col-5 boxs-staking d-flex flex-column mt-3">
-                        <span className="nft-staking-p pb-2">0.00</span>
+                        <span className="nft-staking-p pb-2">
+                          {myMiningPower}
+                        </span>
                         <span className="nft-staking-p1">My Mining Power</span>
                       </div>
                     </div>
                     <div className="row d-flex justify-content-center justify-content-around">
                       <div className="col-5 boxs-staking d-flex flex-column mt-3">
-                        <span className="nft-staking-p pb-2">0.00</span>
+                        <span className="nft-staking-p pb-2">
+                          {totalStakedAmount}
+                        </span>
                         <span className="nft-staking-p1">
                           Total Staked Amount
                         </span>
                       </div>
                       <div className="col-5 boxs-staking d-flex flex-column mt-3">
-                        <span className="nft-staking-p pb-2">0.00</span>
+                        <span className="nft-staking-p pb-2">
+                          {myStakedAmount}
+                        </span>
                         <span className="nft-staking-p1">My Staked Amount</span>
                       </div>
                     </div>

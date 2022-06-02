@@ -432,7 +432,7 @@ export const getRewardOfUser = () => async (dispatch) => {
   }
 };
 
-const getAllNfTStakingData = async (dispatch) => {
+export const getAllNfTStakingData = async (dispatch) => {
   let myNftStakingVariables = {};
   let address = await loadWeb3();
   if (address == "No Wallet") {
