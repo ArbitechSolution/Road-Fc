@@ -158,12 +158,14 @@ padding: 12px 12px;
 .btn-unstake22{
     background: linear-gradient(90deg, #565866 1.7%, #5E606E 100%);
     border-radius: 20px;
-    font-weight: 600;
-    font-size: 14px;
+    font-weight: 500;
+    font-size: 17px;
     line-height: 7px;
     color: #FFFFFF;
     padding-top: 15px;
     padding-bottom: 15px;
+    width: 100%;
+    
     /* padding: 15px 40px; */
 }
 .MdOutlineKeyboardBackspace{
