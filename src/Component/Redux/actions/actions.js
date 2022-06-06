@@ -419,7 +419,7 @@ export const getRewardOfUser = () => async (dispatch) => {
         road_Nft_Staking_Address
       );
       let userReward = await roadNftStakingContract.methods
-        .allReward(address)
+        .totalReward(address)
         .call();
       userReward = web3.utils.fromWei(userReward);
       dispatch({
