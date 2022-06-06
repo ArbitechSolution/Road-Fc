@@ -30,7 +30,7 @@ import { MdOutlineCancel } from "react-icons/md";
 function Breed() {
   let { acc } = useSelector((state) => state.connectWallet);
   let { userBalance } = useSelector((state) => state.userBalance);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   let dispatch = useDispatch();
   let [nftArrayLength, setNftsArrayLength] = useState(0);
   let [nftArray, setNftsArray] = useState([]);
@@ -212,7 +212,6 @@ function Breed() {
           nftContractAbi,
           nftContratAddress
         );
-
 
         let bnb = await breedContract.methods.BNB().call();
         let bnb_value = web3.utils.fromWei(bnb);
@@ -422,7 +421,6 @@ function Breed() {
                       Do it Later
                     </button>
                   </div>
-
                 </Modal.Body>
               </Modal>
             ) : (
@@ -519,7 +517,10 @@ function Breed() {
                           <div className="d-flex flex-column justify-content-center align-items-center pt-sm-5 pt-4 pb-sm-5 pb-4">
                             {trainerOne.status && (
                               <span
-                                style={{ paddingLeft: "205px", cursor: "pointer" }}
+                                style={{
+                                  paddingLeft: "205px",
+                                  cursor: "pointer",
+                                }}
                                 className="text-danger fs-3  d-flex justify-content-start"
                                 onClick={cancleBreedImageOne}
                                 // style={{border: "2px solid red"}}
@@ -543,7 +544,10 @@ function Breed() {
                           <div className="d-flex flex-column justify-content-center align-items-center pt-sm-5 pt-4 pb-sm-5 pb-4">
                             {trainerTwo.status && (
                               <span
-                                style={{ paddingLeft: "205px", cursor: "pointer" }}
+                                style={{
+                                  paddingLeft: "205px",
+                                  cursor: "pointer",
+                                }}
                                 className="text-danger fs-3 d-flex justify-content-start"
                                 onClick={cancleBreedImageTwo}
                               >
@@ -622,7 +626,6 @@ function Breed() {
                                 </div>
                               );
                             })}
-
                           </div>
                         </div>
                       </div>
