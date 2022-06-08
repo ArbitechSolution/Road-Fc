@@ -24,7 +24,11 @@ import SideBar from "../SideBar/SideBar";
 import MediaSidebar from "../SideBar/MediaSidebar";
 import { nftContractAbi, nftContratAddress } from "../Utils/Nft";
 import { useDispatch, useSelector } from "react-redux";
-import { getWallet, getRewardOfUser } from "../Redux/actions/actions";
+import {
+  getWallet,
+  getRewardOfUser,
+  getAllNfTStakingData,
+} from "../Redux/actions/actions";
 
 import { toast } from "react-toastify";
 import {
@@ -32,22 +36,9 @@ import {
   road_Nft_Staking_Abi,
 } from "../Utils/Road_Nft_Staking";
 import { breedContractAbi, breedContractAddress } from "../Utils/breed";
-import { loadWeb3 } from "../Api/api";
 
 function NFTstaking() {
-  let [nftArrayLength, setNftsArrayLength] = useState(0);
-  let [totalPages, setTotalPages] = useState(1);
-  let [nftArray, setNftsArray] = useState([]);
-  let [totalMiningPower, setTotalMiningPower] = useState(0);
-  let [myMiningPower, setMyMiningPower] = useState(0);
-  let [totalStakedAmount, setTotalStakedAmount] = useState(0);
-  let [myStakedAmount, setMyStakedAmount] = useState(0);
-  let [initialLimit, setInitialLimit] = useState(0);
-  let [finalLimit, setFinalLimit] = useState(6);
-  let [pageNumber, setPageNumber] = useState(1);
-
   let { acc } = useSelector((state) => state.connectWallet);
-
   let { userReward } = useSelector((state) => state.userReward);
   // let { myNftStakingVariables } = useSelector(
   //   (state) => state.myNftStakingVariables
@@ -58,45 +49,52 @@ function NFTstaking() {
   const getWalletAddress = () => {
     dispatch(getWallet());
     dispatch(getRewardOfUser());
-    getAllNfTStakingData();
     // dispatch(getAllNfTStakingData());
   };
+  let [nftArrayLength, setNftsArrayLength] = useState(0);
+  let [totalPages, setTotalPages] = useState(1);
+  let [nftArray, setNftsArray] = useState([]);
+  let [totalMiningPower, setTotalMiningPower] = useState(0);
+  let [myMiningPower, setMyMiningPower] = useState(0);
+  let [totalStakedAmount, setTotalStakedAmount] = useState(0);
+  let [myStakedAmount, setMyStakedAmount] = useState(0);
+  let damiImage = [pool1, pool2, pool3, pool4, pool5, pool6];
 
-  const unstakeAll = async () => {
-    try {
-      if (acc == "No Wallet") {
-        //   setBtTxt("Connect Wallet")
-        toast.info("Not Connected");
-      } else if (acc == "Wrong Network") {
-        //   setBtTxt("Wrong Network")
-        toast.info("Not Connected");
-      } else if (acc == "Connect Wallet") {
-        toast.info("Not Connected");
-      } else {
+  const getAllNfTStakingData = async () => {
+    console.log("Acc", acc);
+    if (acc == "No Wallet") {
+      console.log("Not Connected");
+    } else if (acc == "Wrong Network") {
+      console.log("Wrong Network");
+    } else if (acc == "Connect Wallet") {
+      console.log("Connect Wallet");
+    } else {
+      try {
+        console.log("Acc", acc);
+
         const web3 = window.web3;
-        const raodnftContract = new web3.eth.Contract(
+        const roadNftStakingContract = new web3.eth.Contract(
           road_Nft_Staking_Abi,
           road_Nft_Staking_Address
         );
-        let totalIds = await raodnftContract.methods.userStakedNFT(acc).call();
-        console.log("totalIds unstakeAll", totalIds);
-        if (totalIds.length) {
-          if (parseFloat(userReward) > 0) {
-            await raodnftContract.methods.unstakeAll(totalIds).send({
-              from: acc,
-            });
-            await getNfts();
-            setNftsArray([]);
-            toast.success("Transaction Successfull");
-          }
-          toast.info("You Cannot unstake Unitl you have a rewards");
-        } else {
-          toast.info("You have not staked on NFT yet!");
-        }
+        let ttlMiningpwer = await roadNftStakingContract.methods
+          .PUBLICpower()
+          .call();
+        setTotalMiningPower(ttlMiningpwer);
+        let allArray = await roadNftStakingContract.methods.User(acc).call();
+
+        let myMiningPwer = allArray.hashpower;
+        setMyMiningPower(myMiningPwer);
+        let myStkedAm = allArray.myNFT;
+        setMyStakedAmount(myStkedAm);
+
+        let ttlStkedAm = await roadNftStakingContract.methods
+          .publicNFTs()
+          .call();
+        setTotalStakedAmount(ttlStkedAm);
+      } catch (e) {
+        console.log("Error while getAllNfTStakingData Line 72 ", e);
       }
-    } catch (e) {
-      console.log("Error while Unstaking all Nfts", e);
-      toast.error("Transaction Failed");
     }
   };
 
@@ -111,8 +109,6 @@ function NFTstaking() {
       } else if (acc == "Connect Wallet") {
         console.log("Not Connected");
       } else {
-        setNftsArray([]);
-
         const web3 = window.web3;
         const raodnftContract = new web3.eth.Contract(
           road_Nft_Staking_Abi,
@@ -246,7 +242,9 @@ function NFTstaking() {
       console.error("error while get nfts", e);
     }
   };
-
+  let [initialLimit, setInitialLimit] = useState(0);
+  let [finalLimit, setFinalLimit] = useState(6);
+  let [pageNumber, setPageNumber] = useState(1);
   const loadMore = () => {
     let a = finalLimit + 6;
     if (a >= nftArrayLength) {
@@ -315,20 +313,16 @@ function NFTstaking() {
           road_Nft_Staking_Abi,
           road_Nft_Staking_Address
         );
-        console.log("NFT ID", nftId);
-        if (parseFloat(userReward) > 0) {
-          await raodnftContract.methods.unstake(nftId).send({
-            from: acc,
-          });
-          toast.success("Unstaked Successfully");
-          await getNfts();
-        } else {
-          toast.info("You cannot unstake until your reward is generated");
-        }
+
+        await raodnftContract.methods.unstake([nftId]).send({
+          from: acc,
+        });
+        toast.success("Confirmed Unstaked NFT");
+        getNfts();
       }
     } catch (e) {
       toast.error("Transaction Failed");
-      console.error("error while unstake NFT", e);
+      console.error("error while stake NFT", e);
     }
   };
 
@@ -349,67 +343,23 @@ function NFTstaking() {
           road_Nft_Staking_Address
         );
 
-        if (parseFloat(userReward) > 0) {
-          await raodnftContract.methods.WithdrawRewardAll().send({
-            from: acc,
-          });
-          dispatch(getRewardOfUser());
-          toast.success("Confirmed claim reward");
-        } else {
-          toast.info("Oops No rewards available");
-        }
+        await raodnftContract.methods.WithdrawReward().send({
+          from: acc,
+        });
+        dispatch(getRewardOfUser());
+        toast.success("Confirmed claim reward");
       }
     } catch (e) {
       toast.error("Transaction Failed");
-      console.error("error while claim Reward", e);
+      console.error("error while claim Reward");
     }
   };
-  const getAllNfTStakingData = async () => {
-    // console.log("Acc", acc);
-    // console.log("asdasd", userAccount);
-    // let account = await loadWeb3();
-    if (acc == "No Wallet") {
-      console.log("Not Connected");
-    } else if (acc == "Wrong Network") {
-      console.log("Wrong Network");
-    } else if (acc == "Connect Wallet") {
-      console.log("Connect Wallet");
-    } else {
-      try {
-        console.log("Acc", acc);
-
-        const web3 = window.web3;
-        const roadNftStakingContract = new web3.eth.Contract(
-          road_Nft_Staking_Abi,
-          road_Nft_Staking_Address
-        );
-        let ttlMiningpwer = await roadNftStakingContract.methods
-          .publicMining()
-          .call();
-        setTotalMiningPower(ttlMiningpwer);
-        let allArray = await roadNftStakingContract.methods.User(acc).call();
-
-        let myMiningPwer = allArray.myMining;
-        setMyMiningPower(myMiningPwer);
-        let myStkedAm = allArray.myNFT;
-        setMyStakedAmount(myStkedAm);
-
-        let ttlStkedAm = await roadNftStakingContract.methods
-          .publicNFTs()
-          .call();
-        setTotalStakedAmount(ttlStkedAm);
-      } catch (e) {
-        console.log("Error while getAllNfTStakingData Line 72 ", e);
-      }
-    }
-  };
-
   useEffect(() => {
-    getAllNfTStakingData();
     setInterval(() => {
       getAllNfTStakingData();
-    }, 30000);
-  }, [acc]);
+    }, 10000);
+    getAllNfTStakingData();
+  }, []);
   useLayoutEffect(() => {
     getNfts();
     getData();
@@ -435,10 +385,10 @@ function NFTstaking() {
               {acc === "No Wallet"
                 ? "Connect"
                 : acc === "Connect Wallet"
-                ? "Connect"
-                : acc === "Wrong Network"
-                ? acc
-                : acc.substring(0, 3) + "..." + acc.substring(acc.length - 3)}
+                  ? "Connect"
+                  : acc === "Wrong Network"
+                    ? acc
+                    : acc.substring(0, 3) + "..." + acc.substring(acc.length - 3)}
             </button>
           </div>
         </div>
@@ -501,9 +451,7 @@ function NFTstaking() {
                         </span>
                       </div>
                       <div className="col-5 boxs-staking d-flex flex-column mt-3 text-center">
-                        <span className="nft-staking-p pb-2">
-                          {myStakedAmount}
-                        </span>
+                        <span className="nft-staking-p pb-2">{myStakedAmount}</span>
                         <span className="nft-staking-p1">My Staked Amount</span>
                       </div>
                     </div>
@@ -536,15 +484,14 @@ function NFTstaking() {
                           </button>
                         </div>
                       </div>
-                      <div className="col-md-7">
-                        <div className="d-grid ms-3">
+                      <div className="col-md-5">
+                        <div className="d-grid gap-2">
                           <button
-                            onClick={() => unstakeAll()}
                             className="btn btn-unstake22"
                             size="lg"
+
                           >
-                            <span>UnStake</span>
-                            <span> All</span>
+                            UnStake All
                           </button>
                         </div>
                       </div>
@@ -565,8 +512,18 @@ function NFTstaking() {
                   </div>
                   <div className="col-lg-8">
                     <div className="row d-flex justify-content-md-start justify-content-center flex-wrap  mt-md-0 mt-3">
-                      {nftArray?.slice(initialLimit, finalLimit).map((nft) => {
-                        return (
+
+                      {
+
+                      }
+
+
+
+                      { nftArray.length?
+
+nftArray.slice(initialLimit, finalLimit).map((nft) => {
+  console.log("dummy");
+  return (
                           <div className="col-md-4 nft-staking-b0xxs m-1 p-2 mt-2">
                             <div>
                               <img
@@ -597,7 +554,24 @@ function NFTstaking() {
                             </div>
                           </div>
                         );
-                      })}
+                      })
+:
+damiImage.map((img) => {
+  console.log("dummy");
+  return (
+                      <div className="col-md-4 nft-staking-b0xxs m-1 p-2 mt-2">
+                        <div>
+                          <img
+                            src={img}
+                            className="nftstaking-img mt-2"
+                          />
+                        </div>
+
+                      </div>
+                      )
+
+})
+                      }
                     </div>
                   </div>
                   <div className="row d-flex flex-row justify-content-center justify-content-md-evenly mb-4 mt-4">
@@ -617,8 +591,8 @@ function NFTstaking() {
                       <div className="bosCollection">
                         <span className="mycollectionsP ">
                           {acc == "No Wallet" ||
-                          acc == "Wrong Network" ||
-                          acc == "Connect Wallet"
+                            acc == "Wrong Network" ||
+                            acc == "Connect Wallet"
                             ? ""
                             : pageNumber}
                         </span>
