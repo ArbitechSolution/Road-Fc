@@ -157,7 +157,7 @@ function RoadPool() {
               <div className="col-11 text-center ">
                 <p className="pool-p pt-2">
                   {" "}
-                  Limited Mystery boxes waiting to be unboxed!What fighter will
+                  Limited Mystery boxes waiting to be unboxed! What fighter will
                   you get ?{" "}
                 </p>{" "}
               </div>{" "}

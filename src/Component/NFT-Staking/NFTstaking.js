@@ -416,7 +416,7 @@ function NFTstaking() {
                     <div className="row d-flex justify-content-center">
                       <div className="col-12 NFTstaking-boxes1">
                         <p className="nftstaking-p">Total Rewards:</p>
-                        <p className="nftstaking-p1">{userReward}</p>
+                        <p className="nftstaking-p1">{userReward.toLocaleString()}</p>
                       </div>
                       <div className="col-11 boxs-staking d-flex justify-content-between align-items-center mt-3">
                         <span className="nftstaking-span2">
@@ -428,7 +428,7 @@ function NFTstaking() {
                     <div className="row d-flex justify-content-center justify-content-around">
                       <div className="col-5  boxs-staking d-flex flex-column mt-3 text-start">
                         <span className="nft-staking-p pb-2">
-                          {totalMiningPower}
+                          {totalMiningPower.toLocaleString()}
                         </span>
                         <span className="nft-staking-p1">
                           Total Mining Power
@@ -436,7 +436,7 @@ function NFTstaking() {
                       </div>
                       <div className="col-5 boxs-staking d-flex flex-column mt-3">
                         <span className="nft-staking-p pb-2">
-                          {myMiningPower}
+                          {myMiningPower.toLocaleString()}
                         </span>
                         <span className="nft-staking-p1">My Mining Power</span>
                       </div>
@@ -451,7 +451,7 @@ function NFTstaking() {
                         </span>
                       </div>
                       <div className="col-5 boxs-staking d-flex flex-column mt-3 text-center">
-                        <span className="nft-staking-p pb-2">{myStakedAmount}</span>
+                        <span className="nft-staking-p pb-2">{myStakedAmount.toLocaleString()}</span>
                         <span className="nft-staking-p1">My Staked Amount</span>
                       </div>
                     </div>
@@ -519,58 +519,57 @@ function NFTstaking() {
 
 
 
-                      { nftArray.length?
-
-nftArray.slice(initialLimit, finalLimit).map((nft) => {
-  console.log("dummy");
-  return (
-                          <div className="col-md-4 nft-staking-b0xxs m-1 p-2 mt-2">
-                            <div>
-                              <img
-                                src={`/config/${nft.imageUrl}`}
-                                className="nftstaking-img mt-2"
-                              />
-                              <p
-                                className="text-center mt-2"
-                                style={{ color: "white" }}
-                              >
-                                {nft.imageName}
-                              </p>
-                            </div>
-                            <div className="row d-flex justify-content-center">
-                              <div className="col-10">
-                                <div className="d-grid gap-2">
-                                  <button
-                                    className="btn btn-unstake"
-                                    size="lg"
-                                    onClick={() => {
-                                      unStakeNFT(nft.tokenId);
-                                    }}
-                                  >
-                                    Unstake
-                                  </button>
+                      {nftArray.length ?
+                        nftArray.slice(initialLimit, finalLimit).map((nft) => {
+                          console.log("dummy");
+                          return (
+                            <div className="col-md-4 nft-staking-b0xxs m-1 p-2 mt-2">
+                              <div>
+                                <img
+                                  src={`/config/${nft.imageUrl}`}
+                                  className="nftstaking-img mt-2"
+                                />
+                                <p
+                                  className="text-center mt-2"
+                                  style={{ color: "white" }}
+                                >
+                                  {nft.imageName}
+                                </p>
+                              </div>
+                              <div className="row d-flex justify-content-center">
+                                <div className="col-10">
+                                  <div className="d-grid gap-2">
+                                    <button
+                                      className="btn btn-unstake"
+                                      size="lg"
+                                      onClick={() => {
+                                        unStakeNFT(nft.tokenId);
+                                      }}
+                                    >
+                                      Unstake
+                                    </button>
+                                  </div>
                                 </div>
                               </div>
                             </div>
-                          </div>
-                        );
-                      })
-:
-damiImage.map((img) => {
-  console.log("dummy");
-  return (
-                      <div className="col-md-4 nft-staking-b0xxs m-1 p-2 mt-2">
-                        <div>
-                          <img
-                            src={img}
-                            className="nftstaking-img mt-2"
-                          />
-                        </div>
+                          );
+                        })
+                        :
+                        damiImage.map((img) => {
+                          console.log("dummy");
+                          return (
+                            <div className="col-md-4 nft-staking-b0xxs m-1 p-2 mt-2">
+                              <div>
+                                <img
+                                  src={img}
+                                  className="nftstaking-img mt-2"
+                                />
+                              </div>
 
-                      </div>
-                      )
+                            </div>
+                          )
 
-})
+                        })
                       }
                     </div>
                   </div>
