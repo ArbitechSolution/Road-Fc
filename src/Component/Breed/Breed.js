@@ -502,8 +502,7 @@ function Breed() {
                       <div className="col-lg-12 col-11 Breed-box p-3 ms-2">
                         <span>
                           Select two Trainer Fighters who will perform the breed
-                          to make more powerful fighter. You can check rarity
-                          level HERE.
+                          to make more powerful fighter. 
                         </span>
                       </div>
                     </div>
