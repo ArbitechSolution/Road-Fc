@@ -393,7 +393,7 @@ function NFTstaking() {
           </div>
         </div>
         <div className="row d-flex justify-content-center justify-content-around">
-          <div className="col-3 staking-box">
+          <div className="col-3 staking-box" style={{marginTop: "35px"}}>
             <SideBar />
           </div>
           {/* <div className='col-11 mb-3 staking-coll'>
@@ -484,7 +484,7 @@ function NFTstaking() {
                           </button>
                         </div>
                       </div>
-                      <div className="col-md-5">
+                      <div className="col-md-6">
                         <div className="d-grid gap-2">
                           <button
                             className="btn btn-unstake22"

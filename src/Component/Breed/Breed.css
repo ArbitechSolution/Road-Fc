@@ -36,8 +36,8 @@
 }
 
 .breedtext1 {
-    font-weight: 600;
-    font-size: 17px;
+    font-weight: 800;
+    font-size: 20px;
     line-height: 144%;
     color: #5E606E;
     /* cursor: pointer; */
@@ -263,8 +263,8 @@ border-radius: 8px;
         -webkit-appearance: none;
     }
     .breedtext1 {
-        font-weight: 600;
-        font-size: 14px;
+        font-weight: 800;
+        font-size: 16px;
         line-height: 144%;
         color: #5E606E;
     }

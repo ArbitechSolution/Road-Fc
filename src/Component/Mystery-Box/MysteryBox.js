@@ -323,7 +323,7 @@ function MysteryBox() {
           </div>
         </div>
         <div className="row d-flex justify-content-center justify-content-around">
-          <div className="col-3 staking-box">
+          <div className="col-3 staking-box" style={{marginTop: "45px"}}>
             <SideBar />
           </div>
           {/* <div className='col-11 mb-3 staking-coll'>

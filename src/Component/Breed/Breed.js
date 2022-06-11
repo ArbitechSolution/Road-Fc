@@ -354,7 +354,7 @@ function Breed() {
           </div>
         </div>
         <div className="row d-flex justify-content-center justify-content-between">
-          <div className="col-3 staking-box">
+          <div className="col-3 staking-box" style={{marginTop: "50px"}}>
             <SideBar />
           </div>
 
@@ -593,8 +593,8 @@ function Breed() {
                     <div className="row d-flex justify-content-center">
                       <div className="col-lg-11 col-11 breedboxs12">
                         <div className="row">
-                          <div className="col-12 d-flex flex-row">
-                            <div>
+                          <div className="col-12 d-flex flex-row mt-3">
+                            <div className="ms-3">
                               {!playing ? (
                                 <img src={off} onClick={playingSound} />
                               ) : (
