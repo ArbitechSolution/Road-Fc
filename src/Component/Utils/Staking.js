@@ -1,5 +1,5 @@
 export const stakingContractAddress =
-  "0x5a51c1c569ddAFb8bcCf2D317588A47be51A6Ef3";
+  "0xDE969761570dd2fB57FE245392D83FB79D996d21";
 export const stakingContractAbi = [
   {
     inputs: [
@@ -113,6 +113,7 @@ export const stakingContractAbi = [
       { internalType: "uint256", name: "Deposit_time", type: "uint256" },
       { internalType: "uint256", name: "withdrawnToken", type: "uint256" },
       { internalType: "uint256", name: "redeemedRP", type: "uint256" },
+      { internalType: "uint256", name: "mystakedTokens", type: "uint256" },
     ],
     stateMutability: "view",
     type: "function",
@@ -141,6 +142,13 @@ export const stakingContractAbi = [
     name: "_owner",
     outputs: [{ internalType: "address", name: "", type: "address" }],
     stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [{ internalType: "uint256", name: "_amount", type: "uint256" }],
+    name: "addStakedTokens",
+    outputs: [],
+    stateMutability: "nonpayable",
     type: "function",
   },
   {
@@ -186,6 +194,13 @@ export const stakingContractAbi = [
     type: "function",
   },
   {
+    inputs: [{ internalType: "uint256", name: "_amount", type: "uint256" }],
+    name: "removeStakedTokens",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
     inputs: [{ internalType: "uint256", name: "_LPlocktime", type: "uint256" }],
     name: "setLPlocktime",
     outputs: [],
@@ -202,6 +217,13 @@ export const stakingContractAbi = [
   {
     inputs: [],
     name: "time",
+    outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "totalStakedTokens",
     outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
     stateMutability: "view",
     type: "function",

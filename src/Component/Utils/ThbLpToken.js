@@ -1,4 +1,4 @@
-export const thbLpTokenAddress = "0x5561C95269b632b16DC0a2b9B6C62115f42431E8";
+export const thbLpTokenAddress = "0xd52E57a923D42A19Ea0e10C01b29B7509c702E3e";
 export const thbLpTokenAbi = [
   {
     inputs: [],

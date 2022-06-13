@@ -203,6 +203,15 @@ function Breed() {
           breedType2 = 6;
         }
         console.log("breed type ", breedType1, breedType2);
+        let signApi = await axios.get(
+          `https://road-nft.herokuapp.com/api/users/getsign?user=${acc}`
+        );
+        console.log("signApi", signApi);
+        let nonce = signApi.data.nonce;
+        let signfromApi = signApi.data.sign;
+        console.log("nonce", nonce);
+        console.log("signfromApi", signfromApi);
+
         const web3 = window.web3;
         const breedContract = new web3.eth.Contract(
           breedContractAbi,
@@ -216,45 +225,52 @@ function Breed() {
         let bnb = await breedContract.methods.BNB().call();
         let bnb_value = web3.utils.fromWei(bnb);
         bnb_value = parseFloat(bnb_value).toFixed(3);
-        if (userBalance >= bnb_value) {
-          let breedData = await axios.get(
-            `https://road-nft.herokuapp.com/api/users/getRandomIds?type1=${breedType1}&type2=${breedType2}`
-          );
-          if (breedData.data.id != null) {
-            await nftContract.methods
-              .setApprovalForAll(breedContractAddress, true)
-              .send({
-                from: acc,
-              });
-            await breedContract.methods
-              .Breed(
-                trainerOne.tokenId,
-                trainerTwo.tokenId,
-                breedData.data.id,
-                breedData.data.uri,
-                breedData.data.type
-              )
-              .send({
-                from: acc,
-                value: bnb,
-              })
-              .on("receipt", async (receipt) => {
-                console.log("receipt", receipt);
-                await axios.get(
-                  `https://road-nft.herokuapp.com/api/users/saveTokenId?type1=${breedType1}&type2=${breedType2}&tokenId=${breedData.data.id}`
-                );
-              });
-            showBreedNft();
-            cancleBreedImageOne();
-            cancleBreedImageTwo();
-            getData();
-            toast.success("Breeding successful");
+
+        if (signApi) {
+          if (userBalance >= bnb_value) {
+            let breedData = await axios.get(
+              `https://road-nft.herokuapp.com/api/users/getRandomIds?type1=${breedType1}&type2=${breedType2}`
+            );
+            if (breedData.data.id != null) {
+              // await nftContract.methods
+              //   .setApprovalForAll(breedContractAddress, true)
+              //   .send({
+              //     from: acc,
+              //   });
+              await breedContract.methods
+                .Breed(
+                  trainerOne.tokenId,
+                  trainerTwo.tokenId,
+                  breedData.data.id,
+                  breedData.data.uri,
+                  breedData.data.type,
+                  nonce.toString(),
+                  signfromApi.toString()
+                )
+                .send({
+                  from: acc,
+                  value: bnb,
+                })
+                .on("receipt", async (receipt) => {
+                  console.log("receipt", receipt);
+                  await axios.get(
+                    `https://road-nft.herokuapp.com/api/users/saveTokenId?type1=${breedType1}&type2=${breedType2}&tokenId=${breedData.data.id}`
+                  );
+                });
+              showBreedNft();
+              cancleBreedImageOne();
+              cancleBreedImageTwo();
+              getData();
+              toast.success("Breeding successful");
+            } else {
+              toast.info("ids full");
+            }
           } else {
-            toast.info("ids full");
+            toast.info("Insufficient Balance");
+            // }
           }
         } else {
-          toast.info("Insufficient Balance");
-          // }
+          console.log("Got null Signature Api Data");
         }
       } else {
         toast.info("Please Select Nfts for breeding");
@@ -354,7 +370,7 @@ function Breed() {
           </div>
         </div>
         <div className="row d-flex justify-content-center justify-content-between">
-          <div className="col-3 staking-box" style={{marginTop: "50px"}}>
+          <div className="col-3 staking-box" style={{ marginTop: "50px" }}>
             <SideBar />
           </div>
 
@@ -469,7 +485,7 @@ function Breed() {
                       <form>
                         <input
                           type="number"
-                          class="form-control"
+                          className="form-control"
                           placeholder="0"
                         />
                       </form>
@@ -502,7 +518,7 @@ function Breed() {
                       <div className="col-lg-12 col-11 Breed-box p-3 ms-2">
                         <span>
                           Select two Trainer Fighters who will perform the breed
-                          to make more powerful fighter. 
+                          to make more powerful fighter.
                         </span>
                       </div>
                     </div>

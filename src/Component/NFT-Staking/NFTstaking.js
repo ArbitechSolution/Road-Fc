@@ -78,7 +78,7 @@ function NFTstaking() {
           road_Nft_Staking_Address
         );
         let ttlMiningpwer = await roadNftStakingContract.methods
-          .PUBLICpower()
+          .publicMining()
           .call();
         setTotalMiningPower(ttlMiningpwer);
         let allArray = await roadNftStakingContract.methods.User(acc).call();
@@ -93,7 +93,7 @@ function NFTstaking() {
           .call();
         setTotalStakedAmount(ttlStkedAm);
       } catch (e) {
-        console.log("Error while getAllNfTStakingData Line 72 ", e);
+        console.log("Error while getAllNfTStakingData ", e);
       }
     }
   };
@@ -385,15 +385,15 @@ function NFTstaking() {
               {acc === "No Wallet"
                 ? "Connect"
                 : acc === "Connect Wallet"
-                  ? "Connect"
-                  : acc === "Wrong Network"
-                    ? acc
-                    : acc.substring(0, 3) + "..." + acc.substring(acc.length - 3)}
+                ? "Connect"
+                : acc === "Wrong Network"
+                ? acc
+                : acc.substring(0, 3) + "..." + acc.substring(acc.length - 3)}
             </button>
           </div>
         </div>
         <div className="row d-flex justify-content-center justify-content-around">
-          <div className="col-3 staking-box" style={{marginTop: "35px"}}>
+          <div className="col-3 staking-box" style={{ marginTop: "35px" }}>
             <SideBar />
           </div>
           {/* <div className='col-11 mb-3 staking-coll'>
@@ -416,7 +416,9 @@ function NFTstaking() {
                     <div className="row d-flex justify-content-center">
                       <div className="col-12 NFTstaking-boxes1">
                         <p className="nftstaking-p">Total Rewards:</p>
-                        <p className="nftstaking-p1">{userReward.toLocaleString()}</p>
+                        <p className="nftstaking-p1">
+                          {userReward.toLocaleString()}
+                        </p>
                       </div>
                       <div className="col-11 boxs-staking d-flex justify-content-between align-items-center mt-3">
                         <span className="nftstaking-span2">
@@ -451,7 +453,9 @@ function NFTstaking() {
                         </span>
                       </div>
                       <div className="col-5 boxs-staking d-flex flex-column mt-3 text-center">
-                        <span className="nft-staking-p pb-2">{myStakedAmount.toLocaleString()}</span>
+                        <span className="nft-staking-p pb-2">
+                          {myStakedAmount.toLocaleString()}
+                        </span>
                         <span className="nft-staking-p1">My Staked Amount</span>
                       </div>
                     </div>
@@ -486,11 +490,7 @@ function NFTstaking() {
                       </div>
                       <div className="col-md-6">
                         <div className="d-grid gap-2">
-                          <button
-                            className="btn btn-unstake22"
-                            size="lg"
-
-                          >
+                          <button className="btn btn-unstake22" size="lg">
                             UnStake All
                           </button>
                         </div>
@@ -512,65 +512,58 @@ function NFTstaking() {
                   </div>
                   <div className="col-lg-8">
                     <div className="row d-flex justify-content-md-start justify-content-center flex-wrap  mt-md-0 mt-3">
+                      {}
 
-                      {
-
-                      }
-
-
-
-                      {nftArray.length ?
-                        nftArray.slice(initialLimit, finalLimit).map((nft) => {
-                          console.log("dummy");
-                          return (
-                            <div className="col-md-4 nft-staking-b0xxs m-1 p-2 mt-2">
-                              <div>
-                                <img
-                                  src={`/config/${nft.imageUrl}`}
-                                  className="nftstaking-img mt-2"
-                                />
-                                <p
-                                  className="text-center mt-2"
-                                  style={{ color: "white" }}
-                                >
-                                  {nft.imageName}
-                                </p>
-                              </div>
-                              <div className="row d-flex justify-content-center">
-                                <div className="col-10">
-                                  <div className="d-grid gap-2">
-                                    <button
-                                      className="btn btn-unstake"
-                                      size="lg"
-                                      onClick={() => {
-                                        unStakeNFT(nft.tokenId);
-                                      }}
+                      {nftArray.length
+                        ? nftArray
+                            .slice(initialLimit, finalLimit)
+                            .map((nft) => {
+                              console.log("dummy");
+                              return (
+                                <div className="col-md-4 nft-staking-b0xxs m-1 p-2 mt-2">
+                                  <div>
+                                    <img
+                                      src={`/config/${nft.imageUrl}`}
+                                      className="nftstaking-img mt-2"
+                                    />
+                                    <p
+                                      className="text-center mt-2"
+                                      style={{ color: "white" }}
                                     >
-                                      Unstake
-                                    </button>
+                                      {nft.imageName}
+                                    </p>
+                                  </div>
+                                  <div className="row d-flex justify-content-center">
+                                    <div className="col-10">
+                                      <div className="d-grid gap-2">
+                                        <button
+                                          className="btn btn-unstake"
+                                          size="lg"
+                                          onClick={() => {
+                                            unStakeNFT(nft.tokenId);
+                                          }}
+                                        >
+                                          Unstake
+                                        </button>
+                                      </div>
+                                    </div>
                                   </div>
                                 </div>
+                              );
+                            })
+                        : damiImage.map((img) => {
+                            console.log("dummy");
+                            return (
+                              <div className="col-md-4 nft-staking-b0xxs m-1 p-2 mt-2">
+                                <div>
+                                  <img
+                                    src={img}
+                                    className="nftstaking-img mt-2"
+                                  />
+                                </div>
                               </div>
-                            </div>
-                          );
-                        })
-                        :
-                        damiImage.map((img) => {
-                          console.log("dummy");
-                          return (
-                            <div className="col-md-4 nft-staking-b0xxs m-1 p-2 mt-2">
-                              <div>
-                                <img
-                                  src={img}
-                                  className="nftstaking-img mt-2"
-                                />
-                              </div>
-
-                            </div>
-                          )
-
-                        })
-                      }
+                            );
+                          })}
                     </div>
                   </div>
                   <div className="row d-flex flex-row justify-content-center justify-content-md-evenly mb-4 mt-4">
@@ -590,8 +583,8 @@ function NFTstaking() {
                       <div className="bosCollection">
                         <span className="mycollectionsP ">
                           {acc == "No Wallet" ||
-                            acc == "Wrong Network" ||
-                            acc == "Connect Wallet"
+                          acc == "Wrong Network" ||
+                          acc == "Connect Wallet"
                             ? ""
                             : pageNumber}
                         </span>

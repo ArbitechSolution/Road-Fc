@@ -1,5 +1,5 @@
 export const breedContractAddress =
-  "0x2C183814DDdE690F03fbacf17c6D2A1CB9abbEa5";
+  "0x41d4B49743b99324160d28A586A9e0B76798c8aF";
 export const breedContractAbi = [
   {
     inputs: [
@@ -117,6 +117,8 @@ export const breedContractAbi = [
       { internalType: "uint256", name: "tokenID", type: "uint256" },
       { internalType: "string", name: "URI", type: "string" },
       { internalType: "uint256", name: "_type", type: "uint256" },
+      { internalType: "uint256", name: "_nonce", type: "uint256" },
+      { internalType: "bytes", name: "signature", type: "bytes" },
     ],
     name: "Breed",
     outputs: [],
@@ -142,6 +144,8 @@ export const breedContractAbi = [
       { internalType: "uint256[]", name: "tokenID", type: "uint256[]" },
       { internalType: "string[]", name: "URI", type: "string[]" },
       { internalType: "uint256[]", name: "_type", type: "uint256[]" },
+      { internalType: "uint256", name: "_nonce", type: "uint256" },
+      { internalType: "bytes", name: "signature", type: "bytes" },
     ],
     name: "Mystery_Box",
     outputs: [],
@@ -155,6 +159,13 @@ export const breedContractAbi = [
       { internalType: "contract IPancakeRouter01", name: "", type: "address" },
     ],
     stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [{ internalType: "address", name: "_signer", type: "address" }],
+    name: "SIGNER",
+    outputs: [],
+    stateMutability: "nonpayable",
     type: "function",
   },
   {
@@ -381,6 +392,13 @@ export const breedContractAbi = [
     type: "function",
   },
   {
+    inputs: [],
+    name: "signer",
+    outputs: [{ internalType: "address", name: "", type: "address" }],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
     inputs: [{ internalType: "bytes4", name: "interfaceId", type: "bytes4" }],
     name: "supportsInterface",
     outputs: [{ internalType: "bool", name: "", type: "bool" }],
@@ -402,6 +420,13 @@ export const breedContractAbi = [
     name: "symbol",
     outputs: [{ internalType: "string", name: "", type: "string" }],
     stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [{ internalType: "address", name: "account", type: "address" }],
+    name: "toString",
+    outputs: [{ internalType: "string", name: "", type: "string" }],
+    stateMutability: "pure",
     type: "function",
   },
   {
@@ -451,6 +476,13 @@ export const breedContractAbi = [
     name: "transferOwnership",
     outputs: [],
     stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [{ internalType: "bytes32", name: "", type: "bytes32" }],
+    name: "usedHash",
+    outputs: [{ internalType: "bool", name: "", type: "bool" }],
+    stateMutability: "view",
     type: "function",
   },
   {

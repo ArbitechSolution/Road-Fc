@@ -1,4 +1,4 @@
-export const thbTokenAddress = "0xfbfa8AB1D0150Fa8fB4e7D04DfCe55FAa11342Bc";
+export const thbTokenAddress = "0x52db35aC6393aEc5B8572cfde96B38DA4f7D149c";
 export const thbTokenAbi = [
   { inputs: [], stateMutability: "nonpayable", type: "constructor" },
   {

@@ -1,9 +1,9 @@
 export const road_Nft_Staking_Address =
-  "0x3Cd225d2c6b19B7E4b8327e3CBE4DBD79BeC0e68";
+  "0x3C76d4Ed2979AbC9C4278A4cd2589F416E47ecd3";
 export const road_Nft_Staking_Abi = [
   {
     inputs: [
-      { internalType: "contract IERC721", name: "_NFTToken", type: "address" },
+      { internalType: "contract IERC721", name: "_BREED", type: "address" },
       { internalType: "contract IERC20", name: "_token", type: "address" },
     ],
     stateMutability: "nonpayable",
