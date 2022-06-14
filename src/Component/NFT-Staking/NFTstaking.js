@@ -357,11 +357,18 @@ function NFTstaking() {
         );
         let totalIds = await raodnftContract.methods.userStakedNFT(acc).call();
         console.log("nftArray", totalIds);
-        await raodnftContract.methods.unstakeAll(totalIds).send({
-          from: acc,
-        });
-        toast.success("Unstaked All Nfts");
-        getNfts();
+        if (totalIds.length > 0) {
+          if (parseFloat(userReward) > 1) {
+            await raodnftContract.methods.unstakeAll(totalIds).send({
+              from: acc,
+            });
+            toast.success("Unstaked All Nfts");
+            getNfts();
+          }
+          toast.error("Cannot unstake Unil Rewards are made");
+        } else {
+          toast.error("You have not staked any nft yet");
+        }
       }
     } catch (e) {
       toast.error("Transaction Failed");
@@ -411,12 +418,15 @@ function NFTstaking() {
           road_Nft_Staking_Abi,
           road_Nft_Staking_Address
         );
-
-        await raodnftContract.methods.WithdrawReward().send({
-          from: acc,
-        });
-        dispatch(getRewardOfUser());
-        toast.success("Confirmed claim reward");
+        if (parseInt(userReward) > 0) {
+          await raodnftContract.methods.WithdrawReward().send({
+            from: acc,
+          });
+          dispatch(getRewardOfUser());
+          toast.success("Confirmed claim reward");
+        } else {
+          toast.error("No Rewards Found");
+        }
       }
     } catch (e) {
       toast.error("Transaction Failed");
