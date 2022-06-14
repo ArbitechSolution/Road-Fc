@@ -341,6 +341,33 @@ function NFTstaking() {
       }, 9000);
     }
   };
+  const unstakeAllNfts = async () => {
+    try {
+      if (acc == "No Wallet") {
+        toast.info("Not Connected");
+      } else if (acc == "Wrong Network") {
+        toast.info("Not Connected");
+      } else if (acc == "Connect Wallet") {
+        toast.info("Not Connected");
+      } else {
+        const web3 = window.web3;
+        const raodnftContract = new web3.eth.Contract(
+          road_Nft_Staking_Abi,
+          road_Nft_Staking_Address
+        );
+        let totalIds = await raodnftContract.methods.userStakedNFT(acc).call();
+        console.log("nftArray", totalIds);
+        await raodnftContract.methods.unstakeAll(totalIds).send({
+          from: acc,
+        });
+        toast.success("Unstaked All Nfts");
+        getNfts();
+      }
+    } catch (e) {
+      toast.error("Transaction Failed");
+      console.error("error while Unstaking NFT", e);
+    }
+  };
   const unStakeNFT = async (nftId) => {
     try {
       if (acc == "No Wallet") {
@@ -536,7 +563,11 @@ function NFTstaking() {
                       </div>
                       <div className="col-md-6">
                         <div className="d-grid gap-2">
-                          <button className="btn btn-unstake22" size="lg">
+                          <button
+                            onClick={() => unstakeAllNfts()}
+                            className="btn btn-unstake22"
+                            size="lg"
+                          >
                             UnStake All
                           </button>
                         </div>
