@@ -87,9 +87,16 @@ function NFTstaking() {
         let totalStakeRoadTkns = await lpStakingTokenContract.methods
           .totalStakedTokens()
           .call();
+        totalStakeRoadTkns = web3.utils.fromWei(totalStakeRoadTkns);
+        totalStakeRoadTkns = parseFloat(totalStakeRoadTkns).toFixed(3);
         setoverallStake(totalStakeRoadTkns);
         let myStakedRoadtokens = await lpStakingTokenContract.methods.User(acc);
         let finalmyStakedRoadtokens = myStakedRoadtokens.mystakedTokens;
+        finalmyStakedRoadtokens = web3.utils.fromWei(finalmyStakedRoadtokens);
+        finalmyStakedRoadtokens = parseFloat(finalmyStakedRoadtokens).toFixed(
+          3
+        );
+
         setmyStakedTokens(finalmyStakedRoadtokens);
         let ttlMiningpwer = await roadNftStakingContract.methods
           .publicMining()

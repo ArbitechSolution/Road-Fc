@@ -511,11 +511,11 @@ function Staking() {
                         <div className="row">
                           <div className="col-10 col-sixe">$ROAD STAKING</div>
                           <div className="col-2">
-                            <div class="social">
+                            <div className="social">
                               <div className="social__container">
                                 <div className="social__content">
                                   <ImInfo className="social__icon" />
-                                  <div class="social__tooltip social__tooltip-bottom">
+                                  <div className="social__tooltip social__tooltip-bottom">
                                     <img
                                       src={Group636}
                                       className="staking-info-pic"
