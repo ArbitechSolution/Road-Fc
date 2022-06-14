@@ -24,16 +24,17 @@ import SideBar from "../SideBar/SideBar";
 import MediaSidebar from "../SideBar/MediaSidebar";
 import { nftContractAbi, nftContratAddress } from "../Utils/Nft";
 import { stakingContractAddress, stakingContractAbi } from "../Utils/Staking";
+import { thbTokenAddress, thbTokenAbi } from "../Utils/roadFcToken";
 import { useDispatch, useSelector } from "react-redux";
 import { getWallet, getRewardOfUser } from "../Redux/actions/actions";
-
 import { toast } from "react-toastify";
 import {
   road_Nft_Staking_Address,
   road_Nft_Staking_Abi,
 } from "../Utils/Road_Nft_Staking";
 import { breedContractAbi, breedContractAddress } from "../Utils/breed";
-
+import Web3 from "web3";
+const webSupply = new Web3("https://data-seed-prebsc-1-s1.binance.org:8545/");
 function NFTstaking() {
   let { acc } = useSelector((state) => state.connectWallet);
   let { userReward } = useSelector((state) => state.userReward);
@@ -57,9 +58,45 @@ function NFTstaking() {
   let [myStakedAmount, setMyStakedAmount] = useState(0);
   let [overallStaked, setoverallStake] = useState(0);
   let [mystakedToken, setmyStakedTokens] = useState(0);
+  let [contractBalnce, setContractBal] = useState(0);
   let damiImage = [pool1, pool2, pool3, pool4, pool5, pool6];
 
   const getAllNfTStakingData = async () => {
+    try {
+      // const web3 = window.web3;
+      let lpStakingTokenContract = new webSupply.eth.Contract(
+        stakingContractAbi,
+        stakingContractAddress
+      );
+      const roadNftStakingContract = new webSupply.eth.Contract(
+        road_Nft_Staking_Abi,
+        road_Nft_Staking_Address
+      );
+      let thbTokenContractof = new webSupply.eth.Contract(
+        thbTokenAbi,
+        thbTokenAddress
+      );
+      let balancContract = await thbTokenContractof.methods
+        .balanceOf(road_Nft_Staking_Address)
+        .call();
+      balancContract = webSupply.utils.fromWei(balancContract);
+      balancContract = parseFloat(balancContract).toFixed(2);
+      setContractBal(balancContract);
+
+      let totalStakeRoadTkns = await lpStakingTokenContract.methods
+        .totalStakedTokens()
+        .call();
+      totalStakeRoadTkns = webSupply.utils.fromWei(totalStakeRoadTkns);
+      // totalStakeRoadTkns = parseFloat(totalStakeRoadTkns).toFixed(3);
+      setoverallStake(totalStakeRoadTkns);
+      let ttlMiningpwer = await roadNftStakingContract.methods
+        .publicMining()
+        .call();
+      setTotalMiningPower(ttlMiningpwer);
+    } catch (e) {
+      console.log("error while getting public data", e);
+    }
+
     console.log("Acc", acc);
     if (acc == "No Wallet") {
       console.log("Not Connected");
@@ -69,8 +106,6 @@ function NFTstaking() {
       console.log("Connect Wallet");
     } else {
       try {
-        console.log("Acc", acc);
-
         const web3 = window.web3;
         let lpStakingTokenContract = new web3.eth.Contract(
           stakingContractAbi,
@@ -80,12 +115,8 @@ function NFTstaking() {
           road_Nft_Staking_Abi,
           road_Nft_Staking_Address
         );
-        let totalStakeRoadTkns = await lpStakingTokenContract.methods
-          .totalStakedTokens()
-          .call();
-        totalStakeRoadTkns = web3.utils.fromWei(totalStakeRoadTkns);
-        // totalStakeRoadTkns = parseFloat(totalStakeRoadTkns).toFixed(3);
-        setoverallStake(totalStakeRoadTkns);
+        console.log("Acc", acc);
+
         let myStakedRoadtokens = await lpStakingTokenContract.methods
           .User(acc)
           .call();
@@ -97,10 +128,7 @@ function NFTstaking() {
         // );
 
         setmyStakedTokens(finalmyStakedRoadtokens);
-        let ttlMiningpwer = await roadNftStakingContract.methods
-          .publicMining()
-          .call();
-        setTotalMiningPower(ttlMiningpwer);
+
         let allArray = await roadNftStakingContract.methods.User(acc).call();
 
         let myMiningPwer = allArray.hashpower;
@@ -316,19 +344,13 @@ function NFTstaking() {
   const unStakeNFT = async (nftId) => {
     try {
       if (acc == "No Wallet") {
-        //   setBtTxt("Connect Wallet")
         toast.info("Not Connected");
       } else if (acc == "Wrong Network") {
-        //   setBtTxt("Wrong Network")
         toast.info("Not Connected");
       } else if (acc == "Connect Wallet") {
         toast.info("Not Connected");
       } else {
         const web3 = window.web3;
-        const nftContract = new web3.eth.Contract(
-          nftContractAbi,
-          nftContratAddress
-        );
         const raodnftContract = new web3.eth.Contract(
           road_Nft_Staking_Abi,
           road_Nft_Staking_Address
@@ -442,7 +464,9 @@ function NFTstaking() {
                         <span className="nftstaking-span2">
                           Remaining Rewards:
                         </span>
-                        <span className="nftstaking-span3">450,000,000</span>
+                        <span className="nftstaking-span3">
+                          {contractBalnce}
+                        </span>
                       </div>
                     </div>
                     <div className="row d-flex justify-content-center justify-content-around">
