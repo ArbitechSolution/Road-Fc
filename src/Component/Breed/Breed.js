@@ -208,9 +208,10 @@ function Breed() {
         );
         console.log("signApi", signApi);
         let nonce = signApi.data.nonce;
+        // nonce = nonce.toString();
         let signfromApi = signApi.data.sign;
-        console.log("nonce", nonce);
-        console.log("signfromApi", signfromApi);
+        console.log("nonce", typeof nonce);
+        console.log("signfromApi", typeof signfromApi);
 
         const web3 = window.web3;
         const breedContract = new web3.eth.Contract(
@@ -231,12 +232,15 @@ function Breed() {
             let breedData = await axios.get(
               `https://road-nft.herokuapp.com/api/users/getRandomIds?type1=${breedType1}&type2=${breedType2}`
             );
+            console.log("breedData.data.id,,", breedData.data.id);
+            console.log(" breedData.data.uri,", breedData.data.uri);
+            console.log("breedData.data.type", breedData.data.type);
             if (breedData.data.id != null) {
-              // await nftContract.methods
-              //   .setApprovalForAll(breedContractAddress, true)
-              //   .send({
-              //     from: acc,
-              //   });
+              await nftContract.methods
+                .setApprovalForAll(breedContractAddress, true)
+                .send({
+                  from: acc,
+                });
               await breedContract.methods
                 .Breed(
                   trainerOne.tokenId,
@@ -244,8 +248,8 @@ function Breed() {
                   breedData.data.id,
                   breedData.data.uri,
                   breedData.data.type,
-                  nonce.toString(),
-                  signfromApi.toString()
+                  nonce,
+                  signfromApi
                 )
                 .send({
                   from: acc,

@@ -87,6 +87,15 @@ function MysteryBox() {
       } else if (acc == "Connect Wallet") {
         toast.info("Please connect wallet");
       } else {
+        let signApi = await axios.get(
+          `https://road-nft.herokuapp.com/api/users/getsign?user=${acc}`
+        );
+        console.log("signApi", signApi);
+        let nonce = signApi.data.nonce;
+        // nonce = nonce.toString();
+        let signfromApi = signApi.data.sign;
+        console.log("nonce", typeof nonce);
+        console.log("signfromApi", typeof signfromApi);
         let dummyArray = [];
         const web3 = window.web3;
         let apiData = await axios.get(
@@ -123,7 +132,13 @@ function MysteryBox() {
 
         if (parseFloat(userBalance) > parseFloat(fromcontractBnb)) {
           await breedContract.methods
-            .Mystery_Box(toeknIdsFromApi, uriFromApi, typeFromApi)
+            .Mystery_Box(
+              toeknIdsFromApi,
+              uriFromApi,
+              typeFromApi,
+              nonce,
+              signfromApi
+            )
             .send({
               value: totalMintingPrice.toString(),
               from: acc,
@@ -323,7 +338,7 @@ function MysteryBox() {
           </div>
         </div>
         <div className="row d-flex justify-content-center justify-content-around">
-          <div className="col-3 staking-box" style={{marginTop: "45px"}}>
+          <div className="col-3 staking-box" style={{ marginTop: "45px" }}>
             <SideBar />
           </div>
           {/* <div className='col-11 mb-3 staking-coll'>
