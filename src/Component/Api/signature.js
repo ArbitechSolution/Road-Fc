@@ -1,9 +1,11 @@
 import { ethers } from "ethers";
+import { loadWeb3 } from "../Api/api";
 
 export const getSignatureTest = async (contract, user) => {
   let sigdataArr = [];
+  user = await loadWeb3();
   contract = "0x41d4b49743b99324160d28a586a9e0b76798c8af"; //withdrawcontract
-  user = "0xAD4f1d02ad3e819AD86D3eD27dfd13F31A19a09a"; //user_address
+  // user = "0xAD4f1d02ad3e819AD86D3eD27dfd13F31A19a09a"; //user_address
 
   const RPC = "https://data-seed-prebsc-1-s1.binance.org:8545";
   const provider = new ethers.providers.JsonRpcProvider(RPC);

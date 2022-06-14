@@ -25,11 +25,7 @@ import MediaSidebar from "../SideBar/MediaSidebar";
 import { nftContractAbi, nftContratAddress } from "../Utils/Nft";
 import { stakingContractAddress, stakingContractAbi } from "../Utils/Staking";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  getWallet,
-  getRewardOfUser,
-  getAllNfTStakingData,
-} from "../Redux/actions/actions";
+import { getWallet, getRewardOfUser } from "../Redux/actions/actions";
 
 import { toast } from "react-toastify";
 import {
@@ -88,14 +84,17 @@ function NFTstaking() {
           .totalStakedTokens()
           .call();
         totalStakeRoadTkns = web3.utils.fromWei(totalStakeRoadTkns);
-        totalStakeRoadTkns = parseFloat(totalStakeRoadTkns).toFixed(3);
+        // totalStakeRoadTkns = parseFloat(totalStakeRoadTkns).toFixed(3);
         setoverallStake(totalStakeRoadTkns);
-        let myStakedRoadtokens = await lpStakingTokenContract.methods.User(acc);
+        let myStakedRoadtokens = await lpStakingTokenContract.methods
+          .User(acc)
+          .call();
         let finalmyStakedRoadtokens = myStakedRoadtokens.mystakedTokens;
         finalmyStakedRoadtokens = web3.utils.fromWei(finalmyStakedRoadtokens);
-        finalmyStakedRoadtokens = parseFloat(finalmyStakedRoadtokens).toFixed(
-          3
-        );
+        console.log("finalmyStakedRoadtokens", myStakedRoadtokens);
+        // finalmyStakedRoadtokens = parseFloat(finalmyStakedRoadtokens).toFixed(
+        //   1
+        // );
 
         setmyStakedTokens(finalmyStakedRoadtokens);
         let ttlMiningpwer = await roadNftStakingContract.methods
@@ -449,7 +448,7 @@ function NFTstaking() {
                     <div className="row d-flex justify-content-center justify-content-around">
                       <div className="col-5  boxs-staking d-flex flex-column mt-3 text-start">
                         <span className="nft-staking-p pb-2">
-                          {totalMiningPower.toLocaleString()}
+                          {totalMiningPower}
                         </span>
                         <span className="nft-staking-p1">
                           Total Mining Power
@@ -457,7 +456,7 @@ function NFTstaking() {
                       </div>
                       <div className="col-5 boxs-staking d-flex flex-column mt-3">
                         <span className="nft-staking-p pb-2">
-                          {myMiningPower.toLocaleString()}
+                          {myMiningPower}
                         </span>
                         <span className="nft-staking-p1">My Mining Power</span>
                       </div>
@@ -473,7 +472,7 @@ function NFTstaking() {
                       </div>
                       <div className="col-5 boxs-staking d-flex flex-column mt-3 text-center">
                         <span className="nft-staking-p pb-2">
-                          {myStakedAmount.toLocaleString()}
+                          {myStakedAmount}
                         </span>
                         <span className="nft-staking-p1">My Staked Amount</span>
                       </div>
