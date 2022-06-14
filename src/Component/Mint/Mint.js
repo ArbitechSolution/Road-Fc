@@ -362,7 +362,7 @@ function Mint() {
                             <form>
                               <input
                                 type="number"
-                                class="form-control"
+                                className="form-control"
                                 placeholder="0"
                                 style={{ border: "2px solid " }}
                               />
@@ -404,7 +404,7 @@ function Mint() {
                                   <form>
                                     <input
                                       type="number"
-                                      class="form-control"
+                                      className="form-control"
                                       placeholder="0"
                                       style={{ border: "2px solid " }}
                                     />
@@ -522,7 +522,7 @@ function Mint() {
 
                 <div className="row mb-5">
                   <div className="col-md-12 col-11 mint-Page-border mb-4 scroll-tab">
-                    <table class="table table-borderless">
+                    <table className="table table-borderless">
                       <thead>
                         <tr>
                           <th scope="col" className="Mint-Time text-start">

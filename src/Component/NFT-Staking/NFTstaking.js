@@ -23,6 +23,7 @@ import Title22 from "../../Assets/Title22.png";
 import SideBar from "../SideBar/SideBar";
 import MediaSidebar from "../SideBar/MediaSidebar";
 import { nftContractAbi, nftContratAddress } from "../Utils/Nft";
+import { stakingContractAddress, stakingContractAbi } from "../Utils/Staking";
 import { useDispatch, useSelector } from "react-redux";
 import {
   getWallet,
@@ -58,6 +59,8 @@ function NFTstaking() {
   let [myMiningPower, setMyMiningPower] = useState(0);
   let [totalStakedAmount, setTotalStakedAmount] = useState(0);
   let [myStakedAmount, setMyStakedAmount] = useState(0);
+  let [overallStaked, setoverallStake] = useState(0);
+  let [mystakedToken, setmyStakedTokens] = useState(0);
   let damiImage = [pool1, pool2, pool3, pool4, pool5, pool6];
 
   const getAllNfTStakingData = async () => {
@@ -73,10 +76,21 @@ function NFTstaking() {
         console.log("Acc", acc);
 
         const web3 = window.web3;
+        let lpStakingTokenContract = new web3.eth.Contract(
+          stakingContractAbi,
+          stakingContractAddress
+        );
         const roadNftStakingContract = new web3.eth.Contract(
           road_Nft_Staking_Abi,
           road_Nft_Staking_Address
         );
+        let totalStakeRoadTkns = await lpStakingTokenContract.methods
+          .totalStakedTokens()
+          .call();
+        setoverallStake(totalStakeRoadTkns);
+        let myStakedRoadtokens = await lpStakingTokenContract.methods.User(acc);
+        let finalmyStakedRoadtokens = myStakedRoadtokens.mystakedTokens;
+        setmyStakedTokens(finalmyStakedRoadtokens);
         let ttlMiningpwer = await roadNftStakingContract.methods
           .publicMining()
           .call();
@@ -416,9 +430,7 @@ function NFTstaking() {
                     <div className="row d-flex justify-content-center">
                       <div className="col-12 NFTstaking-boxes1">
                         <p className="nftstaking-p">Total Rewards:</p>
-                        <p className="nftstaking-p1">
-                          {userReward.toLocaleString()}
-                        </p>
+                        <p className="nftstaking-p1">{userReward}</p>
                       </div>
                       <div className="col-11 boxs-staking d-flex justify-content-between align-items-center mt-3">
                         <span className="nftstaking-span2">
@@ -464,7 +476,9 @@ function NFTstaking() {
                         <span className="nftstaking-span2">
                           Total Staked Tokens($ROAD):
                         </span>
-                        <span className="nftstaking-span3">0.00</span>
+                        <span className="nftstaking-span3">
+                          {overallStaked}
+                        </span>
                       </div>
                     </div>
                     <div className="row d-flex justify-content-center  mb-3">
@@ -472,7 +486,9 @@ function NFTstaking() {
                         <span className="nftstaking-span2">
                           My Staked Tokens($ROAD):
                         </span>
-                        <span className="nftstaking-span3">0.00</span>
+                        <span className="nftstaking-span3">
+                          {mystakedToken}
+                        </span>
                       </div>
                     </div>
 

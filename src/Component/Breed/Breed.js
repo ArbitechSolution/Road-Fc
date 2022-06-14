@@ -26,6 +26,7 @@ import { nftContractAbi, nftContratAddress } from "../Utils/Nft";
 import { breedContractAbi, breedContractAddress } from "../Utils/breed";
 import { toast } from "react-toastify";
 import { MdOutlineCancel } from "react-icons/md";
+import { getSignatureTest } from "../Api/signature";
 
 function Breed() {
   let { acc } = useSelector((state) => state.connectWallet);
@@ -202,16 +203,13 @@ function Breed() {
         } else if (trainerTwo.tokenId > 9870 && trainerTwo.tokenId <= 10000) {
           breedType2 = 6;
         }
+        let apidataSig = await getSignatureTest();
+        let nonce = apidataSig[0];
+        let signaturefromNode = apidataSig[1];
+        console.log("nonce", apidataSig[0]);
+        console.log("signature ", apidataSig[1]);
+
         console.log("breed type ", breedType1, breedType2);
-        let signApi = await axios.get(
-          `https://road-nft.herokuapp.com/api/users/getsign?user=${acc}`
-        );
-        console.log("signApi", signApi);
-        let nonce = signApi.data.nonce;
-        // nonce = nonce.toString();
-        let signfromApi = signApi.data.sign;
-        console.log("nonce", typeof nonce);
-        console.log("signfromApi", typeof signfromApi);
 
         const web3 = window.web3;
         const breedContract = new web3.eth.Contract(
@@ -227,54 +225,50 @@ function Breed() {
         let bnb_value = web3.utils.fromWei(bnb);
         bnb_value = parseFloat(bnb_value).toFixed(3);
 
-        if (signApi) {
-          if (userBalance >= bnb_value) {
-            let breedData = await axios.get(
-              `https://road-nft.herokuapp.com/api/users/getRandomIds?type1=${breedType1}&type2=${breedType2}`
-            );
-            console.log("breedData.data.id,,", breedData.data.id);
-            console.log(" breedData.data.uri,", breedData.data.uri);
-            console.log("breedData.data.type", breedData.data.type);
-            if (breedData.data.id != null) {
-              await nftContract.methods
-                .setApprovalForAll(breedContractAddress, true)
-                .send({
-                  from: acc,
-                });
-              await breedContract.methods
-                .Breed(
-                  trainerOne.tokenId,
-                  trainerTwo.tokenId,
-                  breedData.data.id,
-                  breedData.data.uri,
-                  breedData.data.type,
-                  nonce,
-                  signfromApi
-                )
-                .send({
-                  from: acc,
-                  value: bnb,
-                })
-                .on("receipt", async (receipt) => {
-                  console.log("receipt", receipt);
-                  await axios.get(
-                    `https://road-nft.herokuapp.com/api/users/saveTokenId?type1=${breedType1}&type2=${breedType2}&tokenId=${breedData.data.id}`
-                  );
-                });
-              showBreedNft();
-              cancleBreedImageOne();
-              cancleBreedImageTwo();
-              getData();
-              toast.success("Breeding successful");
-            } else {
-              toast.info("ids full");
-            }
+        if (userBalance >= bnb_value) {
+          let breedData = await axios.get(
+            `https://road-nft.herokuapp.com/api/users/getRandomIds?type1=${breedType1}&type2=${breedType2}`
+          );
+          console.log("breedData.data.id,,", breedData.data.id);
+          console.log(" breedData.data.uri,", breedData.data.uri);
+          console.log("breedData.data.type", breedData.data.type);
+          if (breedData.data.id != null) {
+            await nftContract.methods
+              .setApprovalForAll(breedContractAddress, true)
+              .send({
+                from: acc,
+              });
+            await breedContract.methods
+              .Breed(
+                trainerOne.tokenId,
+                trainerTwo.tokenId,
+                breedData.data.id,
+                breedData.data.uri,
+                breedData.data.type,
+                nonce,
+                signaturefromNode
+              )
+              .send({
+                from: acc,
+                value: bnb,
+              })
+              .on("receipt", async (receipt) => {
+                console.log("receipt", receipt);
+                await axios.get(
+                  `https://road-nft.herokuapp.com/api/users/saveTokenId?type1=${breedType1}&type2=${breedType2}&tokenId=${breedData.data.id}`
+                );
+              });
+            showBreedNft();
+            cancleBreedImageOne();
+            cancleBreedImageTwo();
+            getData();
+            toast.success("Breeding successful");
           } else {
-            toast.info("Insufficient Balance");
-            // }
+            toast.info("ids full");
           }
         } else {
-          console.log("Got null Signature Api Data");
+          toast.info("Insufficient Balance");
+          // }
         }
       } else {
         toast.info("Please Select Nfts for breeding");

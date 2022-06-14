@@ -25,6 +25,7 @@ import plus from "../../Assets/plus.png";
 import RollIMG from "../../Assets/RollIMG.png";
 import SideBar from "../SideBar/SideBar";
 import MediaSidebar from "../SideBar/MediaSidebar";
+import { getSignatureTest } from "../Api/signature";
 import useAudio from "../Mint/useAudio";
 import url from "../../Assets/Mistery Box.wav";
 function MysteryBox() {
@@ -87,16 +88,13 @@ function MysteryBox() {
       } else if (acc == "Connect Wallet") {
         toast.info("Please connect wallet");
       } else {
-        let signApi = await axios.get(
-          `https://road-nft.herokuapp.com/api/users/getsign?user=${acc}`
-        );
-        console.log("signApi", signApi);
-        let nonce = signApi.data.nonce;
         // nonce = nonce.toString();
-        let signfromApi = signApi.data.sign;
-        console.log("nonce", typeof nonce);
-        console.log("signfromApi", typeof signfromApi);
         let dummyArray = [];
+        let apidataSig = await getSignatureTest();
+        let nonce = apidataSig[0];
+        let signaturefromNode = apidataSig[1];
+        console.log("nonce", apidataSig[0]);
+        console.log("signature ", apidataSig[1]);
         const web3 = window.web3;
         let apiData = await axios.get(
           `https://road-nft.herokuapp.com/api/users/genrateMysteryId?amount=${valueone}`
@@ -104,9 +102,6 @@ function MysteryBox() {
         let toeknIdsFromApi = apiData.data.tokenIds;
         let uriFromApi = apiData.data.tokenUris;
         let typeFromApi = apiData.data.tokenTypes;
-
-        console.log("generateIdFromApi", apiData.data);
-        console.log("generateIdFromApi", toeknIdsFromApi);
 
         const breedContract = new web3.eth.Contract(
           breedContractAbi,
@@ -116,16 +111,11 @@ function MysteryBox() {
         contractBnb = parseFloat(contractBnb);
         console.log("contractBnb", contractBnb);
         let totalMintingPrice = contractBnb * valueone;
-        // totalMintingPrice = totalMintingPrice + 900;
-        console.log("totalMintingPrice", totalMintingPrice);
-        console.log("toeknIdsFromApi", toeknIdsFromApi);
-        console.log("uriFromApi", uriFromApi);
-        console.log("typeFromApi", typeFromApi);
 
-        toeknIdsFromApi.forEach((ids) => {
-          console.log("forEact", ids);
-          console.log("");
-        });
+        // toeknIdsFromApi.forEach((ids) => {
+        //   console.log("forEact", ids);
+        //   console.log("");
+        // });
 
         dummyArray = [...dummyArray, toeknIdsFromApi];
         let fromcontractBnb = web3.utils.fromWei(totalMintingPrice.toString());
@@ -137,7 +127,7 @@ function MysteryBox() {
               uriFromApi,
               typeFromApi,
               nonce,
-              signfromApi
+              signaturefromNode
             )
             .send({
               value: totalMintingPrice.toString(),
