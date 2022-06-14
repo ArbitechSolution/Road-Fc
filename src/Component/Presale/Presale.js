@@ -224,7 +224,7 @@ function Presale() {
                         className="form-label  fw-sm-bold"
                         style={{ color: "#5E606E" }}
                       >
-                        $Road
+                        $BNB
                       </label>
                       <input
                         onChange={() => calculatedRoadPrice()}
@@ -244,9 +244,10 @@ function Presale() {
                         className="form-label fw-sm-bold"
                         style={{ color: "#5E606E" }}
                       >
-                        $BNB
+                        $Road
                       </label>
                       <input
+                        disabled={true}
                         type="number"
                         class="form-control"
                         placeholder={reqBNB}
