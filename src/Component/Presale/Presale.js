@@ -251,6 +251,8 @@ function Presale() {
                         type="number"
                         class="form-control"
                         placeholder={reqBNB}
+                        // readOnly
+                        style={{backgroundColor: "rgba(41, 44, 56, 0.16)"}}
                       />
                     </form>
                   </div>
