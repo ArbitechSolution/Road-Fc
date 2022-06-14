@@ -334,7 +334,7 @@ function NFTstaking() {
           road_Nft_Staking_Address
         );
 
-        await raodnftContract.methods.unstake([nftId]).send({
+        await raodnftContract.methods.unstake(nftId).send({
           from: acc,
         });
         toast.success("Confirmed Unstaked NFT");
@@ -342,7 +342,7 @@ function NFTstaking() {
       }
     } catch (e) {
       toast.error("Transaction Failed");
-      console.error("error while stake NFT", e);
+      console.error("error while Unstaking NFT", e);
     }
   };
 
