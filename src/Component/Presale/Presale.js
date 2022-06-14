@@ -230,7 +230,7 @@ function Presale() {
                         onChange={() => calculatedRoadPrice()}
                         ref={enteredBnb}
                         type="number"
-                        class="form-control"
+                        className="form-control"
                         placeholder="0.00"
                         min={1}
                       />
@@ -249,10 +249,10 @@ function Presale() {
                       <input
                         disabled={true}
                         type="number"
-                        class="form-control"
+                        className="form-control"
                         placeholder={reqBNB}
                         // readOnly
-                        style={{backgroundColor: "rgba(41, 44, 56, 0.16)"}}
+                        style={{ backgroundColor: "rgba(41, 44, 56, 0.16)" }}
                       />
                     </form>
                   </div>

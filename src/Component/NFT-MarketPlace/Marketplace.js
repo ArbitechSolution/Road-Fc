@@ -227,7 +227,7 @@ const  Marketplace=()=> {
                     <form>
                       <input
                         type="number"
-                        class="form-control"
+                        className="form-control"
                         placeholder="From"
                       />
                     </form>
@@ -239,7 +239,7 @@ const  Marketplace=()=> {
                     <form>
                       <input
                         type="number"
-                        class="form-control"
+                        className="form-control"
                         placeholder="To"
                       />
                     </form>
