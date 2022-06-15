@@ -15,7 +15,7 @@ import {
   MINTING_INFO,
   REWARD_OF_USER,
 } from "../type/types";
-import { loadWeb3 } from "../../../Component/Api/api";
+import { loadWeb3 } from "../../../Component/Api/myApi";
 import Web3 from "web3";
 import { thbTokenAddress, thbTokenAbi } from "../../Utils/roadFcToken";
 import {
@@ -38,7 +38,7 @@ import {
   road_Nft_Staking_Address,
   road_Nft_Staking_Abi,
 } from "../../Utils/Road_Nft_Staking";
-const webSupply = new Web3("https://data-seed-prebsc-1-s1.binance.org:8545/");
+const webSupply = new Web3("https://api.avax-test.network/ext/bc/C/rpc");
 
 let thbTokenContractOf = new webSupply.eth.Contract(
   thbTokenAbi,
@@ -48,10 +48,10 @@ let thbLpTokenContractOf = new webSupply.eth.Contract(
   thbLpTokenAbi,
   thbLpTokenAddress
 );
-let stakingCOntractOf = new webSupply.eth.Contract(
-  stakingContractAbi,
-  stakingContractAddress
-);
+// let stakingCOntractOf = new webSupply.eth.Contract(
+//   stakingContractAbi,
+//   stakingContractAddress
+// );
 let presaleContractOf = new webSupply.eth.Contract(
   preSaleContractAbi,
   preSaleContractAddress
@@ -74,13 +74,15 @@ export const getUserThbBalance = () => async (dispatch) => {
   } else if (address == "Wrong Network") {
     console.log("Wrong Network");
   } else {
+    console.log("userthbBalance in action ");
+
     const web3 = window.web3;
     let userthbBalance = await thbTokenContractOf.methods
       .balanceOf(address)
       .call();
     userthbBalance = web3.utils.fromWei(userthbBalance);
     userthbBalance = parseInt(userthbBalance);
-    // console.log("userthbBalance ",userthbBalance);
+    console.log("userthbBalance in action ", userthbBalance);
     dispatch({
       type: GET_USER_THB_BALANCE,
       payload: userthbBalance,
@@ -123,8 +125,13 @@ export const getUserTHbTamount = () => async (dispatch) => {
     console.log("Wrong Network");
   } else {
     const web3 = window.web3;
+    let stakingCOntractOf = new web3.eth.Contract(
+      stakingContractAbi,
+      stakingContractAddress
+    );
     let userThbData = await stakingCOntractOf.methods.User(address).call();
     let tAmount = userThbData.Tamount;
+    console.log("T Amount in action", userThbData);
     tAmount = web3.utils.fromWei(tAmount);
     tAmount = parseFloat(tAmount);
     dispatch({
@@ -142,6 +149,10 @@ export const getUserTHbLPTamount = () => async (dispatch) => {
     console.log("Wrong Network");
   } else {
     const web3 = window.web3;
+    let stakingCOntractOf = new web3.eth.Contract(
+      stakingContractAbi,
+      stakingContractAddress
+    );
     let userThbLpData = await stakingCOntractOf.methods.UserLP(address).call();
     let tAmountlp = userThbLpData.Tamount;
     tAmountlp = web3.utils.fromWei(tAmountlp);
@@ -161,6 +172,10 @@ export const getUserBrl = () => async (dispatch) => {
     console.log("Wrong Network");
   } else {
     const web3 = window.web3;
+    let stakingCOntractOf = new web3.eth.Contract(
+      stakingContractAbi,
+      stakingContractAddress
+    );
     let userBrawlPoint = await stakingCOntractOf.methods
       .RPcalculator(address)
       .call();
@@ -182,6 +197,10 @@ export const getUserBrLp = () => async (dispatch) => {
     console.log("Wrong Network");
   } else {
     const web3 = window.web3;
+    let stakingCOntractOf = new web3.eth.Contract(
+      stakingContractAbi,
+      stakingContractAddress
+    );
     let userBrawlLpPoint = await stakingCOntractOf.methods
       .RPcalculatorforLP(address)
       .call();
@@ -202,6 +221,10 @@ export const getUserBrawlMintPoint = () => async (dispatch) => {
     console.log("Wrong Network");
   } else {
     const web3 = window.web3;
+    let stakingCOntractOf = new web3.eth.Contract(
+      stakingContractAbi,
+      stakingContractAddress
+    );
     let bpCalculator = await stakingCOntractOf.methods.balances(address).call();
     bpCalculator = web3.utils.fromWei(bpCalculator);
     bpCalculator = parseInt(bpCalculator);
@@ -215,6 +238,10 @@ export const getUserBrawlMintPoint = () => async (dispatch) => {
 
 export const getCurrentBpTokens = () => async (dispatch) => {
   const web3 = window.web3;
+  let stakingCOntractOf = new web3.eth.Contract(
+    stakingContractAbi,
+    stakingContractAddress
+  );
   let currentbp = await stakingCOntractOf.methods.currentBP().call();
   // currentbp =web3.utils.fromWei(currentbp);
   // currentbp =parseInt(currentbp);
@@ -225,7 +252,11 @@ export const getCurrentBpTokens = () => async (dispatch) => {
   });
 };
 export const getMaxBpTokens = () => async (dispatch) => {
-  // const web3 = window.web3
+  const web3 = window.web3;
+  let stakingCOntractOf = new web3.eth.Contract(
+    stakingContractAbi,
+    stakingContractAddress
+  );
   let maxbp = await stakingCOntractOf.methods.maxBPToken().call();
   // console.log("maxbp bp in action",maxbp);
   dispatch({
@@ -313,6 +344,11 @@ export const getUserDepositTime = () => async (dispatch) => {
     console.log("Wrong Network");
   } else {
     let timestamp = Math.floor(new Date().getTime() / 1000);
+    let web3 = window.web3;
+    let stakingCOntractOf = new web3.eth.Contract(
+      stakingContractAbi,
+      stakingContractAddress
+    );
     let lpLockTime = await stakingCOntractOf.methods.LPlocktime().call();
     let userLP = await stakingCOntractOf.methods.UserLP(address).call();
     let remainingTime;

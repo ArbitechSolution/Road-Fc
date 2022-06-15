@@ -107,10 +107,10 @@ function MysteryBox() {
           breedContractAbi,
           breedContractAddress
         );
-        let contractBnb = await breedContract.methods.BNBP().call();
-        contractBnb = parseFloat(contractBnb);
-        console.log("contractBnb", contractBnb);
-        let totalMintingPrice = contractBnb * valueone;
+        // let contractBnb = await breedContract.methods.BNBP().call();
+        // contractBnb = parseFloat(contractBnb);
+        // console.log("contractBnb", contractBnb);
+        // let totalMintingPrice = contractBnb * valueone;
 
         // toeknIdsFromApi.forEach((ids) => {
         //   console.log("forEact", ids);
@@ -118,178 +118,178 @@ function MysteryBox() {
         // });
 
         dummyArray = [...dummyArray, toeknIdsFromApi];
-        let fromcontractBnb = web3.utils.fromWei(totalMintingPrice.toString());
+        // let fromcontractBnb = web3.utils.fromWei(totalMintingPrice.toString());
 
-        if (parseFloat(userBalance) > parseFloat(fromcontractBnb)) {
-          await breedContract.methods
-            .Mystery_Box(
-              toeknIdsFromApi,
-              uriFromApi,
-              typeFromApi,
-              nonce,
-              signaturefromNode
-            )
-            .send({
-              value: totalMintingPrice.toString(),
-              from: acc,
-            })
-            .on("receipt", async (receipt) => {
-              console.log("receipt", receipt);
-              let addedDataToApi = await axios.post(
-                "https://road-nft.herokuapp.com/api/users/saveMysteryboxId",
-                {
-                  tokenId: toeknIdsFromApi,
-                }
-              );
-              console.log("addedDataToApi", addedDataToApi);
-              toast.success("Transaction SuccessFul");
+        // if (parseFloat(userBalance) > parseFloat(fromcontractBnb)) {
+        await breedContract.methods
+          .Mystery_Box(
+            toeknIdsFromApi,
+            uriFromApi,
+            typeFromApi,
+            nonce,
+            signaturefromNode
+          )
+          .send({
+            // value: totalMintingPrice.toString(),
+            from: acc,
+          })
+          .on("receipt", async (receipt) => {
+            console.log("receipt", receipt);
+            let addedDataToApi = await axios.post(
+              "https://road-nft.herokuapp.com/api/users/saveMysteryboxId",
+              {
+                tokenId: toeknIdsFromApi,
+              }
+            );
+            console.log("addedDataToApi", addedDataToApi);
+            toast.success("Transaction SuccessFul");
 
-              let simplleArray = [];
-              toeknIdsFromApi.forEach(async (ids) => {
-                let uris = await breedContract.methods.tokenURI(ids).call();
-                console.log("forEact", uris);
-                uris = uris.split("/");
-                console.log("uris", uris);
-                if (uris[5] == "common") {
-                  let imageUrl = `/fighter nft/common/${uris[6]}`;
-                  let imageName = `Common`;
-                  let tokenId = ids;
-                  let level = "1";
-                  let type = "Fighter";
-                  let hasPower = "50";
-                  let IsStake = true;
-                  simplleArray = [
-                    ...simplleArray,
-                    {
-                      imageUrl,
-                      imageName,
-                      tokenId,
-                      type,
-                      IsStake,
-                      hasPower,
-                      level,
-                    },
-                  ];
-                  setNftsArray(simplleArray);
-                } else if (uris[5] == "uncommon") {
-                  let imageUrl = `/fighter nft/uncommon/${uris[6]}`;
-                  let imageName = `Unommon`;
-                  let tokenId = ids;
-                  let type = "Fighter";
-                  let hasPower = "100";
-                  let level = "2";
+            let simplleArray = [];
+            toeknIdsFromApi.forEach(async (ids) => {
+              let uris = await breedContract.methods.tokenURI(ids).call();
+              console.log("forEact", uris);
+              uris = uris.split("/");
+              console.log("uris", uris);
+              if (uris[5] == "common") {
+                let imageUrl = `/fighter nft/common/${uris[6]}`;
+                let imageName = `Common`;
+                let tokenId = ids;
+                let level = "1";
+                let type = "Fighter";
+                let hasPower = "50";
+                let IsStake = true;
+                simplleArray = [
+                  ...simplleArray,
+                  {
+                    imageUrl,
+                    imageName,
+                    tokenId,
+                    type,
+                    IsStake,
+                    hasPower,
+                    level,
+                  },
+                ];
+                setNftsArray(simplleArray);
+              } else if (uris[5] == "uncommon") {
+                let imageUrl = `/fighter nft/uncommon/${uris[6]}`;
+                let imageName = `Unommon`;
+                let tokenId = ids;
+                let type = "Fighter";
+                let hasPower = "100";
+                let level = "2";
 
-                  let IsStake = true;
-                  simplleArray = [
-                    ...simplleArray,
-                    {
-                      imageUrl,
-                      imageName,
-                      tokenId,
-                      type,
-                      IsStake,
-                      hasPower,
-                      level,
-                    },
-                  ];
-                  setNftsArray(simplleArray);
-                } else if (uris[5] == "rare") {
-                  let imageUrl = `/fighter nft/rare/${uris[6]}`;
-                  let imageName = `Rare`;
-                  let tokenId = ids;
-                  let type = "Fighter";
-                  let hasPower = "250";
-                  let level = "3";
+                let IsStake = true;
+                simplleArray = [
+                  ...simplleArray,
+                  {
+                    imageUrl,
+                    imageName,
+                    tokenId,
+                    type,
+                    IsStake,
+                    hasPower,
+                    level,
+                  },
+                ];
+                setNftsArray(simplleArray);
+              } else if (uris[5] == "rare") {
+                let imageUrl = `/fighter nft/rare/${uris[6]}`;
+                let imageName = `Rare`;
+                let tokenId = ids;
+                let type = "Fighter";
+                let hasPower = "250";
+                let level = "3";
 
-                  let IsStake = true;
-                  simplleArray = [
-                    ...simplleArray,
-                    {
-                      imageUrl,
-                      imageName,
-                      tokenId,
-                      type,
-                      IsStake,
-                      hasPower,
-                      level,
-                    },
-                  ];
-                  setNftsArray(simplleArray);
-                } else if (uris[5] == "epic") {
-                  let imageUrl = `/fighter nft/epic/${uris[6]}`;
-                  let imageName = `Epic`;
-                  let tokenId = ids;
-                  let type = "Fighter";
-                  let IsStake = true;
-                  let hasPower = "500";
-                  let level = "4";
+                let IsStake = true;
+                simplleArray = [
+                  ...simplleArray,
+                  {
+                    imageUrl,
+                    imageName,
+                    tokenId,
+                    type,
+                    IsStake,
+                    hasPower,
+                    level,
+                  },
+                ];
+                setNftsArray(simplleArray);
+              } else if (uris[5] == "epic") {
+                let imageUrl = `/fighter nft/epic/${uris[6]}`;
+                let imageName = `Epic`;
+                let tokenId = ids;
+                let type = "Fighter";
+                let IsStake = true;
+                let hasPower = "500";
+                let level = "4";
 
-                  simplleArray = [
-                    ...simplleArray,
-                    {
-                      imageUrl,
-                      imageName,
-                      tokenId,
-                      type,
-                      IsStake,
-                      hasPower,
-                      level,
-                    },
-                  ];
-                  setNftsArray(simplleArray);
-                } else if (uris[5] == "legendary") {
-                  let imageUrl = `/fighter nft/legendary/${uris[6]}`;
-                  let imageName = `Legendary`;
-                  let tokenId = ids;
-                  let type = "Fighter";
-                  let hasPower = "1000";
-                  let level = "5";
+                simplleArray = [
+                  ...simplleArray,
+                  {
+                    imageUrl,
+                    imageName,
+                    tokenId,
+                    type,
+                    IsStake,
+                    hasPower,
+                    level,
+                  },
+                ];
+                setNftsArray(simplleArray);
+              } else if (uris[5] == "legendary") {
+                let imageUrl = `/fighter nft/legendary/${uris[6]}`;
+                let imageName = `Legendary`;
+                let tokenId = ids;
+                let type = "Fighter";
+                let hasPower = "1000";
+                let level = "5";
 
-                  let IsStake = true;
-                  simplleArray = [
-                    ...simplleArray,
-                    {
-                      imageUrl,
-                      imageName,
-                      tokenId,
-                      type,
-                      hasPower,
-                      IsStake,
-                      level,
-                    },
-                  ];
-                  setNftsArray(simplleArray);
-                } else if (uris[5] == "mythic") {
-                  let imageUrl = `/fighter nft/mythic/${uris[6]}`;
-                  let imageName = `Mythic`;
-                  let tokenId = ids;
-                  let type = "Fighter";
-                  let hasPower = "5000";
-                  let level = "6";
+                let IsStake = true;
+                simplleArray = [
+                  ...simplleArray,
+                  {
+                    imageUrl,
+                    imageName,
+                    tokenId,
+                    type,
+                    hasPower,
+                    IsStake,
+                    level,
+                  },
+                ];
+                setNftsArray(simplleArray);
+              } else if (uris[5] == "mythic") {
+                let imageUrl = `/fighter nft/mythic/${uris[6]}`;
+                let imageName = `Mythic`;
+                let tokenId = ids;
+                let type = "Fighter";
+                let hasPower = "5000";
+                let level = "6";
 
-                  let IsStake = true;
-                  simplleArray = [
-                    ...simplleArray,
-                    {
-                      imageUrl,
-                      imageName,
-                      tokenId,
-                      type,
-                      IsStake,
-                      hasPower,
-                      level,
-                    },
-                  ];
-                  setNftsArray(simplleArray);
-                }
-              });
-              setMysteryImgArray(dummyArray);
-
-              setModalShow(true);
+                let IsStake = true;
+                simplleArray = [
+                  ...simplleArray,
+                  {
+                    imageUrl,
+                    imageName,
+                    tokenId,
+                    type,
+                    IsStake,
+                    hasPower,
+                    level,
+                  },
+                ];
+                setNftsArray(simplleArray);
+              }
             });
-        } else {
-          toast.info("Insufficient Balance! Please Recharge");
-        }
+            setMysteryImgArray(dummyArray);
+
+            setModalShow(true);
+          });
+        // } else {
+        //   toast.info("Insufficient Balance! Please Recharge");
+        // }
       }
     } catch (e) {
       console.log("Error while generateIdFromApi ", e);

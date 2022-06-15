@@ -221,55 +221,56 @@ function Breed() {
           nftContratAddress
         );
 
-        let bnb = await breedContract.methods.BNB().call();
-        let bnb_value = web3.utils.fromWei(bnb);
-        bnb_value = parseFloat(bnb_value).toFixed(3);
+        // let bnb = await breedContract.methods.BNB().call();
+        // let bnb_value = web3.utils.fromWei(bnb);
+        // bnb_value = parseFloat(bnb_value).toFixed(3);
 
-        if (userBalance >= bnb_value) {
-          let breedData = await axios.get(
-            `https://road-nft.herokuapp.com/api/users/getRandomIds?type1=${breedType1}&type2=${breedType2}`
-          );
-          console.log("breedData.data.id,,", breedData.data.id);
-          console.log(" breedData.data.uri,", breedData.data.uri);
-          console.log("breedData.data.type", breedData.data.type);
-          if (breedData.data.id != null) {
-            await nftContract.methods
-              .setApprovalForAll(breedContractAddress, true)
-              .send({
-                from: acc,
-              });
-            await breedContract.methods
-              .Breed(
-                trainerOne.tokenId,
-                trainerTwo.tokenId,
-                breedData.data.id,
-                breedData.data.uri,
-                breedData.data.type,
-                nonce,
-                signaturefromNode
-              )
-              .send({
-                from: acc,
-                value: bnb,
-              })
-              .on("receipt", async (receipt) => {
-                console.log("receipt", receipt);
-                await axios.get(
-                  `https://road-nft.herokuapp.com/api/users/saveTokenId?type1=${breedType1}&type2=${breedType2}&tokenId=${breedData.data.id}`
-                );
-              });
-            showBreedNft();
-            cancleBreedImageOne();
-            cancleBreedImageTwo();
-            getData();
-            toast.success("Breeding successful");
-          } else {
-            toast.info("ids full");
-          }
-        } else {
-          toast.info("Insufficient Balance");
-          // }
+        // if (userBalance >= bnb_value) {
+        let breedData = await axios.get(
+          `https://road-nft.herokuapp.com/api/users/getRandomIds?type1=${breedType1}&type2=${breedType2}`
+        );
+        console.log("breedData.data.id,,", breedData.data.id);
+        console.log(" breedData.data.uri,", breedData.data.uri);
+        console.log("breedData.data.type", breedData.data.type);
+        if (breedData.data.id != null) {
+          await nftContract.methods
+            .setApprovalForAll(breedContractAddress, true)
+            .send({
+              from: acc,
+            });
+          await breedContract.methods
+            .Breed(
+              trainerOne.tokenId,
+              trainerTwo.tokenId,
+              breedData.data.id,
+              breedData.data.uri,
+              breedData.data.type,
+              nonce,
+              signaturefromNode
+            )
+            .send({
+              from: acc,
+              // value: bnb,
+            })
+            .on("receipt", async (receipt) => {
+              console.log("receipt", receipt);
+              await axios.get(
+                `https://road-nft.herokuapp.com/api/users/saveTokenId?type1=${breedType1}&type2=${breedType2}&tokenId=${breedData.data.id}`
+              );
+            });
+          showBreedNft();
+          cancleBreedImageOne();
+          cancleBreedImageTwo();
+          getData();
+          toast.success("Breeding successful");
         }
+        //   } else {
+        //     toast.info("ids full");
+        //   }
+        // } else {
+        //   toast.info("Insufficient Balance");
+        //   // }
+        // }
       } else {
         toast.info("Please Select Nfts for breeding");
       }

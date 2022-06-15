@@ -1,13 +1,13 @@
 import { ethers } from "ethers";
-import { loadWeb3 } from "../Api/api";
+import { loadWeb3 } from "../Api/myApi";
 
 export const getSignatureTest = async (contract, user) => {
   let sigdataArr = [];
   user = await loadWeb3();
-  contract = "0x41d4b49743b99324160d28a586a9e0b76798c8af"; //withdrawcontract
+  contract = "0x742eF5c44d4165a003d2e3c83b2D979DC0C60f96"; //withdrawcontract
   // user = "0xAD4f1d02ad3e819AD86D3eD27dfd13F31A19a09a"; //user_address
 
-  const RPC = "https://data-seed-prebsc-1-s1.binance.org:8545";
+  const RPC = "https://api.avax-test.network/ext/bc/C/rpc";
   const provider = new ethers.providers.JsonRpcProvider(RPC);
   const blockNumber = await provider.getBlockNumber();
 

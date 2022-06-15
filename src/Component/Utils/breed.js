@@ -1,16 +1,10 @@
 export const breedContractAddress =
-  "0x41d4B49743b99324160d28A586A9e0B76798c8aF";
+  "0x742eF5c44d4165a003d2e3c83b2D979DC0C60f96";
 export const breedContractAbi = [
   {
     inputs: [
       { internalType: "contract IERC721", name: "_NFT", type: "address" },
-      { internalType: "contract IERC20", name: "_LiveBNB", type: "address" },
       { internalType: "contract IERC20", name: "_TOKEN", type: "address" },
-      {
-        internalType: "contract IPancakeRouter01",
-        name: "_Router",
-        type: "address",
-      },
       { internalType: "address payable", name: "_Owner", type: "address" },
     ],
     stateMutability: "nonpayable",
@@ -122,7 +116,7 @@ export const breedContractAbi = [
     ],
     name: "Breed",
     outputs: [],
-    stateMutability: "payable",
+    stateMutability: "nonpayable",
     type: "function",
   },
   {
@@ -149,7 +143,7 @@ export const breedContractAbi = [
     ],
     name: "Mystery_Box",
     outputs: [],
-    stateMutability: "payable",
+    stateMutability: "nonpayable",
     type: "function",
   },
   {

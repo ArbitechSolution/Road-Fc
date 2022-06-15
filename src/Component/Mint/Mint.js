@@ -101,6 +101,7 @@ function Mint() {
               console.log("mintValue", receipt);
               setTransctionData(receipt);
             });
+          toast.success("Transaction Successful");
           dispatch(getTotalEnergy());
           setIsDetail(true);
           getCurrentNfts();

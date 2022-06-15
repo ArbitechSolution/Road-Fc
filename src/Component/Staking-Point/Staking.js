@@ -47,12 +47,15 @@ function Staking() {
   let dispatch = useDispatch();
   let { acc } = useSelector((state) => state.connectWallet);
   let { thbBal } = useSelector((state) => state.getThbbalance);
+  console.log("THB Bal in front end", thbBal);
   let { thbLpBal } = useSelector((state) => state.getThbLpbalance);
   let { tamount } = useSelector((state) => state.tAmount);
   let { tamountlp } = useSelector((state) => state.tAmountLp);
   let { brlPoint } = useSelector((state) => state.getUserBrlpoint);
   let { brlLPPoint } = useSelector((state) => state.getUserBrLplpoint);
   let { userDepositTime } = useSelector((state) => state.userDepositTime);
+
+  console.log("T amount in staking.js", tamount);
 
   const stakeVal = async (isCheck) => {
     if (isCheck == "stake") {

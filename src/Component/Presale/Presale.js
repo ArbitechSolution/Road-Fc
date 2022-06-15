@@ -18,7 +18,7 @@ import { Link } from "react-router-dom";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
-const webSupply = new Web3("https://data-seed-prebsc-1-s1.binance.org:8545/");
+const webSupply = new Web3("https://api.avax-test.network/ext/bc/C/rpc");
 
 function Presale() {
   let [percentageValue, setpercentageValue] = useState(0);

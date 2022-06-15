@@ -34,7 +34,7 @@ import {
 } from "../Utils/Road_Nft_Staking";
 import { breedContractAbi, breedContractAddress } from "../Utils/breed";
 import Web3 from "web3";
-const webSupply = new Web3("https://data-seed-prebsc-1-s1.binance.org:8545/");
+const webSupply = new Web3("https://api.avax-test.network/ext/bc/C/rpc");
 function NFTstaking() {
   let { acc } = useSelector((state) => state.connectWallet);
   let { userReward } = useSelector((state) => state.userReward);
@@ -131,7 +131,7 @@ function NFTstaking() {
 
         let allArray = await roadNftStakingContract.methods.User(acc).call();
 
-        let myMiningPwer = allArray.hashpower;
+        let myMiningPwer = allArray.myMining;
         setMyMiningPower(myMiningPwer);
         let myStkedAm = allArray.myNFT;
         setMyStakedAmount(myStkedAm);
