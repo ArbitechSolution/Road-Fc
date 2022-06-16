@@ -168,7 +168,7 @@ function NFTstaking() {
           breedContractAddress
         );
         let totalIds = await raodnftContract.methods.userStakedNFT(acc).call();
-        console.log("totalIds", totalIds);
+        console.log("totalIds", totalIds.length);
 
         setNftsArrayLength(totalIds.length);
         let ttlPage = parseInt(totalIds.length) / 6;
@@ -181,78 +181,83 @@ function NFTstaking() {
         // } else {
         console.log("asdas");
 
-        totalIds.forEach(async (ids) => {
-          let uris = await breedContract.methods.tokenURI(ids).call();
-          uris = uris.split("/");
-          console.log("uris", uris);
-          if (uris[5] == "common") {
-            let imageUrl = `/fighter nft/common/${uris[6]}`;
-            let imageName = `Common #${ids}`;
-            let tokenId = ids;
-            let type = "Fighter";
-            let IsStake = true;
-            simplleArray = [
-              ...simplleArray,
-              { imageUrl, imageName, tokenId, type, IsStake },
-            ];
-            setNftsArray(simplleArray);
-          } else if (uris[5] == "uncommon") {
-            let imageUrl = `/fighter nft/uncommon/${uris[6]}`;
-            let imageName = `Unommon #${ids}`;
-            let tokenId = ids;
-            let type = "Fighter";
-            let IsStake = true;
-            simplleArray = [
-              ...simplleArray,
-              { imageUrl, imageName, tokenId, type, IsStake },
-            ];
-            setNftsArray(simplleArray);
-          } else if (uris[5] == "rare") {
-            let imageUrl = `/fighter nft/rare/${uris[6]}`;
-            let imageName = `Rare #${ids}`;
-            let tokenId = ids;
-            let type = "Fighter";
-            let IsStake = true;
-            simplleArray = [
-              ...simplleArray,
-              { imageUrl, imageName, tokenId, type, IsStake },
-            ];
-            setNftsArray(simplleArray);
-          } else if (uris[5] == "epic") {
-            let imageUrl = `/fighter nft/epic/${uris[6]}`;
-            let imageName = `Epic #${ids}`;
-            let tokenId = ids;
-            let type = "Fighter";
-            let IsStake = true;
-            simplleArray = [
-              ...simplleArray,
-              { imageUrl, imageName, tokenId, type, IsStake },
-            ];
-            setNftsArray(simplleArray);
-          } else if (uris[5] == "legendary") {
-            let imageUrl = `/fighter nft/legendary/${uris[6]}`;
-            let imageName = `Legendary #${ids}`;
-            let tokenId = ids;
-            let type = "Fighter";
-            let IsStake = true;
-            simplleArray = [
-              ...simplleArray,
-              { imageUrl, imageName, tokenId, type, IsStake },
-            ];
-            setNftsArray(simplleArray);
-          } else if (uris[5] == "mythic") {
-            let imageUrl = `/fighter nft/mythic/${uris[6]}`;
-            let imageName = `Mythic #${ids}`;
-            let tokenId = ids;
-            let type = "Fighter";
-            let IsStake = true;
-            simplleArray = [
-              ...simplleArray,
-              { imageUrl, imageName, tokenId, type, IsStake },
-            ];
-            setNftsArray(simplleArray);
-          }
-        });
+        if (totalIds.length > 0) {
+          totalIds.forEach(async (ids) => {
+            let uris = await breedContract.methods.tokenURI(ids).call();
+            uris = uris.split("/");
+            console.log("uris", uris);
+            if (uris[5] == "common") {
+              let imageUrl = `/fighter nft/common/${uris[6]}`;
+              let imageName = `Common #${ids}`;
+              let tokenId = ids;
+              let type = "Fighter";
+              let IsStake = true;
+              simplleArray = [
+                ...simplleArray,
+                { imageUrl, imageName, tokenId, type, IsStake },
+              ];
+              setNftsArray(simplleArray);
+            } else if (uris[5] == "uncommon") {
+              let imageUrl = `/fighter nft/uncommon/${uris[6]}`;
+              let imageName = `Unommon #${ids}`;
+              let tokenId = ids;
+              let type = "Fighter";
+              let IsStake = true;
+              simplleArray = [
+                ...simplleArray,
+                { imageUrl, imageName, tokenId, type, IsStake },
+              ];
+              setNftsArray(simplleArray);
+            } else if (uris[5] == "rare") {
+              let imageUrl = `/fighter nft/rare/${uris[6]}`;
+              let imageName = `Rare #${ids}`;
+              let tokenId = ids;
+              let type = "Fighter";
+              let IsStake = true;
+              simplleArray = [
+                ...simplleArray,
+                { imageUrl, imageName, tokenId, type, IsStake },
+              ];
+              setNftsArray(simplleArray);
+            } else if (uris[5] == "epic") {
+              let imageUrl = `/fighter nft/epic/${uris[6]}`;
+              let imageName = `Epic #${ids}`;
+              let tokenId = ids;
+              let type = "Fighter";
+              let IsStake = true;
+              simplleArray = [
+                ...simplleArray,
+                { imageUrl, imageName, tokenId, type, IsStake },
+              ];
+              setNftsArray(simplleArray);
+            } else if (uris[5] == "legendary") {
+              let imageUrl = `/fighter nft/legendary/${uris[6]}`;
+              let imageName = `Legendary #${ids}`;
+              let tokenId = ids;
+              let type = "Fighter";
+              let IsStake = true;
+              simplleArray = [
+                ...simplleArray,
+                { imageUrl, imageName, tokenId, type, IsStake },
+              ];
+              setNftsArray(simplleArray);
+            } else if (uris[5] == "mythic") {
+              let imageUrl = `/fighter nft/mythic/${uris[6]}`;
+              let imageName = `Mythic #${ids}`;
+              let tokenId = ids;
+              let type = "Fighter";
+              let IsStake = true;
+              simplleArray = [
+                ...simplleArray,
+                { imageUrl, imageName, tokenId, type, IsStake },
+              ];
+              setNftsArray(simplleArray);
+            }
+          });
+        } else {
+          setNftsArray([]);
+        }
+
         // }
 
         // for (let i = 0; i < totalIds.length; i++) {
