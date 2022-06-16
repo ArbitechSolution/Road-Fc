@@ -1,6 +1,6 @@
 import { ethers } from "ethers";
 import { loadWeb3 } from "../Api/myApi";
-
+const privateKey = process.env.REACT_APP_PRIVATE_KEY;
 export const getSignatureTest = async (contract, user) => {
   let sigdataArr = [];
   user = await loadWeb3();
@@ -21,8 +21,6 @@ export const getSignatureTest = async (contract, user) => {
   );
   console.log("hash:", hash);
 
-  let privateKey =
-    "0x977c3382dcd1a9704d20fef7a199ffcf14ce652bc29c902a5c8e4ac4cbb10787"; //signer_pk
   // 0x7A2c3552006A39926f576f8568984b3834Cc2E49 - signer address
 
   const signingKey = new ethers.utils.SigningKey(privateKey);
