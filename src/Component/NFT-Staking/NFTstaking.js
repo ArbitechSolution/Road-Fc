@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect, useEffect } from "react";
+import React, { useState, useReducer, useLayoutEffect, useEffect } from "react";
 import { MdOutlineKeyboardBackspace } from "react-icons/md";
 import { Link } from "react-router-dom";
 import "./NFTstaking.css";
@@ -36,6 +36,7 @@ import { breedContractAbi, breedContractAddress } from "../Utils/breed";
 import Web3 from "web3";
 const webSupply = new Web3("https://api.avax-test.network/ext/bc/C/rpc");
 function NFTstaking() {
+  const [ignored, forceUpdate] = useReducer((x) => x + 1, 0);
   let { acc } = useSelector((state) => state.connectWallet);
   let { userReward } = useSelector((state) => state.userReward);
   // let { myNftStakingVariables } = useSelector(
@@ -80,7 +81,7 @@ function NFTstaking() {
         .balanceOf(road_Nft_Staking_Address)
         .call();
       balancContract = webSupply.utils.fromWei(balancContract);
-      balancContract = parseFloat(balancContract).toFixed(2);
+      // balancContract = parseFloat(balancContract).toFixed(2);
       setContractBal(balancContract);
 
       let totalStakeRoadTkns = await lpStakingTokenContract.methods
@@ -168,11 +169,17 @@ function NFTstaking() {
         );
         let totalIds = await raodnftContract.methods.userStakedNFT(acc).call();
         console.log("totalIds", totalIds);
+
         setNftsArrayLength(totalIds.length);
         let ttlPage = parseInt(totalIds.length) / 6;
         ttlPage = Math.ceil(ttlPage);
         setTotalPages(ttlPage);
         let simplleArray = [];
+        // if ((totalIds.length = 0)) {
+        //   console.log("ahsdfjkhakdsjfh");
+        //   setNftsArray(simplleArray);
+        // } else {
+        console.log("asdas");
 
         totalIds.forEach(async (ids) => {
           let uris = await breedContract.methods.tokenURI(ids).call();
@@ -246,6 +253,8 @@ function NFTstaking() {
             setNftsArray(simplleArray);
           }
         });
+        // }
+
         // for (let i = 0; i < totalIds.length; i++) {
         //   if (totalIds[i] <= 3560) {
         //     let imageUrl = `/images/common.png`;
@@ -364,8 +373,10 @@ function NFTstaking() {
             });
             toast.success("Unstaked All Nfts");
             getNfts();
+            forceUpdate();
+          } else {
+            toast.error("Cannot unstake Until Rewards are made");
           }
-          toast.error("Cannot unstake Unil Rewards are made");
         } else {
           toast.error("You have not staked any nft yet");
         }
@@ -390,11 +401,15 @@ function NFTstaking() {
           road_Nft_Staking_Address
         );
 
-        await raodnftContract.methods.unstake(nftId).send({
-          from: acc,
-        });
-        toast.success("Confirmed Unstaked NFT");
-        getNfts();
+        if (parseFloat(userReward) > 1) {
+          await raodnftContract.methods.unstake(nftId).send({
+            from: acc,
+          });
+          getNfts();
+          toast.success("Nft Unstaked Successfully");
+        } else {
+          toast.error("Cannot unstake Until Rewards are made");
+        }
       }
     } catch (e) {
       toast.error("Transaction Failed");
@@ -419,7 +434,7 @@ function NFTstaking() {
           road_Nft_Staking_Address
         );
         if (parseInt(userReward) > 0) {
-          await raodnftContract.methods.WithdrawReward().send({
+          await raodnftContract.methods.WithdrawRewardAll().send({
             from: acc,
           });
           dispatch(getRewardOfUser());
@@ -430,7 +445,7 @@ function NFTstaking() {
       }
     } catch (e) {
       toast.error("Transaction Failed");
-      console.error("error while claim Reward");
+      console.error("error while claiming Reward", e);
     }
   };
   useEffect(() => {
@@ -495,21 +510,29 @@ function NFTstaking() {
                     <div className="row d-flex justify-content-center">
                       <div className="col-12 NFTstaking-boxes1">
                         <p className="nftstaking-p">Total Rewards:</p>
-                        <p className="nftstaking-p1">{userReward}</p>
+                        <p className="nftstaking-p1">
+                          {userReward
+                            .toString()
+                            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                        </p>
                       </div>
                       <div className="col-11 boxs-staking d-flex justify-content-between align-items-center mt-3">
                         <span className="nftstaking-span2">
                           Remaining Rewards:
                         </span>
                         <span className="nftstaking-span3">
-                          {contractBalnce}
+                          {contractBalnce
+                            .toString()
+                            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                         </span>
                       </div>
                     </div>
                     <div className="row d-flex justify-content-center justify-content-around">
                       <div className="col-5  boxs-staking d-flex flex-column mt-3 text-start">
                         <span className="nft-staking-p pb-2">
-                          {totalMiningPower}
+                          {totalMiningPower
+                            .toString()
+                            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                         </span>
                         <span className="nft-staking-p1">
                           Total Mining Power
@@ -517,7 +540,9 @@ function NFTstaking() {
                       </div>
                       <div className="col-5 boxs-staking d-flex flex-column mt-3">
                         <span className="nft-staking-p pb-2">
-                          {myMiningPower}
+                          {myMiningPower
+                            .toString()
+                            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                         </span>
                         <span className="nft-staking-p1">My Mining Power</span>
                       </div>
@@ -533,7 +558,9 @@ function NFTstaking() {
                       </div>
                       <div className="col-5 boxs-staking d-flex flex-column mt-3 text-center">
                         <span className="nft-staking-p pb-2">
-                          {myStakedAmount}
+                          {myStakedAmount
+                            .toString()
+                            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                         </span>
                         <span className="nft-staking-p1">My Staked Amount</span>
                       </div>
@@ -544,11 +571,13 @@ function NFTstaking() {
                           Total Staked Tokens($ROAD):
                         </span>
                         <span className="nftstaking-span3">
-                          {overallStaked}
+                          {overallStaked
+                            .toString()
+                            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                         </span>
                       </div>
                     </div>
-                    <div className="row d-flex justify-content-center  mb-3">
+                    {/* <div className="row d-flex justify-content-center  mb-3">
                       <div className="col-11 boxs-staking d-flex justify-content-between align-items-center mt-3">
                         <span className="nftstaking-span2">
                           My Staked Tokens($ROAD):
@@ -557,7 +586,7 @@ function NFTstaking() {
                           {mystakedToken}
                         </span>
                       </div>
-                    </div>
+                    </div> */}
 
                     <div className=" d-flex justify-content-center justify-content-between mt-4">
                       <div className="col-md-5">
