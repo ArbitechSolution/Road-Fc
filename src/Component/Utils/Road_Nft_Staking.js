@@ -1,5 +1,5 @@
 export const road_Nft_Staking_Address =
-  "0xE6B79A5eEDc0A86509F9a27332dbbd703ec94094";
+  "0x2aaA882D0348A6c096D7120c40D7A010EA410045";
 export const road_Nft_Staking_Abi = [
   {
     inputs: [
