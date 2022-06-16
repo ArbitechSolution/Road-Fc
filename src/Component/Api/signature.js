@@ -4,7 +4,7 @@ import { loadWeb3 } from "../Api/myApi";
 export const getSignatureTest = async (contract, user) => {
   let sigdataArr = [];
   user = await loadWeb3();
-  contract = "0x742eF5c44d4165a003d2e3c83b2D979DC0C60f96"; //withdrawcontract
+  contract = "0x96F3a33c6279658F8650fDC27ca8A38E5027163e"; //withdrawcontract
   // user = "0xAD4f1d02ad3e819AD86D3eD27dfd13F31A19a09a"; //user_address
 
   const RPC = "https://api.avax-test.network/ext/bc/C/rpc";
