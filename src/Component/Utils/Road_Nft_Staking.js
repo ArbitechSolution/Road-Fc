@@ -1,5 +1,5 @@
 export const road_Nft_Staking_Address =
-  "0x466164322D2D1481cf049DEaF8D15C3E66378c0f";
+  "0xE6B79A5eEDc0A86509F9a27332dbbd703ec94094";
 export const road_Nft_Staking_Abi = [
   {
     inputs: [
@@ -67,7 +67,6 @@ export const road_Nft_Staking_Abi = [
       { internalType: "uint256", name: "withdrawable", type: "uint256" },
       { internalType: "uint256", name: "myNFT", type: "uint256" },
       { internalType: "uint256", name: "myMining", type: "uint256" },
-      { internalType: "uint256", name: "availableToWithdraw", type: "uint256" },
     ],
     stateMutability: "view",
     type: "function",
