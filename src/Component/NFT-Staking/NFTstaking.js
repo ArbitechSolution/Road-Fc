@@ -558,7 +558,7 @@ function NFTstaking() {
                           {totalStakedAmount}
                         </span>
                         <span className="nft-staking-p1">
-                          Total Staked Amount
+                          Total Staked NFTs
                         </span>
                       </div>
                       <div className="col-5 boxs-staking d-flex flex-column mt-3 text-center">
@@ -567,21 +567,21 @@ function NFTstaking() {
                             .toString()
                             .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                         </span>
-                        <span className="nft-staking-p1">My Staked Amount</span>
+                        <span className="nft-staking-p1">My Staked NFTs</span>
                       </div>
                     </div>
-                    <div className="row d-flex justify-content-center ">
-                      <div className="col-11 boxs-staking d-flex justify-content-between align-items-center mt-3">
-                        <span className="nftstaking-span2">
-                          Total Staked Tokens($ROAD):
-                        </span>
-                        <span className="nftstaking-span3">
-                          {overallStaked
-                            .toString()
-                            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-                        </span>
-                      </div>
-                    </div>
+                    {/* <div className="row d-flex justify-content-center ">
+                        <div className="col-11 boxs-staking d-flex justify-content-between align-items-center mt-3">
+                          <span className="nftstaking-span2">
+                            Total Staked Tokens($ROAD):
+                          </span>
+                          <span className="nftstaking-span3">
+                            {overallStaked
+                              .toString()
+                              .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                          </span>
+                        </div>
+                      </div> */}
                     {/* <div className="row d-flex justify-content-center  mb-3">
                       <div className="col-11 boxs-staking d-flex justify-content-between align-items-center mt-3">
                         <span className="nftstaking-span2">
