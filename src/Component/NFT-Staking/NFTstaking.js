@@ -514,7 +514,7 @@ function NFTstaking() {
                   <div className="col-lg-4 col-11 NFTstaking-boxes">
                     <div className="row d-flex justify-content-center">
                       <div className="col-12 NFTstaking-boxes1">
-                        <p className="nftstaking-p">Total Rewards:</p>
+                        <p className="nftstaking-p">My Total Rewards:</p>
                         <p className="nftstaking-p1">
                           {userReward
                             .toString()
@@ -523,7 +523,7 @@ function NFTstaking() {
                       </div>
                       <div className="col-11 boxs-staking d-flex justify-content-between align-items-center mt-3">
                         <span className="nftstaking-span2">
-                          Remaining Rewards:
+                         Pool Remaining Rewards:
                         </span>
                         <span className="nftstaking-span3">
                           {contractBalnce
@@ -549,7 +549,7 @@ function NFTstaking() {
                             .toString()
                             .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                         </span>
-                        <span className="nft-staking-p1">My Mining Power</span>
+                        <span className="nft-staking-p1">My Hash Power</span>
                       </div>
                     </div>
                     <div className="row d-flex justify-content-center justify-content-around">
@@ -593,8 +593,8 @@ function NFTstaking() {
                       </div>
                     </div> */}
 
-                    <div className=" d-flex justify-content-center justify-content-between mt-4">
-                      <div className="col-md-5">
+                    <div className=" d-flex justify-content-center mt-5" >
+                      <div className="col-md-10">
                         <div className="d-grid gap-2">
                           <button
                             className="btn btn-unstake21"
@@ -605,7 +605,9 @@ function NFTstaking() {
                           </button>
                         </div>
                       </div>
-                      <div className="col-md-6">
+                      </div>
+                      <div className=" d-flex justify-content-center mt-4" >
+                      <div className="col-md-10">
                         <div className="d-grid gap-2">
                           <button
                             onClick={() => unstakeAllNfts()}
@@ -616,7 +618,7 @@ function NFTstaking() {
                           </button>
                         </div>
                       </div>
-                    </div>
+                      </div>
                     {/* <div className=" d-flex justify-content-center justify-content-between mt-3 mb-3">
                       <div className="col-md-5">
                       <div className="d-grid gap-2">
