@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { MdOutlineKeyboardBackspace } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
-import Common1000 from "../../Assets/tiger 1 1.png";
 import "./Mint.css";
 import off from "../../Assets/Off.png";
 import speaker from "../../Assets/speaker.png";
@@ -33,9 +32,6 @@ function Mint() {
     toggle();
   };
   useEffect(() => {
-    // setTimeout(() => {
-    //   playingSound();
-    // }, 1000);
   }, []);
   let { acc } = useSelector((state) => state.connectWallet);
   let { energyPoint, minintPrice } = useSelector((state) => state.mintngInfo);
@@ -64,10 +60,8 @@ function Mint() {
   const mint = async () => {
     try {
       if (acc == "No Wallet") {
-        //   setBtTxt("Connect Wallet")
         toast.info("Not Connected");
       } else if (acc == "Wrong Network") {
-        //   setBtTxt("Wrong Network")
         toast.info("Not Connected");
       } else if (acc == "Connect Wallet") {
         toast.info("Not Connected");
@@ -77,15 +71,6 @@ function Mint() {
           stakingContractAbi,
           stakingContractAddress
         );
-        // let stakingTime = await stakingContract.methods.getstakeTime(acc).call();
-        // stakingTime = parseInt(stakingTime);
-
-        // console.log("stakingTime", stakingTime);
-        // let currentTime = Math.floor(new Date().getTime() / 1000.0);
-        // currentTime = currentTime;
-        // console.log("currentTime", currentTime);
-        // console.log("compare", currentTime >= stakingTime);
-        // if (currentTime >= stakingTime) {
         let count = minintPrice * value;
         if (count <= energyPoint) {
           const nftContract = new web3.eth.Contract(
@@ -108,9 +93,6 @@ function Mint() {
         } else {
           toast.info(`Required energy:${count}`);
         }
-        // } else {
-        //     toast.info("your time is remaning")
-        // }
       }
     } catch (e) {
       console.error("error while minting", e);
@@ -120,10 +102,8 @@ function Mint() {
   const getCurrentNfts = async () => {
     try {
       if (acc == "No Wallet") {
-        //   setBtTxt("Connect Wallet")
         toast.info("Not Connected");
       } else if (acc == "Wrong Network") {
-        //   setBtTxt("Wrong Network")
         toast.info("Not Connected");
       } else if (acc == "Connect Wallet") {
         toast.info("Not Connected");
@@ -224,9 +204,6 @@ function Mint() {
           <div className="col-3 staking-box">
             <SideBar />
           </div>
-          {/* <div className='col-11 mb-3 staking-coll'>
-                        <MediaSidebar />
-                    </div> */}
           <div className="col-lg-8 col-11 mb-md-1 mb-4 mt-4">
             {modalShow ? (
               <Modal
@@ -243,7 +220,6 @@ function Mint() {
                   <img src={Title} className="mint-image2" />
                   <div className="row d-flex justify-content-center mt-3">
                     <div className="col-md-12 d-flex justify-content-center">
-                      {/* <img src={Title} className="mint-image2" width="40px"/> */}
                       <img className="pt-1 congrat-image" src={Group609} />
                     </div>
                     {mintArray.length == 1 ? (
@@ -280,7 +256,6 @@ function Mint() {
                       </div>
                     )}
                     <div className="col-md-12 d-flex justify-content-center">
-                      {/* <span className='congrat-span'>Do you want to Breed card?</span> */}
                       <p className="congrat-span">Do you want to breed card?</p>
                     </div>
                   </div>
@@ -294,15 +269,6 @@ function Mint() {
                     >
                       Breed
                     </button>
-
-                    {/* <div className='col-lg-2 col-md-3 mt-3 mb-3'>
-                                        <div className="d-grid gap-2">
-                                            <button className='btn btn1-congrats' size="lg" onClick={() => setModalShowOne(true)}>
-                                                Sell
-                                            </button>
-                                        </div>
-                                    </div> */}
-
                     <button
                       className="btn btn2-congrats m-sm-4 m-2"
                       size="lg"
@@ -327,9 +293,7 @@ function Mint() {
                 style={{ backgroundColor: "#13151b" }}
               >
                 <Modal.Header closeButton className="model-image">
-                  {/* <Modal.Title id="contained-modal-title-vcenter" style={{ color: "white", fontSize: "30px" }}> */}
                   <img src={Title} className="mint-image2" />
-                  {/* </Modal.Title> */}
                 </Modal.Header>
                 <Modal.Body className="model-image">
                   <div className="row d-flex justify-content-center">
@@ -428,14 +392,6 @@ function Mint() {
                                 </div>
                               </div>
                             </div>
-
-                            // <div className="col-lg-3 uperimg col-md-5 d-flex justify-content-center align-items-center mt-2">
-                            //     <img
-                            //         alt="greetings"
-                            //         src={`/config/${item.imageUrl}`}
-                            //         className="model-i"
-                            //     />
-                            // </div>
                           );
                         })}
                       </div>
@@ -476,7 +432,6 @@ function Mint() {
                             &nbsp;
                             <img src={Vector} />
                           </span>
-                          {/* <span className='mint-span1'>{parseFloat(energyPoint)toFixed(2)}<img src={Vector} /></span> */}
                         </div>
                         <div className=" col-md-10 col-12 mint-boxes d-flex justify-content-between mt-3 pt-2 pb-2">
                           <span className="mint-span ps-2">Energy Spend:</span>

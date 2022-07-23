@@ -1,134 +1,103 @@
-.imagePool{
-    background-image: url("../../Assets/BG.png"),url("../../Assets/BG1.png");
-    background-repeat: no-repeat;
-    /* background-attachment: fixed; */
-    background-size: cover;
-background-position: center;
-    min-height: 100%
+.imagePool {
+  background-image: url("../../Assets/BG.png"), url("../../Assets/BG1.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 100%;
 }
-.poolbtn{
-    background: linear-gradient(90deg, #F92D1E 1.7%, #FF5043 100%);
-border-radius: 80px;
-font-weight: bold;
-font-size: 22px;
-line-height: 26px;
-color: white;
-padding: 10px 15px;
+.poolbtn {
+  background: linear-gradient(90deg, #f92d1e 1.7%, #ff5043 100%);
+  border-radius: 80px;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 26px;
+  color: white;
+  padding: 10px 15px;
 }
-.poolbox{
-    /* background: linear-gradient(180deg, rgba(35, 38, 47, 0.64) 0%, rgba(21, 24, 30, 0.64) 100%); */
-box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.08);
-backdrop-filter: blur(16px);
+.poolbox {
+  box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(16px);
 
-
-
-border: 3px solid transparent;
+  border: 3px solid transparent;
   border-radius: 20px;
-  background:
-    linear-gradient(to right,#1C1E26, #1C1E26),
-    linear-gradient(to bottom, #FF5043 , rgba(0, 0, 0, 0));
+  background: linear-gradient(to right, #1c1e26, #1c1e26),
+    linear-gradient(to bottom, #ff5043, rgba(0, 0, 0, 0));
   background-clip: padding-box, border-box;
   background-origin: padding-box, border-box;
 
+  -webkit-box-shadow: 0 10px 8px -4px black;
+  -moz-box-shadow: 0 10px 8px -4px black;
+  box-shadow: 0 10px 8px -4px black;
+}
+.poolgh5 {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 132%;
+  color: white;
+}
+.pool-p {
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 144%;
+  color: #5e606e;
+}
+.poolbtn1 {
+  background: linear-gradient(180deg, #ff5043 0%, #f92d1e 100%);
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 132%;
+  color: white;
+}
+.poolbtn1:hover {
+  background: linear-gradient(180deg, #ff5043 0%, #f92d1e 100%);
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 132%;
+  color: white;
+}
+.coming-soon-image {
+  width: 70px;
+  position: relative;
+  left: 80px;
+}
+.marketplace-image {
+  position: relative;
+  left: 35px;
+}
 
+@media (min-width: 2400px) and (max-width: 6000px) {
+  .imagePool {
+    background-image: url("../../Assets/BG.png"), url("../../Assets/BG1.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    height: auto;
+  }
+}
 
-
-/* border-top: 2px solid #FF5043;
-border: 5px solid transparent; */
-  /* border-image:
-    linear-gradient(
-      to bottom,
-      #FF5043,
-      rgba(0, 0, 0, 0)
-    ) 1 8%; */
-    /* border-image: linear-gradient(to right, darkblue, darkorchid) 1;
-  border-radius: 50em; */
-    /* border-image-slice: 20; */
-/* border-right: 2px solid #FF5043; */
--webkit-box-shadow: 0 10px 8px -4px black;
-	   -moz-box-shadow: 0 10px 8px -4px black;
-	        box-shadow: 0 10px 8px -4px black;
-/* border-radius: 86px; */
-}
-.poolgh5{
-    font-weight: 500;
-font-size: 24px;
-line-height: 132%;
-color: white;
-}
-.pool-p{
-    font-weight: normal;
-font-size: 16px;
-line-height: 144%;
-color: #5E606E
-}
-.poolbtn1{
-    background: linear-gradient(180deg, #FF5043 0%, #F92D1E 100%);
-border-radius: 50px;
-font-weight: 600;
-font-size: 20px;
-line-height: 132%;
-color: white;
-}
-.poolbtn1:hover{
-    background: linear-gradient(180deg, #FF5043 0%, #F92D1E 100%);
-border-radius: 50px;
-font-weight: 600;
-font-size: 20px;
-line-height: 132%;
-color: white;
-}
-.coming-soon-image{
-    width: 70px;
+@media (min-width: 1050px) and (max-width: 1400px) {
+  .coming-soon-image {
+    width: 60px;
     position: relative;
-    left: 80px;
+    left: 60px;
+  }
 }
-.marketplace-image{
+@media (max-width: 1024px) {
+  .coming-soon-image {
+    width: 50px;
     position: relative;
-    left: 35px;
+    left: 50px;
+  }
 }
-
-@media(min-width: 2400px) and (max-width: 6000px ){
-    .imagePool{
-        background-image: url("../../Assets/BG.png"),url("../../Assets/BG1.png");
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-size: cover;
-        height: auto;
-    }
-}
-/* @media(min-width: 1400px) and (max-width: 1599px){
-    .imagePool{
-        background-image: url("../../Assets/BG.png"),url("../../Assets/BG1.png");
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-size: cover;
-        height: 100%;
-    }
-} */
-
-@media(min-width: 1050px) and (max-width: 1400px){
-    .coming-soon-image{
-        width: 60px;
-        position: relative;
-        left: 60px;
-    }
-}
-@media(max-width: 1024px){
-    .coming-soon-image{
-        width: 50px;
-        position: relative;
-        left: 50px;
-    }
-}
-@media(min-width: 278px) and (max-width: 600px){
-    .poolbtn{
-        background: linear-gradient(90deg, #F92D1E 1.7%, #FF5043 100%);
+@media (min-width: 278px) and (max-width: 600px) {
+  .poolbtn {
+    background: linear-gradient(90deg, #f92d1e 1.7%, #ff5043 100%);
     border-radius: 80px;
-    /* font-weight: bold; */
     font-size: 18px;
     line-height: 12px;
     color: white;
     padding: 10px 10px;
-    }
+  }
 }

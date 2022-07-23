@@ -1,7 +1,6 @@
 .mint-image {
     position: relative;
     top: -33px;
-
 }
 
 .mint-image2 {
@@ -23,8 +22,6 @@
 
 #mint-pic {
     width: 280px;
-    /* border: 2px solid #700000; */
-
 }
 
 .mint-pic1 {
@@ -36,7 +33,6 @@
 .mint-boxes {
     background: linear-gradient(90deg, #1A1C23 0%, rgba(26, 28, 35, 0) 100%);
     border-radius: 8px;
-    /* border: 2px solid red; */
 }
 .uperimg {
     background-image: url("../../Assets/Mask group.png");
@@ -47,16 +43,11 @@
     width: 200px;
     height: 200px;
     border-radius: 10px;
-    /* display: flex;
-    flex-direction: row; */
-
 }
 .model-i {
     width: 175px;
     height: 175px;
     box-shadow: 0px 0px 40px rgba(39, 214, 116, 0.7);
-    /* margin-top: -8px; */
-    /* box-shadow: 0px 0px 14px rgba(39, 214, 116, 0.7); */
 }
 .mint-span {
     font-weight: 500;
@@ -95,7 +86,6 @@ width: 240px;
     background: linear-gradient(180deg, #FF5043 0%, #F92D1E 100%);
     border-radius: 50px;
     font-style: normal;
-    /* font-weight: bold; */
     font-size: 20px;
     line-height: 33px;
     padding: 5px 87px;
@@ -112,9 +102,7 @@ width: 240px;
 .model-image {
     background-image: url("../../Assets/Mask group 1.png");
     background-repeat: no-repeat;
-    /* background-position: center; */
     background-size: cover;
-    /* border: 2px solid red; */
     background-color: rgba(26, 28, 35, 0.96);
     box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.08);
 padding-bottom: -200px;
@@ -124,12 +112,9 @@ padding-bottom: -200px;
 .model2-image{
     background-image: url("../../Assets/bgRed.png");
     background-repeat: no-repeat;
-    /* background-position: center; */
     background-size: cover;
-    /* border: 2px solid red; */
     background-color: rgba(26, 28, 35, 0.96);
     box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.08);
-
     width: 100%;
 }
 .congrat-span {
@@ -316,8 +301,6 @@ color: #fff;
         background-image: url("../../Assets/Mask group 1.png");
         background-repeat: no-repeat;
         background-position: center;
-        /* background-size: cover; */
-        /* border: 2px solid red; */
         background-color: rgba(26, 28, 35, 0.96);
         box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.08);
 
@@ -347,7 +330,6 @@ color: #fff;
         background: linear-gradient(180deg, #FF5043 0%, #F92D1E 100%);
         border-radius: 50px;
         font-style: normal;
-        /* font-weight: bold; */
         font-size: 20px;
         line-height: 21px;
         padding: 5px 47px;

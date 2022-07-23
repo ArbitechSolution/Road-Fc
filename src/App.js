@@ -5,12 +5,7 @@ import RoadPool from "./Component/Road-Pool/RoadPool";
 import Footer from "./Component/Footer/Footer";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-// import {
-//   BrowserRouter as Router,
-//   Switch,
-//   Route,
-//   Link
-// } from "react-router-dom";
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Presale from "./Component/Presale/Presale";
 import Staking from "./Component/Staking-Point/Staking";
@@ -22,11 +17,11 @@ import MysteryBox from "./Component/Mystery-Box/MysteryBox";
 import Marketplace from "./Component/NFT-MarketPlace/Marketplace";
 import MarketPlaceSell from "./Component/NFT-MarketPlace/MarketplaceSell";
 import MarketPlaceList from "./Component/NFT-MarketPlace/MarketplaceList";
-// import Staking from "./Component/Staking-Point/Staking"
+
 import FooterDown from "./Component/FooterDown/FooterDown";
 import TransactionLog from "./Component/NFT-MarketPlace/TransactionLog";
 import MediaSidebar from "./Component/SideBar/MediaSidebar";
-// import SideBar from "././Component/SideBar/SideBar"
+
 function App() {
   return (
     // <Router>

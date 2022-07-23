@@ -10,7 +10,6 @@ import {
   getUserBalance,
 } from "../Redux/actions/actions";
 import { useSelector, useDispatch } from "react-redux";
-// import ProgressBar from 'react-bootstrap/ProgressBar'
 import { preSaleContractAddress, preSaleContractAbi } from "../Utils/preSale";
 import Web3 from "web3";
 import { toast } from "react-toastify";
@@ -51,9 +50,6 @@ function Presale() {
     let myPercent = totalSoldTokens / 200000000;
     myPercent = myPercent * 100;
     myPercent = parseFloat(myPercent);
-    console.log("percentageValue", sold);
-    console.log("percentageValue", myPercent);
-
     setpercentageValue(myPercent);
   };
 
@@ -67,28 +63,24 @@ function Presale() {
       let userEnteredValToWei = webSupply.utils.toWei(
         userEnteredVal.toString()
       );
-      console.log("userEnteredValToWei", userEnteredValToWei);
       let calculatedRoad = await preSaleContractOf.methods
         .calculate_price(userEnteredValToWei)
         .call();
       calculatedRoad = webSupply.utils.fromWei(calculatedRoad);
-      console.log("calculatedRoad", calculatedRoad);
+
       setReqBNB(calculatedRoad);
     } else {
       setReqBNB(0);
     }
-
-    // requiredBNB.current.value =calculatedRoad;
   };
   const buyRoadwithBnb = async () => {
     try {
       if (acc == "No Wallet") {
-        console.log("wallet");
         toast.error("Connect Wallet");
       } else if (acc == "Wrong Network") {
         toast.error("Wrong Network");
       } else if (acc == "Connect Wallet") {
-        console.log("Connect Wallet");
+
         toast.error("Connect Wallet");
       } else if (acc == "Connect") {
         toast.error("Not Connected");
@@ -97,7 +89,6 @@ function Presale() {
         if (parseFloat(userEnteredVal) >= 0.1) {
           const web3 = window.web3;
           let usersBNBBalance = await web3.eth.getBalance(acc);
-          console.log("userEnteredVal", usersBNBBalance);
           let preSaleContractOf = new web3.eth.Contract(
             preSaleContractAbi,
             preSaleContractAddress
@@ -195,7 +186,6 @@ function Presale() {
                       ) : (
                         <span className="dot-stretching"></span>
                       )
-                      //  <span> <Skeleton animation="wave" width={50}/></span>
                     }
                   </span>
                 </div>
@@ -251,7 +241,6 @@ function Presale() {
                         type="number"
                         className="form-control"
                         placeholder={reqBNB}
-                        // readOnly
                         style={{ backgroundColor: "rgba(41, 44, 56, 0.16)" }}
                       />
                     </form>
@@ -311,7 +300,6 @@ function Presale() {
                     <div className="presale-span21">Total Supply</div>
                     <div className="presale-span22">
                       10,000,000,000 &nbsp;
-                      {/* {myroadTotalSupply.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} &nbsp; */}
                       <span className="presale-span1">ROAD</span>
                     </div>
                   </div>
@@ -341,7 +329,6 @@ function Presale() {
                         ) : (
                           <span className="dot-collision"></span>
                         )
-                        //  <span> <Skeleton animation="wave" width={50}/></span>
                       }
                     </div>
                   </div>
@@ -405,7 +392,7 @@ function Presale() {
                     <div className="presale-span21">Soft Cap</div>
                     <div className="presale-span22">
                       2,000&nbsp;
-                      {/* {mysoftCap.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} */}
+
                       BNB
                     </div>
                   </div>
@@ -418,7 +405,6 @@ function Presale() {
                     <div className="presale-span21">Hard Cap</div>
                     <div className="presale-span22">
                       4,000&nbsp;
-                      {/* {myHardCap.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} */}
                       BNB
                     </div>
                   </div>

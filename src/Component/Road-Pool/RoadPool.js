@@ -23,7 +23,7 @@ function RoadPool() {
   console.log("acc", acc);
   const getWalletAddress = () => {
     dispatch(getWallet());
-    // allImagesNfts()
+
   };
   return (
     <div className="imagePool">

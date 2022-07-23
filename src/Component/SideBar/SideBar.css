@@ -3,16 +3,13 @@
 
 .form-select {
     background: linear-gradient(180deg, rgba(26, 28, 35, 0.96) 0%, rgba(15, 17, 21, 0.96) 100%);
-    /* box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.08); */
-    /* backdrop-filter: blur(16px); */
     border-radius: 10px;
     border: 1px solid #FD5043;
     padding: 20px 10px;
     color: white;
-    /* font-size: 20px; */
+
     z-index: 0;
-    /* width: 26
-    0px; */
+ 
 }
 
 select {
@@ -34,26 +31,12 @@ option:checked {
   }
 
   .bootstrap-select.btn-group .dropdown-menu li:hover{
-    /* background-color: rgb(191, 82, 121); */
+    
     color: white;
     width: 200px;
 }
 
 
-/* webrouk-custom-select {
-
-  --primary-color: hsl(218, 95%, 54%);
-  --bg-one: hsl(225, 6%, 13%);
-  --bg-two: hsl(225, 6%, 18%);
-  --inputs-bg: hsl(225, 6%, 15%);
-  --inputs-disabled-bg: hsl(225, 6%, 17%);
-  --text-color: hsl(225, 6%, 63%);
-  --border-color: hsl(225, 6%, 21%);
-  --success-color: hsl(135, 60%, 40%);
-  --danger-color: hsl(355, 70%, 55%);
-  --height-size: 48px;
-  --radius-size: 0.63rem;
-} */
 
 
 
@@ -68,23 +51,18 @@ select:focus > option:checked {
 }
 
 select#newlocale {
-  /* background-color: red; */
+ 
   background: rgba(15, 17, 21, 0.96);
 }
-
-/* select#newlocale option[value="/Staking"]   { background-color: red;   } */
-
 
 .selectdiv select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  /* Add some styling */
+  
 
   display: block;
-  /* width: 100%; */
-  /* max-width: 320px; */
-  /* height: 50px; */
+ 
   float: right;
   margin: 5px 0px;
   padding: 0px 24px;
@@ -217,12 +195,6 @@ select.selector option{
     border: 1px solid #FD5043;
     background-color: rgba(15, 17, 21, 0.96);
     color: #FD5043;
-    /* text-align: left; */
-    /* display: flex;
-    justify-content: left;
-    align-items: center; */
-    /* border: 1px solid #ccc; */
-
   }
 }
 .vodiapicker{
@@ -231,7 +203,6 @@ select.selector option{
 
 #a{
   padding-left: 0px;
-  /* background-color: ; */
   padding-top: 5px;
 }
 
@@ -258,12 +229,11 @@ select.selector option{
   margin: 10px;
 }
 
-/* item list */
+
 
 .b{
   display: block;
   width: 100%;
-  /* max-width: 350px; */
   color: #FD5043;
   padding: 10px 20px;
   border: 1px solid #FD5043;
@@ -272,7 +242,7 @@ select.selector option{
   border-radius: 5px;
   text-align: left;
   padding: 5px 5px;
-  /* margin: 15px 0px; */
+
   position: absolute;
   background-color: rgba(8, 8, 8, 0.96);
   z-index: 2000;
@@ -297,11 +267,6 @@ font-weight: bold;
   border: 1px solid #FD5043;
   background-color: rgba(15, 17, 21, 0.96);
   color: #FD5043;
-  /* text-align: left; */
-  /* display: flex;
-  justify-content: left;
-  align-items: center; */
-  /* border: 1px solid #ccc; */
 
 }
 .btn-select ul{

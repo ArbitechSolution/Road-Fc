@@ -18,10 +18,9 @@ function Navbars() {
 
 
                         <Navbar collapseOnSelect expand="lg" variant="dark">
-                            {/* <Container> */}
-                            {/* <Link to="/"> */}
+                       
                            <Navbar.Brand ><img src={roadfc} width="110px" /></Navbar.Brand>
-                            {/* </Link> */}
+                         
                             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                             <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
                                 <Nav >
@@ -33,7 +32,6 @@ function Navbars() {
                                     <Link to="/" style={{textDecoration: "none"}}> <Nav.Link  className='fw-bold text1' href="/" >ROAD POOL</Nav.Link></Link>
                                     <Nav.Link className='fw-bold text1' href="#roadmap" >ROADMAP</Nav.Link>
                                     <Link to="/presale" style={{textDecoration: "none"}}><Nav.Link  className='fw-bold text1' href="#presale" >PRESALE</Nav.Link></Link>
-                                    {/* <Nav.Link className='fw-bold text1' href="#global" >GLOBAL</Nav.Link> */}
                                 </Nav>
                             </Navbar.Collapse>
                             <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
@@ -45,7 +43,6 @@ function Navbars() {
 
                                 </Nav>
                             </Navbar.Collapse>
-                            {/* </Container> */}
                         </Navbar>
                     </div>
                 </div>

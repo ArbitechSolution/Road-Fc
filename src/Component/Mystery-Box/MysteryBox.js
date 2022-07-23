@@ -5,10 +5,7 @@ import { Link } from "react-router-dom";
 import "./MysteryBox.css";
 import speaker from "../../Assets/speaker.png";
 import off from "../../Assets/Off.png";
-// import { IoMdClose } from "react-icons/io";
-
 import Modal from "react-bootstrap/Modal";
-// import Modal from 'react-bootstrap/Modal';
 import axios from "axios";
 import { breedContractAddress, breedContractAbi } from "../Utils/breed";
 
@@ -80,21 +77,20 @@ function MysteryBox() {
   const generateIdFromApi = async () => {
     try {
       if (acc == "No Wallet") {
-        //   setBtTxt("Connect Wallet")
+    
         toast.info("Wallet not connected");
       } else if (acc == "Wrong Network") {
-        //   setBtTxt("Wrong Network")
+   
         toast.info("Wrong Network");
       } else if (acc == "Connect Wallet") {
         toast.info("Please connect wallet");
       } else {
-        // nonce = nonce.toString();
+   
         let dummyArray = [];
         let apidataSig = await getSignatureTest();
         let nonce = apidataSig[0];
         let signaturefromNode = apidataSig[1];
-        console.log("nonce", apidataSig[0]);
-        console.log("signature ", apidataSig[1]);
+        
         const web3 = window.web3;
         let apiData = await axios.get(
           `https://road-nft.herokuapp.com/api/users/genrateMysteryId?amount=${valueone}`
@@ -107,20 +103,7 @@ function MysteryBox() {
           breedContractAbi,
           breedContractAddress
         );
-        // let contractBnb = await breedContract.methods.BNBP().call();
-        // contractBnb = parseFloat(contractBnb);
-        // console.log("contractBnb", contractBnb);
-        // let totalMintingPrice = contractBnb * valueone;
-
-        // toeknIdsFromApi.forEach((ids) => {
-        //   console.log("forEact", ids);
-        //   console.log("");
-        // });
-
         dummyArray = [...dummyArray, toeknIdsFromApi];
-        // let fromcontractBnb = web3.utils.fromWei(totalMintingPrice.toString());
-
-        // if (parseFloat(userBalance) > parseFloat(fromcontractBnb)) {
         await breedContract.methods
           .Mystery_Box(
             toeknIdsFromApi,
@@ -130,26 +113,23 @@ function MysteryBox() {
             signaturefromNode
           )
           .send({
-            // value: totalMintingPrice.toString(),
             from: acc,
           })
           .on("receipt", async (receipt) => {
-            console.log("receipt", receipt);
             let addedDataToApi = await axios.post(
               "https://road-nft.herokuapp.com/api/users/saveMysteryboxId",
               {
                 tokenId: toeknIdsFromApi,
               }
             );
-            console.log("addedDataToApi", addedDataToApi);
             toast.success("Transaction SuccessFul");
 
             let simplleArray = [];
             toeknIdsFromApi.forEach(async (ids) => {
               let uris = await breedContract.methods.tokenURI(ids).call();
-              console.log("forEact", uris);
+
               uris = uris.split("/");
-              console.log("uris", uris);
+
               if (uris[5] == "common") {
                 let imageUrl = `/fighter nft/common/${uris[6]}`;
                 let imageName = `Common`;
@@ -287,9 +267,6 @@ function MysteryBox() {
 
             setModalShow(true);
           });
-        // } else {
-        //   toast.info("Insufficient Balance! Please Recharge");
-        // }
       }
     } catch (e) {
       console.log("Error while generateIdFromApi ", e);
@@ -331,9 +308,6 @@ function MysteryBox() {
           <div className="col-3 staking-box" style={{ marginTop: "45px" }}>
             <SideBar />
           </div>
-          {/* <div className='col-11 mb-3 staking-coll'>
-                    <MediaSidebar/>
-                    </div> */}
           <div className="col-lg-8 col-11 mb-md-1 mb-4 mt-4">
             {modalShow ? (
               <Modal
@@ -366,7 +340,6 @@ function MysteryBox() {
                     </div>
                     <div className="row d-flex justify-content-center justify-content-around mt-4 mb-4">
                       {nftArray.map((items) => {
-                        console.log("nftArray", nftArray);
                         return (
                           <div className="col-md-5 box-mystry mt-3">
                             <div className=" d-flex justify-content-center  mb-3">
@@ -381,9 +354,6 @@ function MysteryBox() {
                               </div>
                             </div>
                             <div className="text-center">
-                              {/* <span className="congrat-span">
-                                {items.imageName}
-                              </span> */}
                             </div>
                             <div className="row d-flex justify-content-center mt-3">
                               <div className="col-11 d-flex justify-content-between align-items-center mt-1">
@@ -436,80 +406,11 @@ function MysteryBox() {
                               </div>
                             </div>
                           </div>
-                          // <div className="col-md-4 ">
-                          //   <div className="col-md-12 d-flex justify-content-center mystrey-imagess mb-3">
-                          //     <img
-                          //       src={`/config/${items.imageUrl}`}
-                          //       className="mystrey-pic pt-4 pb-3"
-                          //     />
-                          //   </div>
-                          //   <div className="text-center">
-                          //     <span className="congrat-span">
-                          //       {items.imageName}
-                          //     </span>
-                          //   </div>
-                          //   <div className="row d-flex justify-content-center mt-3">
-                          //     <div className="col-11 d-flex justify-content-between align-items-center mt-1">
-                          //       <span className="mystrey-span21">Rarity:</span>
-                          //       <span className="mystrey-span22">
-                          //         {items.type}
-                          //       </span>
-                          //     </div>
-                          //     <div className="col-11 mt-2">
-                          //       <p
-                          //         style={{
-                          //           border:
-                          //             "1px solid rgba(119, 119, 119, 0.25)",
-                          //         }}
-                          //       ></p>
-                          //     </div>
-                          //   </div>
-                          //   <div className="row d-flex justify-content-center mt-2">
-                          //     <div className="col-11 d-flex justify-content-between align-items-center mt-1">
-                          //       <span className="mystrey-span21">Level:</span>
-                          //       <span className="mystrey-span22">
-                          //         {items.level}
-                          //       </span>
-                          //     </div>
-                          //     <div className="col-11 mt-2">
-                          //       <p
-                          //         style={{
-                          //           border:
-                          //             "1px solid rgba(119, 119, 119, 0.25)",
-                          //         }}
-                          //       ></p>
-                          //     </div>
-                          //   </div>
-                          //   <div className="row d-flex justify-content-center mt-2">
-                          //     <div className="col-11 d-flex justify-content-between align-items-center mt-1">
-                          //       <span className="mystrey-span21">
-                          //         Has Power:
-                          //       </span>
-                          //       <span className="mystrey-span22">
-                          //         {items.hasPower}
-                          //       </span>
-                          //     </div>
-                          //     <div className="col-11 mt-2">
-                          //       <p
-                          //         style={{
-                          //           border:
-                          //             "1px solid rgba(119, 119, 119, 0.25)",
-                          //         }}
-                          //       ></p>
-                          //     </div>
-                          //   </div>
-                          // </div>
+                          
                         );
                       })}
                     </div>
-                    {/* <div className='col-md-12 d-flex justify-content-center breed-imagess mt-3 mb-3'>
-                                        <img src={card1} className="mint-pic pt-4 pb-3" />
-                                    </div> */}
-                    {/* <div className="col-md-11 col-11 d-flex justify-content-center">
-                      <span className="congrat-span text-center">
-                        Do you want to Breed card or sell in the market?
-                      </span>
-                    </div> */}
+                   
                   </div>
                   <div className=" d-flex justify-content-center mt-3 mb-3">
                     <Link
@@ -529,13 +430,7 @@ function MysteryBox() {
                         Stake
                       </button>
                     </Link>
-                    {/* <button
-                      className="btn btn1-congrats m-2"
-                      size="lg"
-                      onClick={() => setModalShowSecond(true)}
-                    >
-                      Sell
-                    </button> */}
+                    
                     <button
                       onClick={() => setModalShow(false)}
                       className="btn btn2-congrats m-2"
@@ -613,57 +508,7 @@ function MysteryBox() {
                           </div>
                         </div>
                       </div>
-                      {/* <div className='col-md-3 box-mystry mt-3'>
-                                            <div className='col-md-12 d-flex justify-content-center mystrey-imagess mb-3'>
-                                                <img src={card1} className="mystrey-pic pt-4 pb-3" />
-                                            </div>
-                                            <div className='text-center'>
-                                                <span className='congrat-span'>#20211 Alien Fighter</span>
-                                            </div>
-                                            <div className='d-flex flex-row mt-3 mb-3'>
-                                                <div className='col-md-6'>
-                                                    <form>
-                                                        <input type='number' class="form-control" placeholder='0' style={{ border: "2px solid " }} />
-                                                    </form>
-                                                </div>
-                                                <div className='col-md-6 d-flex align-items-center'>
-                                                    <span className='text-infom'>ROAD ($100.82)</span>
-                                                </div>
-                                            </div>
-                                            <div className='col-10 d-flex justify-content-center mb-3'>
-                                                <div className="d-grid gap-2">
-                                                    <button className='btn btn-congrats' size="lg">
-                                                        SUMBIT
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div> */}
-                      {/* <div className='col-md-3 box-mystry mt-3'>
-                                            <div className='col-md-12 d-flex justify-content-center mystrey-imagess mb-3'>
-                                                <img src={card1} className="mystrey-pic pt-4 pb-3" />
-                                            </div>
-                                            <div className='text-center'>
-                                                <span className='congrat-span'>#20211 Alien Fighter</span>
-                                            </div>
-
-                                            <div className='d-flex flex-row mt-3 mb-3'>
-                                                <div className='col-md-6'>
-                                                    <form>
-                                                        <input type='number' class="form-control" placeholder='0' style={{ border: "2px solid " }} />
-                                                    </form>
-                                                </div>
-                                                <div className='col-md-6 d-flex align-items-center'>
-                                                    <span className='text-infom'>ROAD ($100.82)</span>
-                                                </div>
-                                            </div>
-                                            <div className='col-10 d-flex justify-content-center mb-3'>
-                                                <div className="d-grid gap-2">
-                                                    <button className='btn btn-congrats' size="lg">
-                                                        SUMBIT
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div> */}
+                     
                     </div>
                   </div>
                 </div>
@@ -859,23 +704,6 @@ function MysteryBox() {
                         </tr>
                       </thead>
                     </table>
-                    {/* <div className='row pt-3 text-start text-sm-center '>
-                                            <div className='col-sm-4 text-start' >
-                                                <span className='Mint-Time '>Time</span>
-                                            </div>
-                                            <div className='col-sm-2 text-start'>
-                                                <span className='Mint-Time'>Type</span>
-                                            </div>
-                                            <div className='col-sm-2 text-start'>
-                                                <span className='Mint-Time'>Amount</span>
-                                            </div>
-                                            <div className='col-sm-2 text-start'>
-                                                <span className='Mint-Time'>Status</span>
-                                            </div>
-                                            <div className='col-sm-2 text-start'>
-                                                <span className='Mint-Time'>TX</span>
-                                            </div>
-                                        </div> */}
                   </div>
                 </div>
               </div>

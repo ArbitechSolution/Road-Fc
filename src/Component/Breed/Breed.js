@@ -7,12 +7,7 @@ import Breedimag from "../../Assets/Breed.png";
 import Group195 from "../../Assets/Group 195.png";
 import On from "../../Assets/On.png";
 import off from "../../Assets/Off.png";
-import tiger from "../../Assets/tiger 1 1.png";
 import Group609 from "../../Assets/Group 609.png";
-import Rectangle456 from "../../Assets/Rectangle 456.png";
-import Rectangle457 from "../../Assets/Rectangle 457.png";
-import Rectangle458 from "../../Assets/Rectangle 458.png";
-import Rectangle463 from "../../Assets/Rectangle 463.png";
 import Modal from "react-bootstrap/Modal";
 import card1 from "../../Assets/card 1.png";
 import SideBar from "../SideBar/SideBar";
@@ -48,10 +43,8 @@ function Breed() {
   const getNfts = async () => {
     try {
       if (acc == "No Wallet") {
-        //   setBtTxt("Connect Wallet")
         console.log("Not Connected");
       } else if (acc == "Wrong Network") {
-        //   setBtTxt("Wrong Network")
         console.log("Not Connected");
       } else if (acc == "Connect Wallet") {
         console.log("Not Connected");
@@ -135,7 +128,7 @@ function Breed() {
           imgUrl: `/config/${imgUri}`,
           tokenId: id,
         });
-        // setCheckCounter(++checkCounter)
+       
       } else if (trainerTwo.status == false) {
         setTrainerTwo({
           width: 230,
@@ -167,10 +160,10 @@ function Breed() {
   const breed = async () => {
     try {
       if (acc == "No Wallet") {
-        //   setBtTxt("Connect Wallet")
+       
         toast.info("Wallet not connected");
       } else if (acc == "Wrong Network") {
-        //   setBtTxt("Wrong Network")
+        
         toast.info("Wrong Network");
       } else if (acc == "Connect Wallet") {
         toast.info("Please connect wallet");
@@ -220,12 +213,6 @@ function Breed() {
           nftContractAbi,
           nftContratAddress
         );
-
-        // let bnb = await breedContract.methods.BNB().call();
-        // let bnb_value = web3.utils.fromWei(bnb);
-        // bnb_value = parseFloat(bnb_value).toFixed(3);
-
-        // if (userBalance >= bnb_value) {
         let breedData = await axios.get(
           `https://road-nft.herokuapp.com/api/users/getRandomIds?type1=${breedType1}&type2=${breedType2}`
         );
@@ -250,7 +237,6 @@ function Breed() {
             )
             .send({
               from: acc,
-              // value: bnb,
             })
             .on("receipt", async (receipt) => {
               console.log("receipt", receipt);
@@ -264,13 +250,6 @@ function Breed() {
           getData();
           toast.success("Breeding successful");
         }
-        //   } else {
-        //     toast.info("ids full");
-        //   }
-        // } else {
-        //   toast.info("Insufficient Balance");
-        //   // }
-        // }
       } else {
         toast.info("Please Select Nfts for breeding");
       }
@@ -336,10 +315,7 @@ function Breed() {
   useEffect(() => {
     getData();
     getNfts();
-    // getPrice()
-    // setTimeout(() => {
-    //   playingSound();
-    // }, 1000);
+   
   }, [acc]);
   return (
     <div className="imagePool">
@@ -372,10 +348,6 @@ function Breed() {
           <div className="col-3 staking-box" style={{ marginTop: "50px" }}>
             <SideBar />
           </div>
-
-          {/* <div className='col-11 mb-3 staking-coll'>
-                    <MediaSidebar />
-                    </div> */}
           <div className="col-lg-9  col-11 mb-md-1 mb-4 mt-4 ">
             {modalShow ? (
               <Modal
@@ -385,11 +357,6 @@ function Breed() {
                 aria-labelledby="contained-modal-title-vcenter"
                 centered
               >
-                {/* <Modal.Header closeButton className='Breed-model-image'>
-                                <Modal.Title id="contained-modal-title-vcenter" style={{ color: "white", fontSize: "30px" }}>
-                                    Breed
-                                </Modal.Title>
-                            </Modal.Header> */}
                 <Modal.Body
                   className="mynfts-model-image mt=3"
                   style={{ border: "2px solid #FF5043" }}
@@ -414,11 +381,6 @@ function Breed() {
                     <div className="col-md-12 d-flex justify-content-center breed-imagess mt-3 mb-3">
                       <img src={breedNft} className="mint-pic pt-1 pb-3" />
                     </div>
-                    {/* <div className="col-md-12 d-flex justify-content-center">
-                      <span className="congrat-span">
-                        Do you want to Breed card or sell in the market?
-                      </span>
-                    </div> */}
                   </div>
                   <div className=" d-flex justify-content-center mt-3 mb-3">
                     <button
@@ -427,7 +389,6 @@ function Breed() {
                     >
                       Stake
                     </button>
-                    {/* <button className='btn btn1-congrats m-2' size="lg" onClick={() => setModalShowone(true)}>Sell</button> */}
                     <button
                       className="btn btn2-congrats m-2"
                       size="lg"

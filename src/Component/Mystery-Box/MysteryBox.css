@@ -63,22 +63,13 @@
     background-repeat: no-repeat;
     background-position:left;
     background-size:cover;
-    /* background-attachment: fixed; */
     min-width:420px;
 display: flex;
 justify-self: center;
-/* position: relative; */
-/* margin-right: 200px; */
-    /* padding-top: 50px; */
-    /* border: 2px solid red; */
-    /* padding-top: 30px; */
 }
 .second-modal-color{
     background-color: #464649;
 }
-/* .mint-pic{
-    width: 200px;
-} */
 .text-infom{
     font-weight: 400;
 font-size: 16px;
@@ -101,8 +92,6 @@ color: #7E808D;
 
 .mystrey-pic {
     width: 180px;
-    /* position: absolute; */
-    /* box-shadow: 0px 0px 120px 0.1px rgba(255, 18, 0, 0.5); */
 }
 
 .box-mystry {

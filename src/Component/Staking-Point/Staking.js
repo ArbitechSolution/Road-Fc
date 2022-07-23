@@ -47,7 +47,7 @@ function Staking() {
   let dispatch = useDispatch();
   let { acc } = useSelector((state) => state.connectWallet);
   let { thbBal } = useSelector((state) => state.getThbbalance);
-  console.log("THB Bal in front end", thbBal);
+
   let { thbLpBal } = useSelector((state) => state.getThbLpbalance);
   let { tamount } = useSelector((state) => state.tAmount);
   let { tamountlp } = useSelector((state) => state.tAmountLp);
@@ -55,7 +55,7 @@ function Staking() {
   let { brlLPPoint } = useSelector((state) => state.getUserBrLplpoint);
   let { userDepositTime } = useSelector((state) => state.userDepositTime);
 
-  console.log("T amount in staking.js", tamount);
+
 
   const stakeVal = async (isCheck) => {
     if (isCheck == "stake") {
@@ -68,7 +68,7 @@ function Staking() {
       } else {
         try {
           let enteredVal = parseFloat(stakeAmount.current.value);
-          console.log("U NEterd", acc);
+  
           const web3 = window.web3;
           let thbTokenContractOf = new web3.eth.Contract(
             thbTokenAbi,
@@ -106,13 +106,10 @@ function Staking() {
               }
             } else {
               toast.error("Insufficient balance");
-              console.log(
-                "Insufficient Balance your Current Balance is ",
-                parseFloat(userThbBal)
-              );
+              
             }
           } else {
-            console.log("Staking Amount must be greater than 0");
+           
             toast.error("Staking Amount must be greater than 0");
           }
         } catch (e) {
@@ -129,21 +126,20 @@ function Staking() {
         toast.error("Not Connected");
       } else {
         try {
-          console.log("Unstaking tokens");
+         
           let amount = parseFloat(stakeAmount.current.value).toString();
-          // console.log("amount", amount);
-          // if (amount > 0) {
+        
           const web3 = window.web3;
           let stakingCOntractOf = new web3.eth.Contract(
             stakingContractAbi,
             stakingContractAddress
           );
           if (tamount > 0) {
-            // if ( tamount >= 0) {
+            
             await stakingCOntractOf.methods.withdrawtoken().send({
               from: acc,
             });
-            // stakeAmount.current.value = ""
+            
             toast.success("Transaction Confirmed");
             dispatch(getUserTHbTamount());
             dispatch(getUserTHbLPTamount());
@@ -151,16 +147,12 @@ function Staking() {
             dispatch(getUserThbLpBalance());
             dispatch(getUserBrLp());
             dispatch(getUserBrl());
-            // } else {
-            //     toast.error("your amount is grater than you have staked")
-            // }
+           
           } else {
             toast.error("You have not staked yet");
-            console.log("You have not staked yet");
+            
           }
-          // } else {
-          //     toast.info("Please enter amount")
-          // }
+         
         } catch (e) {
           console.log("Error while staking amount", e);
           toast.error("Transaction Failed");
@@ -224,25 +216,25 @@ function Staking() {
     }
   };
 
-  // Unstake Function for Thb
+
   const unstake = async () => {
-    // console.log("ACC=", acc)
+   
   };
-  // stake functions for Lp THB
+ 
 
   const stakeLpVal = async (isCheck) => {
     if (isCheck == "stake") {
       if (acc == "No Wallet") {
-        //   setBtTxt("Connect Wallet")
+       
         toast.error("Not Connected");
       } else if (acc == "Wrong Network") {
-        //   setBtTxt("Wrong Network")
+       
       } else if (acc == "Connect Wallet") {
         toast.error("Not Connected");
       } else {
         try {
           let enteredVal = stakeAmountLp.current.value;
-          // console.log("U NEterd", enteredVal);
+          
           const web3 = window.web3;
           let thbLpTokenContractOf = new web3.eth.Contract(
             thbLpTokenAbi,
@@ -282,10 +274,10 @@ function Staking() {
               }
             } else {
               toast.error("Insufficient Balance");
-              console.log("Insufficient Balance");
+              
             }
           } else {
-            console.log("Staking Amount must be greater than 0");
+            
             toast.error("Staking Amount must be greater than 0");
           }
         } catch (e) {
@@ -295,20 +287,20 @@ function Staking() {
       }
     } else if (isCheck == "unStake") {
       if (acc == "No Wallet") {
-        //   setBtTxt("Connect Wallet")
+      
         toast.error("Not Connected");
       } else if (acc == "Wrong Network") {
-        //   setBtTxt("Wrong Network")
+       
         toast.error("Not Connected");
       } else if (acc == "Connect Wallet") {
         toast.error("Not Connected");
       } else {
         try {
           let amount = parseFloat(stakeAmountLp.current.value).toString();
-          // if (amount > 0) {
+
           if (tamountlp >= 0) {
             let timestamp = Math.floor(new Date().getTime() / 1000);
-            console.log("timesttamountlpamp", tamountlp);
+      
             const web3 = window.web3;
             let stakingCOntractOf = new web3.eth.Contract(
               stakingContractAbi,
@@ -320,13 +312,13 @@ function Staking() {
             let userLP = await stakingCOntractOf.methods.UserLP(acc).call();
             let depositTimes = userLP.Deposit_time;
             let AddTime = +lpLockTime + +depositTimes;
-            // console.log("AddTime", AddTime);
+           
             if (tamountlp > 0) {
               if (timestamp >= AddTime) {
                 await stakingCOntractOf.methods.withdrawLPtoken().send({
                   from: acc,
                 });
-                // stakeAmountLp.current.value = ""
+                
                 toast.success("Transaction Confirmed");
                 dispatch(getUserTHbTamount());
                 dispatch(getUserTHbLPTamount());
@@ -343,15 +335,13 @@ function Staking() {
               }
             } else {
               toast.error("You have not staked any Lp Tokens yet");
-              console.log("You have not staked any Lp Tokens yet");
+           
             }
           } else {
             toast.info("your point is low");
           }
 
-          // } else {
-          //     toast.info("Please enter amount")
-          // }
+        
         } catch (e) {
           console.log("Error while staking amount", e);
           toast.error("Transaction Failed");
@@ -360,22 +350,22 @@ function Staking() {
     }
   };
 
-  // // function for Unstaking LPThb
+ 
 
   const unstakeLp = async () => {
-    // console.log("ACC=",acc)
+   
     if (acc == "No Wallet") {
-      //   setBtTxt("Connect Wallet")
+      
       toast.error("Not Connected");
     } else if (acc == "Wrong Network") {
-      //   setBtTxt("Wrong Network")
+     
       toast.error("Not Connected");
     } else if (acc == "Connect Wallet") {
       toast.error("Not Connected");
     } else {
       try {
         let timestamp = Math.floor(new Date().getTime() / 1000);
-        // console.log("timestamp", timestamp);
+        
         const web3 = window.web3;
         let stakingCOntractOf = new web3.eth.Contract(
           stakingContractAbi,
@@ -385,7 +375,6 @@ function Staking() {
         let userLP = await stakingCOntractOf.methods.UserLP(acc).call();
         let depositTimes = userLP.Deposit_time;
         let AddTime = +lpLockTime + +depositTimes;
-        // console.log("AddTime", AddTime);
         if (tamountlp > 0) {
           if (timestamp >= AddTime) {
             await stakingCOntractOf.methods.withdrawLPtoken().send({
@@ -403,7 +392,7 @@ function Staking() {
           }
         } else {
           toast.error("You have not staked any Lp Tokens yet");
-          console.log("You have not staked any Lp Tokens yet");
+   
         }
       } catch (e) {
         console.log("Error while staking amount", e);
@@ -425,7 +414,7 @@ function Staking() {
       dispatch(getUserThbLpBalance());
       dispatch(getUserDepositTime());
       setInterval(function () {
-        // method to be executed;
+       
         dispatch(getUserBrLp());
         dispatch(getUserBrl());
       }, 9000);
@@ -477,9 +466,6 @@ function Staking() {
           <div className="col-3 staking-box">
             <SideBar />
           </div>
-          {/* <div className='col-11 mb-3 staking-coll'>
-                        <MediaSidebar />
-                    </div> */}
           <div className="col-lg-8 col-11 mb-md-1 pb-5 mb-4">
             <div className="row">
               <div className="col-lg-12 col-12 staking-box1111">
@@ -560,7 +546,7 @@ function Staking() {
                           Enter $ROAD:
                         </p>
                       </div>
-                      {/* <span className='staking-span988 pt-3' style={{fontSize: "17px"}}>Enter $ROAD:</span> */}
+                    
                       <div className="col-6">
                         <input
                           style={{
@@ -610,123 +596,7 @@ function Staking() {
                         </div>
                       </div>
                     </div>
-                    {/* <div className='row d-flex justify-content-center mt-4 '>
-                                            <div className='col-11 staking-box-col10'>
-                                                <div className='row'>
-                                                    <div className='col-12 pt-2 pb-2'>
-                                                        <span className='staking-spann'>POOL INFO</span>
-                                                    </div>
-                                                    <div className='col-12 pt-2 pb-3 d-flex justify-content-between align-items-center' style={{ borderTop: "2px solid #5A5C6A" }}>
-                                                        <span id='Skaing-span'>Total ROAD Staked</span>
-                                                        <span id='Skaing-spans'>0.00</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div> */}
-
-                    {/* <div className='row d-flex justify-content-center mt-4 '>
-                                            <div className='col-11 staking-box-col10'>
-                                                <div className='row'>
-                                                    <div className='col-12 pt-2 pb-2'>
-                                                        <span className='staking-spann'>POOL INFO</span>
-                                                    </div>
-                                                    <div className='col-12 pt-3 pb-3 d-flex justify-content-between align-items-center' style={{ borderTop: "2px solid #5A5C6A" }}>
-                                                        <span id='Skaing-span'>Current ROAD Amount</span>
-                                                        <span id='Skaing-span'>Est ROAD per day</span>
-                                                    </div>
-                                                    <div className='col-12  pb-3 d-flex justify-content-around align-items-center'>
-                                                        <span id='Skaing-spans'>0.0000</span>
-                                                        <span id='Skaing-spans'>0.0000</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div> */}
-
-                    {/* <div className='row d-flex justify-content-center mt-4'>
-                                            <div className='col-11 staking-boxes'>
-                                                <div className='row d-flex justify-content-center'>
-                                                    <div className='col-12 staking-col12-Box pb-2 pt-2'>
-                                                        MY BALANCE
-                                                    </div>
-                                                    <div className='col-6 d-flex flex-column justify-content-center align-items-center mt-3'>
-                                                        <img src={roadsign} width="30px" />
-                                                        <span id='Skaing-span' className='mt-1'>ROAD</span>
-                                                        <span id='Skaing-spans' className='mt-1'>0.0000</span>
-                                                    </div>
-                                                    <div className='col-6 d-flex flex-column justify-content-center align-items-center mt-3'>
-                                                        <img src={tin} width="20px" />
-                                                        <span id='Skaing-span' className='mt-1'>ENERGY POINT</span>
-                                                        <span id='Skaing-spans' className='mt-1'>0.0000</span>
-                                                    </div>
-                                                    <div className='col-12' data-aos="zoom-in-down" ata-aos-offset="200"
-                                                        data-aos-delay="50"
-                                                        data-aos-duration="1000"
-                                                        data-aos-easing="ease-in-out"
-                                                        data-aos-mirror="true"
-                                                        data-aos-once="false">
-                                                        <div class="tab-wrap">
-                                                            <input type="radio" id="tab1" name="tabGroup1" className="tab" checked />
-                                                            <label for="tab1" >Stake</label>
-                                                            <input type="radio" id="tab2" name="tabGroup1" className="tab" />
-                                                            <label for="tab2">UNSTAKE</label>
-                                                            <div className="tab__content">
-                                                                <div className='row d-flex justify-content-center mt-4'>
-                                                                    <div className='col-8 '>
-
-                                                                        <InputGroup >
-                                                                            <FormControl
-                                                                                ref={stakeAmount}
-                                                                                className="pointinput form-control staking-tab-b0xes"
-                                                                                type="number"
-                                                                                placeholder="0.0"
-                                                                                min={1}
-                                                                                aria-label="Recipient's username with two button addons"
-                                                                            />
-                                                                            <InputGroup.Text className="presale-span1 staking-tab-b0xes">Road</InputGroup.Text>
-                                                                        </InputGroup>
-
-                                                                    </div>
-                                                                    <div className='col-2 mt-2'>
-                                                                        <button onClick={() => stakeAmount.current.value = tamount} className="btn btn-secondary" bg="secondary">Max</button>
-
-                                                                    </div>
-                                                                    <div className='col-7 mt-3 mb-2'>
-                                                                        <div className="d-grid gap-2">
-                                                                            <button onClick={() => stakeVal()} variant="primary" className='btn staking-tab-btn' size="lg">
-                                                                                Connect
-                                                                            </button>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div className="tab__content">
-                                                                <div className='row d-flex justify-content-center mt-3'>
-                                                                    <div className='col-12 mb-2'>
-                                                                        <span id='Skaing-span' className=''>Locked until 2022-06-02 utc 19:00</span>
-                                                                    </div>
-                                                                    <div className='col-8 staking-tab-b0xes pt-2'>
-                                                                        <span className='staking-tab-span'>{tamount.toLocaleString()}</span>&nbsp;<span className='presale-span1'>road</span>
-                                                                    </div>
-                                                                    <div className='col-2'>
-                                                                        <div className='col-2 mt-1'>
-                                                                            <button className="btn btn-secondary" bg="secondary">Max</button>
-
-                                                                        </div>
-                                                                    </div>
-                                                                    <div className='col-7 mt-3 mb-2'>
-                                                                        <div className="d-grid gap-2">
-                                                                            <button onClick={() => unstake()} variant="primary" className='btn staking-tab-btn' size="lg">
-                                                                                Connect
-                                                                            </button>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div> */}
+                  
                   </div>
                   <div className="col-lg-5 col-md-9 col-11 staking-box1111a mb-4">
                     <div className="row">
@@ -833,123 +703,7 @@ function Staking() {
                         </div>
                       </div>
                     </div>
-                    {/* <div className='row d-flex justify-content-center mt-4 '>
-                                            <div className='col-11 staking-box-col10'>
-                                                <div className='row'>
-                                                    <div className='col-12 pt-2 pb-2'>
-                                                        <span className='staking-spann'>POOL INFO</span>
-                                                    </div>
-                                                    <div className='col-12 pt-2 pb-3 d-flex justify-content-between align-items-center' style={{ borderTop: "2px solid #5A5C6A" }}>
-                                                        <span id='Skaing-span'>Total ROAD Staked</span>
-                                                        <span id='Skaing-spans'>0.00</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div> */}
-
-                    {/* <div className='row d-flex justify-content-center mt-4 '>
-                                            <div className='col-11 staking-box-col10'>
-                                                <div className='row'>
-                                                    <div className='col-12 pt-2 pb-2'>
-                                                        <span className='staking-spann'>POOL INFO</span>
-                                                    </div>
-                                                    <div className='col-12 pt-3 pb-3 d-flex justify-content-between align-items-center' style={{ borderTop: "2px solid #5A5C6A" }}>
-                                                        <span id='Skaing-span'>Current ROAD Amount</span>
-                                                        <span id='Skaing-span'>Est ROAD per day</span>
-                                                    </div>
-                                                    <div className='col-12  pb-3 d-flex justify-content-around align-items-center'>
-                                                        <span id='Skaing-spans'>0.0000</span>
-                                                        <span id='Skaing-spans'>0.0000</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div> */}
-
-                    {/* <div className='row d-flex justify-content-center mt-4'>
-                                            <div className='col-11 staking-boxes'>
-                                                <div className='row d-flex justify-content-center'>
-                                                    <div className='col-12 staking-col12-Box pb-2 pt-2'>
-                                                        MY BALANCE
-                                                    </div>
-                                                    <div className='col-6 d-flex flex-column justify-content-center align-items-center mt-3'>
-                                                        <img src={roadsign} width="30px" />
-                                                        <span id='Skaing-span' className='mt-1'>ROAD</span>
-                                                        <span id='Skaing-spans' className='mt-1'>0.0000</span>
-                                                    </div>
-                                                    <div className='col-6 d-flex flex-column justify-content-center align-items-center mt-3'>
-                                                        <img src={tin} width="20px" />
-                                                        <span id='Skaing-span' className='mt-1'>ENERGY POINT</span>
-                                                        <span id='Skaing-spans' className='mt-1'>0.0000</span>
-                                                    </div>
-                                                    <div className='col-12' data-aos="zoom-in-left" ata-aos-offset="200"
-                                                        data-aos-delay="50"
-                                                        data-aos-duration="1000"
-                                                        data-aos-easing="ease-in-out"
-                                                        data-aos-mirror="true"
-                                                        data-aos-once="false">
-                                                        <div class="tab-wrap">
-                                                            <input type="radio" id="tab3" name="tabGroup2" className="tab" checked />
-                                                            <label for="tab3" >Stake</label>
-                                                            <input type="radio" id="tab4" name="tabGroup2" className="tab" />
-                                                            <label for="tab4">UNSTAKE</label>
-                                                            <div className="tab__content">
-                                                                <div className='row d-flex justify-content-center mt-4'>
-                                                                    <div className='col-8 '>
-
-                                                                        <InputGroup >
-                                                                            <FormControl
-                                                                                ref={stakeAmountLp}
-                                                                                className="pointinput form-control staking-tab-b0xes"
-                                                                                type="number"
-                                                                                placeholder="0.0"
-                                                                                min={1}
-                                                                                aria-label="Recipient's username with two button addons"
-                                                                            />
-                                                                            <InputGroup.Text className="presale-span1 staking-tab-b0xes">Road</InputGroup.Text>
-                                                                        </InputGroup>
-
-                                                                    </div>
-                                                                    <div className='col-2 mt-2'>
-                                                                        <button onClick={() => stakeAmountLp.current.value = tamountlp} className="btn btn-secondary" bg="secondary">Max</button>
-                                                                    </div>
-
-                                                                    <div className='col-7 mt-3 mb-2'>
-                                                                        <div className="d-grid gap-2">
-                                                                            <button onClick={() => stakeLpVal()} variant="primary" className='btn staking-tab-btn' size="lg">
-                                                                                Connect
-                                                                            </button>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div className="tab__content">
-                                                                <div className='row d-flex justify-content-center mt-3'>
-                                                                    <div className='col-12 mb-2'>
-                                                                        <span id='Skaing-span' className=''>Locked until 2022-06-02 utc 19:00</span>
-                                                                    </div>
-                                                                    <div className='col-8 staking-tab-b0xes pt-2'>
-                                                                        <span className='staking-tab-span'>{tamountlp.toLocaleString()}</span>&nbsp;<span className='presale-span1'>road</span>
-                                                                    </div>
-                                                                    <div className='col-2 mt-1'>
-                                                                        <button className="btn btn-secondary" bg="secondary">Max</button>
-
-                                                                    </div>
-
-                                                                    <div className='col-7 mt-3 mb-2'>
-                                                                        <div className="d-grid gap-2">
-                                                                            <button onClick={() => unstakeLp()} variant="primary" className='btn staking-tab-btn' size="lg">
-                                                                                Connect
-                                                                            </button>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div> */}
+                   
                   </div>
                 </div>
               </div>

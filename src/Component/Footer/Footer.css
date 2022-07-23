@@ -1,20 +1,18 @@
 .footercolorsss {
-    background-color: #14151F;
-/* bottom: 0; */
-/* position: fixed; */
+  background-color: #14151f;
 }
 #footer-span {
-    font-weight: 400;
-font-size: 20px;
-line-height: 100%;
-color: #FFFFFF;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 100%;
+  color: #ffffff;
 }
 
-@media(max-width: 480px){
-    #footer-span {
-        font-weight: 400;
+@media (max-width: 480px) {
+  #footer-span {
+    font-weight: 400;
     font-size: 14px;
     line-height: 100%;
-    color: #FFFFFF;
-    }
+    color: #ffffff;
+  }
 }

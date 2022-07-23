@@ -1,36 +1,6 @@
 import Web3 from "web3";
 let isItConnected = false;
-// const networks = {
-//   Mumbai: {
-//     chainId: `0x${Number(43113).toString(16)}`,
-//     chainName: "Matic",
-//     nativeCurrency: {
-//       name: "Matic",
-//       //   symbol: "MATIC",
-//       decimals: 18,
-//     },
-//     rpcUrls: ["https://api.avax-test.network/ext/bc/C/rpc"],
-//     blockExplorerUrls: ["https://mumbai.polygonscan.com"],
-//   },
-// };
-// const changeNetwork = async ({ networkName }) => {
-//   try {
-//     if (!window.ethereum) throw new Error("No crypto wallet found");
-//     await window.ethereum.request({
-//       method: "wallet_addEthereumChain",
-//       params: [
-//         {
-//           ...networks[networkName],
-//         },
-//       ],
-//     });
-//   } catch (err) {
-//     console.log("not found");
-//   }
-// };
-// const handleNetworkSwitch = async (networkName) => {
-//   await changeNetwork({ networkName });
-// };
+
 let accounts;
 const getAccounts = async () => {
   const web3 = window.web3;

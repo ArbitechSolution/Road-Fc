@@ -48,17 +48,14 @@ let thbLpTokenContractOf = new webSupply.eth.Contract(
   thbLpTokenAbi,
   thbLpTokenAddress
 );
-// let stakingCOntractOf = new webSupply.eth.Contract(
-//   stakingContractAbi,
-//   stakingContractAddress
-// );
+
 let presaleContractOf = new webSupply.eth.Contract(
   preSaleContractAbi,
   preSaleContractAddress
 );
 
 export const getWallet = () => async (dispatch) => {
-  // console.log("get wallet 121212");
+
   let address = await loadWeb3();
   dispatch({
     type: GET_WALLET_ADDRESS,
@@ -66,15 +63,14 @@ export const getWallet = () => async (dispatch) => {
   });
 };
 export const getUserThbBalance = () => async (dispatch) => {
-  // console.log("get Action")
-  // console.log("get getUserThbBalance 1212");
+
   let address = await loadWeb3();
   if (address == "No Wallet") {
-    console.log("Not Connected");
+    
   } else if (address == "Wrong Network") {
-    console.log("Wrong Network");
+    
   } else {
-    console.log("userthbBalance in action ");
+   
 
     const web3 = window.web3;
     let userthbBalance = await thbTokenContractOf.methods
@@ -82,7 +78,7 @@ export const getUserThbBalance = () => async (dispatch) => {
       .call();
     userthbBalance = web3.utils.fromWei(userthbBalance);
     userthbBalance = parseInt(userthbBalance);
-    console.log("userthbBalance in action ", userthbBalance);
+    
     dispatch({
       type: GET_USER_THB_BALANCE,
       payload: userthbBalance,
@@ -91,14 +87,13 @@ export const getUserThbBalance = () => async (dispatch) => {
 };
 
 export const getUserThbLpBalance = () => async (dispatch) => {
-  // console.log("get Action")
-  // console.log("get getUserThbBalance 1212");
+
   let address = await loadWeb3();
   if (address == "No Wallet") {
-    // toast.error("Not Connected")
-    console.log("Not Connected");
+ 
+
   } else if (address == "Wrong Network") {
-    console.log("Wrong Network");
+
   } else {
     const web3 = window.web3;
     let userThbLpBalance = await thbLpTokenContractOf.methods
@@ -106,7 +101,7 @@ export const getUserThbLpBalance = () => async (dispatch) => {
       .call();
     userThbLpBalance = web3.utils.fromWei(userThbLpBalance);
     userThbLpBalance = parseInt(userThbLpBalance);
-    // console.log("userThbLpBalance",userThbLpBalance);
+ 
 
     dispatch({
       type: GET_USER_THB_LP_BALANCE,
@@ -116,13 +111,12 @@ export const getUserThbLpBalance = () => async (dispatch) => {
 };
 
 export const getUserTHbTamount = () => async (dispatch) => {
-  // console.log("get Action")
-  // console.log("get getUserThbBalance 1212");
+
   let address = await loadWeb3();
   if (address == "No Wallet") {
-    console.log("Not Connected");
+
   } else if (address == "Wrong Network") {
-    console.log("Wrong Network");
+
   } else {
     const web3 = window.web3;
     let stakingCOntractOf = new web3.eth.Contract(
@@ -131,7 +125,6 @@ export const getUserTHbTamount = () => async (dispatch) => {
     );
     let userThbData = await stakingCOntractOf.methods.User(address).call();
     let tAmount = userThbData.Tamount;
-    console.log("T Amount in action", userThbData);
     tAmount = web3.utils.fromWei(tAmount);
     tAmount = parseFloat(tAmount);
     dispatch({
@@ -144,9 +137,7 @@ export const getUserTHbTamount = () => async (dispatch) => {
 export const getUserTHbLPTamount = () => async (dispatch) => {
   let address = await loadWeb3();
   if (address == "No Wallet") {
-    console.log("Not Connected");
   } else if (address == "Wrong Network") {
-    console.log("Wrong Network");
   } else {
     const web3 = window.web3;
     let stakingCOntractOf = new web3.eth.Contract(
@@ -157,7 +148,6 @@ export const getUserTHbLPTamount = () => async (dispatch) => {
     let tAmountlp = userThbLpData.Tamount;
     tAmountlp = web3.utils.fromWei(tAmountlp);
     tAmountlp = parseFloat(tAmountlp);
-    // console.log("tAmountlp",tAmountlp)
     dispatch({
       type: GET_USER_TAMOUNT_LP,
       payload: tAmountlp,
@@ -167,9 +157,7 @@ export const getUserTHbLPTamount = () => async (dispatch) => {
 export const getUserBrl = () => async (dispatch) => {
   let address = await loadWeb3();
   if (address == "No Wallet") {
-    console.log("No Wallet");
   } else if (address == "Wrong Network") {
-    console.log("Wrong Network");
   } else {
     const web3 = window.web3;
     let stakingCOntractOf = new web3.eth.Contract(
@@ -192,9 +180,7 @@ export const getUserBrl = () => async (dispatch) => {
 export const getUserBrLp = () => async (dispatch) => {
   let address = await loadWeb3();
   if (address == "No Wallet") {
-    console.log("Not Connected");
   } else if (address == "Wrong Network") {
-    console.log("Wrong Network");
   } else {
     const web3 = window.web3;
     let stakingCOntractOf = new web3.eth.Contract(
@@ -216,9 +202,7 @@ export const getUserBrLp = () => async (dispatch) => {
 export const getUserBrawlMintPoint = () => async (dispatch) => {
   let address = await loadWeb3();
   if (address == "No Wallet") {
-    console.log("Not Connected");
   } else if (address == "Wrong Network") {
-    console.log("Wrong Network");
   } else {
     const web3 = window.web3;
     let stakingCOntractOf = new web3.eth.Contract(
@@ -243,9 +227,7 @@ export const getCurrentBpTokens = () => async (dispatch) => {
     stakingContractAddress
   );
   let currentbp = await stakingCOntractOf.methods.currentBP().call();
-  // currentbp =web3.utils.fromWei(currentbp);
-  // currentbp =parseInt(currentbp);
-  // console.log("Current bp in action",currentbp);
+
   dispatch({
     type: GET_CURRENT_BP_TOKENS,
     payload: currentbp,
@@ -258,7 +240,7 @@ export const getMaxBpTokens = () => async (dispatch) => {
     stakingContractAddress
   );
   let maxbp = await stakingCOntractOf.methods.maxBPToken().call();
-  // console.log("maxbp bp in action",maxbp);
+
   dispatch({
     type: GET_MAX_BP_TOKENS,
     payload: maxbp,
@@ -268,37 +250,36 @@ export const getMaxBpTokens = () => async (dispatch) => {
 export const getPreSaleInfo = () => async (dispatch) => {
   try {
     let preSaleInfo = {};
-    // get road price
+    
     let roadPrice = await presaleContractOf.methods.price().call();
     roadPrice = webSupply.utils.fromWei(roadPrice);
     preSaleInfo = { ...preSaleInfo, roadPrice: roadPrice };
-    // hard cap info
+
     let hardCap = await presaleContractOf.methods.hardCap().call();
     hardCap = webSupply.utils.fromWei(hardCap);
     preSaleInfo = { ...preSaleInfo, hardCap: hardCap };
-    // soft cap info
+
     let softCap = await presaleContractOf.methods.softCap().call();
     softCap = webSupply.utils.fromWei(softCap);
     preSaleInfo = { ...preSaleInfo, softCap: softCap };
-    // minium purchase
+
     let minPurchase = await presaleContractOf.methods.minimum().call();
     minPurchase = webSupply.utils.fromWei(minPurchase);
     preSaleInfo = { ...preSaleInfo, minPurchase: minPurchase };
-    // max purchase
+
     let maxPurchase = await presaleContractOf.methods.maximum().call();
     maxPurchase = webSupply.utils.fromWei(maxPurchase);
     preSaleInfo = { ...preSaleInfo, maxPurchase: maxPurchase };
-    // total sold
+
     let totalSoldTokens = await presaleContractOf.methods.totalSold().call();
     totalSoldTokens = webSupply.utils.fromWei(totalSoldTokens);
     preSaleInfo = { ...preSaleInfo, totalSoldTokens: totalSoldTokens };
-    // start time
+
     let startTime = await presaleContractOf.methods.startTime().call();
     preSaleInfo = { ...preSaleInfo, startTime: startTime };
-    // end time
+
     let endTime = await presaleContractOf.methods.startTime().call();
     preSaleInfo = { ...preSaleInfo, endTime: endTime };
-    // road total supply
     let roadTotalSupply = await thbTokenContractOf.methods.totalSupply().call();
     roadTotalSupply = webSupply.utils.fromWei(roadTotalSupply);
     preSaleInfo = { ...preSaleInfo, roadTotalSupply: roadTotalSupply };
@@ -339,9 +320,7 @@ export const getUserDepositTime = () => async (dispatch) => {
 
   let address = await loadWeb3();
   if (address == "No Wallet") {
-    console.log("Not Connected");
   } else if (address == "Wrong Network") {
-    console.log("Wrong Network");
   } else {
     let timestamp = Math.floor(new Date().getTime() / 1000);
     let web3 = window.web3;
@@ -366,7 +345,6 @@ export const getUserDepositTime = () => async (dispatch) => {
         if (d > 0) {
           tiemObj = { ...tiemObj, days: d };
         } else {
-          console.log("Less Than Zero");
           tiemObj = { ...tiemObj, days: 0 };
         }
         if (h > 0) {
@@ -374,18 +352,15 @@ export const getUserDepositTime = () => async (dispatch) => {
         } else {
           tiemObj = { ...tiemObj, hours: 0 };
 
-          console.log("Less Than Zero");
         }
         if (m > 0) {
           tiemObj = { ...tiemObj, minutes: m };
         } else {
-          console.log("Less Than Zero");
           tiemObj = { ...tiemObj, minutes: 0 };
         }
         if (s > 0) {
           tiemObj = { ...tiemObj, seconds: s };
         } else {
-          console.log("Less Than Zero");
           tiemObj = { ...tiemObj, seconds: 0 };
         }
       }
@@ -397,7 +372,7 @@ export const getUserDepositTime = () => async (dispatch) => {
         minutes: 0,
         seconds: 0,
       };
-      // decidedVar = true
+
     }
 
     dispatch({
@@ -407,15 +382,15 @@ export const getUserDepositTime = () => async (dispatch) => {
   }
 };
 
-// acitons for minting section
+
 
 export const getTotalEnergy = () => async (dispatch) => {
   try {
     let address = await loadWeb3();
     if (address == "No Wallet") {
-      console.log("Not Connected");
+  
     } else if (address == "Wrong Network") {
-      console.log("Wrong Network");
+
     } else {
       let mintInfo = {};
       const web3 = window.web3;
@@ -445,9 +420,9 @@ export const getRewardOfUser = () => async (dispatch) => {
   try {
     let address = await loadWeb3();
     if (address == "No Wallet") {
-      console.log("Not Connected");
+
     } else if (address == "Wrong Network") {
-      console.log("Wrong Network");
+
     } else {
       const web3 = window.web3;
       const roadNftStakingContract = new web3.eth.Contract(
@@ -472,9 +447,7 @@ export const getAllNfTStakingData = async (dispatch) => {
   let myNftStakingVariables = {};
   let address = await loadWeb3();
   if (address == "No Wallet") {
-    console.log("Not Connected");
   } else if (address == "Wrong Network") {
-    console.log("Wrong Network");
   } else {
     try {
       const web3 = window.web3;

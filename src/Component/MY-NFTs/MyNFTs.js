@@ -18,9 +18,7 @@ import {
   road_Nft_Staking_Address,
   road_Nft_Staking_Abi,
 } from "../Utils/Road_Nft_Staking";
-import Rectangle450 from "../../Assets/Rectangle 450.png";
-import axios from "axios";
-import image2 from "../../Assets/image 2.png";
+
 import check17 from "../../Assets/check (17) 1.png";
 function MyNFTs() {
   let dispatch = useDispatch();
@@ -44,13 +42,10 @@ function MyNFTs() {
   const getNfts = async () => {
     try {
       if (acc == "No Wallet") {
-        //   setBtTxt("Connect Wallet")
-        console.log("Not Connected");
+
       } else if (acc == "Wrong Network") {
-        //   setBtTxt("Wrong Network")
-        console.log("Not Connected");
+  
       } else if (acc == "Connect Wallet") {
-        console.log("Not Connected");
       } else {
         const web3 = window.web3;
         const nftContract = new web3.eth.Contract(
@@ -73,7 +68,6 @@ function MyNFTs() {
         breedIds.forEach(async (ids) => {
           let uris = await breedContract.methods.tokenURI(ids).call();
           uris = uris.split("/");
-          console.log("uris", uris);
           if (uris[5] == "common") {
             let imageUrl = `/fighter nft/common/${uris[6]}`;
             let imageName = `Common #${ids}`;
@@ -225,7 +219,6 @@ function MyNFTs() {
         Nftid: tokenId,
         type: type,
       });
-      // transferAddress.current.focus()
       setModalShow(true);
     } catch (e) {
       console.error("error while show transfer nft", e);
@@ -246,7 +239,7 @@ function MyNFTs() {
           breedContractAddress
         );
         if (transferNft.type == "Robotic") {
-          console.log("rorooror");
+       
           await nftContract.methods
             .transferFrom(acc, transAdd, transferNft.Nftid)
             .send({
@@ -254,7 +247,7 @@ function MyNFTs() {
             });
           toast.success("Trasaction Successfull");
         } else if (transferNft.type == "Fighter") {
-          console.log("fdighe");
+    
           await breedContract.methods
             .transferFrom(acc, transAdd, transferNft.Nftid)
             .send({
@@ -296,10 +289,8 @@ function MyNFTs() {
       if (pageNumber < totalPages) {
         setPageNumber(pageNumber + 1);
       }
-      console.log("Loading More Up");
       setFinalLimit(nftArrayLength);
     } else {
-      console.log("Loading More");
       if (pageNumber < totalPages) {
         setPageNumber(pageNumber + 1);
       }
@@ -326,16 +317,11 @@ function MyNFTs() {
   };
 
   const stakeNFT = async (nftId) => {
-    console.log("nftId",  nftId);
+
     try {
       if (acc == "No Wallet") {
-        //   setBtTxt("Connect Wallet")
-        console.log("Not Connected");
       } else if (acc == "Wrong Network") {
-        //   setBtTxt("Wrong Network")
-        console.log("Not Connected");
       } else if (acc == "Connect Wallet") {
-        console.log("Not Connected");
       } else {
         const web3 = window.web3;
         const breedContract = new web3.eth.Contract(
@@ -349,9 +335,8 @@ function MyNFTs() {
         let checkApprove = await breedContract.methods
           .isApprovedForAll(acc, road_Nft_Staking_Address)
           .call();
-        console.log("checkApprove", checkApprove);
+      
         if (!checkApprove) {
-          console.log("checkApprove Inside", checkApprove);
 
           await breedContract.methods
             .setApprovalForAll(road_Nft_Staking_Address, true)
@@ -407,9 +392,6 @@ function MyNFTs() {
           <div className="col-3 staking-box">
             <SideBar />
           </div>
-          {/* <div className='col-11 mb-3 staking-coll'>
-                        <MediaSidebar />
-                    </div> */}
 
           <div className="col-lg-8 col-11 mb-md-1 mb-4">
             {modalShow ? (
@@ -424,9 +406,6 @@ function MyNFTs() {
                   className="mynfts-model-image"
                   style={{ border: "2px solid #FF5043" }}
                 >
-                  {/* <div className=' d-flex align-items-start justify-content-center'>
-                                    <p id='nft-text-span' style={{ position: " relative" }} >NFT Card Transfer</p>
-                                </div> */}
                   <img src={Group843} className="myNft-image2" />
                   <div className="row d-flex justify-content-center">
                     <div className="col-12 d-flex- justify-content-end">
@@ -510,11 +489,6 @@ function MyNFTs() {
                       />
                     </div>
                   </div>
-                  {/* <div className='row d-flex justify-content-center mt-2'>
-                                    <div className='col-md-5 model-mynfts'>
-                                        Please confirm that your Transfer address supports the BSC network.
-                                    </div>
-                                </div> */}
                   <div className="text-center d-flex justify-content-center mt-3">
                     <div className="col-lg-5 model-boxs">
                       <div className=" nft-boxx m-5 p-2 mt-2 mb-3 ">
@@ -554,9 +528,9 @@ function MyNFTs() {
                     />
                     <p className="nfts-h6 mt-3">{item.type}</p>
                     <p className="nfts-h6 mt-3">{item.imageName}</p>
-                    {/* <p className='nfts-pp text-start'>Common</p> */}
+                  
                     <div className=" d-flex justify-content-center">
-                      {/* <button className='btn nft-staking-btn m-1'>Sell</button> */}
+                  
                       {item.IsStake && (
                         <button
                           className="btn nft-staking-btn m-1"
@@ -581,14 +555,6 @@ function MyNFTs() {
                         Transfer
                       </button>
                     </div>
-                    {/* <div className="d-flex justify-content-between mt-2 mb-2">
-                                                <button className='btn btnStakePage32' size="sm">
-                                                    Sell
-                                                </button>
-                                                <button className='btn btnStakePage' size="sm" onClick={() => showTransferNfts(item.imageUrl, item.imageName, item.tokenId)}>
-                                                    Transfer
-                                                </button>
-                                            </div> */}
                   </div>
                 );
               })}
@@ -617,7 +583,7 @@ function MyNFTs() {
                 <span className="MyCollectionspan">/{totalPages}</span>
               </div>
 
-              {/* <button className='btn '> */}
+        
               <div
                 className="col-1 d-flex align-items-center justify-content-center ms-4"
                 style={{ cursor: "pointer" }}
@@ -626,7 +592,6 @@ function MyNFTs() {
                 <img src={Rectangle572} style={{ position: "absolute" }} />
                 <img src={Vector33} style={{ position: " relative" }} />
               </div>
-              {/* </button> */}
             </div>
           </div>
         </div>

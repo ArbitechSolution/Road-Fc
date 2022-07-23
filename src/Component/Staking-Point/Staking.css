@@ -21,15 +21,7 @@
 }
 .active-link{
 
-    /* opacity: 0.90;
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 15px;
-    line-height: 132%;
-    color: #ffffff;
-    outline: none;
-    box-shadow: none;
-    outline: none; */
+  
 }
 .staking-btn_active {
     background-color: #532421;
@@ -47,41 +39,7 @@
     outline: none;
     box-shadow: none;
 }
-/* .staking-btn:focus {
-    background-color: #FD5043;
-    opacity: 1;
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 15px;
-    line-height: 132%;
-    color: #ffffff;
-    outline: none;
-    box-shadow: none;
-}
 
-.staking-btn:checked {
-    background-color: #FD5043;
-    opacity: 1;
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 15px;
-    line-height: 132%;
-    color: #ffffff;
-    outline: none;
-    box-shadow: none;
-}
-
-.staking-btn.active {
-    background-color: #FD5043;
-    opacity: 1;
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 15px;
-    line-height: 132%;
-    color: #ffffff;
-    outline: none;
-    box-shadow: none;
-} */
 
 .staking-coll {
     display: none;
@@ -140,9 +98,9 @@
     /* box-sizing: border-box; */
     border-radius: 10px;
 }
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+::placeholder { 
     color: White;
-    opacity: 1; /* Firefox */
+    opacity: 1;
   }
 .staking-spann {
     font-weight: normal;
@@ -190,11 +148,11 @@ color: #B1B1B1;
     border-radius: 10px;
 }
 
-/* Tap Css */
+
 .tab-wrap {
     transition: 0.3s box-shadow ease;
     border-radius: 6px;
-    /* max-width: 100%; */
+   
     display: flex;
     flex-wrap: wrap;
     position: relative;
@@ -311,8 +269,7 @@ color: #B1B1B1;
     position: absolute;
     width: 100%;
     z-index: -1;
-    /* opacity: 0;
-    left: 0; */
+
     transform: translateY(-3px);
     border-radius: 6px;
 }
@@ -349,10 +306,6 @@ border-radius: 8px;
     border-radius: 80px;
 }
 
-/* Tap Css */
-
-
-/* Tooltip */
 
 .btn-staking-button{
     background: #5C5E6C;
@@ -395,24 +348,7 @@ padding: 10px 20px
 }
 
 
-/* *,
-::before,
-::after {
-  box-sizing: border-box;
-} */
 
-
-/* .social,
-.social__container,
-.social__content {
-  display: flex;
-} */
-
-/* .social {
-  height: 100vh;
-  justify-content: center;
-  align-items: center;
-} */
 
 .social__content {
     position: relative;
@@ -436,35 +372,16 @@ padding: 10px 20px
 
 }
 
-/* .social__tooltip::after {
-    content: "";
-    position: absolute;
-    width: 12px;
-    height: 12px;
-    background-color: #22242C;
-    border-radius: 3px;
-} */
+
 ul,
 li {
     text-decoration: none;
     list-style: none;
     text-align: left;
-    /* border: 2px solid red; */
+    
 }
 
-/* .social__content,
-.social__tooltip,
-.social__icon {
-  transition: 0.3s;
-} */
 
-/* .social__content:hover {
-  background-color: var(--first-color);
-} */
-
-/* .social__content:hover .social__icon {
-    color: var(--first-color-light);
-} */
 
 
 .social__tooltip-bottom {
@@ -615,9 +532,7 @@ font-size: 40px;
 @media(max-width: 600px) {
     .Staking-image {
         width: 80px;
-        /* display: flex;
-        justify-content: center;
-        align-items: center; */
+        
     }
 
     .staking-colllll {
@@ -675,23 +590,23 @@ font-size: 40px;
 }
 @media(min-width: 300px) and (max-width: 400px){
     .staking-h4 {
-        /* font-weight: bold; */
+        
         font-size: 14px;
-        /* line-height: 120%; */
+       
         color: #FFFFFF;
         text-align: left;
     }
     .staking-pp {
         font-weight: normal;
         font-size: 10px;
-        /* line-height: 140%; */
+        
         color: #FFFFFF;
         text-align: left;
     }
     .staking-pp12 {
         font-weight: normal;
         font-size: 10px;
-        /* line-height: 140%; */
+       
         color: #FFFFFF;
         text-align: left;
         margin-top: -10px;
@@ -757,23 +672,23 @@ font-size: 40px;
 }
 @media(min-width: 240px) and (max-width: 299px){
     .staking-h4 {
-        /* font-weight: bold; */
+     
         font-size: 14px;
-        /* line-height: 120%; */
+        
         color: #FFFFFF;
         text-align: left;
     }
     .staking-pp {
         font-weight: normal;
         font-size: 10px;
-        /* line-height: 140%; */
+      
         color: #FFFFFF;
         text-align: left;
     }
     .staking-pp12 {
         font-weight: normal;
         font-size: 10px;
-        /* line-height: 140%; */
+       
         color: #FFFFFF;
         text-align: left;
         margin-top: -10px;
